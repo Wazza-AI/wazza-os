@@ -148,6 +148,16 @@
     function closeBox() { box.hidden = true; box.innerHTML = ""; }
     box.addEventListener("click", closeBox);
     Array.prototype.forEach.call(document.querySelectorAll("figure.shot .shot-frame"), function (frame) {
+      // A very wide, short screenshot (a strip: a tab bar, a banner) keeps a readable size on a phone: it scrolls
+      // sideways there instead of shrinking until its numbered marks cover each other (CSS: figure.shot.strip).
+      // A big screenshot with many numbered marks does the same, so that the marks never cover each other.
+      var img = frame.querySelector("img");
+      var w = img ? parseInt(img.getAttribute("width"), 10) : 0, h = img ? parseInt(img.getAttribute("height"), 10) : 0;
+      var marks = frame.querySelectorAll(".mark").length;
+      if (w && h && frame.parentNode && (w / h >= 5 || (marks >= 5 && w >= 900))) {
+        frame.parentNode.classList.add("strip");
+        frame.style.setProperty("--strip-w", Math.min(w, w / h >= 5 ? 1000 : 760) + "px");
+      }
       frame.classList.add("shot-zoom");
       frame.setAttribute("tabindex", "0");
       frame.setAttribute("role", "button");

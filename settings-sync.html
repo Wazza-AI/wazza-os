@@ -17,8 +17,10 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
 <button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<a class="brand" href="https://os.wazza.ai/" title="The Wazza OS website"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span></a>
+<a class="brand-sub" href="index.html">User guide</a>
 <span class="topbar-spacer"></span>
+<a class="head-signin" href="https://app.wazza.ai/auth/login" title="Sign in to your Wazza account (Wazza OS, Wazza Pro)">Sign in</a>
 <div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
 <button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
@@ -72,7 +74,7 @@
 </ul></div>
 </nav>
 <main id="main">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">Sync &amp; team</li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Settings</li><li aria-current="page">Sync &amp; team</li></ol></nav>
 <div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#sync">Sync</a></li><li class="lvl2"><a href="#team">Team</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
@@ -109,16 +111,16 @@ Unsent team changes, so nothing is lost.</td></tr>
 
 <h2 id="team">Team<a class="anchor" href="#team" aria-label="Link to Team">#</a></h2>
 <p>This section shows only on a team account (an organisation on the Wazza website). What you see depends on your role:</p>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack">
 <thead><tr><th>Part</th><th>Who sees it</th><th>What it is</th></tr></thead>
 <tbody>
-<tr><td>Team</td><td>Every member</td><td>Which organisation you belong to and your role, the organisation's policy (an
+<tr><td data-label="Part">Team</td><td data-label="Who sees it">Every member</td><td data-label="What it is">Which organisation you belong to and your role, the organisation's policy (an
 owner or admin edits it, a member reads it), and a <span class="ui">Private session</span> switch when the policy allows
 private sessions.</td></tr>
-<tr><td>Activity</td><td>Off unless the policy turns it on</td><td>An admin sees each member's daily totals: active
+<tr><td data-label="Part">Activity</td><td data-label="Who sees it">Off unless the policy turns it on</td><td data-label="What it is">An admin sees each member's daily totals: active
 and idle time, and how many keyboard and mouse inputs, never what was typed, clicked or shown, and no hourly detail.
 A member sees <em>Your team can see your active time</em> and their own daily totals.</td></tr>
-<tr><td>Shared sessions</td><td>Admins</td><td>The Chats members chose to share with the team (each Chat's
+<tr><td data-label="Part">Shared sessions</td><td data-label="Who sees it">Admins</td><td data-label="What it is">The Chats members chose to share with the team (each Chat's
 <span class="ui">Share this Chat with my team</span>), with a viewer that replays one message by message.</td></tr>
 </tbody></table></div>
 <div class="note"><p>Team files are kept in the team's vault, which every member of the team can read: activity

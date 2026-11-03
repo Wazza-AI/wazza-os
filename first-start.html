@@ -17,8 +17,10 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
 <button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<a class="brand" href="https://os.wazza.ai/" title="The Wazza OS website"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span></a>
+<a class="brand-sub" href="index.html">User guide</a>
 <span class="topbar-spacer"></span>
+<a class="head-signin" href="https://app.wazza.ai/auth/login" title="Sign in to your Wazza account (Wazza OS, Wazza Pro)">Sign in</a>
 <div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
 <button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
@@ -72,7 +74,7 @@
 </ul></div>
 </nav>
 <main id="main">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Start here</li><li aria-current="page">The first start</li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">The first start</li></ol></nav>
 <div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
@@ -136,37 +138,37 @@ When something is not right, the line says what it means and how to fix it (a co
 </ol>
 
 <h3 id="what-is-checked">What is checked, and what to do when a line is not ok<a class="anchor" href="#what-is-checked" aria-label="Link to What is checked, and what to do when a line is not ok">#</a></h3>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack">
 <thead><tr><th>Check</th><th>Why Wazza OS needs it</th><th>When it is missing: the fix the check gives</th></tr></thead>
 <tbody>
-<tr><td>Hardware virtualization (KVM)</td><td>Wazza OS's VMs run only with KVM. Without it they do not start.</td>
-<td>Turn on Intel VT-x or AMD-V (SVM) in the computer's firmware settings (UEFI/BIOS), then restart. If
+<tr><td data-label="Check">Hardware virtualization (KVM)</td><td data-label="Why Wazza OS needs it">Wazza OS's VMs run only with KVM. Without it they do not start.</td>
+<td data-label="When it is missing: the fix the check gives">Turn on Intel VT-x or AMD-V (SVM) in the computer's firmware settings (UEFI/BIOS), then restart. If
 <code>/dev/kvm</code> exists but your account cannot open it: <code>sudo usermod -aG kvm "$USER"</code>, then log
 out and back in. If the module is not loaded: <code>sudo modprobe kvm_intel</code> or <code>sudo modprobe kvm_amd</code>.
 Inside a VM: turn on nested virtualization in the computer that runs it.</td></tr>
-<tr><td>systemd user session</td><td>Each VM runs in a memory-capped scope of your user's systemd manager.</td>
-<td>Start Wazza OS from your desktop session (log in through the login screen), not from <code>su</code>,
+<tr><td data-label="Check">systemd user session</td><td data-label="Why Wazza OS needs it">Each VM runs in a memory-capped scope of your user's systemd manager.</td>
+<td data-label="When it is missing: the fix the check gives">Start Wazza OS from your desktop session (log in through the login screen), not from <code>su</code>,
 <code>sudo</code> or a bare SSH session. On a server: <code>loginctl enable-linger "$USER"</code> keeps your user
 manager running without a login (see <a href="cli-server.html">On a server</a>).</td></tr>
-<tr><td>X11 display (XWayland)</td><td>The Wazza OS window and the VM's panes are X11 windows; in a Wayland session
+<tr><td data-label="Check">X11 display (XWayland)</td><td data-label="Why Wazza OS needs it">The Wazza OS window and the VM's panes are X11 windows; in a Wayland session
 that is XWayland. Without a display Wazza OS does not open (on a server, Wazza OS makes its own virtual screen).</td>
-<td>Install your distribution's XWayland package, turn XWayland on in your compositor (Hyprland:
+<td data-label="When it is missing: the fix the check gives">Install your distribution's XWayland package, turn XWayland on in your compositor (Hyprland:
 <code>xwayland { enabled = true }</code>; Sway: <code>xwayland enable</code>), then log out and back in.</td></tr>
-<tr><td>Chat sandbox</td><td>Every Chat that runs on your computer (not in the VM) runs inside Wazza OS's sandbox
+<tr><td data-label="Check">Chat sandbox</td><td data-label="Why Wazza OS needs it">Every Chat that runs on your computer (not in the VM) runs inside Wazza OS's sandbox
 (bubblewrap and Landlock), or does not start.</td>
-<td>On Ubuntu: <code>sudo apparmor_parser -r /etc/apparmor.d/wazza-bwrap</code> loads Wazza OS's AppArmor rule. If the
+<td data-label="When it is missing: the fix the check gives">On Ubuntu: <code>sudo apparmor_parser -r /etc/apparmor.d/wazza-bwrap</code> loads Wazza OS's AppArmor rule. If the
 kernel refuses user namespaces: <code>sudo sysctl -w kernel.unprivileged_userns_clone=1</code> (and the same line in
 <code>/etc/sysctl.d/60-wazza-userns.conf</code> to keep it). If the sandbox file is missing: reinstall Wazza OS.
 <em>Limited</em> means Chats run under Landlock alone, with less isolation.</td></tr>
-<tr><td>Graphics driver</td><td>The VM draws its apps on your computer's graphics card. Without a usable card the
+<tr><td data-label="Check">Graphics driver</td><td data-label="Why Wazza OS needs it">The VM draws its apps on your computer's graphics card. Without a usable card the
 VM starts with software graphics (slower), by itself.</td>
-<td>Intel and AMD: the kernel's driver (i915/xe, amdgpu) with Mesa; NVIDIA: its driver 495 or newer with
+<td data-label="When it is missing: the fix the check gives">Intel and AMD: the kernel's driver (i915/xe, amdgpu) with Mesa; NVIDIA: its driver 495 or newer with
 <code>sudo modprobe nvidia-drm</code>. If the card exists but your account cannot open it:
 <code>sudo usermod -aG render "$USER"</code>, then log out and back in. Or set
 <a href="settings-resources.html#graphics">VM resources › Graphics › GPU</a> to <span class="ui">None (CPU only)</span>.</td></tr>
-<tr><td>VM display buffers</td><td>The VM's picture travels over a socket that needs 4 MiB buffers. Below that, VMs
+<tr><td data-label="Check">VM display buffers</td><td data-label="Why Wazza OS needs it">The VM's picture travels over a socket that needs 4 MiB buffers. Below that, VMs
 do not start.</td>
-<td><code>sudo sysctl -w net.core.rmem_max=4194304 net.core.wmem_max=4194304</code>. The package installs
+<td data-label="When it is missing: the fix the check gives"><code>sudo sysctl -w net.core.rmem_max=4194304 net.core.wmem_max=4194304</code>. The package installs
 <code>/usr/lib/sysctl.d/60-wazza.conf</code>, which sets it at every boot; reinstall Wazza OS if that file is missing.</td></tr>
 </tbody></table></div>
 <p>You can run the same check at any time: <a href="settings-computer.html#check">Settings › This computer › Check</a>,
@@ -241,15 +243,15 @@ API key. This step only notes which logins you want; each one opens after the se
   <span class="ui">✓ After setup</span>; click it again to take it back.</p></li>
   <li><p>Click <span class="ui">Continue</span>.</p></li>
 </ol>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack">
 <thead><tr><th>Login</th><th>Plan it uses</th><th>Which agents can use it</th></tr></thead>
 <tbody>
-<tr><td>Claude</td><td>Free, Pro or Max plan</td><td>Claude Code only</td></tr>
-<tr><td>ChatGPT</td><td>Plus or Pro plan</td><td>Every agent: Codex, Hermes and Prime Agent with their own sign-in; Claude Code and Antigravity through Wazza OS's gateway</td></tr>
-<tr><td>Grok</td><td>SuperGrok or X Premium+</td><td>Every agent</td></tr>
-<tr><td>Google</td><td>Your Google account plan</td><td>Antigravity only</td></tr>
-<tr><td>OpenRouter</td><td>Your OpenRouter account</td><td>Every agent</td></tr>
-<tr><td>Nous Portal</td><td>Your Nous Portal account</td><td>Hermes only</td></tr>
+<tr><td data-label="Login">Claude</td><td data-label="Plan it uses">Free, Pro or Max plan</td><td data-label="Which agents can use it">Claude Code only</td></tr>
+<tr><td data-label="Login">ChatGPT</td><td data-label="Plan it uses">Plus or Pro plan</td><td data-label="Which agents can use it">Every agent: Codex, Hermes and Prime Agent with their own sign-in; Claude Code and Antigravity through Wazza OS's gateway</td></tr>
+<tr><td data-label="Login">Grok</td><td data-label="Plan it uses">SuperGrok or X Premium+</td><td data-label="Which agents can use it">Every agent</td></tr>
+<tr><td data-label="Login">Google</td><td data-label="Plan it uses">Your Google account plan</td><td data-label="Which agents can use it">Antigravity only</td></tr>
+<tr><td data-label="Login">OpenRouter</td><td data-label="Plan it uses">Your OpenRouter account</td><td data-label="Which agents can use it">Every agent</td></tr>
+<tr><td data-label="Login">Nous Portal</td><td data-label="Plan it uses">Your Nous Portal account</td><td data-label="Which agents can use it">Hermes only</td></tr>
 </tbody></table></div>
 <p>The card also says <em>Hermes and Prime Agent work right away</em>: they need no login of their own. They still
 need a model to talk to: a Wazza OS account, one of these plans, or an API key. The published Wazza OS includes no

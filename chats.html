@@ -17,8 +17,10 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="topbar">
 <button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<a class="brand" href="https://os.wazza.ai/" title="The Wazza OS website"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span></a>
+<a class="brand-sub" href="index.html">User guide</a>
 <span class="topbar-spacer"></span>
+<a class="head-signin" href="https://app.wazza.ai/auth/login" title="Sign in to your Wazza account (Wazza OS, Wazza Pro)">Sign in</a>
 <div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
 <button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
 </header>
@@ -72,7 +74,7 @@
 </ul></div>
 </nav>
 <main id="main">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Work with agents</li><li aria-current="page">Chats, agents and models</li></ol></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Work with agents</li><li aria-current="page">Chats, agents and models</li></ol></nav>
 <div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-a-chat">Open a Chat</a></li><li class="lvl2"><a href="#write-to-the-agent">Write to the agent</a></li><li class="lvl3"><a href="#add-files">Add files</a></li><li class="lvl3"><a href="#mention-a-file-or-an-app">Mention a file or an app</a></li><li class="lvl3"><a href="#slash-commands">Slash commands</a></li><li class="lvl2"><a href="#follow-the-agents-work">Follow the agent&#x27;s work</a></li><li class="lvl2"><a href="#choose-the-agent-and-the-model">Choose the agent and the model</a></li><li class="lvl3"><a href="#the-agents">The agents</a></li><li class="lvl2"><a href="#compact-a-long-chat">Compact a long Chat</a></li><li class="lvl2"><a href="#chat-settings">Chat settings</a></li><li class="lvl2"><a href="#what-an-agent-can-do">What an agent can do</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
@@ -213,15 +215,15 @@ conversation to save room), and more down the list.</p>
 </figure>
 
 <h3 id="the-agents">The agents<a class="anchor" href="#the-agents" aria-label="Link to The agents">#</a></h3>
-<div class="table-wrap"><table>
+<div class="table-wrap"><table class="stack">
 <thead><tr><th>Agent</th><th>What it is</th><th>What it needs</th></tr></thead>
 <tbody>
-<tr><td>Hermes</td><td>Nous Research's open agent, Wazza OS's default. Runs in the VM, works with any model.</td>
-<td>A model: an API key, a plan login that reaches it, a custom API, or a Wazza OS account.</td></tr>
-<tr><td>Prime Agent</td><td>Wazza OS's own agent, built in; works with any model.</td><td>The same.</td></tr>
-<tr><td>Claude Code</td><td>Anthropic's coding agent.</td><td>Your Claude plan (Log in with Claude), or any model through Wazza OS's gateway.</td></tr>
-<tr><td>Codex</td><td>OpenAI's coding agent.</td><td>Your ChatGPT plan (Log in with ChatGPT), or any model through the gateway.</td></tr>
-<tr><td>Antigravity</td><td>Google's agent. Installed the first time you pick it (<em>not installed</em> until then).</td><td>Your Google account plan (Log in with Google).</td></tr>
+<tr><td data-label="Agent">Hermes</td><td data-label="What it is">Nous Research's open agent, Wazza OS's default. Runs in the VM, works with any model.</td>
+<td data-label="What it needs">A model: an API key, a plan login that reaches it, a custom API, or a Wazza OS account.</td></tr>
+<tr><td data-label="Agent">Prime Agent</td><td data-label="What it is">Wazza OS's own agent, built in; works with any model.</td><td data-label="What it needs">The same.</td></tr>
+<tr><td data-label="Agent">Claude Code</td><td data-label="What it is">Anthropic's coding agent.</td><td data-label="What it needs">Your Claude plan (Log in with Claude), or any model through Wazza OS's gateway.</td></tr>
+<tr><td data-label="Agent">Codex</td><td data-label="What it is">OpenAI's coding agent.</td><td data-label="What it needs">Your ChatGPT plan (Log in with ChatGPT), or any model through the gateway.</td></tr>
+<tr><td data-label="Agent">Antigravity</td><td data-label="What it is">Google's agent. Installed the first time you pick it (<em>not installed</em> until then).</td><td data-label="What it needs">Your Google account plan (Log in with Google).</td></tr>
 </tbody></table></div>
 <p>Every agent gets the same Wazza OS tools (apps, Drive, files, other agents): see <a href="mcp.html">The Wazza OS MCP</a>.</p>
 
