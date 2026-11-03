@@ -7,6 +7,7 @@
 <meta name="description" content="How to use Chats in Wazza OS: write to an agent, attach files, mention files and apps, slash commands, follow its work, choose the agent (Hermes, Prime Agent, Claude Code, Codex, Antigravity) and the model, thinking, compacting, Chat settings, export, fork and delete.">
 <meta name="keywords" content="chat, agent, harness, model, hermes, prime agent, claude code, codex, antigravity, mimo, openrouter, thinking, attach, mention, slash command, compact, context, fork, export, delete chat, queue, stop, retry, edit message, default model, provider">
 <!-- HEAD:BEGIN -->
+<link rel="canonical" href="https://os-guide.wazza.ai/chats.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/manual.css">
 <script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
@@ -46,6 +47,7 @@
 <li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
 <li><a href="custom-apps.html">Add your own apps</a></li>
 <li><a href="files.html">Files and sharing</a></li>
+<li><a href="files-move.html">Move files</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
 <li><a href="mcp.html">The Wazza OS MCP</a></li>
@@ -120,10 +122,14 @@ what it starts on when no default is saved.</p>
   <div class="shot-frame"><img src="img/chat-attach-menu.webp" width="420" height="188" alt="The plus menu: Add to this message, From this computer (asks first), From the VM's files (vm-1)"></div>
 </figure>
 <ul>
-  <li><span class="ui">From this computer…</span>: pick files on your own computer. They are copied into the VM for the
-  agent (<em>asks first</em>: Wazza OS asks you to confirm before anything leaves your computer).</li>
-  <li><span class="ui">From the VM's files…</span>: pick files already in the VM.</li>
-  <li>Or drop files on the Chat, or paste an image.</li>
+  <li><span class="ui">From this computer…</span>: your computer's file chooser opens (<em>asks first</em>: nothing is
+  sent before you pick). The files you pick are copied into the VM for the agent and attached to your message.</li>
+  <li><span class="ui">From the VM's files…</span>: the Explorer opens on this Chat's VM; drag files from it onto the
+  Chat. They are attached by their path in the VM: nothing is copied. Known issue in the published build (0.2.0): that
+  drag is not attached yet (fixed in the next release); type <kbd>@</kbd> and pick the file instead
+  (<a href="#mention-a-file-or-an-app">below</a>).</li>
+  <li>Or drop files from your file manager on the Chat, or paste them or an image: every way is in
+  <a href="files-move.html">Move files</a>.</li>
 </ul>
 
 <h3 id="mention-a-file-or-an-app">Mention a file or an app<a class="anchor" href="#mention-a-file-or-an-app" aria-label="Link to Mention a file or an app">#</a></h3>
@@ -287,9 +293,11 @@ persona learns from it (<a href="skills.html#personas">Personas</a>).</td></tr>
   <li>Work in its tab's app: through the app's own tools (GIMP, Blender, ONLYOFFICE, the browser…) or by looking and
   clicking (<a href="drive.html">Drive</a>).</li>
   <li>Start other agents in other apps' tabs, at the same time (<a href="parallel-tabs.html">Several agents at once</a>).</li>
-  <li>Reach your own computer only as you allow: copies of files between your computer and the VM follow your
-  rules in <a href="settings-files.html#between-this-computer-and-vms">Settings › Files &amp; sharing</a> (into the VM:
-  allowed by default; out of it: Wazza OS asks you), and seeing or using your screen needs
+  <li>Reach your own computer only as you allow: it can find and read your files (below your home folder), copy
+  them into its VM and put its results on your computer (<a href="files-move.html#a-chat-in-a-vm-tab">its file
+  tools</a>). These copies follow your rules in
+  <a href="settings-files.html#between-this-computer-and-vms">Settings › Files &amp; sharing</a> (into the VM: allowed
+  by default; out of it: Wazza OS asks you), and seeing or using your screen needs
   <a href="computer-control.html">Computer Control</a>.</li>
 </ul>
 

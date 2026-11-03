@@ -7,6 +7,7 @@
 <meta name="description" content="Where files live in Wazza OS, how to browse the VM's files with the Explorer, how to move files between your computer and the VM (copy and paste, attaching to a Chat, Downloads/From the VM), file versions and undo, company folders and sync.">
 <meta name="keywords" content="files, explorer, copy paste, clipboard, transfer, download, upload, from the vm, downloads, attach, versions, undo, restore, company folders, sync, vault, wazza_os folder, home folder">
 <!-- HEAD:BEGIN -->
+<link rel="canonical" href="https://os-guide.wazza.ai/files.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/manual.css">
 <script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
@@ -46,6 +47,7 @@
 <li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
 <li><a href="custom-apps.html">Add your own apps</a></li>
 <li><a href="files.html" aria-current="page">Files and sharing</a></li>
+<li><a href="files-move.html">Move files</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
 <li><a href="mcp.html">The Wazza OS MCP</a></li>
@@ -95,7 +97,7 @@ Chats, previews, each Chat's working folder. Leave it to Wazza OS.</td></tr>
 <tr><td>Your computer's <code>Downloads</code></td><td>VM backups (zip files), exported Chats.</td></tr>
 </tbody></table></div>
 <p>Wazza OS never changes your own files: what it writes on your computer is always a new file (with
-<code>_copy2</code>-style names when a name is taken).</p>
+<code>_copy1</code>-style names when a name is taken).</p>
 
 <h2 id="the-explorer">The Explorer<a class="anchor" href="#the-explorer" aria-label="Link to The Explorer">#</a></h2>
 <figure class="shot half">
@@ -118,27 +120,27 @@ an existing name is refused.</p>
 
 <h2 id="bring-your-files-into-the-vm">Bring your files into the VM<a class="anchor" href="#bring-your-files-into-the-vm" aria-label="Link to Bring your files into the VM">#</a></h2>
 <ul>
-  <li><strong>Copy and paste</strong>: copy files in your computer's file manager, then <span class="ui">Paste here</span>
-  in the Explorer, or paste in the VM's Files app. Allowed by default; the rule is
-  <a href="settings-files.html#between-this-computer-and-vms">Settings › Files &amp; sharing › From this computer to a VM</a>
-  (Ask, Allow, Off).</li>
-  <li><strong>Attach to a Chat</strong>: the Chat's <span class="ui">+</span> › <span class="ui">From this computer…</span>,
-  or drop files on the Chat. The agent gets a copy in the VM (it asks first).</li>
-  <li><strong>Ask an agent</strong>: "copy my Downloads/report.pdf into the VM": an agent can search and read your
-  computer's files (below your home folder) and copy them in. Such copies follow the same rule as your pastes:
-  allowed by default, or a question each time if you set it to Ask.</li>
+  <li><strong>Drag and drop</strong> files from your file manager onto a folder of the Explorer, onto a Chat (attached
+  to your message) or onto an app's window (copied into the VM's <code>Downloads</code> and opened by the app).</li>
+  <li><strong>Copy and paste</strong>: copy files in your file manager, then <span class="ui">Paste here</span> in the
+  Explorer, or paste in the VM's Files app.</li>
+  <li><strong>Ask an agent</strong>: "copy my Documents/report.pdf into the VM".</li>
 </ul>
+<p>Every way, step by step, with where the files land and how they are named:
+<a href="files-move.html">Move files</a>.</p>
 
 <h2 id="get-files-out-of-the-vm">Get files out of the VM<a class="anchor" href="#get-files-out-of-the-vm" aria-label="Link to Get files out of the VM">#</a></h2>
 <ul>
-  <li><strong>Copy and paste</strong>: copy files in the VM's Files app (or the Explorer), paste on your computer. They
-  land in <code>Downloads/From the VM</code> as new files. By default Wazza OS asks each time
-  (<a href="settings-files.html#between-this-computer-and-vms">From a VM to this computer</a>: Ask, Allow, Off).</li>
-  <li><strong>Download</strong>: in the Explorer, a file's menu › download: your computer's Save dialog opens.</li>
-  <li><strong>Ask an agent</strong>: "put circle.png on my computer": it uploads it to <code>Downloads/From the VM</code>
-  (with your Allow).</li>
+  <li><strong>The Explorer</strong>: right-click › <span class="ui">Copy</span>, then paste in your file manager; or ›
+  <span class="ui">Download to this computer</span> (your <code>Downloads</code>), or <span class="ui">Download zip</span>.</li>
+  <li><strong>Drag out</strong> of an app of the VM (its Files app, for instance) onto your file manager.</li>
+  <li><strong>Copy and paste</strong> from the VM's Files app: by default Wazza OS asks first; the files land in
+  <code>Downloads/From the VM</code> and on your clipboard.</li>
+  <li><strong>Ask an agent</strong>: "put circle.png on my computer" (into <code>Downloads/From the VM</code>, after
+  your Allow).</li>
 </ul>
-<p>Copied <strong>text</strong> goes both ways between your computer and the VM, always: copy on one side, paste on the other.</p>
+<p>Details: <a href="files-move.html#out-of-a-vm-onto-your-computer">Move files</a>. Copied <strong>text</strong>
+goes both ways between your computer and the VM, always: copy on one side, paste on the other.</p>
 
 <h2 id="versions-and-undo">Versions and undo<a class="anchor" href="#versions-and-undo" aria-label="Link to Versions and undo">#</a></h2>
 <ul>
@@ -167,7 +169,7 @@ computers have them: <a href="settings-sync.html">Settings › Sync &amp; team</
 <p>Every subcommand: <a href="cli.html#files">The command line › Files</a>.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
-<nav class="pager" aria-label="Previous and next page"><a class="prev" href="custom-apps.html" rel="prev"><span class="dir">← Previous</span>Add your own apps</a><a class="next" href="mcp.html" rel="next"><span class="dir">Next →</span>The Wazza OS MCP</a></nav>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="custom-apps.html" rel="prev"><span class="dir">← Previous</span>Add your own apps</a><a class="next" href="files-move.html" rel="next"><span class="dir">Next →</span>Move files</a></nav>
 <p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#where-files-live">Where files live</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#bring-your-files-into-the-vm">Bring your files into the VM</a></li><li class="lvl2"><a href="#get-files-out-of-the-vm">Get files out of the VM</a></li><li class="lvl2"><a href="#versions-and-undo">Versions and undo</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl2"><a href="#sync-with-your-account">Sync with your account</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>

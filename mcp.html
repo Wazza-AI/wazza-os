@@ -7,6 +7,7 @@
 <meta name="description" content="The tools Wazza OS gives every Chat's agent through its MCP server (tabs and apps, each app's own tools, Drive, files, other agents, skills, Wazza OS itself), the rules they follow, and how to connect an agent that runs outside Wazza OS.">
 <meta name="keywords" content="mcp, model context protocol, tools, agent tools, wazzastu, tool calls, connect agent, external agent, outside agent, claude code, claude mcp add, codex, gemini cli, cursor, vs code, wazza-os mcp, print-config, print-docs, automation, command line, app tools">
 <!-- HEAD:BEGIN -->
+<link rel="canonical" href="https://os-guide.wazza.ai/mcp.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/manual.css">
 <script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
@@ -46,6 +47,7 @@
 <li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
 <li><a href="custom-apps.html">Add your own apps</a></li>
 <li><a href="files.html">Files and sharing</a></li>
+<li><a href="files-move.html">Move files</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
 <li><a href="mcp.html" aria-current="page">The Wazza OS MCP</a></li>
@@ -110,7 +112,8 @@ filters, text, export…), and Blender, ONLYOFFICE, Chromium and others have the
 <td data-label="Ask, for example">"Click Export in that dialog"</td></tr>
 <tr><td data-label="Family">Files</td><td data-label="What the agent can do">The VM's files (list, open in an app, rename, move, delete); your computer's files below your home
 folder (search, read, copy into the VM, upload results to <code>Downloads/From the VM</code>, by your
-<a href="settings-files.html">Files &amp; sharing</a> rules); company folders (read only)</td>
+<a href="settings-files.html">Files &amp; sharing</a> rules: <a href="files-move.html#agents">Move files › Agents</a>);
+company folders (read only)</td>
 <td data-label="Ask, for example">"Find my latest invoice PDF and copy it into the VM"</td></tr>
 <tr><td data-label="Family">Other agents</td><td data-label="What the agent can do">Start helper agents, visible in their own tabs or hidden; write to the Chat of another
 tab you opened and read its answer (<a href="parallel-tabs.html">Several agents at once</a>)</td>
@@ -138,7 +141,8 @@ setup state, Wazza OS account tools</td><td data-label="Ask, for example">"How m
 <h2 id="connect-an-agent-from-outside">Connect an agent from outside Wazza OS<a class="anchor" href="#connect-an-agent-from-outside" aria-label="Link to Connect an agent from outside Wazza OS">#</a></h2>
 <p>Agents that run outside Wazza OS, on your computer or on a server (Claude Code, Codex, Cursor, VS Code, Gemini CLI
 and others), connect to <code>wazza-os mcp</code>: an MCP server that comes with Wazza OS. Its tools are the
-commands of <a href="cli.html">the command line</a> (<code>vm</code>, <code>app</code>, <code>explorer</code>,
+commands of <a href="cli.html">the command line</a> (<code>vm</code>, <code>app</code>, <code>explorer</code>: its
+file copies are in <a href="files-move.html#agents-outside-wazza-os">Move files</a>,
 <code>drive</code>, <code>chat_transcript</code>, <code>timeouts</code>…), plus <code>ui</code> for the window's actions
 (open an app, send to a Chat…), <code>check</code> and <code>version</code>. Each call runs the same
 <code>wazza --gui …</code> command your terminal would, with your rights.</p>
@@ -240,7 +244,7 @@ under <code>env</code> too.</p>
 
 </article>
 <!-- BOTTOM:BEGIN -->
-<nav class="pager" aria-label="Previous and next page"><a class="prev" href="files.html" rel="prev"><span class="dir">← Previous</span>Files and sharing</a><a class="next" href="mcp-tools.html" rel="next"><span class="dir">Next →</span>Every MCP tool</a></nav>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="files-move.html" rel="prev"><span class="dir">← Previous</span>Move files</a><a class="next" href="mcp-tools.html" rel="next"><span class="dir">Next →</span>Every MCP tool</a></nav>
 <p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#how-it-works">How it works</a></li><li class="lvl2"><a href="#the-tools-a-chat-gets">The tools a Chat gets</a></li><li class="lvl2"><a href="#the-rules-the-tools-follow">The rules the tools follow</a></li><li class="lvl2"><a href="#connect-an-agent-from-outside">Connect an agent from outside Wazza OS</a></li><li class="lvl3"><a href="#good-to-know">Good to know</a></li><li class="lvl3"><a href="#hermes-and-prime-agent">Hermes and Prime Agent</a></li><li class="lvl3"><a href="#what-the-agent-does">What the agent does</a></li><li class="lvl3"><a href="#what-stays-yours">What stays yours</a></li></ul></aside>

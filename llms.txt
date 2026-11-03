@@ -1,0 +1,59 @@
+# Wazza OS user guide
+
+> Wazza OS runs desktop apps (GIMP, Blender, Inkscape, ONLYOFFICE, a browser and others) in virtual machines on your Linux computer, each app in a tab with its own AI agent (a Chat) that works in that app. This user guide explains every capability: install and first start, tabs and apps, Chats, agents and models, several agents at once, Drive (agents that see and use an app's screen), Computer Control, skills, files between your computer and the VMs, the Wazza OS MCP for outside agents (Claude Code, Codex and others), the command line, every setting, privacy, memory and troubleshooting.
+
+The full text of every page, in menu order: https://os-guide.wazza.ai/llms-full.txt
+
+## Start here
+
+- [Wazza OS: download, install, connect](https://os-guide.wazza.ai/): The Wazza OS user guide: download and install Wazza OS (one command), connect your AI agent, control it from a terminal or an agent, and every capability with its step-by-step pages.
+- [Quick start](https://os-guide.wazza.ai/quick-start.html): From installing Wazza OS to an agent working in an app, in about ten minutes: install, the first start, a model for your agents, a first Chat, an app with its agent.
+- [Install, update, remove](https://os-guide.wazza.ai/install.html): Install Wazza OS on Ubuntu, Debian, Fedora, openSUSE, Arch or any Linux with the tarball; what your computer needs; how to update; how to remove it and what removing deletes.
+- [The first start](https://os-guide.wazza.ai/first-start.html): The six steps Wazza OS shows the very first time it opens: the computer check, signing in, your agents, your first apps and the setup of its virtual machine.
+- [Getting around](https://os-guide.wazza.ai/window.html): The Wazza OS window part by part: the tab strip, Home and its menu, the VM card, a tab with its app and its Chat, the tab menu, the Desktop menu, the Explorer, History, Notifications and Feedback.
+
+## Work with agents
+
+- [Chats, agents and models](https://os-guide.wazza.ai/chats.html): How to use Chats in Wazza OS: write to an agent, attach files, mention files and apps, slash commands, follow its work, choose the agent (Hermes, Prime Agent, Claude Code, Codex, Antigravity) and the model, thinking, compacting, Chat settings, export, fork and delete.
+- [Several agents at once](https://os-guide.wazza.ai/parallel-tabs.html): How one Chat hands parts of a job to other agents, each in its own app tab (visible agents) or in the background (hidden agents), at the same time; what you see; the limits (4 visible agents per Chat, memory); and why it beats one shared screen.
+- [Sign in, plans and API keys](https://os-guide.wazza.ai/signin.html): How Chats get their models in Wazza OS: a Wazza OS account, logins with the plans you pay for (Claude, ChatGPT, Grok, Google, OpenRouter, Nous Portal), API keys of 73 providers with several keys per provider, custom OpenAI- or Anthropic-compatible APIs, and web app sign-ins.
+- [Drive: agents on screen](https://os-guide.wazza.ai/drive.html): Drive lets an agent see its tab's app and use it with clicks, drags, typing and keys, like a person: how to ask for it, what it can do (zoom, text marks, drawing shapes, recordings), what you see, and its limits.
+- [Computer Control](https://os-guide.wazza.ai/computer-control.html): Computer Control: a special Chat that can see and use your own computer's screen, keyboard and mouse after you allow it. How to open it, what the consent covers, what it can and cannot do, and how to stop it.
+- [Skills, learning and personas](https://os-guide.wazza.ai/skills.html): What skills are in Wazza OS (the know-how agents load), where they come from (shipped, app skills, the skill library, learned), how Wazza OS learns from your Chats and from how you use apps, how to review, undo, edit and add skills, and personas.
+
+## Apps and files
+
+- [Apps and tabs](https://os-guide.wazza.ai/apps.html): Find, install, open, use, close and uninstall apps in Wazza OS: the Apps page and its categories, search, installing an app, opening it in a tab with its Chat, opening it in another VM, and uninstalling.
+- [Desktop apps and the GPU](https://os-guide.wazza.ai/gpu-apps.html): How the VM's desktop apps (Blender, FreeCAD, Godot, Kdenlive, OBS Studio, GIMP…) use your computer's graphics card in Wazza OS: Virtualized GPU, Native GPU (lending a card), CPU only; which app uses what; how to check it; smoothness and frame rate.
+- [Add your own apps](https://os-guide.wazza.ai/custom-apps.html): How to add any Linux app to Wazza OS: ask a Chat to write its recipe, or fill the Your own app form field by field; install and open it; give it tools (an MCP server) and a skill; edit any app's recipe and skill files with Edit app; remove an app you added.
+- [Files and sharing](https://os-guide.wazza.ai/files.html): Where files live in Wazza OS, how to browse the VM's files with the Explorer, how to move files between your computer and the VM (copy and paste, attaching to a Chat, Downloads/From the VM), file versions and undo, company folders and sync.
+- [Move files](https://os-guide.wazza.ai/files-move.html): Every way to move files between your computer, the VMs and Chats in Wazza OS: drag and drop onto the Explorer, a Chat or an app, out of a VM; copy and paste; the Explorer's Download; where files land and how they are named; the file-copy settings; what a Chat's agent and an outside agent can copy.
+
+## Connect and automate
+
+- [The Wazza OS MCP](https://os-guide.wazza.ai/mcp.html): The tools Wazza OS gives every Chat's agent through its MCP server (tabs and apps, each app's own tools, Drive, files, other agents, skills, Wazza OS itself), the rules they follow, and how to connect an agent that runs outside Wazza OS.
+- [Every MCP tool](https://os-guide.wazza.ai/mcp-tools.html): Every tool of wazza-os mcp, the MCP server for agents outside Wazza OS: the typical flow, the rules, and each of the 40 tools with what it does, its arguments and an example (VMs, apps, files into a VM, Chats, screenshots, API keys, settings, updates).
+- [The command line](https://os-guide.wazza.ai/cli.html): Control a running Wazza OS from a terminal with wazza --gui: check the computer, set it up without clicks, VMs and their memory, disk and graphics, keys and sign-ins, Chats, apps, files, the window's actions; exit codes and the rules for scripts and agents.
+- [On a server (virtual screen)](https://os-guide.wazza.ai/cli-server.html): Run Wazza OS on a server or any computer without a screen, with its own virtual screen: what the server needs, how to start, set up, use and stop it from a terminal or over SSH, screenshots and recordings, and the same on your own desktop.
+
+## Settings
+
+- [General](https://os-guide.wazza.ai/settings-general.html): Every option of Settings › General in Wazza OS: theme, glass, reduce motion, Chat side, tabs before they fold, max frame rate and the About tiles.
+- [Virtual machines](https://os-guide.wazza.ai/settings-vms.html): Settings › Virtual machines in Wazza OS: the VM the window shows, start, stop and restart, new VMs, backups, removing and resetting a VM.
+- [VM resources](https://os-guide.wazza.ai/settings-resources.html): Every option of Settings › VM resources in Wazza OS: memory and vCPUs (Auto or Manual), system and data disks, graphics (GPU modes, card, GPU memory), the VM's screen size, Save and apply, Reset to defaults.
+- [Chats & agents](https://os-guide.wazza.ai/settings-chats.html): Every option of Settings › Chats & agents in Wazza OS: the agent, model and provider of new Chats, the command and tool call time limits, local services and the provider gateway.
+- [Skills & learning](https://os-guide.wazza.ai/settings-skills.html): Every option of Settings › Skills & learning in Wazza OS: learning on or off, the least model that learns, the learning model, how often Chats are reviewed, learned changes with Undo, the app journal, the skill list and personas.
+- [Files & sharing](https://os-guide.wazza.ai/settings-files.html): Every option of Settings › Files & sharing in Wazza OS: copying files between your computer and a VM (Ask, Allow, Off) and company folders (SFTP, FTPS, SMB).
+- [Sync & team](https://os-guide.wazza.ai/settings-sync.html): Settings › Sync & team in Wazza OS: the vault that syncs your skills, files and Chat history with your account, held-back deletes, unsent team changes, and the team section of a team account.
+- [This computer](https://os-guide.wazza.ai/settings-computer.html): Settings › This computer in Wazza OS: the computer check, live usage of your computer and the VM, uninstalling, and Remove all data.
+- [The Update page](https://os-guide.wazza.ai/update.html): How Wazza OS updates itself: the hourly check for a signed update, Download Update, Install Now, the administrator password, Restart Wazza OS, and what every message of the Update page means.
+
+## How it behaves
+
+- [Privacy and security](https://os-guide.wazza.ai/privacy-security.html): What runs where in Wazza OS (your computer, the VM, the AI provider), where keys and sign-ins are kept, what agents can reach, every place where Wazza OS asks before acting, and what leaves your computer.
+- [Memory, CPU and disk](https://os-guide.wazza.ai/memory-cpu.html): How Wazza OS uses your computer's memory, processors, disk and graphics card: limits instead of reservations, growing and giving back, the 10 percent kept free, what the notices mean, and how to see what each tab uses.
+
+## Help
+
+- [Troubleshooting](https://os-guide.wazza.ai/troubleshooting.html): Fixes for Wazza OS problems by symptom: the window or the VM does not start, a Chat does not answer, an app tab stays black or frozen, an app does not install, files do not copy, no sound, slow apps, sign-in, updates, starting fresh, and how to send feedback.
+- [Glossary](https://os-guide.wazza.ai/glossary.html): The words of Wazza OS in plain language: VM, tab, Chat, agent, harness, model, key, login, skill, persona, Drive, MCP, Computer Control, helper agent, recipe, virtual screen and the others, each with the page that explains it.

@@ -7,6 +7,7 @@
 <meta name="description" content="Every option of Settings › Files & sharing in Wazza OS: copying files between your computer and a VM (Ask, Allow, Off) and company folders (SFTP, FTPS, SMB).">
 <meta name="keywords" content="settings, files, sharing, copy paste files, clipboard, from the vm, downloads, ask allow off, company folders, sftp, ftps, smb, nas, file server">
 <!-- HEAD:BEGIN -->
+<link rel="canonical" href="https://os-guide.wazza.ai/settings-files.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/manual.css">
 <script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
@@ -46,6 +47,7 @@
 <li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
 <li><a href="custom-apps.html">Add your own apps</a></li>
 <li><a href="files.html">Files and sharing</a></li>
+<li><a href="files-move.html">Move files</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
 <li><a href="mcp.html">The Wazza OS MCP</a></li>
@@ -81,7 +83,7 @@
 <h1>Settings › Files &amp; sharing</h1>
 <p class="lead">Whether files may be copied and pasted between your computer and the VMs, and the company file
 servers your Chats may read.</p>
-<p>How to move files in practice (copy and paste, the Explorer, Downloads/From the VM): <a href="files.html">Files and sharing</a>.</p>
+<p>How to move files in practice (drag and drop, copy and paste, the Explorer, agents): <a href="files-move.html">Move files</a>.</p>
 
 <h2 id="between-this-computer-and-vms">Between this computer and VMs<a class="anchor" href="#between-this-computer-and-vms" aria-label="Link to Between this computer and VMs">#</a></h2>
 <figure class="shot">
@@ -92,15 +94,18 @@ servers your Chats may read.</p>
 <thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
 <tbody>
 <tr><td data-label="Option">From this computer to a VM</td><td data-label="Values">Ask, <strong>Allow</strong> (default), Off</td><td data-label="What it does">Files you copy on your
-computer (in your file manager) and paste in a VM's Files. Allow: they are copied in when you paste. Ask: Wazza OS
-asks you each time. Off: files are never copied in this way (text still is).</td></tr>
-<tr><td data-label="Option">From a VM to this computer</td><td data-label="Values">Ask (default), Allow, Off</td><td data-label="What it does">Files you copy in a VM's Files and paste
-on your computer. They land in your <code>Downloads/From the VM</code> folder as new files, never over one of
-yours. Ask: Wazza OS asks you each time (default). Allow: without asking. Off: never.</td></tr>
+computer (in your file manager) and paste in an app of a VM (its Files, for instance), and an agent's copies into a
+VM. Allow: they are copied when you paste, or at once for an agent. Ask: Wazza OS asks you each time (a notice with
+<span class="ui">Allow</span>). Off: no files are copied this way (text still is).</td></tr>
+<tr><td data-label="Option">From a VM to this computer</td><td data-label="Values">Ask (default), Allow, Off</td><td data-label="What it does">An agent's copies to your computer
+(into <code>Downloads/From the VM</code> by default, as new files, never over one of yours). Ask: Wazza OS asks you
+each time (default). Allow: without asking. Off: nothing leaves a VM, your own copies in its apps and your drags out of
+it included. Your own copy in a VM's app (<kbd>Ctrl</kbd>+<kbd>C</kbd>) never asks.</td></tr>
 </tbody></table></div>
 <p>These two rules are about files. Copied <em>text</em> goes both ways between your computer and the VM in every
-case. Agents follow the same rule when they copy files to your computer (<code>computer.files.upload</code>): with
-Ask, you get the question.</p>
+case. Your own drag and drop and the Explorer's Copy, Paste and Download need no allowing: your gesture is the
+consent. Every way to move files, and what each rule covers: <a href="files-move.html#what-the-file-copy-settings-cover">Move
+files</a>.</p>
 
 <h2 id="company-folders">Company folders<a class="anchor" href="#company-folders" aria-label="Link to Company folders">#</a></h2>
 <figure class="shot">
