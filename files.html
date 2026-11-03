@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Files and sharing · Wazza OS manual</title>
+<meta name="description" content="Where files live in Wazza OS, how to browse the VM's files with the Explorer, how to move files between your computer and the VM (copy and paste, attaching to a Chat, Downloads/From the VM), file versions and undo, company folders and sync.">
+<meta name="keywords" content="files, explorer, copy paste, clipboard, transfer, download, upload, from the vm, downloads, attach, versions, undo, restore, company folders, sync, vault, wazza_os folder, home folder">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html" aria-current="page">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Apps and files</li><li aria-current="page">Files and sharing</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#where-files-live">Where files live</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#bring-your-files-into-the-vm">Bring your files into the VM</a></li><li class="lvl2"><a href="#get-files-out-of-the-vm">Get files out of the VM</a></li><li class="lvl2"><a href="#versions-and-undo">Versions and undo</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl2"><a href="#sync-with-your-account">Sync with your account</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Files and sharing</h1>
+<p class="lead">Your computer and the VM have separate files. Agents and apps work on the VM's files; your own files
+go into the VM only when you put them there, and results come back to your computer as new files, never over yours.</p>
+
+<h2 id="where-files-live">Where files live<a class="anchor" href="#where-files-live" aria-label="Link to Where files live">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Place</th><th>What is there</th></tr></thead>
+<tbody>
+<tr><td>The VM's home folder (<code>/home/ubuntu</code> in the VM)</td><td>Everything apps and agents make: Documents,
+Pictures, Downloads, Desktop… The VM's own Files app and the Explorer show it.</td></tr>
+<tr><td><code>~/wazza_os</code> in the VM</td><td>A folder Wazza OS shares with the VM for its own work: files attached to
+Chats, previews, each Chat's working folder. Leave it to Wazza OS.</td></tr>
+<tr><td><code>~/Company/&lt;Name&gt;</code> in the VM</td><td>Company folders, read-only (<a href="#company-folders">below</a>).</td></tr>
+<tr><td>Your computer's <code>Downloads/From the VM</code></td><td>Files copied out of the VM land here, as new files.</td></tr>
+<tr><td>Your computer's <code>Downloads</code></td><td>VM backups (zip files), exported Chats.</td></tr>
+</tbody></table></div>
+<p>Wazza OS never changes your own files: what it writes on your computer is always a new file (with
+<code>_copy2</code>-style names when a name is taken).</p>
+
+<h2 id="the-explorer">The Explorer<a class="anchor" href="#the-explorer" aria-label="Link to The Explorer">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/window-explorer.webp" width="560" height="890" alt="The Explorer: VM 1 selector, view buttons, reload and close; Home; New file, New folder, Paste here; the home folder's files with name, date modified, type and size">
+    <span class="mark" style="left:10%;top:6.7%">1</span>
+    <span class="mark" style="left:72%;top:6.7%">2</span>
+    <span class="mark" style="left:42%;top:13.7%">3</span>
+    <span class="mark" style="left:47%;top:21.8%">4</span></div>
+</figure>
+<p>Click the button at the far left of the tab strip. The Explorer opens over the Chat of the current tab.</p>
+<ol class="steps">
+  <li><p>The VM whose files you see (pick another running VM).</p></li>
+  <li><p>Views (list, grid, pictures, details), reload, close.</p></li>
+  <li><p><span class="ui">New file</span>, <span class="ui">New folder</span>, <span class="ui">Paste here</span>.</p></li>
+  <li><p>The folder's content: click a folder's arrow to open it; double-click a file to open it in its app (a new
+  tab); right-click a file for its menu (open with, rename, move, copy, permissions, delete, download to your computer).</p></li>
+</ol>
+<p>Deleting in the Explorer is permanent: the VM has no trash. Wazza OS refuses to overwrite: renaming or moving onto
+an existing name is refused.</p>
+
+<h2 id="bring-your-files-into-the-vm">Bring your files into the VM<a class="anchor" href="#bring-your-files-into-the-vm" aria-label="Link to Bring your files into the VM">#</a></h2>
+<ul>
+  <li><strong>Copy and paste</strong>: copy files in your computer's file manager, then <span class="ui">Paste here</span>
+  in the Explorer, or paste in the VM's Files app. Allowed by default; the rule is
+  <a href="settings-files.html#between-this-computer-and-vms">Settings › Files &amp; sharing › From this computer to a VM</a>
+  (Ask, Allow, Off).</li>
+  <li><strong>Attach to a Chat</strong>: the Chat's <span class="ui">+</span> › <span class="ui">From this computer…</span>,
+  or drop files on the Chat. The agent gets a copy in the VM (it asks first).</li>
+  <li><strong>Ask an agent</strong>: "copy my Downloads/report.pdf into the VM": an agent can search and read your
+  computer's files (below your home folder) and copy them in. Such copies follow the same rule as your pastes:
+  allowed by default, or a question each time if you set it to Ask.</li>
+</ul>
+
+<h2 id="get-files-out-of-the-vm">Get files out of the VM<a class="anchor" href="#get-files-out-of-the-vm" aria-label="Link to Get files out of the VM">#</a></h2>
+<ul>
+  <li><strong>Copy and paste</strong>: copy files in the VM's Files app (or the Explorer), paste on your computer. They
+  land in <code>Downloads/From the VM</code> as new files. By default Wazza OS asks each time
+  (<a href="settings-files.html#between-this-computer-and-vms">From a VM to this computer</a>: Ask, Allow, Off).</li>
+  <li><strong>Download</strong>: in the Explorer, a file's menu › download: your computer's Save dialog opens.</li>
+  <li><strong>Ask an agent</strong>: "put circle.png on my computer": it uploads it to <code>Downloads/From the VM</code>
+  (with your Allow).</li>
+</ul>
+<p>Copied <strong>text</strong> goes both ways between your computer and the VM, always: copy on one side, paste on the other.</p>
+
+<h2 id="versions-and-undo">Versions and undo<a class="anchor" href="#versions-and-undo" aria-label="Link to Versions and undo">#</a></h2>
+<ul>
+  <li><strong>File versions</strong>: when something overwrites, replaces or deletes one of your files in the VM,
+  Wazza OS keeps the version before. Ask a Chat "show me the versions of Documents/report.odt" and "restore the
+  version of 10:42": the current file is kept as a version first.</li>
+  <li><strong>A Chat's own edits</strong>: Wazza OS keeps a checkpoint of every file a Chat changes. Ask that Chat
+  "what did you change?" (each change with its lines), "show me the diff of report.md", or "put my files back as they
+  were before your last turn": it restores only when you ask, and a restore can itself be undone.</li>
+</ul>
+
+<h2 id="company-folders">Company folders<a class="anchor" href="#company-folders" aria-label="Link to Company folders">#</a></h2>
+<p>Your company's file servers (SFTP, FTPS or SMB), mounted read-only in every VM at <code>~/Company/&lt;Name&gt;</code>,
+so agents can read company documents without changing them. Set them up in
+<a href="settings-files.html#company-folders">Settings › Files &amp; sharing › Company folders</a>; a team's
+admins can add them for every member.</p>
+
+<h2 id="sync-with-your-account">Sync with your account<a class="anchor" href="#sync-with-your-account" aria-label="Link to Sync with your account">#</a></h2>
+<p>With a Wazza OS account, your skills, files and Chat history sync with your account's vault, so your other
+computers have them: <a href="settings-sync.html">Settings › Sync &amp; team</a>.</p>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui explorer list Documents</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui explorer transfer --from host --to vm-1 --folder Documents ~/report.pdf</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui clipboard files --to-computer allow</span></code></pre>
+<p>Every subcommand: <a href="cli.html#files">The command line › Files</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="custom-apps.html" rel="prev"><span class="dir">← Previous</span>Add your own apps</a><a class="next" href="mcp.html" rel="next"><span class="dir">Next →</span>The Wazza OS MCP</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#where-files-live">Where files live</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#bring-your-files-into-the-vm">Bring your files into the VM</a></li><li class="lvl2"><a href="#get-files-out-of-the-vm">Get files out of the VM</a></li><li class="lvl2"><a href="#versions-and-undo">Versions and undo</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl2"><a href="#sync-with-your-account">Sync with your account</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

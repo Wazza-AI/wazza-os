@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wazza OS on a server · Wazza OS manual</title>
+<meta name="description" content="Run Wazza OS on a server or any computer without a screen, with its own virtual screen: what the server needs, how to start, set up, use and stop it from a terminal or over SSH, screenshots and recordings, and the same on your own desktop.">
+<meta name="keywords" content="server, headless, no screen, ssh, virtual screen, --virtual-screen, xvfb, ci, cloud, linger, loginctl enable-linger, nohup, background, screenshot, record, host-app, remote, automation">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html" aria-current="page">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Connect and automate</li><li aria-current="page">On a server (virtual screen)</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#what-the-server-needs">What the server needs</a></li><li class="lvl2"><a href="#start-set-up-use-stop">Start, set up, use, stop</a></li><li class="lvl2"><a href="#the-virtual-screen">The virtual screen</a></li><li class="lvl2"><a href="#over-ssh-and-for-other-agents">Over SSH, and for other agents</a></li><li class="lvl2"><a href="#on-your-own-computer">On your own computer</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Wazza OS on a server</h1>
+<p class="lead">Wazza OS is a desktop app, but it does not need a screen: on a server, a cloud machine or over SSH it
+brings its own <em>virtual screen</em>, and you drive it with <a href="cli.html">the command line</a>. Its VM, apps
+and Chats work exactly as on a desktop.</p>
+
+<div class="facts">
+  <div class="fact"><b>What</b><span>Wazza OS with its own invisible screen, driven from a terminal</span></div>
+  <div class="fact"><b>Why</b><span>Agents and apps on a powerful machine, in CI, or for a whole team</span></div>
+  <div class="fact"><b>Who</b><span>Admins, developers, automation</span></div>
+  <div class="fact"><b>Where</b><span><code>wazza --virtual-screen=…</code> and <code>wazza --gui …</code></span></div>
+</div>
+
+<h2 id="what-the-server-needs">What the server needs<a class="anchor" href="#what-the-server-needs" aria-label="Link to What the server needs">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Need</th><th>Why</th><th>How</th></tr></thead>
+<tbody>
+<tr><td>Hardware virtualization (KVM): <code>/dev/kvm</code> readable and writable</td><td>The VM runs on it</td>
+<td>Bare metal, or a cloud machine with nested virtualization; your user in the <code>kvm</code> group</td></tr>
+<tr><td>A systemd user session</td><td>Each VM runs in a memory-capped scope of it</td><td>Log in over SSH (a session
+that starts it), or keep it running without a login: <code>loginctl enable-linger "$USER"</code></td></tr>
+<tr><td>The virtual-screen tools: Xvfb, xauth, openbox, dbus, ffmpeg, Python 3</td><td>The virtual screen, its
+window manager, recordings</td><td>Every package installs them (the tarball's installer checks them)</td></tr>
+<tr><td>A graphics card (optional)</td><td>3D apps draw on it</td><td>Without one, the VM uses software graphics</td></tr>
+</tbody></table></div>
+<p><code>wazza --check</code> tells what is missing, with the commands that fix it
+(<a href="cli.html#check">Check this computer</a>). Install Wazza OS as on a desktop
+(<a href="install.html">Install</a>).</p>
+
+<h2 id="start-set-up-use-stop">Start, set up, use, stop<a class="anchor" href="#start-set-up-use-stop" aria-label="Link to Start, set up, use, stop">#</a></h2>
+<ol class="steps">
+  <li><p>Check the machine:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --check</span></code></pre></li>
+  <li><p>Start Wazza OS in the background, with its own screen:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">nohup wazza --virtual-screen=always &gt;/dev/null 2&gt;&amp;1 &amp;</span></code></pre></li>
+  <li><p>Wait until it answers:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">until wazza --gui status &gt;/dev/null 2&gt;&amp;1; do sleep 2; done</span></code></pre></li>
+  <li><p>Set it up without clicks: account, logins, keys, apps (<a href="cli.html#set-up-without-clicks">the setup file</a>):</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui setup run --file ~/wazza-setup.json</span></code></pre></li>
+  <li><p>Use it: every command of <a href="cli.html">the command line</a>, and pictures of its screen:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui vm list</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui screenshot ~/wazza.png</span></code></pre></li>
+  <li><p>Stop it:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui quit</span></code></pre></li>
+</ol>
+<p>A login that opens a browser (a plan login such as Claude or ChatGPT) prints its link in the terminal instead: open it
+on any computer, sign in, and paste the code it gives back into the terminal. API keys need no browser.</p>
+
+<h2 id="the-virtual-screen">The virtual screen<a class="anchor" href="#the-virtual-screen" aria-label="Link to The virtual screen">#</a></h2>
+<p><code>--virtual-screen=auto|always|never</code> (default <code>auto</code>) decides where the window goes:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Value</th><th>Wazza OS…</th></tr></thead>
+<tbody>
+<tr><td><code>auto</code> (default)</td><td>uses your display when there is one, and starts its own screen when there is none</td></tr>
+<tr><td><code>always</code></td><td>always starts its own screen, even on a desktop (it then runs out of sight)</td></tr>
+<tr><td><code>never</code></td><td>never starts one: without a display, the start fails</td></tr>
+</tbody></table></div>
+<p>Its own screen is private to your user (1280 × 800, with a simple window manager) and stops when Wazza OS stops.
+It is the only screen Wazza OS captures: <code>--gui screenshot FILE.png</code>, <code>--gui record start FILE.mp4</code>
+and <code>--gui record stop ID</code> work with it, and refuse on a normal desktop (Wazza OS never captures your own
+desktop). To see what a tab of the VM shows, on any screen, use Drive:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call drive look '{"vmId":"vm-1","tabId":"t3"}' --image-out ./t3</span></code></pre>
+<p><code>--gui host-app launch chromium</code> (or <code>vlc</code>, <code>xmessage</code>) opens that app of the server
+on Wazza OS's own screen, and only there; <code>host-app list</code> and <code>host-app stop ID</code> follow and close
+it.</p>
+
+<h2 id="over-ssh-and-for-other-agents">Over SSH, and for other agents<a class="anchor" href="#over-ssh-and-for-other-agents" aria-label="Link to Over SSH, and for other agents">#</a></h2>
+<ul>
+  <li>The commands work over SSH, as the user who started Wazza OS. The SSH session must have that user's runtime
+  folder (<code>XDG_RUNTIME_DIR</code>), as a normal login does.</li>
+  <li>An agent on another machine can use the same commands through SSH; an agent on the server itself runs them in
+  its shell (<a href="mcp.html#connect-an-agent-from-outside">Connect an agent from outside</a>).</li>
+  <li>One Wazza OS runs per user: a second start for the same user goes to the one already running.</li>
+</ul>
+
+<h2 id="on-your-own-computer">On your own computer<a class="anchor" href="#on-your-own-computer" aria-label="Link to On your own computer">#</a></h2>
+<p>Start Wazza OS from your desktop as usual, then use <code>wazza --gui …</code> from any terminal of your user: the
+commands work in the background and change what you see only when you ask (<code>--focus</code>). A tab a command
+opens appears in the background, with a badge.</p>
+<p>How the virtual screen works: <a href="../dev/capabilities/cli.md">developer documentation › The command line</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="cli.html" rel="prev"><span class="dir">← Previous</span>The command line</a><a class="next" href="settings-general.html" rel="next"><span class="dir">Next →</span>General</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#what-the-server-needs">What the server needs</a></li><li class="lvl2"><a href="#start-set-up-use-stop">Start, set up, use, stop</a></li><li class="lvl2"><a href="#the-virtual-screen">The virtual screen</a></li><li class="lvl2"><a href="#over-ssh-and-for-other-agents">Over SSH, and for other agents</a></li><li class="lvl2"><a href="#on-your-own-computer">On your own computer</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

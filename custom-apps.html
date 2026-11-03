@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add your own apps · Wazza OS manual</title>
+<meta name="description" content="How to add any Linux app to Wazza OS: ask a Chat to write its recipe, or fill the Your own app form field by field; install and open it; give it tools (an MCP server) and a skill; edit any app's recipe and skill files with Edit app; remove an app you added.">
+<meta name="keywords" content="add app, custom app, your own app, recipe, install script, launch script, uninstall script, mcp server, app tools, app skill, skill.md, edit app, revert to shipped, lessons noted by chats, remove from catalog, xterm example, manifest">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html" aria-current="page">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Apps and files</li><li aria-current="page">Add your own apps</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Add your own apps</h1>
+<p class="lead">Any Linux app that runs on Ubuntu can become a Wazza OS app. Its <em>recipe</em> says how to install it
+in the VM once and how to start it. It then gets a card in Apps, opens in tabs with its own Chat, and can bring its
+own tools for agents and its own skill.</p>
+
+<div class="facts">
+  <div class="fact"><b>What</b><span>A recipe: install script, start script, and optionally tools (MCP) and a skill</span></div>
+  <div class="fact"><b>Why</b><span>Your tools are not in the catalog; your agents should know them as well as GIMP</span></div>
+  <div class="fact"><b>Who</b><span>Anyone (a Chat writes the recipe); developers and admins (the form)</span></div>
+  <div class="fact"><b>Where</b><span>Apps › Add app; any app's right-click › Edit app…</span></div>
+</div>
+
+<h2 id="two-ways-to-add-an-app">Two ways to add an app<a class="anchor" href="#two-ways-to-add-an-app" aria-label="Link to Two ways to add an app">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/apps-add-menu.webp" width="420" height="170" alt="The Add app menu: Add an app: Your own app… (any Linux app), Ask a Chat to add one… (it writes the recipe)"></div>
+  <figcaption>Home › Apps › <span class="ui">Add app</span>.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Way</th><th>For</th></tr></thead>
+<tbody>
+<tr><td><span class="ui">Ask a Chat to add one…</span></td><td>Everyone: say which app; the agent finds how to install it,
+writes and checks the recipe, and installs it.</td></tr>
+<tr><td><span class="ui">Your own app…</span></td><td>When you know the commands: a form with every field of the recipe.</td></tr>
+</tbody></table></div>
+
+<h2 id="ask-a-chat-to-add-an-app">Ask a Chat to add an app<a class="anchor" href="#ask-a-chat-to-add-an-app" aria-label="Link to Ask a Chat to add an app">#</a></h2>
+<ol class="steps">
+  <li><p>Home › Apps › <span class="ui">Add app</span> › <span class="ui">Ask a Chat to add one…</span>. A new Chat tab
+  opens with this already in its send box: <em>Add this app to Wazza OS's Apps (write its recipe, save it, then
+  install it):</em></p></li>
+  <li><p>Finish the sentence with the app, and anything that matters to you, then send. For example: <em>Krita, the
+  painting app, from the Ubuntu packages</em>.</p></li>
+  <li><p>The agent writes the recipe, checks it, saves it and installs the app in the VM, telling you what it does in
+  the Chat. Like everything an agent does in the VM, this runs without asking you; say in your message if you want to
+  read the recipe before it installs.</p></li>
+  <li><p>When it is installed, its card is in Apps (filter <span class="ui">Your apps</span>), and the agent can open it.</p></li>
+</ol>
+<p>A Chat can also change a recipe later ("make Krita open files", "add this skill to Krita"). If the app has its
+own tools (an MCP server) that work without its window, the agent can make them available to every Chat of the VM;
+otherwise only the Chat of a tab where the app is open gets them.</p>
+
+<h2 id="fill-the-form">Fill the form<a class="anchor" href="#fill-the-form" aria-label="Link to Fill the form">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/custom-app-form.webp" width="680" height="968" alt="The Add your own app form: Application name, Description, Executable name, Install script, Launch script, Opens a file, Uninstall script, Skill for the app's Chat, Optional MCP stdio server, MCP install script, MCP executable, MCP arguments, and the help text">
+    <span class="mark" style="left:97.5%;top:10.6%">1</span>
+    <span class="mark" style="left:97.5%;top:27.9%">2</span>
+    <span class="mark" style="left:97.5%;top:59.7%">3</span>
+    <span class="mark" style="left:97.5%;top:66.1%">4</span></div>
+  <figcaption>Apps › Add app › <span class="ui">Your own app…</span>. Its buttons (<span class="ui">Load XTerm
+  example</span>, <span class="ui">Cancel</span>, <span class="ui">Add app</span>) are below the help text.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>What the card shows, and how Wazza OS knows the app is installed.</p></li>
+  <li><p>How it installs and how it starts.</p></li>
+  <li><p>What its Chat knows about it (its skill).</p></li>
+  <li><p>Its own tools for agents (optional).</p></li>
+</ol>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>Rules</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>Application name</td><td>Required; up to 80 characters</td><td>The card's name.</td></tr>
+<tr><td>Description</td><td>Optional; up to 320 characters</td><td>The card's short words (empty: "User-added application").</td></tr>
+<tr><td>Executable name (in the guest)</td><td>Required; a plain program name: letters, digits, <code>_</code> and <code>-</code>, up to 64</td>
+<td>The program Wazza OS looks for to know the app is installed, for example <code>krita</code>.</td></tr>
+<tr><td>Install script</td><td>Required; up to 8192 characters</td><td>Shell commands that install the app. They run
+as the administrator (root) inside the VM, never on your computer, and only after your approval.</td></tr>
+<tr><td>Launch script</td><td>Required; up to 4096 characters</td><td>Starts the app, as the VM's user. Keep the app
+in the foreground: start it with <code>exec</code>, do not send it to the background. It gets the variables
+<code>WAZZA_APP_OWNER</code> and <code>WAZZA_APP_ID</code>.</td></tr>
+<tr><td>Opens a file</td><td>Off by default</td><td>On: the app can open files (double-click in the Explorer, "open
+this in Krita"); the launch script gets the file as <code>$1</code>.</td></tr>
+<tr><td>Uninstall script</td><td>Optional; up to 8192 characters</td><td>Runs as root before the app's files are
+removed, when you uninstall it.</td></tr>
+<tr><td>Skill for the app's Chat</td><td>Optional; no length limit</td><td>Becomes the app's <code>SKILL.md</code>: what
+the agent of this app's tabs reads first (its menus, its shortcuts, what to avoid). You can add more skill files
+later in Edit app.</td></tr>
+<tr><td>Optional MCP stdio server</td><td>Off by default</td><td>Turns on the three fields below: the app's own tools
+for agents (see <a href="#give-your-app-tools">below</a>).</td></tr>
+<tr><td>MCP install script</td><td>Optional; up to 8192 bytes</td><td>Installs the tools' server (root, in the VM, after approval).</td></tr>
+<tr><td>MCP executable</td><td>Required with MCP; a full path in the VM starting with <code>/</code>, up to 512 bytes</td><td>The server's program.</td></tr>
+<tr><td>MCP arguments</td><td>A JSON list of up to 32 strings; default <code>[]</code></td><td>The words given to the server.</td></tr>
+</tbody></table></div>
+<div class="warn"><p>The scripts run with full rights inside the VM: add only scripts and servers you trust. Never put
+a password or an API key in these fields.</p></div>
+<p>Then <span class="ui">Add app</span>. Saving only adds the recipe: <em>"&lt;name&gt; saved. Select its card to approve
+installation and open it."</em> Click the card (in <span class="ui">Your apps</span>): your click approves the
+installation, which runs in a new tab like any app's (<a href="apps.html#install-an-app">Install an app</a>).</p>
+
+<h3 id="example-xterm">Example: XTerm<a class="anchor" href="#example-xterm" aria-label="Link to Example: XTerm">#</a></h3>
+<p><span class="ui">Load XTerm example</span> fills the form with a small working app, a terminal:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Application name</td><td>XTerm</td></tr>
+<tr><td>Description</td><td>A guest X11 terminal</td></tr>
+<tr><td>Executable name</td><td><code>xterm</code></td></tr>
+<tr><td>Launch script</td><td><code>exec /usr/bin/xterm</code></td></tr>
+</tbody></table></div>
+<p>Install script:</p>
+<pre><code>set -eu
+apt-get -o Acquire::ForceIPv4=true update
+DEBIAN_FRONTEND=noninteractive apt-get install -y xterm</code></pre>
+<p>The same pattern works for any app of Ubuntu's packages: change the name, the program and the package.</p>
+
+<h2 id="give-your-app-tools">Give your app tools<a class="anchor" href="#give-your-app-tools" aria-label="Link to Give your app tools">#</a></h2>
+<p>An app's tools let its agent do exact operations (GIMP's agent has 40, from "new image" to "export"). They come
+from an MCP server: a program in the VM that speaks the Model Context Protocol over its standard input and output.
+Turn on <span class="ui">Optional MCP stdio server</span>, then give how to install it, its full path and its
+arguments. The server gets <code>WAZZA_APP_OWNER</code> and <code>WAZZA_APP_ID</code>, so it knows which app and tab
+it serves. Its tools reach the Chat of a tab where the app is open.</p>
+
+<h2 id="edit-an-app">Edit an app<a class="anchor" href="#edit-an-app" aria-label="Link to Edit an app">#</a></h2>
+<p>Right-click an app's card in Apps › <span class="ui">Edit app…</span>. A tab named <em>Edit App — &lt;name&gt;</em>
+opens; it works for the apps of the catalog too.</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/edit-app-mcp.webp" width="760" height="325" alt="Edit App, GIMP: Built-in app MCP: 40 tools a Chat of this app gets, gimp.status, gimp.activate, gimp.adjust_brightness_contrast and the others; they act on the app open in that Chat's tab"></div>
+  <figcaption>The top of Edit App for GIMP: the tools a Chat of this app gets.</figcaption>
+</figure>
+<ul>
+  <li><strong>The app's tools</strong>: the list of tools its Chat gets, by name.</li>
+  <li><strong>Six sections</strong>, each folded: 1 App installation script, 2 App execution script, 3 MCP installation
+  script, 4 MCP execution command, 5 MCP execution arguments, 6 App skill. For an app that comes with Wazza OS, a note
+  at the top says which parts you can change: for GIMP, its installation script (as your own version), while how it
+  starts stays read-only.</li>
+  <li><span class="ui">Apply</span> saves your changes as a new version of the recipe. It does not install, open or
+  restart the app: a changed installation script takes effect when you install the app again.</li>
+  <li><span class="ui">Discard unsaved edits</span> forgets your changes; <span class="ui">Close editor tab</span> closes it.</li>
+</ul>
+
+<h2 id="edit-an-apps-skill">Edit an app's skill<a class="anchor" href="#edit-an-apps-skill" aria-label="Link to Edit an app&#x27;s skill">#</a></h2>
+<p>An app's skill is what its agent knows about it. It can be several files: GIMP's are <code>SKILL.md</code> (the
+main one), and topics such as errors, filters, recipes and its Python scripting.</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/edit-app-skill-files.webp" width="740" height="636" alt="Associated skill files: Skill files; SKILL.md, errors.md, filters.md, library.md, pdb-python.md and recipes.md, each marked shipped; the file name SKILL.md; its text; Add skill file, Save skill file, Stage for Apply; SKILL.md loaded (8087 bytes); 6 skill files a Chat of this app gets: 6 shipped with Wazza OS (read-only)">
+    <span class="mark" style="left:17.6%;top:22.3%">1</span>
+    <span class="mark" style="left:93%;top:43.4%">2</span>
+    <span class="mark" style="left:54%;top:84.1%">3</span></div>
+  <figcaption>At the bottom of Edit App: <em>Associated skill files</em>.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Click <span class="ui">Skill files</span>, then a file. <em>(shipped)</em> marks a file that comes with Wazza
+  OS; the line at the bottom says how many files the app's Chat gets, and whose they are.</p></li>
+  <li><p>Change its text.</p></li>
+  <li><p><span class="ui">Save skill file</span>: your copy is saved for this app and replaces the shipped file for
+  its Chats. Or <span class="ui">Stage for Apply</span>: the change is saved with the recipe's next
+  <span class="ui">Apply</span>.</p></li>
+</ol>
+<ul>
+  <li><span class="ui">Revert to shipped</span> (shown on a file you saved over a shipped one) removes your copy:
+  the shipped file is used again.</li>
+  <li><span class="ui">Add skill file</span>: a new topic for the app: type a new name ending in <code>.md</code> and its
+  text, then save or stage it.</li>
+</ul>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/edit-app-sections.webp" width="740" height="712" alt="The six sections of Edit App, 6 App skill open: Own app instructions, not executable code; the SKILL.md text; then Lessons noted by Chats: what Chats learned while using this app, noted beside its skill; No lesson noted by Chats on this app's skills yet"></div>
+  <figcaption>Section <em>6 · App skill</em> open: the skill's text, then <em>Lessons noted by Chats</em>.</figcaption>
+</figure>
+<p><strong>Lessons noted by Chats</strong>: what Chats learned while using this app (<a href="skills.html#how-wazza-os-learns">How
+Wazza OS learns</a>). Every Chat of the app reads them with its skill; the skill file itself is not changed. Change a
+lesson's words, or remove it; Settings › Skills &amp; learning › <a href="settings-skills.html#learned-changes">Learned
+changes</a> lists every change with its Undo.</p>
+
+<h2 id="remove-an-app-you-added">Remove an app you added<a class="anchor" href="#remove-an-app-you-added" aria-label="Link to Remove an app you added">#</a></h2>
+<ol class="steps">
+  <li><p>Uninstall it from every VM that has it: right-click its card › <span class="ui">Uninstall from vm-1…</span>
+  (<a href="apps.html#uninstall-an-app">Uninstall an app</a>).</p></li>
+  <li><p>Right-click its card › <span class="ui">Remove from catalog…</span>: its recipe goes, with its card.</p></li>
+</ol>
+<p>Only an app you added can be removed from the catalog; while it is installed, the menu says
+<em>Uninstall it from vm-1 first</em>.</p>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<p>A recipe is a JSON file (the <code>wazza.app.v1</code> format). Start from a template, edit it, check it, save it:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui app template apt --skill &gt; myapp.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app validate --stdin &lt; myapp.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app save --stdin --install --vm vm-1 &lt; myapp.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app list</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app remove APP_ID</span></code></pre>
+<p>Templates: <code>apt</code> (Ubuntu packages) or <code>script</code> (your own install script), with
+<code>--mcp</code> and <code>--skill</code> to include those parts. More: <a href="cli.html#apps">The command line › Apps</a>;
+how recipes work inside: <a href="../dev/capabilities/apps-and-recipes.md">developer documentation › Apps and recipes</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="gpu-apps.html" rel="prev"><span class="dir">← Previous</span>Desktop apps and the GPU</a><a class="next" href="files.html" rel="next"><span class="dir">Next →</span>Files and sharing</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

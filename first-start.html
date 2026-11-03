@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The first start · Wazza OS manual</title>
+<meta name="description" content="The six steps Wazza OS shows the very first time it opens: the computer check, signing in, your agents, your first apps and the setup of its virtual machine.">
+<meta name="keywords" content="first start, setup, onboarding, welcome, checking this computer, first run, reset first run">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html" aria-current="page">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Start here</li><li aria-current="page">The first start</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>The first start</h1>
+<p class="lead">The very first time you open Wazza OS, six short steps check your computer, offer to sign you in,
+ask which AI agents you use, let you pick your first apps and set up Wazza OS's own computer (its virtual machine).
+It takes about 2 minutes. Every later start takes about 1 minute and goes straight to your tabs.</p>
+
+<div class="facts">
+  <div class="fact"><b>When</b><span>Only on the very first start of Wazza OS for your user account</span></div>
+  <div class="fact"><b>How long</b><span>About 2 minutes, most of it the VM's first boot</span></div>
+  <div class="fact"><b>What you need</b><span>Wazza OS installed and started from your desktop session (<a href="install.html">Install</a>)</span></div>
+  <div class="fact"><b>Can I change it later?</b><span>Yes: everything you pick here is in Home › Sign in and Home › Apps</span></div>
+</div>
+
+<p>Every step except the first has <span class="ui">Back</span>: you go to the step before with every choice kept.
+Nothing you pick in these steps is final, and you can skip everything that is optional (signing in, the agent
+logins, the extra apps): Wazza OS works without them, and you add them later.</p>
+
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-1-window.webp" width="1483" height="838" alt="The Wazza OS window on its first start: the welcome card in the middle of an empty dark window"></div>
+  <figcaption>The first start in the Wazza OS window. While you go through the steps, Wazza OS already starts its
+  virtual machine in the background, so the last step is often almost done when you reach it.</figcaption>
+</figure>
+
+<h2 id="step-1-welcome">Step 1: Welcome<a class="anchor" href="#step-1-welcome" aria-label="Link to Step 1: Welcome">#</a></h2>
+<p>The first card says what Wazza OS is: your apps and AI agents, in a computer of their own. Wazza OS runs its
+own Linux computer (a virtual machine, "the VM") next to yours. Agents work there, in your apps, with you, and they
+ask before anything reaches your real computer.</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-1-welcome.webp" width="730" height="394" alt="Step 1 of 6: Your apps and AI agents, in a computer of their own, with the Apps, Agents and Safe tiles and the Get started button">
+    <span class="mark" style="left:83.7%;top:17.5%">1</span>
+    <span class="mark" style="left:85.2%;top:82.7%">2</span></div>
+  <figcaption>Step 1 of 6.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>The counter and the six bars at the top show where you are: <span class="ui">First start · step 1 of 6</span>.</p></li>
+  <li><p>Click <span class="ui">Get started</span>.</p></li>
+</ol>
+<p>The three tiles sum up what you get: <strong>Apps</strong> (office, browser, creative, developer apps and more,
+installed in the VM), <strong>Agents</strong> (Claude Code, Codex, Hermes and more, working in those apps) and
+<strong>Safe</strong> (your files are copied into the VM only when you say so; see <a href="privacy-security.html">Privacy and security</a>).</p>
+
+<h2 id="step-2-checking-this-computer">Step 2: Checking this computer<a class="anchor" href="#step-2-checking-this-computer" aria-label="Link to Step 2: Checking this computer">#</a></h2>
+<p>Wazza OS checks, in a few seconds, the six things it needs to run its VM next to your computer. Each line shows
+what it found and <span class="ui">ok</span>, <span class="ui">limited</span> or <span class="ui">missing</span>.
+When something is not right, the line says what it means and how to fix it (a command to run, or a setting).</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-2-check.webp" width="730" height="725" alt="Step 2 of 6: Checking this computer, a list of checks each marked ok: Hardware virtualization (KVM), systemd user session, X11 display (XWayland), Chat sandbox, Graphics driver, VM display buffers">
+    <span class="mark" style="left:9%;top:29.3%">1</span>
+    <span class="mark" style="left:91.5%;top:29.3%">2</span>
+    <span class="mark" style="left:86.2%;top:90.6%">3</span></div>
+  <figcaption>Step 2 of 6 on a computer where everything is present. The list scrolls: the sixth check, VM display
+  buffers, is below the fifth.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Each check has a mark: <strong>✓</strong> present, <strong>!</strong> limited (Wazza OS works with less),
+  <strong>✕</strong> missing (something does not work until you fix it).</p></li>
+  <li><p>Its state in words on the right: <span class="ui">ok</span>, <span class="ui">limited</span> or <span class="ui">missing</span>.</p></li>
+  <li><p>Click <span class="ui">Continue</span> once the check has answered (the button stays grey while it runs).</p></li>
+</ol>
+
+<h3 id="what-is-checked">What is checked, and what to do when a line is not ok<a class="anchor" href="#what-is-checked" aria-label="Link to What is checked, and what to do when a line is not ok">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Check</th><th>Why Wazza OS needs it</th><th>When it is missing: the fix the check gives</th></tr></thead>
+<tbody>
+<tr><td>Hardware virtualization (KVM)</td><td>Wazza OS's VMs run only with KVM. Without it they do not start.</td>
+<td>Turn on Intel VT-x or AMD-V (SVM) in the computer's firmware settings (UEFI/BIOS), then restart. If
+<code>/dev/kvm</code> exists but your account cannot open it: <code>sudo usermod -aG kvm "$USER"</code>, then log
+out and back in. If the module is not loaded: <code>sudo modprobe kvm_intel</code> or <code>sudo modprobe kvm_amd</code>.
+Inside a VM: turn on nested virtualization in the computer that runs it.</td></tr>
+<tr><td>systemd user session</td><td>Each VM runs in a memory-capped scope of your user's systemd manager.</td>
+<td>Start Wazza OS from your desktop session (log in through the login screen), not from <code>su</code>,
+<code>sudo</code> or a bare SSH session. On a server: <code>loginctl enable-linger "$USER"</code> keeps your user
+manager running without a login (see <a href="cli-server.html">On a server</a>).</td></tr>
+<tr><td>X11 display (XWayland)</td><td>The Wazza OS window and the VM's panes are X11 windows; in a Wayland session
+that is XWayland. Without a display Wazza OS does not open (on a server, Wazza OS makes its own virtual screen).</td>
+<td>Install your distribution's XWayland package, turn XWayland on in your compositor (Hyprland:
+<code>xwayland { enabled = true }</code>; Sway: <code>xwayland enable</code>), then log out and back in.</td></tr>
+<tr><td>Chat sandbox</td><td>Every Chat that runs on your computer (not in the VM) runs inside Wazza OS's sandbox
+(bubblewrap and Landlock), or does not start.</td>
+<td>On Ubuntu: <code>sudo apparmor_parser -r /etc/apparmor.d/wazza-bwrap</code> loads Wazza OS's AppArmor rule. If the
+kernel refuses user namespaces: <code>sudo sysctl -w kernel.unprivileged_userns_clone=1</code> (and the same line in
+<code>/etc/sysctl.d/60-wazza-userns.conf</code> to keep it). If the sandbox file is missing: reinstall Wazza OS.
+<em>Limited</em> means Chats run under Landlock alone, with less isolation.</td></tr>
+<tr><td>Graphics driver</td><td>The VM draws its apps on your computer's graphics card. Without a usable card the
+VM starts with software graphics (slower), by itself.</td>
+<td>Intel and AMD: the kernel's driver (i915/xe, amdgpu) with Mesa; NVIDIA: its driver 495 or newer with
+<code>sudo modprobe nvidia-drm</code>. If the card exists but your account cannot open it:
+<code>sudo usermod -aG render "$USER"</code>, then log out and back in. Or set
+<a href="settings-resources.html#graphics">VM resources › Graphics › GPU</a> to <span class="ui">None (CPU only)</span>.</td></tr>
+<tr><td>VM display buffers</td><td>The VM's picture travels over a socket that needs 4 MiB buffers. Below that, VMs
+do not start.</td>
+<td><code>sudo sysctl -w net.core.rmem_max=4194304 net.core.wmem_max=4194304</code>. The package installs
+<code>/usr/lib/sysctl.d/60-wazza.conf</code>, which sets it at every boot; reinstall Wazza OS if that file is missing.</td></tr>
+</tbody></table></div>
+<p>You can run the same check at any time: <a href="settings-computer.html#check">Settings › This computer › Check</a>,
+or in a terminal <code>wazza --check</code> (see <a href="cli.html#check">The command line</a>).</p>
+<div class="note"><span class="callout-title">Continue works even when a line is missing</span>
+<p>The first start does not stop you. But a <em>missing</em> line means that part does not work (for example no
+KVM: the VM does not start). Fix it first, then click <span class="ui">Continue</span>.</p></div>
+
+<h2 id="step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)<a class="anchor" href="#step-3-sign-in-to-wazza-os" aria-label="Link to Step 3: Sign in to Wazza OS (optional)">#</a></h2>
+<p>A Wazza OS account keeps your Chats, skills and settings in sync between computers, and gives your agents
+Wazza OS's own models (Prime Agent uses them; new Chats start on MiMo once you are signed in). You can skip it and
+sign in later in <a href="signin.html#your-wazza-os-account">Home › Sign in</a>.</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-3-signin.webp" width="730" height="381" alt="Step 3 of 6: Sign in to Wazza OS, with Email and password, Log in / Sign up online, Back and Skip for now">
+    <span class="mark" style="left:50%;top:55.9%">1</span>
+    <span class="mark" style="left:50%;top:69%">2</span>
+    <span class="mark" style="left:84.5%;top:82.2%">3</span></div>
+  <figcaption>Step 3 of 6.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p><span class="ui">Email and password</span> opens the sign-in form below the buttons, for an account you already have.</p></li>
+  <li><p><span class="ui">Log in / Sign up online</span> asks where to open the website's sign-in (for a Google
+  account, or to create an account).</p></li>
+  <li><p><span class="ui">Skip for now</span> goes on without an account. The note at the bottom left reminds you:
+  <em>You can sign in later in Home › Sign in</em>.</p></li>
+</ol>
+
+<h3 id="sign-in-with-email-and-password">Sign in with email and password<a class="anchor" href="#sign-in-with-email-and-password" aria-label="Link to Sign in with email and password">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-3-email.webp" width="730" height="517" alt="The sign-in form with the Email and Password fields and the Sign in button">
+    <span class="mark" style="left:58.6%;top:61.1%">1</span>
+    <span class="mark" style="left:58.6%;top:70%">2</span>
+    <span class="mark" style="left:30%;top:78.3%">3</span></div>
+</figure>
+<ol class="steps">
+  <li><p>Type your account's email.</p></li>
+  <li><p>Type your password (Enter also signs in).</p></li>
+  <li><p>Click <span class="ui">Sign in</span>. The card says <em>Signing in…</em>, then <em>Signed in.</em>, and the
+  next step comes by itself. A wrong password or a network problem is shown in red under the form, in the server's
+  own words; the password field is emptied every time.</p></li>
+</ol>
+
+<h3 id="log-in-or-sign-up-online">Log in or sign up online<a class="anchor" href="#log-in-or-sign-up-online" aria-label="Link to Log in or sign up online">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-3-online.webp" width="730" height="618" alt="Where should it open? In the VM's browser (offered once the VM is ready) or On this computer">
+    <span class="mark" style="left:50%;top:56.5%">1</span>
+    <span class="mark" style="left:50%;top:71.7%">2</span></div>
+</figure>
+<ol class="steps">
+  <li><p><span class="ui">In the VM's browser</span>: the website's own sign-in page opens in Wazza OS's private
+  sign-in tab, where you log in or sign up with your email or Google; you are signed in by itself. The VM must be
+  running for this, so during the first start the button says <em>Offered once the VM is ready</em>. When you pick
+  it, the card notes that <em>the online sign-in opens in Wazza OS's private sign-in tab once your computer is set
+  up</em> and goes on to the next step.</p></li>
+  <li><p><span class="ui">On this computer</span>: your own browser opens Wazza OS's Google sign-in. When you land
+  on the last page, copy its address from the browser's address bar and paste it in the field Wazza OS shows, then
+  finish. To sign up or log in with an email instead, do it on the website, come back, and use
+  <span class="ui">Email and password</span>.</p></li>
+</ol>
+
+<h2 id="step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)<a class="anchor" href="#step-4-which-agents-do-you-use" aria-label="Link to Step 4: Which agents do you use? (optional)">#</a></h2>
+<p>If you already pay for an AI plan, Wazza OS can use it: you log in once and your agents use your plan, with no
+API key. This step only notes which logins you want; each one opens after the setup, in Home › Sign in.</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-4-agents.webp" width="730" height="618" alt="Step 4 of 6: Which agents do you use? Claude, ChatGPT, Grok, Google, OpenRouter and Nous Portal, each with a Log in with button">
+    <span class="mark" style="left:83.3%;top:35.3%">1</span>
+    <span class="mark" style="left:86.2%;top:88.8%">2</span></div>
+  <figcaption>Step 4 of 6.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Click <span class="ui">Log in with …</span> for each plan you have. The button turns into
+  <span class="ui">✓ After setup</span>; click it again to take it back.</p></li>
+  <li><p>Click <span class="ui">Continue</span>.</p></li>
+</ol>
+<div class="table-wrap"><table>
+<thead><tr><th>Login</th><th>Plan it uses</th><th>Which agents can use it</th></tr></thead>
+<tbody>
+<tr><td>Claude</td><td>Free, Pro or Max plan</td><td>Claude Code only</td></tr>
+<tr><td>ChatGPT</td><td>Plus or Pro plan</td><td>Every agent: Codex, Hermes and Prime Agent with their own sign-in; Claude Code and Antigravity through Wazza OS's gateway</td></tr>
+<tr><td>Grok</td><td>SuperGrok or X Premium+</td><td>Every agent</td></tr>
+<tr><td>Google</td><td>Your Google account plan</td><td>Antigravity only</td></tr>
+<tr><td>OpenRouter</td><td>Your OpenRouter account</td><td>Every agent</td></tr>
+<tr><td>Nous Portal</td><td>Your Nous Portal account</td><td>Hermes only</td></tr>
+</tbody></table></div>
+<p>The card also says <em>Hermes and Prime Agent work right away</em>: they need no login of their own. They still
+need a model to talk to: a Wazza OS account, one of these plans, or an API key. The published Wazza OS includes no
+shared key, so without any of the three a Chat has no model; see <a href="signin.html">Sign in, plans and API keys</a>.</p>
+
+<h2 id="step-5-pick-your-first-apps">Step 5: Pick your first apps<a class="anchor" href="#step-5-pick-your-first-apps" aria-label="Link to Step 5: Pick your first apps">#</a></h2>
+<p>The apps you check here are installed in the VM while it starts. You can install any other app later from
+<a href="apps.html#install-an-app">Home › Apps</a>.</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-5-apps.webp" width="730" height="675" alt="Step 5 of 6: Pick your first apps, a grid of apps; Git, GPU for apps, OSM places and routes, Search and Sound card drivers are already checked">
+    <span class="mark" style="left:21.8%;top:31.4%">1</span>
+    <span class="mark" style="left:21.8%;top:51%">2</span>
+    <span class="mark" style="left:16.4%;top:89.9%">3</span>
+    <span class="mark" style="left:82.7%;top:89.9%">4</span></div>
+  <figcaption>Step 5 of 6. The grid scrolls: every app of the catalog is in it.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>The apps with a light border are Wazza OS's own defaults: they are always installed and cannot be unchecked
+  (Git, GPU for apps: Vulkan, OpenCL and OpenGL support, OSM places and routes, Search, Sound card drivers; Wazza OS
+  also installs the ffmpeg media tools with them).</p></li>
+  <li><p>Click any other app to add it (click again to take it back).</p></li>
+  <li><p>The number of apps in the catalog (71 in this version).</p></li>
+  <li><p>Click <span class="ui">Set up Wazza OS</span>.</p></li>
+</ol>
+<div class="tip"><p>Each app you add takes time and disk space in the VM. Pick only what you will use today: every
+app stays one click away in Home › Apps.</p></div>
+
+<h2 id="step-6-setting-up-your-computer">Step 6: Setting up your computer<a class="anchor" href="#step-6-setting-up-your-computer" aria-label="Link to Step 6: Setting up your computer">#</a></h2>
+<p>The last card follows the VM's start, stage by stage, each with the time it took.</p>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/first-start-6-setup.webp" width="714" height="552" alt="Step 6 of 6: Setting up your computer, five stages each with a check mark and its time, and the Open Wazza OS button">
+    <span class="mark" style="left:9%;top:38.4%">1</span>
+    <span class="mark" style="left:84.2%;top:89.1%">2</span></div>
+  <figcaption>Step 6 of 6, all stages done. Here the system's first boot took 1 min 27 s; it was running while the
+  steps before were on screen.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>The stages, in order:</p>
+    <ul>
+      <li><strong>Getting ready</strong>: Wazza OS prepares the VM's disk and settings.</li>
+      <li><strong>Starting the virtual machine</strong>: the VM is switched on.</li>
+      <li><strong>Starting the system</strong>: the VM's Linux boots (the longest stage on a first start).</li>
+      <li><strong>Starting the desktop</strong>: the VM's desktop, where your apps draw, comes up.</li>
+      <li><strong>Connecting Wazza OS</strong>: Wazza OS connects to the VM (its files, apps and Chats).</li>
+    </ul></li>
+  <li><p>Click <span class="ui">Open Wazza OS</span>. Before the VM is ready the button says
+  <em>Opens when your computer is ready…</em>: click it anyway and Wazza OS opens by itself as soon as it is.</p></li>
+</ol>
+<p>Wazza OS then opens <a href="window.html#home">Home</a> on <strong>Apps</strong>, or on <strong>Sign in</strong>
+when you picked a sign-in or a login in steps 3 and 4 (each login you picked waits there for you). The apps you
+picked keep installing in the background; each one sends a notification when it is done
+(<a href="window.html#notifications">Home › Notifications</a>).</p>
+
+<h2 id="after-the-first-start">After the first start<a class="anchor" href="#after-the-first-start" aria-label="Link to After the first start">#</a></h2>
+<ul>
+  <li>Every later start shows only the startup card (the stages of step 6) and then your tabs as you left them.</li>
+  <li>Open a Chat and talk to an agent: <a href="quick-start.html">Quick start</a>.</li>
+  <li>Connect a model if you skipped steps 3 and 4: <a href="signin.html">Sign in, plans and API keys</a>.</li>
+</ul>
+
+<h2 id="run-the-first-start-again">Run the first start again<a class="anchor" href="#run-the-first-start-again" aria-label="Link to Run the first start again">#</a></h2>
+<p>To see the six steps again without losing anything, run this in a terminal while Wazza OS is open, then quit and
+start Wazza OS:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui setup reset-first-run</span>
+<span class="out">first start not done: Wazza OS shows its first start at its next start</span></code></pre>
+<p>Your VMs, Chats, apps and sign-ins stay. To start from nothing instead (every VM, Chat, sign-in and setting
+erased), use <a href="settings-computer.html#remove-data">Settings › This computer › Remove all data</a>.</p>
+<p>On a computer you set up from a script (or many computers), <code>wazza --gui setup run --file setup.json</code>
+does the same choices without clicks: see <a href="cli.html#set-up-without-clicks">The command line</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="install.html" rel="prev"><span class="dir">← Previous</span>Install, update, remove</a><a class="next" href="window.html" rel="next"><span class="dir">Next →</span>Getting around</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

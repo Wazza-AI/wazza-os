@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Update page · Wazza OS manual</title>
+<meta name="description" content="How Wazza OS updates itself: the hourly check for a signed update, Download Update, Install Now, the administrator password, Restart Wazza OS, and what every message of the Update page means.">
+<meta name="keywords" content="update, upgrade, new version, check now, download update, install now, install later, restart wazza os, signed, changelog, administrator password">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html" aria-current="page">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">The Update page</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>The Update page</h1>
+<p class="lead">Wazza OS checks for a new signed version when it starts and every hour. When one is out, you
+download it, install it with your administrator password, and restart Wazza OS. Your VMs, Chats and settings stay.</p>
+
+<h2 id="open-the-update-page">Open the Update page<a class="anchor" href="#open-the-update-page" aria-label="Link to Open the Update page">#</a></h2>
+<p>Click <span class="ui">Update</span> in the Home menu (open Home with the <span class="ui">+</span> at the end of the
+tab strip). When an update is waiting, a notification says so too (Home › Notifications, filter
+<span class="ui">Updates</span>).</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/update-page.webp" width="1180" height="260" alt="The Update page: up to date, Wazza OS is up to date, No newer update, and the Check now button"></div>
+  <figcaption>The Update page when no newer version exists.</figcaption>
+</figure>
+<p><span class="ui">Check now</span> checks at once instead of waiting for the next hourly check. The page says
+<em>Wazza OS is up to date</em> only after a signed update list was really read and holds nothing newer.</p>
+
+<h2 id="install-an-update">Install an update<a class="anchor" href="#install-an-update" aria-label="Link to Install an update">#</a></h2>
+<ol class="steps">
+  <li><p>When a newer version exists, the page shows it with its version, its date, and the changes since your
+  version (<em>Technical changes</em>, <em>Known issues</em>). Click <span class="ui">Download Update</span>.</p></li>
+  <li><p>Wazza OS downloads the package and checks it against its signature (<em>Downloading and verifying the
+  package</em>, with the bytes downloaded). <span class="ui">Cancel Download</span> stops it. When it ends:
+  <em>Download complete and verified. Select Install Now to continue.</em></p></li>
+  <li><p>Click <span class="ui">Install Now</span>. A small confirmation window of Wazza OS asks you to confirm
+  (<span class="ui">Install Now</span>, or <span class="ui">Install Later</span> to keep the download for later).</p></li>
+  <li><p>Your system asks for your administrator password (the installation goes through your system's package
+  manager). The page follows the install: copying the verified package, checking it against its signed hash,
+  installing, setting up the new version, with a percentage.</p></li>
+  <li><p>When the page says <em>Installed. Restart Wazza OS to finish.</em>, click <span class="ui">Restart Wazza OS</span>.
+  Wazza OS closes and starts again on the new version; your tabs come back.</p></li>
+</ol>
+<p>Coming from alpha 2 or earlier, the first start of the new version says once: <em>Wazza OS now uses wazza.ai:
+sign in again</em>. Earlier versions signed you in on a test website by default; sign in to your Wazza OS account again in
+Home › <a href="signin.html#your-wazza-os-account">Sign in</a>.</p>
+<p>Closing the Update page does not cancel an install, and the update is installed exactly once. After the restart,
+<a href="settings-general.html#about">Settings › General › About</a> shows the new version under both
+<em>Running</em> and <em>Installed</em>.</p>
+
+<div class="note"><span class="callout-title">You can also update with your package manager</span>
+<p>Install the new package over the old one, exactly like the first install (<a href="install.html#update-wazza-os">Install ›
+Update</a>). Never remove the old package first: removing it deletes your Wazza OS data.</p></div>
+
+<h2 id="what-the-messages-mean">What the messages mean<a class="anchor" href="#what-the-messages-mean" aria-label="Link to What the messages mean">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>The page says</th><th>What it means, what to do</th></tr></thead>
+<tbody>
+<tr><td>Wazza OS is up to date</td><td>No newer version. Nothing to do.</td></tr>
+<tr><td>Wazza OS has not checked for updates yet / Not checked yet</td><td>The first check of this start has not run
+yet. Click <span class="ui">Check now</span>.</td></tr>
+<tr><td>The update server could not be reached (offline, or it timed out).</td><td>No Internet, or the server did not
+answer. Check your connection, then <span class="ui">Check now</span>.</td></tr>
+<tr><td>The update server is limiting requests from this computer. Try again in a minute.</td><td>Too many checks in a
+short time. Wait a minute.</td></tr>
+<tr><td>A download failed a moment ago: Download Update is available again after a short wait</td><td>Wazza OS waits
+30 seconds, then 2 minutes, then 10 minutes between attempts. The button comes back by itself.</td></tr>
+<tr><td>Four downloads completed this hour</td><td>A limit against loops: <span class="ui">Download Update</span> comes back
+after the hour.</td></tr>
+<tr><td>The package on the server is not the size its signed release names. Nothing was installed.</td><td>The download
+did not match its signature, so it was refused. Try again later.</td></tr>
+<tr><td>This version is no longer published: a newer one replaced it while it downloaded.</td><td>Wazza OS checks for
+the newer one by itself. Download that one.</td></tr>
+<tr><td>Downloaded and verified, not installed yet: select Install Now.</td><td>The download is ready; click
+<span class="ui">Install Now</span> when it suits you.</td></tr>
+<tr><td>Install Now was not confirmed. The update stays downloaded and verified: select Install Now again.</td><td>The
+confirmation window was closed or answered Install Later. Nothing is lost.</td></tr>
+<tr><td>The confirmation window got no answer within 30 seconds.</td><td>Click <span class="ui">Install Now</span> again and
+answer the window.</td></tr>
+<tr><td>Wazza OS's window was not in front, so the confirmation could not be shown.</td><td>Bring Wazza OS to the
+front, click <span class="ui">Install Now</span> again.</td></tr>
+<tr><td>Waiting for the administrator password, then installing</td><td>Type your password in the system's prompt.</td></tr>
+<tr><td>Installed. Restart Wazza OS to finish.</td><td>Click <span class="ui">Restart Wazza OS</span>.</td></tr>
+<tr><td>Wazza OS could not restart by itself</td><td>Quit Wazza OS and start it again from your app menu.</td></tr>
+<tr><td>The original installation result is unknown. Check status; do not repeat it.</td><td>Click
+<span class="ui">Check Installation Status</span>: Wazza OS reads what your package manager installed. Do not
+install a second time.</td></tr>
+<tr><td>Your version is not in the update history, so the list of changes since it may be incomplete.</td><td>Only
+the list of changes is affected; the update itself is fine.</td></tr>
+</tbody></table></div>
+<p>Still stuck: <a href="troubleshooting.html#updates">Troubleshooting › Updates</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-computer.html" rel="prev"><span class="dir">← Previous</span>This computer</a><a class="next" href="privacy-security.html" rel="next"><span class="dir">Next →</span>Privacy and security</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

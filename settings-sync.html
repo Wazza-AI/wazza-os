@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings › Sync &amp; team · Wazza OS manual</title>
+<meta name="description" content="Settings › Sync & team in Wazza OS: the vault that syncs your skills, files and Chat history with your account, held-back deletes, unsent team changes, and the team section of a team account.">
+<meta name="keywords" content="settings, sync, vault, team, connect, sign out, chat history, held-back deletes, unsent team changes, private session, activity, shared chats">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html" aria-current="page">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">Sync &amp; team</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#sync">Sync</a></li><li class="lvl2"><a href="#team">Team</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Settings › Sync &amp; team</h1>
+<p class="lead">Sync your skills, files and Chat history with your Wazza OS account (the vault), and, with a team
+account, your team's settings and what your team can see.</p>
+
+<h2 id="sync">Sync<a class="anchor" href="#sync" aria-label="Link to Sync">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-sync-1.webp" width="1215" height="346" alt="Sync section: Vault, your skills, files and Chat history synced with your account, Not connected, with Sync now, Connect and Sign out; Chat history switch on"></div>
+  <figcaption>Settings › Sync &amp; team before connecting: <em>Not connected: your skills, files and Chat history stay
+  on this computer only</em>.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Control</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Vault · <span class="ui">Connect</span></td><td>Connects this computer to your account's vault: the website's
+sign-in opens in Wazza OS's private sign-in tab, where you approve this computer. Then your skills, files and Chat
+history sync with your account. The line next to <em>Vault</em> says the state (not connected, syncing, up to date…).</td></tr>
+<tr><td><span class="ui">Sync now</span></td><td>Syncs at once instead of waiting for the next automatic sync.</td></tr>
+<tr><td><span class="ui">Sign out</span></td><td>Signs the vault out on this computer. What the vault does not hold yet
+is kept here, nothing is deleted.</td></tr>
+<tr><td>Chat history (default: on)</td><td>Your Chats sync to your account (personal only: never shared with a team
+unless you share one yourself). Off: Chats stay on this computer.</td></tr>
+<tr><td>Held-back deletes · <span class="ui">Confirm deletes</span></td><td>Shown only when needed. When many files
+were deleted on this computer at once, the sync holds those deletes back instead of deleting them in your vault too
+(a brake against accidents). <span class="ui">Confirm deletes</span> sends them: what was deleted here is deleted in
+your vault too.</td></tr>
+<tr><td>Unsent team changes · <span class="ui">Restore</span></td><td>Shown only when needed: changes you made to team
+files that never reached the vault. <span class="ui">Restore</span> puts them back in your own files, in a folder named
+Unsent team changes, so nothing is lost.</td></tr>
+</tbody></table></div>
+<p>Sync needs a Wazza OS account: <a href="signin.html#your-wazza-os-account">Home › Sign in</a>.</p>
+
+<h2 id="team">Team<a class="anchor" href="#team" aria-label="Link to Team">#</a></h2>
+<p>This section shows only on a team account (an organisation on the Wazza website). What you see depends on your role:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Part</th><th>Who sees it</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>Team</td><td>Every member</td><td>Which organisation you belong to and your role, the organisation's policy (an
+owner or admin edits it, a member reads it), and a <span class="ui">Private session</span> switch when the policy allows
+private sessions.</td></tr>
+<tr><td>Activity</td><td>Off unless the policy turns it on</td><td>An admin sees each member's daily totals: active
+and idle time, and how many keyboard and mouse inputs, never what was typed, clicked or shown, and no hourly detail.
+A member sees <em>Your team can see your active time</em> and their own daily totals.</td></tr>
+<tr><td>Shared sessions</td><td>Admins</td><td>The Chats members chose to share with the team (each Chat's
+<span class="ui">Share this Chat with my team</span>), with a viewer that replays one message by message.</td></tr>
+</tbody></table></div>
+<div class="note"><p>Team files are kept in the team's vault, which every member of the team can read: activity
+totals and shared Chats included. The words in the app say so ("Your team can see…").</p></div>
+<p>The company file servers of a team are in <a href="settings-files.html#company-folders">Files &amp; sharing ›
+Company folders</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-files.html" rel="prev"><span class="dir">← Previous</span>Files &amp; sharing</a><a class="next" href="settings-computer.html" rel="next"><span class="dir">Next →</span>This computer</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#sync">Sync</a></li><li class="lvl2"><a href="#team">Team</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

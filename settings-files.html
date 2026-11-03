@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings › Files &amp; sharing · Wazza OS manual</title>
+<meta name="description" content="Every option of Settings › Files & sharing in Wazza OS: copying files between your computer and a VM (Ask, Allow, Off) and company folders (SFTP, FTPS, SMB).">
+<meta name="keywords" content="settings, files, sharing, copy paste files, clipboard, from the vm, downloads, ask allow off, company folders, sftp, ftps, smb, nas, file server">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html" aria-current="page">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">Files &amp; sharing</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#between-this-computer-and-vms">Between this computer and VMs</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl3"><a href="#add-a-company-folder">Add a company folder</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Settings › Files &amp; sharing</h1>
+<p class="lead">Whether files may be copied and pasted between your computer and the VMs, and the company file
+servers your Chats may read.</p>
+<p>How to move files in practice (copy and paste, the Explorer, Downloads/From the VM): <a href="files.html">Files and sharing</a>.</p>
+
+<h2 id="between-this-computer-and-vms">Between this computer and VMs<a class="anchor" href="#between-this-computer-and-vms" aria-label="Link to Between this computer and VMs">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-files-1.webp" width="1215" height="370" alt="Between this computer and VMs tab: From this computer to a VM Ask Allow Off with Allow selected; From a VM to this computer Ask Allow Off with Ask selected"></div>
+  <figcaption>Settings › Files &amp; sharing › Between this computer and VMs, with the defaults.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>From this computer to a VM</td><td>Ask, <strong>Allow</strong> (default), Off</td><td>Files you copy on your
+computer (in your file manager) and paste in a VM's Files. Allow: they are copied in when you paste. Ask: Wazza OS
+asks you each time. Off: files are never copied in this way (text still is).</td></tr>
+<tr><td>From a VM to this computer</td><td>Ask (default), Allow, Off</td><td>Files you copy in a VM's Files and paste
+on your computer. They land in your <code>Downloads/From the VM</code> folder as new files, never over one of
+yours. Ask: Wazza OS asks you each time (default). Allow: without asking. Off: never.</td></tr>
+</tbody></table></div>
+<p>These two rules are about files. Copied <em>text</em> goes both ways between your computer and the VM in every
+case. Agents follow the same rule when they copy files to your computer (<code>computer.files.upload</code>): with
+Ask, you get the question.</p>
+
+<h2 id="company-folders">Company folders<a class="anchor" href="#company-folders" aria-label="Link to Company folders">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-files-2.webp" width="1215" height="838" alt="Company folders tab: No company folders yet, Refresh, and the Add a company folder form with Name, How it is reached SFTP, Server, Port 22, Folder on the server, Server identity, Chats may read it on, Plain FTP on this network off, Add folder"></div>
+  <figcaption>Settings › Files &amp; sharing › Company folders, before any folder was added.</figcaption>
+</figure>
+<p>A company folder is a folder on a file server (your company's, or your own NAS) that Wazza OS connects to. A folder
+the Chats may read is in every VM at <code>/home/ubuntu/Company/&lt;Name&gt;</code>, <strong>read-only</strong>, so
+agents can read your company's documents without being able to change them. The list shows each folder with its
+name, how it is reached, its status in words (connected, needs your login, not reachable…) and its buttons.</p>
+<h3 id="add-a-company-folder">Add a company folder<a class="anchor" href="#add-a-company-folder" aria-label="Link to Add a company folder">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>What to enter</th></tr></thead>
+<tbody>
+<tr><td>Name</td><td>The name it gets in the VM (for example <em>Acme drive</em>).</td></tr>
+<tr><td>How it is reached</td><td>SFTP (over SSH), FTPS (explicit TLS), or SMB (a Windows share or a NAS).</td></tr>
+<tr><td>Server</td><td>The server's name or address (for example <code>files.example.com</code>).</td></tr>
+<tr><td>Port</td><td>Empty: the usual one for the protocol (22 for SFTP).</td></tr>
+<tr><td>Folder on the server</td><td>The folder to show (for example <code>/shared</code>); for SMB, the share's name.</td></tr>
+<tr><td>Server identity</td><td>SFTP: the server's SHA-256 key fingerprint (<code>SHA256:…</code>); FTPS: its
+certificate's fingerprint. Wazza OS connects only to that server, never to an impostor.</td></tr>
+<tr><td>Chats may read it</td><td>On (default): the folder is in every VM, read-only. Off: it stays on this computer
+only, never in a VM's Chats.</td></tr>
+<tr><td>Plain FTP on this network</td><td>Off (default). For FTPS only: allow unencrypted FTP to a server on your own
+network that has no TLS.</td></tr>
+</tbody></table></div>
+<p>Click <span class="ui">Add folder</span>. Then use the folder's row:</p>
+<ul>
+  <li><span class="ui">Log in</span>: your own login for that server, kept only on this computer, encrypted.</li>
+  <li><span class="ui">Connect</span> and <span class="ui">Disconnect</span>; <span class="ui">Forget my login</span>.</li>
+  <li><span class="ui">Pin this certificate</span>: for an FTPS server whose certificate no authority of your computer
+  signed, once you checked the fingerprint shown with the server's owner.</li>
+</ul>
+<p>With a team account, the team's owners and admins add folders for every member (each member then logs in with
+their own login); without a team, the folders you add are your own.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-skills.html" rel="prev"><span class="dir">← Previous</span>Skills &amp; learning</a><a class="next" href="settings-sync.html" rel="next"><span class="dir">Next →</span>Sync &amp; team</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#between-this-computer-and-vms">Between this computer and VMs</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl3"><a href="#add-a-company-folder">Add a company folder</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

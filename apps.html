@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apps and tabs · Wazza OS manual</title>
+<meta name="description" content="Find, install, open, use, close and uninstall apps in Wazza OS: the Apps page and its categories, search, installing an app, opening it in a tab with its Chat, opening it in another VM, and uninstalling.">
+<meta name="keywords" content="apps, install app, open app, uninstall, remove app, catalog, search apps, categories, installed, your apps, gimp, blender, chromium, onlyoffice, inkscape, vlc, vscodium, freecad, godot, web apps, open in vm, edit app">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html" aria-current="page">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Apps and files</li><li aria-current="page">Apps and tabs</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Apps and tabs</h1>
+<p class="lead">The apps live in the VM. Home › Apps lists every app you can use, about 70 of them; one click
+installs an app and opens it in a tab, with a Chat beside it whose agent knows that app.</p>
+
+<h2 id="the-apps-page">The Apps page<a class="anchor" href="#the-apps-page" aria-label="Link to The Apps page">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/home-apps-full.webp" width="1483" height="838" alt="Home, Apps page: search, Add app, category filters Main apps, Installed, Office, Internet, Communication, Creative, Video and audio, 3D and games, Developer, System, Your apps; the Main apps Chat, Computer Control and Wazza Pro; the Office apps with download badges">
+    <span class="mark" style="left:76.2%;top:14%">1</span>
+    <span class="mark" style="left:91%;top:14%">2</span>
+    <span class="mark" style="left:23%;top:20.9%">3</span>
+    <span class="mark" style="left:24%;top:42%">4</span>
+    <span class="mark" style="left:43%;top:36.8%">5</span>
+    <span class="mark" style="left:25.9%;top:57%">6</span></div>
+  <figcaption>Home › Apps right after the first start.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p><span class="ui">Search apps</span>: type part of a name or of what it does (<em>photo</em>, <em>pdf</em>, <em>3d</em>).</p></li>
+  <li><p><span class="ui">Add app</span>: add an app that is not in the list (<a href="custom-apps.html">Add your own apps</a>).</p></li>
+  <li><p>The filters: <span class="ui">Main apps</span>, <span class="ui">Installed</span>, then the categories
+  (Office, Internet, Communication, Creative, Video &amp; audio, 3D &amp; games, Developer, System) and
+  <span class="ui">Your apps</span> (the ones you added). Each shows how many apps it holds.</p></li>
+  <li><p>An <strong>installed</strong> app: no badge. A click opens it.</p></li>
+  <li><p>A <strong>not installed</strong> app: a download badge at its top right. A click installs it, then opens it.</p></li>
+  <li><p>Each section says how many of its apps are installed and how many are left to install.</p></li>
+</ol>
+
+<h3 id="the-main-apps">The main apps<a class="anchor" href="#the-main-apps" aria-label="Link to The main apps">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>App</th><th>What it is</th></tr></thead>
+<tbody>
+<tr><td>Chat</td><td><em>Ask any agent</em>: a tab that is all Chat (<a href="chats.html">Chats, agents and models</a>).</td></tr>
+<tr><td>Computer Control</td><td><em>Screen control</em>: a Chat that can use your own computer, after your consent (<a href="computer-control.html">Computer Control</a>).</td></tr>
+<tr><td>Wazza Pro</td><td><em>AI media creation</em>: Wazza's image, video, audio and voice tools, with a Wazza account and its credits.</td></tr>
+</tbody></table></div>
+
+<h3 id="what-is-in-the-catalog">What is in the catalog<a class="anchor" href="#what-is-in-the-catalog" aria-label="Link to What is in the catalog">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Category</th><th>Apps</th></tr></thead>
+<tbody>
+<tr><td>Office</td><td>ONLYOFFICE Documents, Spreadsheets, Presentations and PDF editor; Calendar; Sticky Notes; the web versions of Google Docs, Sheets, Slides, Forms, Keep and Calendar, and of Microsoft Word, Excel, PowerPoint, OneNote and Outlook Calendar</td></tr>
+<tr><td>Internet</td><td>Chromium, Chromium Incognito, Brave, Opera, Proton VPN, OpenStreetMap, Google Maps, Google Drive, OneDrive, Dropbox; tools: OSM places and routes, Search</td></tr>
+<tr><td>Communication</td><td>Gmail, Outlook, Proton Mail, Google Meet, Teams, Telegram, Signal, WhatsApp, Discord, X, Facebook, Postiz (post scheduler)</td></tr>
+<tr><td>Creative</td><td>GIMP, Inkscape, Glaxnimate (2D animation), Motion Studio (motion graphics), Trelby (screenwriting)</td></tr>
+<tr><td>Video &amp; audio</td><td>VLC, Kdenlive, OBS Studio, Voice Studio (text to speech), YouTube, TikTok, Spotify; tool: Video Toolkit (FFmpeg video tools and yt-dlp)</td></tr>
+<tr><td>3D &amp; games</td><td>Blender, FreeCAD, Godot, Web Game Studio, Tiled (game maps), Free Texture Packer (sprite sheets), BREP (parametric CAD), Unity Hub</td></tr>
+<tr><td>Developer</td><td>VSCodium, Zed, Wave Terminal, Postgres; tool: Git</td></tr>
+<tr><td>System</td><td>Files, Desktop, Settings, Calculator, KeePassXC, OTPClient (2FA codes); tools: GPU for apps, Sound card drivers</td></tr>
+</tbody></table></div>
+<p>The <em>tools</em> have no window: they give the VM and its agents a capability (Git, the graphics libraries, sound,
+web search, maps and routes, video processing). They install like apps; Git, GPU for apps, Sound card drivers, Search
+and OSM places and routes are installed on the first start.</p>
+<p>Web apps (Gmail, Google Docs, Word, Teams…) open in the VM's browser as their own tab; their sign-ins are on
+<a href="signin.html#web-apps">Sign in › Web apps</a>.</p>
+
+<h2 id="install-an-app">Install an app<a class="anchor" href="#install-an-app" aria-label="Link to Install an app">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/apps-search.webp" width="1240" height="440" alt="Apps page with gimp typed in the search: the Creative section shows GIMP, Photo editing, with its download badge"></div>
+  <figcaption>Searching <em>gimp</em>: one result, not installed yet (the badge at its top right).</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Find the app (filter or search).</p></li>
+  <li><p>Click it (its tooltip says <em>Install and open</em>). A new tab opens and shows the installation:</p></li>
+</ol>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/apps-installing.webp" width="1600" height="345" alt="The new GIMP tab, Starting: Installing GIMP, The app will open once installation and verification finish. You can use another tab while this runs. Elapsed time, Running, Cancel installation"></div>
+</figure>
+<ol class="steps" start="3">
+  <li value="3"><p>The tab says <em>Installing …</em> with the time elapsed. You can use other tabs meanwhile;
+  <span class="ui">Cancel installation</span> stops it.</p></li>
+  <li value="4"><p>When it is installed and checked, the app opens in the tab, with its Chat on the left. A
+  notification says it is done.</p></li>
+</ol>
+<p>Installing takes from under a minute (small apps) to several minutes (Blender, ONLYOFFICE), depending on your
+connection. Apps install inside the VM, so they never change your computer. When an installation fails, the tab says
+why with <span class="ui">Retry installation</span> and <span class="ui">Show log</span>; Wazza OS already retried once
+by itself.</p>
+<div class="tip"><p>An agent can install apps for you too: ask "install Inkscape and open it", or give it a job in an
+app that is not installed: it installs it first.</p></div>
+
+<h2 id="open-and-use-an-app">Open and use an app<a class="anchor" href="#open-and-use-an-app" aria-label="Link to Open and use an app">#</a></h2>
+<ul>
+  <li>Click an installed app: it opens in a new tab (<a href="window.html#tabs">Tabs</a>). Open the same app twice
+  and you get two tabs, each with its own window and its own Chat.</li>
+  <li>Use it as on any computer: click, type, use its menus. Its files are in the VM (<a href="files.html">Files and sharing</a>).</li>
+  <li>Ask its Chat to work in it for you: the agent knows the app (its skill) and uses its tools or
+  <a href="drive.html">Drive</a>.</li>
+</ul>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/drive-gimp-result.webp" width="1600" height="285" alt="A GIMP tab after its agent's work: the Chat's answer Done, the image is open in GIMP, 800 x 600 canvas with a dark teal background, Hello from Wazza OS in white, centered; and GIMP showing the image with Hello from Wazza OS"></div>
+  <figcaption>"Create a new 800 x 600 image with a dark teal background and write Hello from Wazza OS in large white
+  letters in the middle": the agent of a GIMP tab did it with GIMP's own tools.</figcaption>
+</figure>
+
+<h3 id="the-app-menu">The app menu<a class="anchor" href="#the-app-menu" aria-label="Link to The app menu">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/apps-card-menu.webp" width="420" height="300" alt="The menu of the GIMP card: GIMP, Photo editing; Open in vm-1; Open in a new VM; Edit app; Uninstall from vm-1"></div>
+</figure>
+<p>Right-click an app on the Apps page:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Item</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Open in vm-1</td><td>Opens it in that VM (one item per VM where it is installed).</td></tr>
+<tr><td>Open in a new VM</td><td>Makes a new VM and opens the app there (<a href="settings-vms.html#add-a-vm">several VMs</a>).</td></tr>
+<tr><td>Edit app…</td><td>The app's recipe and its skill files: how it installs and starts, and what its agent knows
+(<a href="custom-apps.html#edit-an-apps-skill">Edit an app's skill</a>).</td></tr>
+<tr><td>Uninstall from vm-1…</td><td>Removes the app from that VM (below).</td></tr>
+<tr><td>Remove from catalog…</td><td>(an app you added) Takes your app out of the catalog, once it is uninstalled everywhere.</td></tr>
+</tbody></table></div>
+
+<h2 id="uninstall-an-app">Uninstall an app<a class="anchor" href="#uninstall-an-app" aria-label="Link to Uninstall an app">#</a></h2>
+<ol class="steps">
+  <li><p>Right-click the app on the Apps page › <span class="ui">Uninstall from vm-1…</span>.</p></li>
+  <li><p>A box shows the exact plan before anything happens:</p></li>
+</ol>
+<figure class="shot narrow">
+  <div class="shot-frame"><img src="img/apps-uninstall.webp" width="560" height="365" alt="Uninstall GIMP from vm-1? Cannot uninstall yet: the app is open in tab vm-1.t2; Removes files: the GIMP AppImage and its commands and 2 more; Open in tabs: vm-1.t2; APT GIMP 2.10 was removed at install and is not restored; Plan e553f5f406e4; Show every file, package and folder; Close its open tabs first; Uninstall (grey); Cancel">
+    <span class="mark" style="left:55%;top:16%">1</span>
+    <span class="mark" style="left:30%;top:50.2%">2</span>
+    <span class="mark" style="left:23%;top:59.3%">3</span>
+    <span class="mark" style="left:50%;top:71.5%">4</span></div>
+  <figcaption>Uninstalling GIMP while a GIMP tab is open.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>What will be removed (files, commands, packages), the tabs where the app is open, and what is not restored
+  (here, an older GIMP that its install had replaced).</p></li>
+  <li><p><span class="ui">Show every file, package and folder</span>: the complete list.</p></li>
+  <li><p><span class="ui">Close its open tabs first</span>: needed when the app is open (otherwise the box says
+  <em>Cannot uninstall yet</em> and <span class="ui">Uninstall</span> stays grey).</p></li>
+  <li><p><span class="ui">Uninstall</span> removes exactly that plan; <span class="ui">Cancel</span> changes nothing.
+  The card follows it (<em>Uninstalling…</em>) and a notification says when it is done.</p></li>
+</ol>
+<p>Your files made with the app (in the VM's folders) stay. Apps that Wazza OS itself needs (Files, Desktop, the
+default tools) cannot be uninstalled.</p>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui app list</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app status gimp</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app uninstall gimp --vm vm-1 --follow</span></code></pre>
+<p>Every <code>app</code> subcommand: <a href="cli.html#apps">The command line › Apps</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="skills.html" rel="prev"><span class="dir">← Previous</span>Skills, learning and personas</a><a class="next" href="gpu-apps.html" rel="next"><span class="dir">Next →</span>Desktop apps and the GPU</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

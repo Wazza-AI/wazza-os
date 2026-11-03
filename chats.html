@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chats, agents and models · Wazza OS manual</title>
+<meta name="description" content="How to use Chats in Wazza OS: write to an agent, attach files, mention files and apps, slash commands, follow its work, choose the agent (Hermes, Prime Agent, Claude Code, Codex, Antigravity) and the model, thinking, compacting, Chat settings, export, fork and delete.">
+<meta name="keywords" content="chat, agent, harness, model, hermes, prime agent, claude code, codex, antigravity, mimo, openrouter, thinking, attach, mention, slash command, compact, context, fork, export, delete chat, queue, stop, retry, edit message, default model, provider">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html" aria-current="page">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Work with agents</li><li aria-current="page">Chats, agents and models</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-a-chat">Open a Chat</a></li><li class="lvl2"><a href="#write-to-the-agent">Write to the agent</a></li><li class="lvl3"><a href="#add-files">Add files</a></li><li class="lvl3"><a href="#mention-a-file-or-an-app">Mention a file or an app</a></li><li class="lvl3"><a href="#slash-commands">Slash commands</a></li><li class="lvl2"><a href="#follow-the-agents-work">Follow the agent&#x27;s work</a></li><li class="lvl2"><a href="#choose-the-agent-and-the-model">Choose the agent and the model</a></li><li class="lvl3"><a href="#the-agents">The agents</a></li><li class="lvl2"><a href="#compact-a-long-chat">Compact a long Chat</a></li><li class="lvl2"><a href="#chat-settings">Chat settings</a></li><li class="lvl2"><a href="#what-an-agent-can-do">What an agent can do</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Chats, agents and models</h1>
+<p class="lead">A Chat is where you talk to an agent: an AI program that does the work you ask in the VM, in the app
+of its tab, with its files and its command line. You pick the agent and the model it thinks with, and you can switch
+both in the middle of a Chat without losing the conversation.</p>
+
+<div class="note"><p>A Chat needs a model. With the published Wazza OS, add an API key, log in with a plan you have,
+or sign in to a Wazza OS account first: <a href="signin.html">Sign in, plans and API keys</a>. The screenshots on
+this page use an OpenRouter key added in Sign in.</p></div>
+
+<h2 id="open-a-chat">Open a Chat<a class="anchor" href="#open-a-chat" aria-label="Link to Open a Chat">#</a></h2>
+<ul>
+  <li><strong>A Chat on its own</strong>: <span class="ui">+</span> › Apps › <span class="ui">Chat</span> (<em>Ask any
+  agent</em>), the first of the Main apps. The tab is all Chat, for questions, files and command-line work in the VM.</li>
+  <li><strong>A Chat next to an app</strong>: every app tab has its own Chat on its left
+  (<a href="window.html#tabs">Tabs</a>). Its agent works in that app.</li>
+</ul>
+<p>A new Chat starts with the default agent and model of
+<a href="settings-chats.html#new-chats">Settings › Chats &amp; agents › New Chats</a>. The line above the composer says
+what it starts on when no default is saved.</p>
+
+<h2 id="write-to-the-agent">Write to the agent<a class="anchor" href="#write-to-the-agent" aria-label="Link to Write to the agent">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/chat-composer.webp" width="1600" height="154" alt="The composer of a new Chat: the line about the default model, the box Ask anything, or @ a file or app, the plus button, the agent and model chip Hermes, and the send button">
+    <span class="mark" style="left:30%;top:52%">1</span>
+    <span class="mark" style="left:1.7%;top:88%">2</span>
+    <span class="mark" style="left:10%;top:88%">3</span>
+    <span class="mark" style="left:98.2%;top:88%">4</span></div>
+  <figcaption>The composer at the bottom of a Chat.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Type in <span class="ui">Ask anything, or @ a file or app…</span>. <kbd>Enter</kbd> sends;
+  <kbd>Shift</kbd>+<kbd>Enter</kbd> starts a new line.</p></li>
+  <li><p><span class="ui">+</span> adds files to your message (below).</p></li>
+  <li><p>The agent and model of this Chat; a click opens the <a href="#choose-the-agent-and-the-model">model window</a>.</p></li>
+  <li><p>Send. While the agent answers, this button becomes <span class="ui">Stop</span>.</p></li>
+</ol>
+
+<h3 id="add-files">Add files<a class="anchor" href="#add-files" aria-label="Link to Add files">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-attach-menu.webp" width="420" height="188" alt="The plus menu: Add to this message, From this computer (asks first), From the VM's files (vm-1)"></div>
+</figure>
+<ul>
+  <li><span class="ui">From this computer…</span>: pick files on your own computer. They are copied into the VM for the
+  agent (<em>asks first</em>: Wazza OS asks you to confirm before anything leaves your computer).</li>
+  <li><span class="ui">From the VM's files…</span>: pick files already in the VM.</li>
+  <li>Or drop files on the Chat, or paste an image.</li>
+</ul>
+
+<h3 id="mention-a-file-or-an-app">Mention a file or an app<a class="anchor" href="#mention-a-file-or-an-app" aria-label="Link to Mention a file or an app">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-mentions.webp" width="440" height="428" alt="Typing @ in the composer lists the VM's folders: wazza_os, Documents, Music, Pictures, Templates, Videos, each with its path in the VM"></div>
+</figure>
+<p>Type <kbd>@</kbd>: a list of the VM's files and folders (and apps) opens; keep typing to narrow it, then pick one
+with the arrows and <kbd>Enter</kbd> or a click. The agent gets its exact path. <em>wazza_os</em> is the folder the
+VM shares with Wazza OS (<a href="files.html">Files and sharing</a>).</p>
+
+<h3 id="slash-commands">Slash commands<a class="anchor" href="#slash-commands" aria-label="Link to Slash commands">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-slash-commands.webp" width="420" height="428" alt="Typing slash in the composer lists the agent's commands: /help, /model, /tools, /context, /reset, /compress"></div>
+</figure>
+<p>Type <kbd>/</kbd> at the start of the box: the agent's own commands. They differ per agent; for Hermes:
+<code>/help</code> (list the commands), <code>/model</code> (show or switch the model), <code>/tools</code> (list its tools),
+<code>/context</code> (message counts), <code>/reset</code> (clear the conversation), <code>/compress</code> (sum up the
+conversation to save room), and more down the list.</p>
+
+<h2 id="follow-the-agents-work">Follow the agent's work<a class="anchor" href="#follow-the-agents-work" aria-label="Link to Follow the agent&#x27;s work">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-user-message.webp" width="564" height="125" alt="Your message: Create a file named hello.txt in my Documents folder with today's date in it, then show me its content, with the retry, copy, edit and delete buttons under it">
+    <span class="mark" style="left:2.5%;top:45%">1</span></div>
+</figure>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/chat-answer.webp" width="1000" height="500" alt="The answer from OpenRouter (your key in Sign In), xiaomi/mimo-v2.6-flash: Thinking, a Bash row (mkdir -p ~/Documents + 2 commands) answering 2026-11-02, the message Created /home/ubuntu/Documents/hello.txt with a code block and a preview card of hello.txt, and the reply's buttons">
+    <span class="mark" style="left:38%;top:3.6%">2</span>
+    <span class="mark" style="left:11.5%;top:8.4%">3</span>
+    <span class="mark" style="left:32.5%;top:13.4%">4</span>
+    <span class="mark" style="left:10.5%;top:27.4%">5</span>
+    <span class="mark" style="left:22%;top:75%">6</span>
+    <span class="mark" style="left:17%;top:96%">7</span></div>
+  <figcaption>An agent created a file in the VM and showed it.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Your message. Its buttons: <strong>retry</strong> (ask again), <strong>copy</strong>, <strong>edit</strong>
+  (change it and send again), <strong>delete</strong>.</p></li>
+  <li><p>Who answers: the provider and the route (here <em>OpenRouter (your key in Sign In)</em>) and the model.</p></li>
+  <li><p><strong>Thinking</strong>: the model's reasoning, folded (click to read it).</p></li>
+  <li><p>A <strong>tool</strong> the agent used: here <em>Bash</em>, its commands and what they printed. Tools of the
+  app, of Wazza OS and of Drive show the same way.</p></li>
+  <li><p>The <strong>message</strong>: the answer, with code blocks (copy button) and previews of files it made.</p></li>
+  <li><p>A <strong>preview</strong> of a file in the VM: click to open it larger.</p></li>
+  <li><p>The answer's buttons: <strong>copy</strong>, <strong>copy as an image</strong>, <strong>retry</strong>,
+  <strong>fork</strong> (a new Chat that starts from here), <strong>delete</strong>.</p></li>
+</ol>
+<ul>
+  <li><strong>Stop</strong>: the send button while the agent works. It stops the turn; the Chat says <em>Stopped.</em></li>
+  <li><strong>Write while it works</strong>: what you send then waits in a queue and goes when the turn ends.</li>
+  <li><strong>The tab name</strong> becomes your first message, so you find the Chat again in the tab strip and in History.</li>
+  <li><strong>The context meter</strong> (<em>2% context</em>, bottom right) shows how full the model's memory of
+  this Chat is (<a href="#compact-a-long-chat">Compact a long Chat</a>).</li>
+</ul>
+
+<h2 id="choose-the-agent-and-the-model">Choose the agent and the model<a class="anchor" href="#choose-the-agent-and-the-model" aria-label="Link to Choose the agent and the model">#</a></h2>
+<p>Click the agent and model chip (bottom left of the Chat). The model window opens on <span class="ui">Model</span>.</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/chat-model-window.webp" width="880" height="644" alt="The model window, Model tab: Apply to This chat or Default for new chats; the Agent list (Hermes default, Prime Agent, Claude Code, Codex, Antigravity, each with what it runs on); Search models with 407 models; models through Wazza OS's gateway, MiMo-V2.6-Flash selected, each OpenRouter API key, yours; Thinking On Off; Provider Auto; Refresh list; Use Hermes MiMo-V2.6-Flash">
+    <span class="mark" style="left:56.5%;top:5.7%">1</span>
+    <span class="mark" style="left:29.6%;top:19.4%">2</span>
+    <span class="mark" style="left:62%;top:15.9%">3</span>
+    <span class="mark" style="left:96%;top:26.4%">4</span>
+    <span class="mark" style="left:60%;top:71.2%">5</span>
+    <span class="mark" style="left:72.3%;top:80.3%">6</span>
+    <span class="mark" style="left:29.5%;top:94.3%">7</span>
+    <span class="mark" style="left:74.3%;top:94.3%">8</span></div>
+  <figcaption>The model window of a Chat on Hermes with an OpenRouter key. Under each agent: what it runs on (your
+  OpenRouter key or your own keys, a plan, your Google account).</figcaption>
+</figure>
+<ol class="steps">
+  <li><p><span class="ui">Apply to</span>: <span class="ui">This chat</span>, or <span class="ui">Default for new chats</span>
+  (the same as Settings › New Chats).</p></li>
+  <li><p>The <strong>agent</strong> (<em>default</em> marks the one new Chats use). Under each: what it needs.</p></li>
+  <li><p><span class="ui">Search models</span>: type part of a name (for example <em>mimo</em>, <em>claude</em>,
+  <em>free</em>); the count says how many match.</p></li>
+  <li><p>The <strong>models</strong> this agent can use now, grouped by how it reaches them (<em>Through Wazza OS's
+  gateway</em>; your plans; your custom APIs), each with who pays (<em>OpenRouter API key · yours</em>). Grey rows
+  say why they cannot be used with this agent.</p></li>
+  <li><p><span class="ui">Thinking</span> <span class="ui">On</span>/<span class="ui">Off</span>: whether the model
+  reasons before answering (better on hard tasks, slower and costlier). Shown only for models that can.</p></li>
+  <li><p><span class="ui">Provider</span>: for an OpenRouter model, <span class="ui">Auto (Wazza OS's routing)</span>
+  or one company that serves it.</p></li>
+  <li><p><span class="ui">Refresh list</span> reads the models again (after you added a key, for example).</p></li>
+  <li><p><span class="ui">Use …</span> applies it. Switching keeps the conversation: the new agent reads it from the start.</p></li>
+</ol>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-model-search.webp" width="600" height="280" alt="The model search with mimo typed: 5 of 388 models, MiMo-V2.6-Pro, MiMo-V2.6-Flash, MiMo-V2.6-Pro-UltraSpeed, MiMo-V2.5-Pro, each through an OpenRouter API key, yours"></div>
+  <figcaption>Searching <em>mimo</em>.</figcaption>
+</figure>
+
+<h3 id="the-agents">The agents<a class="anchor" href="#the-agents" aria-label="Link to The agents">#</a></h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Agent</th><th>What it is</th><th>What it needs</th></tr></thead>
+<tbody>
+<tr><td>Hermes</td><td>Nous Research's open agent, Wazza OS's default. Runs in the VM, works with any model.</td>
+<td>A model: an API key, a plan login that reaches it, a custom API, or a Wazza OS account.</td></tr>
+<tr><td>Prime Agent</td><td>Wazza OS's own agent, built in; works with any model.</td><td>The same.</td></tr>
+<tr><td>Claude Code</td><td>Anthropic's coding agent.</td><td>Your Claude plan (Log in with Claude), or any model through Wazza OS's gateway.</td></tr>
+<tr><td>Codex</td><td>OpenAI's coding agent.</td><td>Your ChatGPT plan (Log in with ChatGPT), or any model through the gateway.</td></tr>
+<tr><td>Antigravity</td><td>Google's agent. Installed the first time you pick it (<em>not installed</em> until then).</td><td>Your Google account plan (Log in with Google).</td></tr>
+</tbody></table></div>
+<p>Every agent gets the same Wazza OS tools (apps, Drive, files, other agents): see <a href="mcp.html">The Wazza OS MCP</a>.</p>
+
+<h2 id="compact-a-long-chat">Compact a long Chat<a class="anchor" href="#compact-a-long-chat" aria-label="Link to Compact a long Chat">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/chat-info-compact.webp" width="880" height="475" alt="The Info and compact tab: context 25.7k of 1.1M tokens, 2%; Compact the conversation with Compact now and New chat from a summary; Compact at 80k tokens with Set; Use in this chat: tokens in, tokens out, cache hit, speed, answers, paid by OpenRouter API key"></div>
+  <figcaption>The model window's <span class="ui">Info &amp; compact</span> tab.</figcaption>
+</figure>
+<p>A model remembers a limited amount of a conversation (its <em>context window</em>). The tab shows how much of it this
+Chat uses (<em>25.7k of 1.1M tokens</em>), and:</p>
+<ul>
+  <li><span class="ui">Compact now</span>: the agent sums up what was said and goes on with less (Hermes uses its
+  <code>/compress</code>, Claude Code, Codex and Prime Agent their <code>/compact</code>).</li>
+  <li><span class="ui">New chat from a summary</span>: a new Chat that starts from a summary of this one.</li>
+  <li><span class="ui">Compact at … tokens</span> › <span class="ui">Set</span>: compact by itself at that size (default
+  80k tokens, 50 % of the window, or the agent's own rule).</li>
+  <li><strong>Use in this chat</strong>: tokens in and out, cache hits, speed, answers, and who pays. Claude Code and
+  Codex do not report tokens: for them the numbers are Wazza OS's estimate, marked <em>estimated</em>.</li>
+</ul>
+
+<h2 id="chat-settings">Chat settings<a class="anchor" href="#chat-settings" aria-label="Link to Chat settings">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-settings-top.webp" width="393" height="234" alt="Chat settings, This chat: Learning in this chat switch on, Learn from this chat now with Learn"></div>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Learning in this chat (default: on)</td><td>What this Chat teaches can become a skill (<a href="skills.html#how-wazza-os-learns">How Wazza OS learns</a>). Turn it off for a private or throwaway Chat.</td></tr>
+<tr><td>Learn from this chat now</td><td><span class="ui">Learn</span> reviews this Chat now instead of waiting.</td></tr>
+<tr><td>Persona</td><td>None, or a persona (3D artist (Blender), Film director…): its skills load in this Chat, and the
+persona learns from it (<a href="skills.html#personas">Personas</a>).</td></tr>
+</tbody></table></div>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/chat-settings-shows.webp" width="487" height="505" alt="What the chat shows: Messages Unfolded, Thinking Folded, Tools Folded, Shell Folded, Previews Unfolded, Text size Default 80 percent, Font Default"></div>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>What the chat shows</th><th>Values (default in bold)</th></tr></thead>
+<tbody>
+<tr><td>Messages</td><td><strong>Unfolded</strong>, Folded, Hidden</td></tr>
+<tr><td>Thinking</td><td>Unfolded, <strong>Folded</strong>, Hidden</td></tr>
+<tr><td>Tools</td><td>Unfolded, <strong>Folded</strong>, Hidden</td></tr>
+<tr><td>Shell</td><td>Unfolded, <strong>Folded</strong>, Hidden</td></tr>
+<tr><td>Previews</td><td><strong>Unfolded</strong>, Hidden</td></tr>
+<tr><td>Text size</td><td>Small, <strong>Default</strong>, Large, or a percentage</td></tr>
+<tr><td>Font</td><td><strong>Default</strong>, System, Mono</td></tr>
+</tbody></table></div>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/chat-settings-foot.webp" width="880" height="64" alt="Export .md .html .txt .json, Fork: hover a reply, Delete this chat"></div>
+</figure>
+<ul>
+  <li><span class="ui">Export</span>: the whole Chat as Markdown, HTML, plain text or JSON, saved on your computer.</li>
+  <li><span class="ui">Fork</span>: hold the pointer over a reply and click its fork button: a new Chat starts from there.</li>
+  <li><span class="ui">Delete this chat</span>: deletes the conversation for good (it asks first).</li>
+</ul>
+
+<h2 id="what-an-agent-can-do">What an agent can do<a class="anchor" href="#what-an-agent-can-do" aria-label="Link to What an agent can do">#</a></h2>
+<ul>
+  <li>Work in the VM: read and write its files, run commands, install command-line tools, browse the web with its
+  own tools. A Chat in the VM runs its tools without asking each time (Wazza OS has no ask mode); the VM is its
+  own computer, separate from yours.</li>
+  <li>Work in its tab's app: through the app's own tools (GIMP, Blender, ONLYOFFICE, the browser…) or by looking and
+  clicking (<a href="drive.html">Drive</a>).</li>
+  <li>Start other agents in other apps' tabs, at the same time (<a href="parallel-tabs.html">Several agents at once</a>).</li>
+  <li>Reach your own computer only as you allow: copies of files between your computer and the VM follow your
+  rules in <a href="settings-files.html#between-this-computer-and-vms">Settings › Files &amp; sharing</a> (into the VM:
+  allowed by default; out of it: Wazza OS asks you), and seeing or using your screen needs
+  <a href="computer-control.html">Computer Control</a>.</li>
+</ul>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui chat-transcript --tab t5 --last 4</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui chat-model set openrouter/xiaomi/mimo-v2.6-flash</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui chat-queue list --tab t5</span></code></pre>
+<p>Reading a Chat, setting the default model, the queued messages: <a href="cli.html#chats">The command line › Chats</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="window.html" rel="prev"><span class="dir">← Previous</span>Getting around</a><a class="next" href="parallel-tabs.html" rel="next"><span class="dir">Next →</span>Several agents at once</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-a-chat">Open a Chat</a></li><li class="lvl2"><a href="#write-to-the-agent">Write to the agent</a></li><li class="lvl3"><a href="#add-files">Add files</a></li><li class="lvl3"><a href="#mention-a-file-or-an-app">Mention a file or an app</a></li><li class="lvl3"><a href="#slash-commands">Slash commands</a></li><li class="lvl2"><a href="#follow-the-agents-work">Follow the agent&#x27;s work</a></li><li class="lvl2"><a href="#choose-the-agent-and-the-model">Choose the agent and the model</a></li><li class="lvl3"><a href="#the-agents">The agents</a></li><li class="lvl2"><a href="#compact-a-long-chat">Compact a long Chat</a></li><li class="lvl2"><a href="#chat-settings">Chat settings</a></li><li class="lvl2"><a href="#what-an-agent-can-do">What an agent can do</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings › This computer · Wazza OS manual</title>
+<meta name="description" content="Settings › This computer in Wazza OS: the computer check, live usage of your computer and the VM, uninstalling, and Remove all data.">
+<meta name="keywords" content="settings, this computer, check, kvm, usage, cpu, ram, vram, disk, remove all data, reset, uninstall, erase">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html" aria-current="page">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">This computer</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#check">Check</a></li><li class="lvl2"><a href="#usage">Usage</a></li><li class="lvl2"><a href="#remove-data">Remove data</a></li><li class="lvl3"><a href="#remove-wazza-os">Remove Wazza OS</a></li><li class="lvl3"><a href="#remove-all-data">Remove all data</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Settings › This computer</h1>
+<p class="lead">What your computer gives Wazza OS, how much of it is used right now, and how to remove Wazza OS's data.</p>
+
+<h2 id="check">Check<a class="anchor" href="#check" aria-label="Link to Check">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-computer-1.webp" width="1215" height="570" alt="Check tab: six checks all ok (Hardware virtualization (KVM), systemd user session, X11 display (XWayland), Chat sandbox, Graphics driver, VM display buffers), the line Wazza OS checked this computer: everything it needs is here, and Check again"></div>
+  <figcaption>Settings › This computer › Check on a computer where everything is present.</figcaption>
+</figure>
+<p>The same six checks as the <a href="first-start.html#step-2-checking-this-computer">first start</a>. A line that
+is not <em>ok</em> also says what was found, what does not work while it is missing, and its fixes: a command with a
+<span class="ui">Copy</span> button (paste it in a terminal), a step to follow, or a button that opens the Wazza OS
+setting that fixes it. <span class="ui">Check again</span> runs the check now (for example after you fixed
+something). The line under the list says when it was checked, on which system, and how long it took.</p>
+<p>Wazza OS also runs the check once at every start: while something is missing, a notification says what and opens
+this section.</p>
+<p>The fixes for every check: <a href="first-start.html#what-is-checked">What is checked</a>. In a terminal:
+<code>wazza --check</code> (or <code>wazza --check --json</code>); it exits with 1 when something is missing.</p>
+
+<h2 id="usage">Usage<a class="anchor" href="#usage" aria-label="Link to Usage">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-computer-2.webp" width="1215" height="375" alt="Usage tab: linux; This computer CPU 3%, RAM 63%, VRAM dash, DISK 16%; vm-1 CPU 1%, RAM 14%, VRAM 64M, DISK 2.0G"></div>
+  <figcaption>Settings › This computer › Usage.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Meter</th><th>This computer</th><th>The VM (the one this window shows)</th></tr></thead>
+<tbody>
+<tr><td>CPU</td><td>How busy your computer's processors are.</td><td>How busy the VM's processors are.</td></tr>
+<tr><td>RAM</td><td>The share of your computer's memory in use.</td><td>The share of the VM's memory in use.</td></tr>
+<tr><td>VRAM</td><td>Your graphics card's memory in use (— when it cannot be read).</td><td>The VM's video memory.</td></tr>
+<tr><td>DISK</td><td>The share of your disk in use.</td><td>The size of the VM's disk now.</td></tr>
+</tbody></table></div>
+<p>The live VM card at the bottom of the Home menu shows the same for the VM, with its memory limit
+(<a href="window.html#the-vm-card">The VM card</a>).</p>
+
+<h2 id="remove-data">Remove data<a class="anchor" href="#remove-data" aria-label="Link to Remove data">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-computer-3.webp" width="1215" height="309" alt="Remove data tab: Remove Wazza OS, uninstall its package with your system's package manager; Remove all data, your VMs, settings, sign-ins, Chats, logs and caches on this computer, for good, your own files stay, with the Remove all data button"></div>
+  <figcaption>Settings › This computer › Remove data.</figcaption>
+</figure>
+<h3 id="remove-wazza-os">Remove Wazza OS<a class="anchor" href="#remove-wazza-os" aria-label="Link to Remove Wazza OS">#</a></h3>
+<p>Wazza OS is removed with your system's package manager: see <a href="install.html#remove-wazza-os">Install ›
+Remove Wazza OS</a>.</p>
+<div class="danger"><span class="callout-title">Removing the package also deletes your Wazza OS data</span>
+<p>Uninstalling the package (<code>apt remove</code>, <code>dnf remove</code>, <code>pacman -R</code>, the tar's
+<code>uninstall.sh</code>) deletes Wazza OS's data on this computer too: your VMs and everything in them, Chats and
+sign-ins. To update or reinstall, install the new package over the old one instead: your data is kept.</p></div>
+
+<h3 id="remove-all-data">Remove all data<a class="anchor" href="#remove-all-data" aria-label="Link to Remove all data">#</a></h3>
+<p>Erases all of Wazza OS's data on this computer and starts Wazza OS again as on its very first start, without
+uninstalling it.</p>
+<ol class="steps">
+  <li><p>Click <span class="ui">Remove all data…</span>. A box opens with what goes (Wazza OS's own folders and their
+  sizes) and what stays.</p></li>
+  <li><p>Type <code>REMOVE ALL DATA</code> exactly in its field.</p></li>
+  <li><p>Click <span class="ui">Remove all data and restart</span> (it is grey until the words are typed). Or
+  <span class="ui">Cancel</span>.</p></li>
+</ol>
+<div class="table-wrap"><table>
+<thead><tr><th>Goes, for good</th><th>Stays</th></tr></thead>
+<tbody>
+<tr><td>Every VM and everything in it (apps, files you made inside, the VM's settings), every Chat, every sign-in and
+key, every setting, logs and caches of Wazza OS.</td><td>Your own files on your computer (Documents, Downloads,
+Desktop, your home folder), including what Wazza OS saved there (Downloads/From the VM, backups), and your other apps.</td></tr>
+</tbody></table></div>
+<p>Wazza OS then closes, removes its data at its next start and starts as on its first start. If it cannot restart by
+itself, the row says that a removal is waiting, with <span class="ui">Cancel the removal</span> (until the next start,
+the removal can still be cancelled).</p>
+<div class="tip"><p>Back up a VM you want to keep first (<a href="settings-vms.html#backups">Virtual machines ›
+Backups</a>): the zip is in your Downloads folder, which stays.</p></div>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-sync.html" rel="prev"><span class="dir">← Previous</span>Sync &amp; team</a><a class="next" href="update.html" rel="next"><span class="dir">Next →</span>The Update page</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#check">Check</a></li><li class="lvl2"><a href="#usage">Usage</a></li><li class="lvl2"><a href="#remove-data">Remove data</a></li><li class="lvl3"><a href="#remove-wazza-os">Remove Wazza OS</a></li><li class="lvl3"><a href="#remove-all-data">Remove all data</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

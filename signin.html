@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in, plans and API keys · Wazza OS manual</title>
+<meta name="description" content="How Chats get their models in Wazza OS: a Wazza OS account, logins with the plans you pay for (Claude, ChatGPT, Grok, Google, OpenRouter, Nous Portal), API keys of 73 providers with several keys per provider, custom OpenAI- or Anthropic-compatible APIs, and web app sign-ins.">
+<meta name="keywords" content="sign in, login, account, api key, openrouter, openai, anthropic, claude, chatgpt, grok, gemini, deepseek, mistral, github copilot, custom api, ollama, lm studio, local model, web apps, google, microsoft, rotation, several keys, tokens by model, no model">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html" aria-current="page">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Work with agents</li><li aria-current="page">Sign in, plans and API keys</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#which-way-for-you">Which way is for you</a></li><li class="lvl2"><a href="#open-sign-in">Open Sign in</a></li><li class="lvl2"><a href="#your-wazza-os-account">Your Wazza OS account</a></li><li class="lvl2"><a href="#logins">Logins</a></li><li class="lvl2"><a href="#api-keys">API keys</a></li><li class="lvl3"><a href="#several-keys-or-accounts">Several keys or accounts</a></li><li class="lvl2"><a href="#custom-api">Custom API</a></li><li class="lvl2"><a href="#web-apps">Web apps</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Sign in, plans and API keys</h1>
+<p class="lead">An agent needs a model to talk to, and a model needs someone who pays for it. Wazza OS gives your
+agents models in four ways: your Wazza OS account, a plan you already pay for (log in once), an API key, or any
+compatible API (a company gateway, a model on your own computer). All of it is on one page: Home › Sign in.</p>
+
+<div class="warn"><span class="callout-title">The published Wazza OS has no built-in key</span>
+<p>Since alpha 2, Wazza OS ships no shared OpenRouter key. Until you add one of the four, a Chat has no model to
+answer with. The quickest start: an OpenRouter key (it reaches hundreds of models, several of them free) or a plan
+login you already have. A Chat on Hermes with none of them answers at once:
+<em>Add an OpenRouter key under Sign In › API keys, or sign in to your Wazza account</em>.</p></div>
+
+<h2 id="which-way-for-you">Which way is for you<a class="anchor" href="#which-way-for-you" aria-label="Link to Which way is for you">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>You have…</th><th>Use</th><th>What your agents get</th></tr></thead>
+<tbody>
+<tr><td>A Claude, ChatGPT, Grok or Google AI plan</td><td><a href="#logins">Logins</a></td><td>The plan's models, at no extra
+cost, within the plan's limits.</td></tr>
+<tr><td>An account with an AI provider (OpenRouter, OpenAI, Anthropic, Google AI Studio, DeepSeek, Mistral…)</td><td><a href="#api-keys">API keys</a></td>
+<td>That provider's models, billed to your account with them.</td></tr>
+<tr><td>A company AI gateway, or a model running on your computer (Ollama, LM Studio, vLLM…)</td><td><a href="#custom-api">Custom API</a></td>
+<td>The models that endpoint serves.</td></tr>
+<tr><td>A Wazza OS account</td><td><a href="#your-wazza-os-account">Your Wazza OS account</a></td><td>Wazza OS's models
+(new Chats start on MiMo), Prime Agent's models, and sync of your Chats, skills and settings.</td></tr>
+</tbody></table></div>
+
+<h2 id="open-sign-in">Open Sign in<a class="anchor" href="#open-sign-in" aria-label="Link to Open Sign in">#</a></h2>
+<p>Click <span class="ui">Sign in</span> in the Home menu (or the account card at the bottom left of Home). The page
+has your Wazza OS account at the top, then four tabs: <span class="ui">Logins</span>, <span class="ui">API keys</span>,
+<span class="ui">Custom API</span>, <span class="ui">Web apps</span>. At the bottom, <span class="ui">Tokens by model</span>
+› <span class="ui">Show</span> lists the tokens each model used.</p>
+
+<h2 id="your-wazza-os-account">Your Wazza OS account<a class="anchor" href="#your-wazza-os-account" aria-label="Link to Your Wazza OS account">#</a></h2>
+<p>The card at the top: <em>Keeps your Chats, skills and settings in sync, and adds Wazza OS models to every agent.</em></p>
+<ul>
+  <li><span class="ui">Email and password</span>: the form for an account you have.</li>
+  <li><span class="ui">Log in / Sign up online</span>: asks where to open the website: <span class="ui">In the VM's
+  browser</span> (Wazza OS's private sign-in tab; log in or sign up with your email or Google; you are signed in by
+  itself) or <span class="ui">On this computer</span> (your own browser opens the Google sign-in; paste back the address
+  you land on). The same choices as in <a href="first-start.html#log-in-or-sign-up-online">the first start</a>.</li>
+</ul>
+<p>Earlier versions signed you in on a test website by default; Wazza OS now uses wazza.ai alone. After an update from one of
+them it says once, as a notice: <em>Wazza OS now uses wazza.ai: sign in again</em>. Sign in with this card.</p>
+<p>Once signed in, the account card at the bottom left of Home shows your name instead of <em>Not signed in</em>.
+Sync of your files and Chat history is then turned on in <a href="settings-sync.html">Settings › Sync &amp; team</a>.</p>
+
+<h2 id="logins">Logins<a class="anchor" href="#logins" aria-label="Link to Logins">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/signin-tab-1.webp" width="1050" height="1010" alt="Sign in page, Logins tab: cards for Claude, ChatGPT, Grok, Google, OpenRouter and Nous Portal, each with its plan, which agents it works in, Not signed in, and a Log in with button">
+    <span class="mark" style="left:7.7%;top:25.7%">1</span>
+    <span class="mark" style="left:62%;top:37.9%">2</span>
+    <span class="mark" style="left:33%;top:37.9%">3</span></div>
+  <figcaption>Home › Sign in › Logins, nothing signed in yet.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Open the <span class="ui">Logins</span> tab.</p></li>
+  <li><p>Click <span class="ui">Log in with …</span> on the plan you have. The provider's own sign-in page opens in
+  Wazza OS's private sign-in tab; sign in there as usual.</p></li>
+  <li><p>The card then says <em>Signed in</em> with the account. Each card says which agents can use it:</p></li>
+</ol>
+<div class="table-wrap"><table>
+<thead><tr><th>Login</th><th>Plan</th><th>Works in</th></tr></thead>
+<tbody>
+<tr><td>Claude</td><td>Free, Pro or Max plan</td><td>Claude Code only</td></tr>
+<tr><td>ChatGPT</td><td>Plus or Pro plan</td><td>Codex, Hermes and Prime Agent with their own sign-in; Claude Code and Antigravity through Wazza OS's gateway</td></tr>
+<tr><td>Grok</td><td>SuperGrok or X Premium+</td><td>Every agent</td></tr>
+<tr><td>Google</td><td>Your Google account plan</td><td>Antigravity only</td></tr>
+<tr><td>OpenRouter</td><td>Your OpenRouter account</td><td>Every agent (the login gives Wazza OS an OpenRouter key of yours)</td></tr>
+<tr><td>Nous Portal</td><td>Your Nous Portal account</td><td>Hermes only</td></tr>
+</tbody></table></div>
+<p>A login can hold <strong>several accounts</strong>: when one runs out (its plan's limit), the next takes over.
+Each account shows its state: <em>In use</em>, <em>Ready</em>, <em>Empty · back at</em> (with the time it comes
+back), <em>Paused</em> or <em>Refused</em>. See <a href="#several-keys-or-accounts">Several keys or accounts</a>.</p>
+
+<h2 id="api-keys">API keys<a class="anchor" href="#api-keys" aria-label="Link to API keys">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/signin-tab-2.webp" width="1050" height="1010" alt="Sign in page, API keys tab: search 73 providers, and a card per provider (OpenRouter, ChatGPT / OpenAI, Claude / Anthropic, Grok / xAI, Google / Gemini, DeepSeek, Mistral, GitHub Copilot, AI21 and more), each with Add key and Get a key">
+    <span class="mark" style="left:83%;top:30.5%">1</span>
+    <span class="mark" style="left:10%;top:47.4%">2</span>
+    <span class="mark" style="left:18%;top:47.4%">3</span></div>
+  <figcaption>Home › Sign in › API keys: 73 providers, the most used first, then A to Z.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>Find the provider: the most used are first; or type its name in <span class="ui">Search 73 providers</span>.</p></li>
+  <li><p>Click <span class="ui">+ Add key</span> on its card.</p></li>
+  <li><p>No key yet? <span class="ui">Get a key ›</span> opens the provider's page where you create one.</p></li>
+</ol>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/signin-add-key.webp" width="1100" height="560" alt="The OpenRouter card open for a key: OPENROUTER_API_KEY, a Paste API key field, Check and save, Cancel">
+    <span class="mark" style="left:47%;top:88%">4</span>
+    <span class="mark" style="left:80%;top:88%">5</span></div>
+</figure>
+<ol class="steps" style="--start:3" start="4">
+  <li value="4"><p>Paste the key in <span class="ui">Paste API key</span> (the field names the variable the key is known by, here
+  <code>OPENROUTER_API_KEY</code>).</p></li>
+  <li value="5"><p>Click <span class="ui">Check and save</span>. Wazza OS checks the key with the provider, then keeps it. The card
+  then shows the key by its last characters only (<code>sk-or-v1-…</code> and four characters) with its state, and
+  <span class="ui">+ Add another … key</span>.</p></li>
+</ol>
+<p>No restart is needed: a Chat that answered <em>Add an OpenRouter key…</em> starts again by itself once the key is
+saved (its agent shows <em>Setting up your key…</em> for a few seconds); then send your message again.</p>
+<p>A key works in every agent: Wazza OS's gateway gives it to agents that do not support that provider themselves
+(see <a href="settings-chats.html#network-and-keys">Provider gateway</a>). Keys are kept in Wazza OS's encrypted store
+on your computer; agents in the VM never see the key itself.</p>
+<p>The <span class="ui">GitHub Copilot</span> card uses your GitHub Copilot plan instead of a key.</p>
+
+<h3 id="several-keys-or-accounts">Several keys or accounts<a class="anchor" href="#several-keys-or-accounts" aria-label="Link to Several keys or accounts">#</a></h3>
+<p>A provider can hold several keys, and a login several accounts: when one runs out of credit or hits its rate
+limit, the next one takes over, and the first is used again as soon as it can work. On each key or account:</p>
+<ul>
+  <li>drag its <strong>⋮⋮</strong> handle to change the order;</li>
+  <li>its <strong>⋯</strong> menu: <span class="ui">Use first</span>, <span class="ui">Move up</span>,
+  <span class="ui">Move down</span>, <span class="ui">Rename…</span>, <span class="ui">Replace key…</span>,
+  <span class="ui">Sign out</span> or <span class="ui">Remove</span>;</li>
+  <li><span class="ui">When one runs out</span> (per provider): <span class="ui">In order</span> (the first, until it runs
+  out), <span class="ui">Take turns</span>, <span class="ui">Least used</span> or <span class="ui">Random</span>.</li>
+</ul>
+
+<h2 id="custom-api">Custom API<a class="anchor" href="#custom-api" aria-label="Link to Custom API">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/signin-tab-3.webp" width="1050" height="1010" alt="Sign in page, Custom API tab: Saved endpoints, Endpoint name, API base URL, API, Model ID, Server location, Allow unencrypted HTTP for this host-loopback endpoint, Token handling, Optional API token, Find models, Add"></div>
+  <figcaption>Home › Sign in › Custom API.</figcaption>
+</figure>
+<p>Any OpenAI-compatible or Anthropic-compatible endpoint: your company's gateway, a hosted model, or a model running
+on your own computer. Every agent can use it: its models appear in each Chat's model list through Wazza OS's gateway.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>What to enter</th></tr></thead>
+<tbody>
+<tr><td>Saved endpoints</td><td><span class="ui">New endpoint</span>, or one you saved (to change or remove it).</td></tr>
+<tr><td>Endpoint name</td><td>A name for you (it shows in the model lists).</td></tr>
+<tr><td>API base URL</td><td>The address of the API, for example <code>https://api.example.com/v1</code>.</td></tr>
+<tr><td>API</td><td><span class="ui">OpenAI-compatible (chat completions)</span> or Anthropic-compatible.</td></tr>
+<tr><td>Model ID (optional)</td><td>A model it serves; or leave empty and click <span class="ui">Find models</span>, which lists the ones it serves.</td></tr>
+<tr><td>Server location</td><td><span class="ui">Remote HTTPS server</span>, or a server on this computer (host-local: this
+computer, not the VM's own localhost).</td></tr>
+<tr><td>Allow unencrypted HTTP for this host-loopback endpoint</td><td>Only for a server on this computer that has no
+HTTPS (for example <code>http://127.0.0.1:11434/v1</code> for Ollama). Use an explicit port (1024–65535, or 443).</td></tr>
+<tr><td>Token handling</td><td><span class="ui">No token (omit Authorization)</span>, or how to send a token.</td></tr>
+<tr><td>Optional API token</td><td>The endpoint's token, if it needs one (kept in the encrypted store).</td></tr>
+</tbody></table></div>
+<p>Click <span class="ui">Add</span> to save it. Saving does not test the model: open a Chat, pick the model, and ask
+something to check it.</p>
+
+<h2 id="web-apps">Web apps<a class="anchor" href="#web-apps" aria-label="Link to Web apps">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/signin-tab-4.webp" width="1050" height="1010" alt="Sign in page, Web apps tab: Web apps in vm-1: Google, Microsoft, X, Facebook, TikTok, WhatsApp, OpenStreetMap and Dropbox, each Not signed in with Sign in; Sign out of all web apps; Import a Chrome profile; Company folders"></div>
+  <figcaption>Home › Sign in › Web apps.</figcaption>
+</figure>
+<p>The sign-ins of the VM's web apps (the Google, Microsoft, social network and map apps of
+<a href="apps.html">Apps</a>), per VM (pick it at the top right). Google's apps share one sign-in (Gmail, Docs,
+Sheets…), and so do Microsoft's (Outlook, Word…); X, Facebook, TikTok, WhatsApp, OpenStreetMap and Dropbox keep their
+own.</p>
+<ul>
+  <li><span class="ui">Sign in</span> on a row opens that site's sign-in in the VM.</li>
+  <li><span class="ui">Sign out of all web apps</span> ends every web app sign-in of the VM, in every open tab, within seconds.</li>
+  <li><span class="ui">Import a Chrome profile…</span> copies the Chrome or Chromium profile of your computer (its
+  sign-ins, bookmarks and settings) for the VM's Chromium, and says what was copied, or that no profile was found.
+  Only you can do it; a Chat never can.</li>
+  <li><span class="ui">Company folders ›</span> opens <a href="settings-files.html#company-folders">Settings › Files &amp; sharing › Company folders</a>.</li>
+</ul>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui provider-keys list --credit</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui provider-keys add --stdin &lt; key.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui provider-signin status</span></code></pre>
+<p><code>key.json</code> holds <code>{"keys": [{"providerId": "openrouter", "key": "…"}]}</code>: the key goes in on
+standard input only, never as a word of the command line (which other users of the computer could see).
+<code>list --credit</code> also says what OpenRouter and DeepSeek keys have left.</p>
+<p>Every subcommand and its arguments: <a href="cli.html#keys-and-sign-ins">The command line › Keys and sign-ins</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="parallel-tabs.html" rel="prev"><span class="dir">← Previous</span>Several agents at once</a><a class="next" href="drive.html" rel="next"><span class="dir">Next →</span>Drive: agents on screen</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#which-way-for-you">Which way is for you</a></li><li class="lvl2"><a href="#open-sign-in">Open Sign in</a></li><li class="lvl2"><a href="#your-wazza-os-account">Your Wazza OS account</a></li><li class="lvl2"><a href="#logins">Logins</a></li><li class="lvl2"><a href="#api-keys">API keys</a></li><li class="lvl3"><a href="#several-keys-or-accounts">Several keys or accounts</a></li><li class="lvl2"><a href="#custom-api">Custom API</a></li><li class="lvl2"><a href="#web-apps">Web apps</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

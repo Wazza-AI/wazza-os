@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Computer Control · Wazza OS manual</title>
+<meta name="description" content="Computer Control: a special Chat that can see and use your own computer's screen, keyboard and mouse after you allow it. How to open it, what the consent covers, what it can and cannot do, and how to stop it.">
+<meta name="keywords" content="computer control, control my computer, screen, keyboard, mouse, consent, start, stop, local chat, host, outside the vm, permission">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html" aria-current="page">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Work with agents</li><li aria-current="page">Computer Control</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Computer Control</h1>
+<p class="lead">Computer Control is a Chat whose agent can see and use your own computer (not the VM): its screen, its
+keyboard and its mouse, in your own apps. It opens only after you allow it with your own click, and it stops as soon
+as you close its tab.</p>
+
+<div class="facts">
+  <div class="fact"><b>What</b><span>An agent on your real computer's screen, keyboard and mouse</span></div>
+  <div class="fact"><b>Why</b><span>Work outside the VM: an app installed only on your computer, your desktop's settings</span></div>
+  <div class="fact"><b>Who</b><span>Experienced users who understand what they allow</span></div>
+  <div class="fact"><b>Ends</b><span>When you close its tab (Stop halts a turn at once)</span></div>
+</div>
+
+<div class="warn"><span class="callout-title">You do not need it for work in the VM</span>
+<p>Every other Chat works in the VM, a separate computer, where an agent cannot harm your own files. Use Computer
+Control only for a task that must happen on your own computer, and watch it.</p></div>
+
+<h2 id="open-computer-control">Open Computer Control<a class="anchor" href="#open-computer-control" aria-label="Link to Open Computer Control">#</a></h2>
+<ol class="steps">
+  <li><p>Click <span class="ui">+</span> (Show apps), then <span class="ui">Computer Control</span> in Main apps
+  (<em>Screen control</em>).</p></li>
+  <li><p>A card asks: <em>Open Computer Control?</em> Read it, then click <span class="ui">Start</span>.
+  <span class="ui">Cancel</span>, <kbd>Esc</kbd> or a click outside the card closes it and nothing opens.</p></li>
+</ol>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/cc-consent-card.webp" width="555" height="290" alt="The card Open Computer Control? This Chat will look at and act on this computer's screen, keyboard and mouse (your own apps, not a VM's) without asking again until you close its tab. Its own shell and file tools run without asking: they change files only in this Chat's folder. Your own mouse and keyboard, and Stop, always win; closing the tab ends the control. Start, Cancel"></div>
+  <figcaption>The consent card. Only your own real click on Start opens it: an agent, a script or the command line cannot.</figcaption>
+</figure>
+<p>The tab then becomes the Computer Control Chat: its name has a red dot, and a red banner over the Chat says what is
+allowed:</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/cc-active-banner.webp" width="1600" height="72" alt="The Computer Control tab with its red dot, and the banner: Computer Control is active: this Chat can see and use this computer's screen, keyboard and mouse without asking again. Its own shell and file tools run without asking too (Wazza OS has no ask mode) and change files only in this Chat's folder. Stop halts it; closing this tab ends it."></div>
+</figure>
+
+<h2 id="what-the-consent-covers">What the consent covers<a class="anchor" href="#what-the-consent-covers" aria-label="Link to What the consent covers">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Allowed, without asking again</th><th>Not allowed</th></tr></thead>
+<tbody>
+<tr><td>Looking at your computer's screen (every window you have open).</td><td>Anything in another tab: the consent is for this one Chat only.</td></tr>
+<tr><td>Clicking, typing and pressing keys in your own apps.</td><td>Changing files outside this Chat's own folder with its shell and file tools.</td></tr>
+<tr><td>Running its own shell and file tools, which change files only in this Chat's folder.</td><td>Going on after you close the tab, or after Wazza OS restarts.</td></tr>
+</tbody></table></div>
+<ul>
+  <li><strong>Your own mouse and keyboard always win</strong>: if you move or type, your input goes first.</li>
+  <li><span class="ui">Stop</span> halts the agent's current turn at once.</li>
+  <li><strong>Closing the tab ends the control</strong>: the permission is withdrawn before the tab closes.</li>
+  <li>After Wazza OS restarts, a restored Computer Control tab says <em>Computer Control needs your consent again:
+  Wazza OS restarted, so this Chat cannot see or use this computer until you allow it</em>, with
+  <span class="ui">Allow…</span> to show the card again.</li>
+</ul>
+
+<h2 id="ask-it-something">Ask it something<a class="anchor" href="#ask-it-something" aria-label="Link to Ask it something">#</a></h2>
+<p>Write to it like any Chat. Pick a model that takes images (it works by looking at your screen); the model window is
+the same as every Chat's (<a href="chats.html#choose-the-agent-and-the-model">Choose the agent and the model</a>).</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/cc-tools.webp" width="1100" height="340" alt="A Computer Control Chat asked to look at the screen without clicking: the agent read the Drive tool's description, listed the windows (drive_look, seat host), captured the screen, and analysed the picture"></div>
+  <figcaption>"Look at my screen and tell me which apps and windows are open. Do not click or type anything": the agent
+  lists your windows, takes a picture of the screen and reads it, then answers.</figcaption>
+</figure>
+<p>Good first requests: "look at my screen and tell me what is open (do not click)", "open the Files app and show me
+my Downloads folder", "in my desktop settings, turn on the dark style". Say what it must not do as clearly as what it
+must do. Describing a screen is not always right the first time: in the test above, the agent took the Wazza OS
+window for a browser; a stronger model sees better.</p>
+
+<h2 id="how-it-works-and-its-limits">How it works, and its limits<a class="anchor" href="#how-it-works-and-its-limits" aria-label="Link to How it works, and its limits">#</a></h2>
+<ul>
+  <li>It uses <a href="drive.html">Drive</a> on your computer's windows (the "host" seat) instead of the VM's: it lists
+  your windows, looks at one or at the whole screen, then clicks and types.</li>
+  <li>It runs on your computer, inside Wazza OS's sandbox: its shell and file tools are limited to its own folder.
+  It reaches the Internet and Wazza OS; services of your computer (<code>localhost</code>) only when
+  <a href="settings-chats.html#network-and-keys">Local services</a> is on.</li>
+  <li>Each Computer Control tab has its own permission: opening another one asks again.</li>
+  <li>It sees the screen Wazza OS runs on: your desktop session, or, on a server, Wazza OS's own virtual screen
+  (<a href="cli-server.html">On a server</a>).</li>
+</ul>
+<p>See also <a href="privacy-security.html">Privacy and security</a>; how it works inside:
+<a href="../dev/capabilities/computer-control.md">developer documentation › Computer Control</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="drive.html" rel="prev"><span class="dir">← Previous</span>Drive: agents on screen</a><a class="next" href="skills.html" rel="next"><span class="dir">Next →</span>Skills, learning and personas</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

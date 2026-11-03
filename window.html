@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Getting around · Wazza OS manual</title>
+<meta name="description" content="The Wazza OS window part by part: the tab strip, Home and its menu, the VM card, a tab with its app and its Chat, the tab menu, the Desktop menu, the Explorer, History, Notifications and Feedback.">
+<meta name="keywords" content="window, interface, tabs, tab strip, home, apps, settings, sign in, history, update, notifications, feedback, vm card, explorer, desktop menu, fold chat, pop out, full screen, lock input, fps, favourites, tab group, mute, volume, move to new window">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html" aria-current="page">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Start here</li><li aria-current="page">Getting around</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Getting around</h1>
+<p class="lead">The Wazza OS window has a tab strip at the top and the tab you are on below it. One tab is special:
+Home, with its menu on the left (Apps, Settings, Sign in, History, Update, Notifications, Feedback). Every other tab
+shows one app of the VM with its own Chat beside it.</p>
+
+<h2 id="the-window">The window<a class="anchor" href="#the-window" aria-label="Link to The window">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/home-apps-full.webp" width="1483" height="838" alt="The Wazza OS window on Home, Apps page: the tab strip at the top, the Home menu on the left with the account card and the VM card at its bottom, and the Apps catalog on the right">
+    <span class="mark" style="left:1.2%;top:2%">1</span>
+    <span class="mark" style="left:6.5%;top:6.2%">2</span>
+    <span class="mark" style="left:11.7%;top:2%">3</span>
+    <span class="mark" style="left:89.8%;top:2%">4</span>
+    <span class="mark" style="left:96.6%;top:6.2%">5</span>
+    <span class="mark" style="left:13.4%;top:8.5%">6</span>
+    <span class="mark" style="left:13.6%;top:75%">7</span>
+    <span class="mark" style="left:13.6%;top:85.8%">8</span>
+    <span class="mark" style="left:41%;top:13.9%">9</span></div>
+  <figcaption>Home open on Apps, right after the first start.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p><strong>Explorer</strong>: opens the side panel with the VM's files (<a href="#the-explorer">below</a>).</p></li>
+  <li><p><strong>Tabs</strong>: one per open app (and Home). Click one to show it; drag one to move it.</p></li>
+  <li><p><strong>+</strong> (<span class="ui">Show apps</span>): opens Home on Apps, to open or install an app.</p></li>
+  <li><p><strong>Desktop menu</strong>: fold the Chat or the app, lock input, pop out, full screen, frame rate
+  (<a href="#the-desktop-menu">below</a>). Grey on Home, where there is no app.</p></li>
+  <li><p><strong>Window buttons</strong>: minimize, maximize, close. Closing the window quits Wazza OS and stops its VMs
+  (your tabs come back at the next start).</p></li>
+  <li><p><strong>Home menu</strong>: Apps, Settings, Sign in, History, Update, Notifications (with the number of unread
+  ones), Feedback. Below 1024 px of width it becomes a column of icons.</p></li>
+  <li><p><strong>Account card</strong>: <em>Not signed in</em>, or the Wazza OS account you are signed in with. A click
+  opens Sign in.</p></li>
+  <li><p><strong>VM card</strong>: the VM this window shows, live (<a href="#the-vm-card">below</a>).</p></li>
+  <li><p><strong>The page</strong> of the Home menu item you picked (here Apps).</p></li>
+</ol>
+
+<h2 id="home">Home<a class="anchor" href="#home" aria-label="Link to Home">#</a></h2>
+<p>Home is the tab of Wazza OS itself. It opens on the page you pick in its menu; each page opens in the same Home tab
+(the tab's name follows the page: Applications, Settings, Sign in…).</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Home menu item</th><th>What it is</th><th>Page</th></tr></thead>
+<tbody>
+<tr><td>Apps</td><td>Every app you can open or install, by category, with search and <span class="ui">Add app</span></td><td><a href="apps.html">Apps and tabs</a></td></tr>
+<tr><td>Settings</td><td>Eight pages of settings</td><td><a href="settings-general.html">Settings</a></td></tr>
+<tr><td>Sign in</td><td>Your Wazza OS account, plan logins, API keys, custom APIs, web apps</td><td><a href="signin.html">Sign in</a></td></tr>
+<tr><td>History</td><td>Your past tabs and Chats, to search and reopen</td><td><a href="#history">below</a></td></tr>
+<tr><td>Update</td><td>A newer version of Wazza OS</td><td><a href="update.html">The Update page</a></td></tr>
+<tr><td>Notifications</td><td>Everything Wazza OS told you</td><td><a href="#notifications">below</a></td></tr>
+<tr><td>Feedback</td><td>Tell the Wazza team what went wrong</td><td><a href="#feedback">below</a></td></tr>
+</tbody></table></div>
+
+<h3 id="the-vm-card">The VM card<a class="anchor" href="#the-vm-card" aria-label="Link to The VM card">#</a></h3>
+<p>The card at the bottom left of Home, live while Home is open:</p>
+<ul>
+  <li>the VM's name and state (<em>vm-1 · running</em>);</li>
+  <li><strong>CPU</strong>: how busy the VM's processors are;</li>
+  <li><strong>RAM</strong>: the memory the VM uses, of the most it may take now (<em>0.9 / 5.8 GB</em>);</li>
+  <li>how that limit is set (<em>Auto: 75% of the memory free now, never below 5.8 GB, so 5.8 GB now</em>; see
+  <a href="settings-resources.html#memory">VM resources › Memory</a>);</li>
+  <li>the graphics the VM's apps get (<em>OpenGL 4.2 · virgl (…)</em>: your graphics card, through virtualization).</li>
+</ul>
+
+<h2 id="tabs">Tabs<a class="anchor" href="#tabs" aria-label="Link to Tabs">#</a></h2>
+<p>A tab shows one app of the VM, with its Chat beside it: the agent of that Chat works in that app. Tabs keep
+running when you switch away: an app keeps working and its agent keeps going in the background.</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/window-tab-layout.webp" width="1600" height="904" alt="A GIMP tab: the Chat on the left with its composer and the agent and model chip, GIMP on the right">
+    <span class="mark" style="left:20%;top:1.6%">1</span>
+    <span class="mark" style="left:14%;top:40%">2</span>
+    <span class="mark" style="left:29.9%;top:50%">3</span>
+    <span class="mark" style="left:60%;top:40%">4</span>
+    <span class="mark" style="left:8%;top:89%">5</span>
+    <span class="mark" style="left:9.5%;top:97%">6</span></div>
+  <figcaption>A GIMP tab, just after GIMP was installed and opened.</figcaption>
+</figure>
+<ol class="steps">
+  <li><p>The tab, named after its app, then after the first thing you ask its Chat.</p></li>
+  <li><p>The tab's <strong>Chat</strong> (<a href="chats.html">Chats, agents and models</a>).</p></li>
+  <li><p>The divider: drag it to give the Chat or the app more room. Which side the Chat is on is a setting
+  (<a href="settings-general.html#tabs-and-layout">General › Chat side</a>).</p></li>
+  <li><p>The <strong>app</strong>, live from the VM. Click into it and use it as on your own computer: your mouse and
+  keyboard go to the app while the pointer is over it.</p></li>
+  <li><p>The composer, where you write to the agent.</p></li>
+  <li><p>The agent and model this Chat uses (a click opens the model window).</p></li>
+</ol>
+
+<h3 id="open-switch-and-close-tabs">Open, switch and close tabs<a class="anchor" href="#open-switch-and-close-tabs" aria-label="Link to Open, switch and close tabs">#</a></h3>
+<ul>
+  <li><strong>Open</strong>: click <span class="ui">+</span>, then an app on the Apps page (or ask a Chat to open
+  one). An app that is not installed yet installs first, then opens (<a href="apps.html#install-an-app">Install an app</a>).</li>
+  <li><strong>Switch</strong>: click a tab. A tab an agent opened in the background carries a badge until you look at it.</li>
+  <li><strong>Close</strong>: the <span class="ui">×</span> on the tab. Its app is asked to close (it may ask you to save).</li>
+  <li><strong>Reopen</strong>: a closed tab is in <a href="#history">History</a>.</li>
+</ul>
+<h3 id="the-tab-card">The tab card<a class="anchor" href="#the-tab-card" aria-label="Link to The tab card">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/window-tab-hover.webp" width="700" height="340" alt="The card shown when hovering a tab: its title, GIMP, VM vm-1, Shown, RAM 174 MB, CPU 0% (app 130 MB, Chat 44 MB), and a small picture of the tab"></div>
+</figure>
+<p>Hold the pointer over a tab: a card shows its full name, its app and VM, what it uses now (memory and CPU, split
+between the app and its Chat) and a small picture of it.</p>
+
+<h3 id="the-tab-menu">The tab menu<a class="anchor" href="#the-tab-menu" aria-label="Link to The tab menu">#</a></h3>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/window-tab-menu.webp" width="300" height="320" alt="The tab menu opened by a right-click on a tab: Add to favourites, Reload, Move to new window, Group: Add tab to new group, Sound: Mute tab and Volume 100%"></div>
+</figure>
+<p>Right-click a tab:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Item</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Add to favourites</td><td>Keeps the tab in History › Favourites, to reopen it in one click.</td></tr>
+<tr><td>Reload</td><td>Restarts the tab's app (when it stopped answering, for example).</td></tr>
+<tr><td>Move to new window</td><td>Moves the tab into a new Wazza OS window; its app and its Chat go on there.</td></tr>
+<tr><td>Group › Add tab to new group</td><td>Puts the tab in a named, coloured group (type a name, pick a colour);
+the group's own menu adds tabs or <span class="ui">Ungroup</span>s them (they stay open).</td></tr>
+<tr><td>Sound › Mute tab, Volume</td><td>Only what you hear from this tab. An agent working in it still hears the app.
+Only the tab you are on is heard.</td></tr>
+<tr><td>Close tab</td><td>(on tabs that can be closed) Closes it; its app is asked to close.</td></tr>
+</tbody></table></div>
+
+<h3 id="many-tabs">Many tabs<a class="anchor" href="#many-tabs" aria-label="Link to Many tabs">#</a></h3>
+<p>When the strip is full, tabs shrink to their icons, then fold into one square that shows how many there are:
+click the square to see every tab and pick one. How many tabs show before they fold:
+<a href="settings-general.html#tabs-and-layout">General › Tabs shown before they fold</a>.</p>
+
+<h2 id="the-desktop-menu">The Desktop menu<a class="anchor" href="#the-desktop-menu" aria-label="Link to The Desktop menu">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/window-desktop-menu.webp" width="374" height="330" alt="The Desktop menu: View: Fold Chat, Fold Desktop; Desktop: Lock input, Pop out, Full screen; FPS"></div>
+</figure>
+<p>The button at the top right, left of the window buttons, on an app tab:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Item</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Fold Chat / Show Chat</td><td>Hides this tab's Chat to give the app the whole width (and back).</td></tr>
+<tr><td>Fold Desktop / Show Desktop</td><td>Hides the app to give the Chat the whole width (and back).</td></tr>
+<tr><td>Lock input / Unlock input</td><td>Locked, your clicks and keys no longer reach the app: watch an agent work
+without getting in its way.</td></tr>
+<tr><td>Pop out</td><td>Shows the app in its own window, which you can move to another screen. Closing that window
+puts it back in its tab.</td></tr>
+<tr><td>Full screen</td><td>The app fills the screen (a square at its top right opens this menu again, to leave full
+screen).</td></tr>
+<tr><td>FPS</td><td>Shows the live frame rate of the app's picture, at the corner of the app.</td></tr>
+</tbody></table></div>
+
+<h2 id="the-explorer">The Explorer<a class="anchor" href="#the-explorer" aria-label="Link to The Explorer">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/window-explorer.webp" width="560" height="890" alt="The Explorer panel: VM 1, Home, New file, New folder, Paste here, view buttons, and the list of the VM's home folder with names, dates, types and sizes"></div>
+</figure>
+<p>The button at the far left of the tab strip opens the Explorer over the Chat: the files of the VM (its home
+folder), with <span class="ui">New file</span>, <span class="ui">New folder</span>, <span class="ui">Paste here</span>,
+the views (list, grid, pictures, details), reload and close. Pick another running VM at the top. Double-click a file to
+open it in its app, in a new tab. More in <a href="files.html#the-explorer">Files and sharing › The Explorer</a>.</p>
+
+<h2 id="history">History<a class="anchor" href="#history" aria-label="Link to History">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/history-page.webp" width="1400" height="240" alt="The History page: search tabs and chats; All, Chats, Tabs, Favourites; 0 favourites, 0 recent tabs; No workstation history yet"></div>
+  <figcaption>History before any tab was closed.</figcaption>
+</figure>
+<p>Every tab and Chat you had, by day, with its time. Filter with <span class="ui">All</span>,
+<span class="ui">Chats</span>, <span class="ui">Tabs</span> or <span class="ui">Favourites</span>, or type in
+<span class="ui">Search tabs and chats</span> (it searches names, VMs, apps and the lines of Chats). On each entry:
+its star (favourite), <span class="ui">Open</span> (reopens the tab, with its Chat), and <span class="ui">×</span>
+(deletes the entry).</p>
+
+<h2 id="notifications">Notifications<a class="anchor" href="#notifications" aria-label="Link to Notifications">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/notifications-page.webp" width="1180" height="1008" alt="The Notifications page: Mark all read, Clear; filters All 10, Needs you 0, Updates 0, Agents 9; notifications of package installs completed, the VM processors notice, Sandbox guest is ready"></div>
+  <figcaption>Notifications after the first start: the default packages installed, the VM ready.</figcaption>
+</figure>
+<p>Everything Wazza OS told you, newest first, each with its time and the VM and tab it concerns. Short notices also
+appear for a few seconds at the bottom right of the window. Filters: <span class="ui">All</span>,
+<span class="ui">Needs you</span> (something waits for your answer), <span class="ui">Updates</span>,
+<span class="ui">Agents</span>. <span class="ui">Mark all read</span> clears the count on the Home menu.
+A notification with an action (for example <span class="ui">Open owning tab</span>) does it in one click.</p>
+
+<h2 id="feedback">Feedback<a class="anchor" href="#feedback" aria-label="Link to Feedback">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/feedback-page.webp" width="1180" height="222" alt="The Feedback page: Tell us what went wrong, a text box, Attach image, Send feedback"></div>
+</figure>
+<p>Tell the Wazza team what went wrong: what happened and what you expected. You may add one image (PNG, JPEG or
+WebP, at most 5 MB): drop it on the box, paste it, or <span class="ui">Attach image</span>. Click
+<span class="ui">Send feedback</span>. It is sent without your account; Wazza OS adds only its version.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="first-start.html" rel="prev"><span class="dir">← Previous</span>The first start</a><a class="next" href="chats.html" rel="next"><span class="dir">Next →</span>Chats, agents and models</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings › General · Wazza OS manual</title>
+<meta name="description" content="Every option of Settings › General in Wazza OS: theme, glass, reduce motion, Chat side, tabs before they fold, max frame rate and the About tiles.">
+<meta name="keywords" content="settings, general, theme, dark, light, solarized, glass, reduce motion, chat side, tabs fold, frame rate, fps, version, about, apply, discard">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html" aria-current="page">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Settings</li><li aria-current="page">General</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Settings › General</h1>
+<p class="lead">How Wazza OS looks (theme, glass, motion), where each tab's Chat sits, how many tabs show before they
+fold, the frame rate of app tabs, and which version runs.</p>
+
+<h2 id="open-settings">Open Settings and find an option<a class="anchor" href="#open-settings" aria-label="Link to Open Settings and find an option">#</a></h2>
+<ol class="steps">
+  <li><p>Click <span class="ui">Settings</span> in the Home menu on the left (open Home with the
+  <span class="ui">+</span> at the end of the tab strip if it is not shown). Settings opens in the Home tab.</p></li>
+  <li><p>Pick a page in the list on the left: General, Virtual machines, VM resources, Chats &amp; agents, Skills
+  &amp; learning, Files &amp; sharing, Sync &amp; team, This computer. In a narrow window the list becomes a drop-down
+  next to the title.</p></li>
+  <li><p>Each page has tabs (here Appearance, Tabs &amp; layout, Display, About); one tab shows at a time.</p></li>
+  <li><p>Or type in <span class="ui">Search settings</span> (top right): every row of every page that matches your
+  words shows, whatever its page and tab.</p></li>
+</ol>
+
+<h3 id="apply-and-discard">Apply and Discard<a class="anchor" href="#apply-and-discard" aria-label="Link to Apply and Discard">#</a></h3>
+<p>On most tabs a change is <strong>held</strong>, not applied: the control shows your new value, its row is marked
+<em>Not applied</em>, and the bar at the bottom of the tab counts the changes. <span class="ui">Apply</span> applies
+every held change of the tab together and says what it applied; <span class="ui">Discard</span> puts them back.
+If you leave a tab or a page with held changes, Wazza OS asks <span class="ui">Apply</span>,
+<span class="ui">Discard</span> or <span class="ui">Stay</span> first. With nothing held, the bar says
+<em>No changes to apply</em>.</p>
+<p>A few sections have their own button instead (VM resources' <span class="ui">Save and apply</span>, New Chats'
+<span class="ui">Use for new Chats</span>, Time limits' <span class="ui">Save</span>, the VM list), and text fields
+have their own button next to them. A change made by an agent or by the command line is never held: it applies at once.</p>
+
+<h2 id="appearance">Appearance<a class="anchor" href="#appearance" aria-label="Link to Appearance">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-general-1.webp" width="1215" height="429" alt="Settings, General page, Appearance tab: Theme Dark Light Match system, Glass On Reduced Off, Reduce motion switch, and the bar No changes to apply with Discard and Apply"></div>
+  <figcaption>Settings › General › Appearance, with the defaults.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Theme</td><td><strong>Dark</strong> (default), Light, Match system</td><td>Dark is Wazza OS's dark petrol.
+Light uses the Solarized palette (cream background, dark blue text). Match system follows your desktop's light or
+dark preference and changes with it. The whole window switches in one step.</td></tr>
+<tr><td>Glass</td><td><strong>On</strong> (default), Reduced, Off</td><td>On: a glass lens follows what you hover
+(menu items, tabs, app cards) and a button squishes slightly when you press it. Reduced: the lens without its blur,
+and the selected item drawn flat (lighter on a slow graphics card). Off: plain darker highlights, no lens.</td></tr>
+<tr><td>Reduce motion</td><td>Off (default) / On</td><td>On: no squish, no springs, no moving highlights anywhere in
+Wazza OS. Use it if motion bothers you or on a slow computer. When your desktop itself asks for reduced motion,
+Wazza OS follows it too.</td></tr>
+</tbody></table></div>
+
+<h2 id="tabs-and-layout">Tabs &amp; layout<a class="anchor" href="#tabs-and-layout" aria-label="Link to Tabs &amp; layout">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-general-2.webp" width="1215" height="395" alt="Tabs and layout tab: Chat side Left of the app or Right of the app; Tabs shown before they fold, Auto with minus and plus buttons"></div>
+  <figcaption>Settings › General › Tabs &amp; layout.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Chat side</td><td><strong>Left of the app</strong> (default), Right of the app</td><td>Where each tab's
+Chat sits next to its app, in every VM. The divider between them can still be dragged in each tab.</td></tr>
+<tr><td>Tabs shown before they fold</td><td><strong>Auto</strong> (default), or a number from 1 to 99</td><td>Auto:
+tabs shrink to their icons when the strip is full, then group once even the icons no longer fit; the others are in
+the count square's menu. A number (for example 6): when you open one tab more, all tabs fold into one square that
+shows how many there are; click it to see and pick any tab. Use <span class="ui">−</span> and <span class="ui">+</span>
+or type the number.</td></tr>
+</tbody></table></div>
+
+<h2 id="display">Display<a class="anchor" href="#display" aria-label="Link to Display">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-general-3.webp" width="1215" height="336" alt="Display tab: Max frame rate set to 240, and the line 240 frames a second in every app tab"></div>
+  <figcaption>Settings › General › Display on a new installation.</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td>Max frame rate</td><td>Auto, 60, 75, 90, 120, 144, 165, <strong>240</strong> (a new installation's value)</td>
+<td>The most frames a second every app tab is drawn at (the VM's picture in the Wazza OS window). Auto follows the
+refresh rate of the screen the Wazza OS window is on (and is read again when you move the window to another screen).
+A choice applies at once to every app tab and is kept for the next start. The line under it says the rate in
+effect. A lower rate uses less CPU and GPU on your computer; it does not change how fast apps run in the VM.</td></tr>
+</tbody></table></div>
+<p>When an app tab's desktop cannot start, a recovery card for that tab appears in this section (<em>Guest desktop
+startup failed</em>, with <span class="ui">Retry desktop startup</span>). It is only there while the problem lasts;
+see <a href="troubleshooting.html#an-app-tab-stays-black-or-frozen">Troubleshooting</a>.</p>
+
+<h2 id="about">About<a class="anchor" href="#about" aria-label="Link to About">#</a></h2>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/settings-general-4.webp" width="1215" height="309" alt="About tab: three tiles, Running 0.2.0+git.z1793589620.e97d03637c1d, Installed the same version, Checked just now with a Check again button"></div>
+  <figcaption>Settings › General › About (here on alpha 2: your computer shows its own version).</figcaption>
+</figure>
+<div class="table-wrap"><table>
+<thead><tr><th>Tile</th><th>What it shows</th></tr></thead>
+<tbody>
+<tr><td>Running</td><td>The version of Wazza OS that runs now, its build (the 12-character code) and its date.</td></tr>
+<tr><td>Installed</td><td>The version installed on your computer. It differs from Running after an update was
+installed but Wazza OS was not restarted yet: quit and start Wazza OS to run the new one.</td></tr>
+<tr><td>Checked</td><td>When Wazza OS last read both. <span class="ui">Check again</span> reads them now.</td></tr>
+</tbody></table></div>
+<p>The same two versions in a terminal: <code>wazza --version</code> (see <a href="cli.html#check">The command line</a>).
+To look for a newer version, use <a href="update.html">the Update page</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="cli-server.html" rel="prev"><span class="dir">← Previous</span>On a server (virtual screen)</a><a class="next" href="settings-vms.html" rel="next"><span class="dir">Next →</span>Virtual machines</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

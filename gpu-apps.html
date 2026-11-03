@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desktop apps and the GPU · Wazza OS manual</title>
+<meta name="description" content="How the VM's desktop apps (Blender, FreeCAD, Godot, Kdenlive, OBS Studio, GIMP…) use your computer's graphics card in Wazza OS: Virtualized GPU, Native GPU (lending a card), CPU only; which app uses what; how to check it; smoothness and frame rate.">
+<meta name="keywords" content="gpu, graphics card, 3d, blender, eevee, cycles, freecad, godot, kdenlive, obs, opengl, vulkan, opencl, cuda, hip, virtualized gpu, native gpu, passthrough, lend card, lend-ready, cpu only, software graphics, llvmpipe, frame rate, fps, smooth, slow 3d">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html" aria-current="page">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Apps and files</li><li aria-current="page">Desktop apps and the GPU</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#three-ways-to-use-your-card">Three ways to use your card</a></li><li class="lvl2"><a href="#which-apps-use-it">Which apps use it</a></li><li class="lvl2"><a href="#check-that-apps-use-your-card">Check that apps use your card</a></li><li class="lvl2"><a href="#lend-a-card-native-gpu">Lend a card (Native GPU)</a></li><li class="lvl2"><a href="#graphics-memory">Graphics memory</a></li><li class="lvl2"><a href="#when-3d-is-slow">When 3D is slow</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Desktop apps and the GPU</h1>
+<p class="lead">The apps of the VM are real Linux desktop apps. The ones that draw a lot (3D, video, large images)
+draw on your computer's graphics card, which the VM shares with your computer. You do not need to set anything:
+this page explains what happens, how to check it, and the two other ways for special cases.</p>
+
+<div class="facts">
+  <div class="fact"><b>What</b><span>The VM's apps drawing and computing on your graphics card</span></div>
+  <div class="fact"><b>Why</b><span>Blender, FreeCAD or OBS stay smooth; renders and effects run at the card's speed</span></div>
+  <div class="fact"><b>Who</b><span>Everyone with 3D, video or design work; Native GPU for power users with a spare card</span></div>
+  <div class="fact"><b>Where</b><span>Settings › VM resources › Graphics</span></div>
+</div>
+
+<h2 id="three-ways-to-use-your-card">Three ways to use your card<a class="anchor" href="#three-ways-to-use-your-card" aria-label="Link to Three ways to use your card">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>GPU setting</th><th>What the VM's apps get</th><th>For</th></tr></thead>
+<tbody>
+<tr><td><strong>Virtualized GPU</strong> (default)</td><td>Your card, shared with your computer: OpenGL, Vulkan and
+OpenCL, each through the fastest path your computer offers.</td><td>Everyone. Your own apps keep the card too.</td></tr>
+<tr><td>Native GPU (experimental)</td><td>One of your cards, lent to the running VM: its apps use it with its own
+driver, at full speed, including CUDA (NVIDIA) and HIP (AMD). Your computer cannot use that card while it is lent.</td>
+<td>Computers with a second graphics card that does not drive your screen, for heavy compute (GPU rendering, AI models).</td></tr>
+<tr><td>None (CPU only)</td><td>Software graphics on the VM's processors: everything works, 3D is much slower.</td>
+<td>Computers without a usable graphics card, or to rule the card out while looking for a problem.</td></tr>
+</tbody></table></div>
+<p>Change it in <a href="settings-resources.html#graphics">Settings › VM resources › Graphics › GPU</a>; it applies
+at the VM's next start (Native GPU lends the card to the running VM). The graphics libraries the apps need are the
+<em>GPU for apps</em> tool, installed on the first start.</p>
+
+<h2 id="which-apps-use-it">Which apps use it<a class="anchor" href="#which-apps-use-it" aria-label="Link to Which apps use it">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>App</th><th>On your card</th><th>Good to know</th></tr></thead>
+<tbody>
+<tr><td>Blender</td><td>The 3D view, and EEVEE renders</td><td>Cycles renders on the VM's processors with the
+Virtualized GPU; with Native GPU it can use the card's CUDA or HIP. Agents test a render small first, then render
+the full size.</td></tr>
+<tr><td>FreeCAD, Godot, BREP, Unity Hub</td><td>The 3D view (OpenGL, Vulkan)</td><td></td></tr>
+<tr><td>Kdenlive, OBS Studio</td><td>The preview and effects (OpenGL)</td><td>Encoding a video mostly uses the VM's processors.</td></tr>
+<tr><td>GIMP, Inkscape, Glaxnimate, Motion Studio</td><td>Drawing the canvas</td><td></td></tr>
+<tr><td>Chromium, web apps, Web Game Studio</td><td>WebGL pages: 3D in the browser, maps, the web games Web Game
+Studio's Chat makes (three.js, Babylon.js…)</td><td></td></tr>
+</tbody></table></div>
+<p>The VM's processors and memory matter as much: a render or an encode uses the processors you allow in
+<a href="settings-resources.html#memory-and-cpu">VM resources</a>. Before heavy work (a render, a build, an encode),
+an agent reads what the VM has now and plans with it.</p>
+
+<h2 id="check-that-apps-use-your-card">Check that apps use your card<a class="anchor" href="#check-that-apps-use-your-card" aria-label="Link to Check that apps use your card">#</a></h2>
+<figure class="shot half">
+  <div class="shot-frame"><img src="img/vm-card-graphics.webp" width="212" height="162" alt="The VM card: vm-1 running, CPU 18%, RAM 2.1 of 5.8 GB, Auto: 75% of the memory free now, then OpenGL 4.2 · virgl (virgl (Radeon RX 7900 XTX (radeonsi, navi31, LLVM 20…)"></div>
+  <figcaption>The VM card at the bottom left of Home: its last line names the card the VM draws on (here an AMD
+  Radeon RX 7900 XTX, through virtualization).</figcaption>
+</figure>
+<ul>
+  <li><strong>The VM card</strong> (Home, bottom left): the last line names your card. <em>llvmpipe</em> there means
+  software graphics: the VM is not using your card.</li>
+  <li><strong>Settings › VM resources › Graphics › In the VM</strong>: the path Vulkan, OpenGL and OpenCL each take
+  now, on your card or on the VM's processors, in plain words.</li>
+  <li><strong>GPU use</strong> (same page): how busy each running VM keeps your card.</li>
+  <li><strong>In the VM's terminal</strong>: <code>glxinfo -B</code> (OpenGL), <code>vulkaninfo --summary</code> (Vulkan),
+  <code>clinfo -l</code> (OpenCL).</li>
+  <li><strong>Smoothness</strong>: the tab's Desktop menu › <span class="ui">FPS</span> shows the frame rate of the app's
+  picture (<a href="window.html#the-desktop-menu">The Desktop menu</a>).</li>
+</ul>
+
+<h2 id="lend-a-card-native-gpu">Lend a card (Native GPU)<a class="anchor" href="#lend-a-card-native-gpu" aria-label="Link to Lend a card (Native GPU)">#</a></h2>
+<div class="warn"><p>Experimental. While a card is lent, your computer cannot use it; Wazza OS never lends the card
+your screen is plugged into.</p></div>
+<ol class="steps">
+  <li><p>Settings › VM resources › Graphics › GPU › <span class="ui">Native GPU (passthrough, experimental)</span>,
+  and pick the <span class="ui">Card</span>.</p></li>
+  <li><p>Read the <span class="ui">Native GPU</span> line: it says whether this computer can lend that card, and what
+  to do first: close the programs that use it, move your screen's cable to another port, or the one-time setup
+  <span class="ui">Allow lending a card</span> (it asks for your administrator password). Then
+  <span class="ui">Check again</span>.</p></li>
+  <li><p>Apply. Wazza OS installs the card's driver in the VM first (AMD, Intel or NVIDIA), then lends the card to
+  the running VM as a second graphics card: the VM's picture stays, and its apps use the card for their work.</p></li>
+</ol>
+<p>Turning Native GPU off, or stopping the VM, gives the card back to your computer. Nothing is changed for good: a
+restart of your computer always gives every card back. Your computer needs IOMMU turned on in its firmware; the
+line says when it is not.</p>
+<p><strong>One card only?</strong> <span class="ui">Lend-ready mode</span> makes your computer draw its desktop
+with the processor from its next restart, so its only card can be lent. Turn it off to get the card back for your
+desktop (again from the next restart).</p>
+
+<h2 id="graphics-memory">Graphics memory<a class="anchor" href="#graphics-memory" aria-label="Link to Graphics memory">#</a></h2>
+<p>A VM may hold at most 50 % of the graphics memory free (Auto), where Linux can bound it (6.14 or newer); set
+another share or a fixed size in <a href="settings-resources.html#graphics">Graphics › GPU memory</a>. Raise it for
+very large scenes; lower it to keep more for your own apps.</p>
+
+<h2 id="when-3d-is-slow">When 3D is slow<a class="anchor" href="#when-3d-is-slow" aria-label="Link to When 3D is slow">#</a></h2>
+<ul>
+  <li>The VM card says <em>llvmpipe</em>: your card is not used. Run <code>wazza --check</code> on your computer: its
+  <em>Graphics driver</em> line says what to fix (driver, permissions; NVIDIA needs its driver 495 or newer).</li>
+  <li>Close other tabs with 3D apps: they share the same card and the VM's processors.</li>
+  <li>Give the VM more processors (<a href="settings-resources.html#vcpus">VM resources › vCPUs</a>).</li>
+  <li>Lower the VM's screen size (<a href="settings-resources.html#screen">Screen</a>): fewer pixels to draw and send.</li>
+  <li>More fixes: <a href="troubleshooting.html#an-app-tab-stays-black-or-frozen">Troubleshooting</a>.</li>
+</ul>
+
+<h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui gpu status</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui gpu mode virtualized</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm-gpu status</span></code></pre>
+<p><code>gpu mode</code> takes <code>virtualized</code>, <code>native</code> or <code>none</code>; <code>vm-gpu auto
+PERCENT</code> or <code>vm-gpu set MIB</code> sets the graphics memory. How it works inside:
+<a href="../dev/capabilities/gpu.md">developer documentation › GPU</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="apps.html" rel="prev"><span class="dir">← Previous</span>Apps and tabs</a><a class="next" href="custom-apps.html" rel="next"><span class="dir">Next →</span>Add your own apps</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#three-ways-to-use-your-card">Three ways to use your card</a></li><li class="lvl2"><a href="#which-apps-use-it">Which apps use it</a></li><li class="lvl2"><a href="#check-that-apps-use-your-card">Check that apps use your card</a></li><li class="lvl2"><a href="#lend-a-card-native-gpu">Lend a card (Native GPU)</a></li><li class="lvl2"><a href="#graphics-memory">Graphics memory</a></li><li class="lvl2"><a href="#when-3d-is-slow">When 3D is slow</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

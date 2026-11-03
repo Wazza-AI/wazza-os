@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The command line · Wazza OS manual</title>
+<meta name="description" content="Control a running Wazza OS from a terminal with wazza --gui: check the computer, set it up without clicks, VMs and their memory, disk and graphics, keys and sign-ins, Chats, apps, files, the window's actions; exit codes and the rules for scripts and agents.">
+<meta name="keywords" content="command line, cli, terminal, wazza --gui, wazzaos, wazza-os, script, automation, check, setup, setup.json, vm, vm-memory, vm-disk, gpu, provider-keys, wazza-account, chat-transcript, chat-model, app, explorer, clipboard, exit codes, json, wazza mcp, wazza-os mcp">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html" aria-current="page">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Connect and automate</li><li aria-current="page">The command line</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>The command line</h1>
+<p class="lead">Everything you click in Wazza OS, a terminal can do too. <code>wazza --gui …</code> commands talk to
+the Wazza OS that is running for you, in the background, and answer in JSON: for scripts, for a server with no
+screen, and for agents outside Wazza OS.</p>
+
+<div class="facts">
+  <div class="fact"><b>What</b><span><code>wazza --gui</code> commands for the running Wazza OS, and <code>wazza --check</code></span></div>
+  <div class="fact"><b>Why</b><span>Repeatable setups, scripts, servers, other agents</span></div>
+  <div class="fact"><b>Who</b><span>Developers, admins, power users</span></div>
+  <div class="fact"><b>Where</b><span>Any terminal of the same user as the running Wazza OS</span></div>
+</div>
+
+<h2 id="before-you-start">Before you start<a class="anchor" href="#before-you-start" aria-label="Link to Before you start">#</a></h2>
+<ul>
+  <li><code>wazza</code>, <code>wazzaos</code> and <code>wazza-os</code> are the same program; this manual writes
+  <code>wazza</code>.</li>
+  <li>Wazza OS must be running for the same user: <code>wazza --gui status</code> says so. The commands never open a
+  second window, and only change what you see when you ask (the <code>--focus</code> options).</li>
+  <li>Answers are JSON on standard output. Exit codes: <strong>0</strong> done; <strong>1</strong> refused, failed, or
+  Wazza OS not reachable; <strong>2</strong> the command was wrong and nothing was sent (the usage is printed).</li>
+  <li>Passwords, keys and tokens are read only from standard input (<code>--stdin</code>,
+  <code>--password-stdin</code>, <code>--key-stdin</code>), never as a word of the command: they stay out of your
+  shell history and the process list.</li>
+  <li><code>wazza --version</code> prints the program's version and the installed package's (version, build and date).</li>
+  <li>For agents that take MCP servers rather than a shell, <code>wazza-os mcp</code> offers these same commands as
+  MCP tools (<a href="mcp.html#connect-an-agent-from-outside">Connect an agent from outside</a>; every tool:
+  <a href="mcp-tools.html">Every Wazza OS MCP tool</a>).</li>
+</ul>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui status</span>
+<span class="prompt">$ </span><span class="cmd">wazza --version</span></code></pre>
+
+<h2 id="check">Check this computer<a class="anchor" href="#check" aria-label="Link to Check this computer">#</a></h2>
+<p><code>wazza --check</code> runs the same checks as the first start, without starting Wazza OS and without a
+screen: KVM, the systemd user session, the X11 display, the Chat sandbox, the graphics driver and the VM display
+buffers. Each line says what was found, what it means, and the commands that fix it.</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --check</span>
+<span class="prompt">$ </span><span class="cmd">wazza --check --json</span></code></pre>
+<p>Exit 0: nothing missing; 1: something is missing (VMs or the window would not start). A <em>limited</em> item (for
+example software graphics) does not fail the check. What each item means: <a href="first-start.html#what-is-checked">First
+start › What is checked</a>.</p>
+
+<h2 id="set-up-without-clicks">Set up without clicks<a class="anchor" href="#set-up-without-clicks" aria-label="Link to Set up without clicks">#</a></h2>
+<p>A setup file does the first start's steps: your Wazza OS account, plan logins, API keys, apps, and appearance.
+Write it once and run it on every computer:</p>
+<pre><code>{
+  "account": {"email": "me@example.com", "passwordFile": "~/secrets/wazza-password"},
+  "logins": ["claude", "chatgpt"],
+  "keys": [{"provider": "openrouter", "name": "work", "keyFile": "~/secrets/openrouter.key"}],
+  "whenOneRunsOut": {"openrouter": "take turns"},
+  "apps": ["gimp", "blender"],
+  "vm": {"memory": "auto", "cpus": "auto"},
+  "appearance": {"theme": "dark", "glass": "reduced", "reduceMotion": false},
+  "tabs": {"limit": 0}
+}</code></pre>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui setup run --file ~/wazza-setup.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui setup status</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui setup reset-first-run</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Field</th><th>What it takes</th></tr></thead>
+<tbody>
+<tr><td><code>account</code></td><td><code>email</code>, and <code>passwordFile</code> (a file holding the password) or
+<code>passwordStdin: true</code>; never the password itself</td></tr>
+<tr><td><code>logins</code></td><td>Plan logins: <code>claude</code>, <code>chatgpt</code>, <code>grok</code>, <code>google</code>,
+<code>openrouter</code>, <code>nous</code></td></tr>
+<tr><td><code>keys</code></td><td>API keys: <code>provider</code>, an optional <code>name</code>, <code>keyFile</code>; never the key itself</td></tr>
+<tr><td><code>whenOneRunsOut</code></td><td>Per provider: <code>in order</code>, <code>take turns</code>, <code>least used</code>, <code>random</code></td></tr>
+<tr><td><code>apps</code></td><td>App ids to install (<code>wazza --gui app list</code> shows them)</td></tr>
+<tr><td><code>vm</code></td><td>Only <code>"auto"</code> (numbers are set in Settings or with the commands below)</td></tr>
+<tr><td><code>appearance</code></td><td><code>theme</code> dark, light or system; <code>glass</code> on, reduced or off; <code>reduceMotion</code></td></tr>
+<tr><td><code>tabs.limit</code></td><td>Tabs before they fold: 0 = Auto, up to 99</td></tr>
+</tbody></table></div>
+<p>It runs only the steps not done yet, so running it twice changes nothing. Each step prints one line as it ends:
+<code>✓</code> done, <code>→</code> waiting for you (a login prints its link and reads the code you paste in the
+terminal), <code>✗</code> failed. Exit 0: all done; 1: a step needs you or failed; 2: the file is malformed (nothing
+ran). <code>--file -</code> reads the file from standard input; <code>--json</code> prints one JSON line per step.</p>
+
+<h2 id="vms">VMs<a class="anchor" href="#vms" aria-label="Link to VMs">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui vm list</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm create</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm start vm-2</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm stop vm-2</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm backup vm-2</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm backups</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm restore BACKUP_ID</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>vm list</code></td><td>Every VM by number, running or stopped, with its disk</td></tr>
+<tr><td><code>vm create</code></td><td>A new stopped VM with the lowest free number</td></tr>
+<tr><td><code>vm start VM</code>, <code>vm stop VM</code></td><td>Start or stop one</td></tr>
+<tr><td><code>vm backup VM</code>, <code>vm backups</code></td><td>A zip of the VM in your Downloads (in the background); the list of backups</td></tr>
+<tr><td><code>vm restore BACKUP_ID</code> or <code>PATH.zip</code></td><td>A new VM from a backup; with <code>--into VM --yes</code>,
+replaces a stopped VM's disk for good</td></tr>
+<tr><td><code>vm reset VM --yes</code></td><td>Makes a stopped VM (not vm-1) new at its next start: its disk is removed</td></tr>
+<tr><td><code>vm delete VM --yes</code></td><td>Removes a stopped VM (not vm-1) and its disk, for good</td></tr>
+</tbody></table></div>
+
+<h2 id="vm-resources">Memory, disk and graphics<a class="anchor" href="#vm-resources" aria-label="Link to Memory, disk and graphics">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui vm-resources</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm-memory status</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm-memory auto 50</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm-disk set 64</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui gpu status</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>vm-resources [--vm VM]</code></td><td>What the VM has now and the most it may get, its graphics and disk, and
+your computer's processors, load, memory, graphics cards and free disk</td></tr>
+<tr><td><code>vm-memory status [--vm VM]</code></td><td>The memory rule and each VM's memory and limit</td></tr>
+<tr><td><code>vm-memory auto PERCENT [--min MIB]</code></td><td>Auto: PERCENT (10 to 100) of the memory free now, for every VM</td></tr>
+<tr><td><code>vm-memory set MIB [--vm VM]</code></td><td>A fixed amount, in MiB, added to the running VM at once</td></tr>
+<tr><td><code>vm-disk status</code>, <code>vm-disk set GIB [--vm VM]</code></td><td>The disk's size; grow it (only grows: a running VM grows at once)</td></tr>
+<tr><td><code>vm-gpu status</code>, <code>vm-gpu auto PERCENT</code>, <code>vm-gpu set MIB</code></td><td>The graphics memory a VM may hold</td></tr>
+<tr><td><code>gpu status</code>, <code>gpu mode virtualized|native|none</code>, <code>gpu card …</code></td><td>The GPU setting
+(<a href="gpu-apps.html">Desktop apps and the GPU</a>)</td></tr>
+</tbody></table></div>
+<p>The same settings, explained: <a href="settings-resources.html">Settings › VM resources</a>.</p>
+
+<h2 id="keys-and-sign-ins">Keys and sign-ins<a class="anchor" href="#keys-and-sign-ins" aria-label="Link to Keys and sign-ins">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui wazza-account login --email me@example.com --password-stdin &lt; ~/secrets/wazza-password</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui provider-keys add --stdin &lt; ~/secrets/keys.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui provider-keys list --credit</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui provider-signin status</span></code></pre>
+<p><code>keys.json</code> holds <code>{"keys": [{"providerId": "openrouter", "key": "…"}]}</code>; keep it readable only by
+you, or pipe it from your password manager. Also: <code>provider-keys remove PROVIDER</code>,
+<code>wazza-account status</code> and <code>logout</code>, <code>copilot key-from-gh</code> (GitHub Copilot from your
+<code>gh</code> sign-in). Plan logins that open a browser are easiest with the setup file above. Details:
+<a href="signin.html#from-the-command-line">Sign in › From the command line</a>.</p>
+
+<h2 id="chats">Chats<a class="anchor" href="#chats" aria-label="Link to Chats">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui chat-model set openrouter/xiaomi/mimo-v2.6-flash</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui chat-transcript --tab t5 --last 4</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui chat-transcript --tab t5 --kinds tool,bash &gt; t5-tools.json</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui timeouts set --command 1800</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>chat-model status</code>, <code>chat-model set MODEL</code></td><td>The model new Chats start on (a Chat keeps its own)</td></tr>
+<tr><td><code>chat-transcript --tab TAB [--vm VM]</code></td><td>A tab's whole conversation as one JSON document, oldest
+first: <code>--kinds user,message,thinking,tool,bash,error</code>, <code>--roles user,assistant</code>,
+<code>--contains TEXT</code>, <code>--from N</code>, <code>--last N</code></td></tr>
+<tr><td><code>chat-queue list|edit|discard … --tab TAB</code></td><td>The messages waiting while a Chat answers</td></tr>
+<tr><td><code>schedule list</code>, <code>schedule cancel ID</code></td><td>Messages the Chats scheduled for later</td></tr>
+<tr><td><code>timeouts</code>, <code>timeouts set [--tool S] [--command S]</code></td><td>The time limits: a tool call 10 to 1800 s
+(default 60), a command 10 to 7200 s (default 600)</td></tr>
+<tr><td><code>local-services status|on|off</code></td><td>Whether Chats on your computer may reach its local services</td></tr>
+</tbody></table></div>
+<p>Tab ids (<code>t5</code>) come from the window's <code>tabs_read</code> action (below). To send a message to a Chat:
+the window action <code>chat_send</code>.</p>
+
+<h2 id="apps">Apps<a class="anchor" href="#apps" aria-label="Link to Apps">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui app list</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call packages install_request '{"appId":"gimp","vmId":"vm-1"}'</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app status gimp --vm vm-1 --refresh</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui app uninstall gimp --vm vm-1 --focus</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>app list</code>, <code>app get APP_ID</code></td><td>Every app, and one app's recipe</td></tr>
+<tr><td><code>install_request</code> (above)</td><td>Installs an app, in the background (a failed install is tried once more)</td></tr>
+<tr><td><code>app status APP_ID [--vm VM] [--refresh]</code></td><td>Installed or not; <code>--refresh</code> checks the VM itself</td></tr>
+<tr><td><code>app uninstall APP_ID [--vm VM] [--focus] [--follow]</code></td><td>Shows the uninstall's confirmation in
+Wazza OS (only your click there uninstalls); <code>--follow</code> waits for the result</td></tr>
+<tr><td><code>app observe JOB_ID --follow</code></td><td>An install's or uninstall's live output</td></tr>
+<tr><td><code>app template</code>, <code>validate</code>, <code>save</code>, <code>remove</code></td><td>Your own apps
+(<a href="custom-apps.html#from-the-command-line">Add your own apps</a>)</td></tr>
+</tbody></table></div>
+
+<h2 id="files">Files<a class="anchor" href="#files" aria-label="Link to Files">#</a></h2>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui explorer list Documents --vm vm-1</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui explorer copy-to-vm ~/report.pdf --vm vm-1 --folder Documents</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui explorer upload Pictures/circle.png --vm vm-1</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui clipboard files --to-computer allow</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>explorer list [PATH] [--vm VM]</code></td><td>A folder of the VM's home (works for a VM in the background)</td></tr>
+<tr><td><code>explorer rename</code>, <code>move</code>, <code>delete PATH --yes</code>, <code>permissions</code></td><td>As in
+the Explorer; never overwrites; delete is permanent</td></tr>
+<tr><td><code>explorer copy-to-vm PATH… [--vm VM] [--folder F]</code></td><td>Your files into the VM (default
+<code>~/Downloads</code>), by your copy rule</td></tr>
+<tr><td><code>explorer upload VM_PATH… [--vm VM]</code></td><td>The VM's files to your computer, as new files (default
+<code>Downloads/From the VM</code>), by your copy rule</td></tr>
+<tr><td><code>explorer list|details|open|search|read … --computer</code></td><td>Your own files, below your home</td></tr>
+<tr><td><code>clipboard copy --stdin [--guest-only]</code></td><td>Puts text on the VM's clipboard (and yours)</td></tr>
+<tr><td><code>clipboard files [--to-vm R] [--to-computer R]</code></td><td>The file-copy rules: <code>ask</code>, <code>allow</code>, <code>off</code></td></tr>
+</tbody></table></div>
+
+<h2 id="the-window-and-everything-else">The window, and everything else<a class="anchor" href="#the-window-and-everything-else" aria-label="Link to The window, and everything else">#</a></h2>
+<p>Every action of the window has a name, and <code>ui do</code> runs it with its arguments; <code>ui catalog</code>
+lists them all (about 200: open an app, read the tabs, send to a Chat, read what you see, start a VM, read the
+settings…).</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call ui catalog '{}'</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call ui do '{"action":"tabs_read","args":{}}'</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call ui do '{"action":"open_app","args":{"appId":"inkscape"}}'</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui invoke modules_call drive look '{"vmId":"vm-1","tabId":"t3"}' --image-out ./t3</span></code></pre>
+<p>Arguments larger than a command line holds: <code>-</code> reads them from standard input, <code>@file.json</code>
+from a file. Also: <code>data status</code> (Wazza OS's folders on your computer and their sizes), <code>data
+remove-all --confirm "REMOVE ALL DATA"</code> (<a href="settings-computer.html#remove-all-data">Remove all data</a>),
+<code>quit</code>. On a server, <code>screenshot</code> and <code>record</code> capture Wazza OS's own screen
+(<a href="cli-server.html">Wazza OS on a server</a>).</p>
+
+<h2 id="when-an-agent-runs-these-commands">When an agent runs these commands<a class="anchor" href="#when-an-agent-runs-these-commands" aria-label="Link to When an agent runs these commands">#</a></h2>
+<p>A command run by the agent of a Chat (from its shell) is that Chat's: it may not change your view (focus, quit),
+reach another tab's Chat, copy files for another VM, or do what only you can do (Let this Chat edit my files,
+loosening the file-copy rules, Local services on). An agent outside Wazza OS that you started yourself runs the
+commands as you, in its shell or through <code>wazza-os mcp</code>
+(<a href="mcp.html#connect-an-agent-from-outside">Connect an agent from outside</a>).</p>
+<p>Every command, flag, answer and exit code: <a href="../dev/capabilities/cli.md">developer documentation › The
+command line</a>.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="mcp-tools.html" rel="prev"><span class="dir">← Previous</span>Every MCP tool</a><a class="next" href="cli-server.html" rel="next"><span class="dir">Next →</span>On a server (virtual screen)</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

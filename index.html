@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wazza OS user guide</title>
+<meta name="description" content="The Wazza OS user guide: download and install Wazza OS (one command), connect your AI agent, control it from a terminal or an agent, and every capability with its step-by-step pages.">
+<meta name="keywords" content="download, install, install.sh, curl, os.wazza.ai, overview, features, capabilities, what is wazza os, introduction, home">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html" aria-current="page">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#install-wazza-os">Install</a></li><li class="lvl3"><a href="#finds-your-package-type">Finds your package type</a></li><li class="lvl3"><a href="#verifies-the-release">Verifies the release</a></li><li class="lvl3"><a href="#resumes-if-cut">Resumes if cut</a></li><li class="lvl2"><a href="#connect-your-ai-agent">Connect your AI agent</a></li><li class="lvl2"><a href="#control-wazza-os">Control Wazza OS</a></li><li class="lvl2"><a href="#how-it-fits-together">How it fits together</a></li><li class="lvl2"><a href="#capabilities">Capabilities</a></li><li class="lvl3"><a href="#several-agents-at-once-each-in-its-own-app">Several agents at once, each in its own app</a></li><li class="lvl3"><a href="#one-install-the-vm-managed-for-you">One install, the VM managed for you</a></li><li class="lvl3"><a href="#real-desktop-apps-with-your-graphics-card">Real desktop apps, with your graphics card</a></li><li class="lvl3"><a href="#chats-with-the-agent-and-model-you-choose">Chats with the agent and model you choose</a></li><li class="lvl3"><a href="#drive-agents-see-and-use-app-windows">Drive: agents see and use app windows</a></li><li class="lvl3"><a href="#computer-control-an-agent-on-your-real-computer">Computer Control: an agent on your real computer</a></li><li class="lvl3"><a href="#skills-that-improve-from-your-chats">Skills that improve from your Chats</a></li><li class="lvl3"><a href="#extend-it-your-own-apps-its-mcp-its-command-line">Extend it: your own apps, its MCP, its command line</a></li><li class="lvl3"><a href="#files-and-sharing">Files and sharing</a></li><li class="lvl3"><a href="#privacy-and-security">Privacy and security</a></li><li class="lvl3"><a href="#memory-processors-and-disk-handled-for-you">Memory, processors and disk, handled for you</a></li><li class="lvl3"><a href="#the-command-line-and-servers">The command line and servers</a></li><li class="lvl2"><a href="#start-here">Start here</a></li><li class="lvl3"><a href="#quick-start">Quick start</a></li><li class="lvl3"><a href="#install-update-remove">Install, update, remove</a></li><li class="lvl3"><a href="#the-first-start">The first start</a></li><li class="lvl3"><a href="#something-is-wrong">Something is wrong</a></li><li class="lvl2"><a href="#about-this-manual">About this manual</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc doc-wide">
+<p class="hero-actions"><a class="cta" href="https://os.wazza.ai/download">Download Wazza OS</a>
+<span class="cta-note">For Linux. During the beta, the download page asks for the access code you received.</span></p>
+<h1>Wazza OS</h1>
+<p class="lead">AI that works with you, in the tools you already use. Wazza OS runs a computer of its own (a virtual
+machine) next to yours, with real desktop apps in it, and AI agents that work in those apps beside you: you ask, they
+work, you watch, step in, or carry on in your own tab.</p>
+<ul class="highlights">
+  <li><strong>Real apps, safely apart.</strong> GIMP, Blender, ONLYOFFICE, a browser, VSCodium and dozens more run in
+  virtual machines, not on your computer.</li>
+  <li><strong>Several agents at once.</strong> Each app opens in a tab with its own Chat; agents work in parallel tabs
+  while you keep yours.</li>
+  <li><strong>Skills and personas.</strong> Agents load know-how for each app and task, and learn your way of working.</li>
+  <li><strong>Drive.</strong> Agents see the app's screen and use the mouse and keyboard, in any app.</li>
+  <li><strong>Any AI.</strong> A plan you already pay for, an API key from one of 73 providers, a company gateway, or a
+  model on your own computer.</li>
+</ul>
+<div class="facts">
+  <div class="fact"><b>Runs on</b><span>Linux: Ubuntu, Debian, Fedora, openSUSE, Arch (x86-64, with KVM)</span></div>
+  <div class="fact"><b>Install</b><span>One command (or one package); the VM is created and managed for you</span></div>
+  <div class="fact"><b>Agents</b><span>Hermes, Prime Agent, Claude Code, Codex, Antigravity</span></div>
+  <div class="fact"><b>Models</b><span>Your plans, your API keys (73 providers), any compatible API, or a Wazza OS account</span></div>
+</div>
+
+<h2 id="install-wazza-os">Install<a class="anchor" href="#install-wazza-os" aria-label="Link to Install">#</a></h2>
+<p>Paste this in a terminal, on the Linux computer where Wazza OS will live. It asks for your password once, for
+<code>sudo</code>.</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh</span></code></pre>
+<p>To test first, without installing anything:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh -s -- --check</span></code></pre>
+<div class="cards cards-3">
+  <div class="card"><h3 id="finds-your-package-type">Finds your package type<a class="anchor" href="#finds-your-package-type" aria-label="Link to Finds your package type">#</a></h3><p>Debian, Ubuntu and their family get
+  the <code>.deb</code>. Fedora and openSUSE get the <code>.rpm</code>. Arch and its family get the Arch package. Any
+  other distribution gets the tarball.</p></div>
+  <div class="card"><h3 id="verifies-the-release">Verifies the release<a class="anchor" href="#verifies-the-release" aria-label="Link to Verifies the release">#</a></h3><p>Nothing installs unless the release manifest
+  carries Wazza's Ed25519 signature and the package matches its signed SHA-256 and size.</p></div>
+  <div class="card"><h3 id="resumes-if-cut">Resumes if cut<a class="anchor" href="#resumes-if-cut" aria-label="Link to Resumes if cut">#</a></h3><p>The package is large. If the download stops, run the
+  command again: it continues where it stopped.</p></div>
+</div>
+<p>What your computer needs, other ways to install, updates and removal: <a href="install.html">Install, update,
+remove</a>. Your first start, step by step: <a href="first-start.html">The first start</a>.</p>
+
+<h2 id="connect-your-ai-agent">Connect your AI agent<a class="anchor" href="#connect-your-ai-agent" aria-label="Link to Connect your AI agent">#</a></h2>
+<p>Claude Code, Codex, Cursor, VS Code, Gemini CLI, Hermes and Prime Agent can work in Wazza OS through
+<code>wazza-os mcp</code>, the MCP server that comes with it. For Claude Code, once:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">claude mcp add --scope user wazza-os -- wazza-os mcp</span></code></pre>
+<p>The line for each agent: <a href="mcp.html#connect-an-agent-from-outside">The Wazza OS MCP</a>. Everything an agent can
+do: <a href="mcp-tools.html">Every Wazza OS MCP tool</a>.</p>
+
+<h2 id="control-wazza-os">Control Wazza OS<a class="anchor" href="#control-wazza-os" aria-label="Link to Control Wazza OS">#</a></h2>
+<ul>
+  <li><strong>From a terminal</strong>, on your desktop or on a server: <a href="cli.html">The command line</a>, and
+  <a href="cli-server.html">Wazza OS on a server</a> (with its own virtual screen).</li>
+  <li><strong>From an agent</strong>: <a href="mcp.html">The Wazza OS MCP</a> and <a href="mcp-tools.html">Every Wazza OS MCP
+  tool</a>.</li>
+</ul>
+
+<h2 id="how-it-fits-together">How it fits together<a class="anchor" href="#how-it-fits-together" aria-label="Link to How it fits together">#</a></h2>
+<p>Three words carry the whole manual: <strong>the VM</strong>, <strong>tabs</strong> and <strong>Chats</strong>.</p>
+<ul>
+  <li><strong>The VM</strong> (virtual machine) is a complete Ubuntu computer that Wazza OS starts, sizes and stops
+  for you. Apps are installed in it, not on your computer, so they never touch your own files unless you hand
+  them over. You can have up to 8 VMs (4 running at once); most people use one, <code>vm-1</code>.</li>
+  <li>A <strong>tab</strong> shows one app of the VM (GIMP, Blender, a browser, the VM's file manager…) in the Wazza
+  OS window. Tabs work like a browser's: open as many as you like, switch, close.</li>
+  <li>A <strong>Chat</strong> sits beside each app, in its tab. You write to an <strong>agent</strong> (the AI
+  program that works for you) and it works in that tab's app: through the app's own tools, or by looking at the
+  app's window and using its mouse and keyboard (<a href="drive.html">Drive</a>). A Chat can also start other
+  agents in other tabs.</li>
+</ul>
+<p><a href="window.html">Getting around</a> shows the window part by part; <a href="glossary.html">Glossary</a>
+defines every word.</p>
+
+<h2 id="capabilities">Capabilities<a class="anchor" href="#capabilities" aria-label="Link to Capabilities">#</a></h2>
+<p>Each card says what the capability is, why or when you would use it, and who it is for. The link opens the full
+page: how to do it step by step, every option, the limits and examples.</p>
+
+<div class="cards">
+  <a class="card" href="parallel-tabs.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="8" height="14" rx="2"/><rect x="13" y="5" width="8" height="14" rx="2"/></svg></span>
+    <h3 id="several-agents-at-once-each-in-its-own-app">Several agents at once, each in its own app<a class="anchor" href="#several-agents-at-once-each-in-its-own-app" aria-label="Link to Several agents at once, each in its own app">#</a></h3>
+    <p><span class="k">What</span>One Chat hands parts of a job to other agents, each in its own app tab (a browser for research,
+    GIMP for images, an editor for code), all working at the same time.</p>
+    <p><span class="k">Why</span>Every agent has its own window, mouse and keyboard: none waits for a shared screen, and you
+    watch any of them, or keep using your own tab, without getting in the way.</p>
+    <p><span class="k">Who</span>Anyone with a job that spans several apps: research plus a report, assets plus a game, data plus slides.</p>
+    <span class="go">Several agents at once →</span>
+  </a>
+  <a class="card" href="install.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg></span>
+    <h3 id="one-install-the-vm-managed-for-you">One install, the VM managed for you<a class="anchor" href="#one-install-the-vm-managed-for-you" aria-label="Link to One install, the VM managed for you">#</a></h3>
+    <p><span class="k">What</span>One package for your distribution. Wazza OS creates its VM, sizes its memory, processors and
+    disk by itself, starts it with the app and keeps itself up to date with signed updates.</p>
+    <p><span class="k">Why</span>A complete Linux desktop with apps and agents, without setting up a VM, drivers or a container.</p>
+    <p><span class="k">Who</span>Everyone: no virtualization knowledge needed.</p>
+    <span class="go">Install, update, remove →</span>
+  </a>
+  <a class="card" href="gpu-apps.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+    <h3 id="real-desktop-apps-with-your-graphics-card">Real desktop apps, with your graphics card<a class="anchor" href="#real-desktop-apps-with-your-graphics-card" aria-label="Link to Real desktop apps, with your graphics card">#</a></h3>
+    <p><span class="k">What</span>About 70 ready-to-install apps: Blender, FreeCAD, Godot, GIMP, Inkscape, Kdenlive, OBS Studio,
+    ONLYOFFICE, Chromium, VLC, VSCodium and web apps (Google, Microsoft, social networks). 3D apps draw on your GPU
+    (Vulkan, OpenGL, OpenCL).</p>
+    <p><span class="k">Why</span>Agents do real work in real apps, and you keep the result in the app you know.</p>
+    <p><span class="k">Who</span>Creators, office users, developers, 3D and game makers.</p>
+    <span class="go">Desktop apps and the GPU →</span>
+  </a>
+  <a class="card" href="chats.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span>
+    <h3 id="chats-with-the-agent-and-model-you-choose">Chats with the agent and model you choose<a class="anchor" href="#chats-with-the-agent-and-model-you-choose" aria-label="Link to Chats with the agent and model you choose">#</a></h3>
+    <p><span class="k">What</span>Five agents (Hermes, Prime Agent, Claude Code, Codex, Antigravity), each with any model your
+    sign-ins give it; switch agent or model in the middle of a Chat, which keeps the conversation.</p>
+    <p><span class="k">Why</span>Use the plan you already pay for (Claude, ChatGPT, Grok, Google), your own API keys, or a free
+    model, in the same window.</p>
+    <p><span class="k">Who</span>Anyone who works with AI agents.</p>
+    <span class="go">Chats, agents and models →</span>
+  </a>
+  <a class="card" href="drive.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg></span>
+    <h3 id="drive-agents-see-and-use-app-windows">Drive: agents see and use app windows<a class="anchor" href="#drive-agents-see-and-use-app-windows" aria-label="Link to Drive: agents see and use app windows">#</a></h3>
+    <p><span class="k">What</span>An agent looks at its tab's app as a picture and clicks, drags, types and presses keys in it,
+    like a person, for every app, even one with no tools of its own.</p>
+    <p><span class="k">Why</span>Any desktop app becomes something an agent can operate, and you see every action happen.</p>
+    <p><span class="k">Who</span>Anyone who wants an agent to do GUI work: edit an image, fill a form, set up a scene.</p>
+    <span class="go">Drive →</span>
+  </a>
+  <a class="card" href="computer-control.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M9 20h6M12 16v4M9 10h6"/></svg></span>
+    <h3 id="computer-control-an-agent-on-your-real-computer">Computer Control: an agent on your real computer<a class="anchor" href="#computer-control-an-agent-on-your-real-computer" aria-label="Link to Computer Control: an agent on your real computer">#</a></h3>
+    <p><span class="k">What</span>A special Chat that can see and use your own computer's screen, keyboard and mouse, after you
+    allow it, until you stop it or close its tab.</p>
+    <p><span class="k">Why</span>For work outside the VM: an app installed only on your computer, your own desktop settings.</p>
+    <p><span class="k">Who</span>Experienced users who understand what they allow; never needed for work in the VM.</p>
+    <span class="go">Computer Control →</span>
+  </a>
+  <a class="card" href="skills.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></span>
+    <h3 id="skills-that-improve-from-your-chats">Skills that improve from your Chats<a class="anchor" href="#skills-that-improve-from-your-chats" aria-label="Link to Skills that improve from your Chats">#</a></h3>
+    <p><span class="k">What</span>Skills are written know-how agents load (how to use GIMP, how to write a report). Wazza OS ships
+    many, reviews your Chats to learn lessons and new skills, and lets you read, edit and add them, and group them into personas.</p>
+    <p><span class="k">Why</span>Agents get better at your apps and your way of working, and what one Chat learns, the next one knows.</p>
+    <p><span class="k">Who</span>Everyone (learning is on by default); power users who tune or write skills.</p>
+    <span class="go">Skills, learning and personas →</span>
+  </a>
+  <a class="card" href="custom-apps.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span>
+    <h3 id="extend-it-your-own-apps-its-mcp-its-command-line">Extend it: your own apps, its MCP, its command line<a class="anchor" href="#extend-it-your-own-apps-its-mcp-its-command-line" aria-label="Link to Extend it: your own apps, its MCP, its command line">#</a></h3>
+    <p><span class="k">What</span>Add any Linux app with a recipe (Ubuntu packages or an install script), with its own tools and
+    skill; give every Chat Wazza OS's own tools (its MCP); drive everything from a terminal or from another agent, on
+    your computer or on a server with no screen.</p>
+    <p><span class="k">Why</span>Wazza OS adapts to your tools, and fits into scripts, servers and other agents.</p>
+    <p><span class="k">Who</span>Developers, admins, teams automating work.</p>
+    <span class="go">Add your own apps →</span>
+  </a>
+  <a class="card" href="files.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+    <h3 id="files-and-sharing">Files and sharing<a class="anchor" href="#files-and-sharing" aria-label="Link to Files and sharing">#</a></h3>
+    <p><span class="k">What</span>Browse the VM's files in the Explorer, copy and paste files between your computer and the VM,
+    get results in Downloads/From the VM, reach your company's file servers, sync with your account.</p>
+    <p><span class="k">Why</span>Your files go into the VM only when you say so, and come back as new files, never over yours.</p>
+    <p><span class="k">Who</span>Everyone; teams for company folders and sync.</p>
+    <span class="go">Files and sharing →</span>
+  </a>
+  <a class="card" href="privacy-security.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span>
+    <h3 id="privacy-and-security">Privacy and security<a class="anchor" href="#privacy-and-security" aria-label="Link to Privacy and security">#</a></h3>
+    <p><span class="k">What</span>What runs where (your computer, the VM, the AI provider), where keys are kept, what agents can
+    reach, and every place where Wazza OS asks before acting.</p>
+    <p><span class="k">Why</span>To know exactly what you allow before you allow it.</p>
+    <p><span class="k">Who</span>Everyone, and whoever answers for a company's data.</p>
+    <span class="go">Privacy and security →</span>
+  </a>
+  <a class="card" href="memory-cpu.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></svg></span>
+    <h3 id="memory-processors-and-disk-handled-for-you">Memory, processors and disk, handled for you<a class="anchor" href="#memory-processors-and-disk-handled-for-you" aria-label="Link to Memory, processors and disk, handled for you">#</a></h3>
+    <p><span class="k">What</span>The VM takes memory when its apps need it and gives it back when idle, within a limit you can
+    set (by default 75 % of the memory free); processors and disk follow the same rule.</p>
+    <p><span class="k">Why</span>Your computer stays responsive; heavy work gets what it needs.</p>
+    <p><span class="k">Who</span>Everyone; laptop users who want to set limits.</p>
+    <span class="go">Memory, CPU and disk →</span>
+  </a>
+  <a class="card" href="cli.html">
+    <span class="card-icon"><svg viewBox="0 0 24 24"><path d="M4 17l6-5-6-5M12 19h8"/></svg></span>
+    <h3 id="the-command-line-and-servers">The command line and servers<a class="anchor" href="#the-command-line-and-servers" aria-label="Link to The command line and servers">#</a></h3>
+    <p><span class="k">What</span><code>wazza --gui …</code> controls the running Wazza OS: open apps, read Chats, manage VMs, take
+    screenshots and recordings. On a server with no display, Wazza OS makes its own virtual screen.</p>
+    <p><span class="k">Why</span>Automation, remote machines, scripts and CI.</p>
+    <p><span class="k">Who</span>Developers and admins.</p>
+    <span class="go">The command line →</span>
+  </a>
+</div>
+
+<h2 id="start-here">Start here<a class="anchor" href="#start-here" aria-label="Link to Start here">#</a></h2>
+<div class="cards">
+  <a class="card" href="quick-start.html"><h3 id="quick-start">Quick start<a class="anchor" href="#quick-start" aria-label="Link to Quick start">#</a></h3><p>From install to an agent working in an app, in about 10 minutes.</p><span class="go">Quick start →</span></a>
+  <a class="card" href="install.html"><h3 id="install-update-remove">Install, update, remove<a class="anchor" href="#install-update-remove" aria-label="Link to Install, update, remove">#</a></h3><p>The package for your distribution, what your computer needs, updates and uninstalling.</p><span class="go">Install →</span></a>
+  <a class="card" href="first-start.html"><h3 id="the-first-start">The first start<a class="anchor" href="#the-first-start" aria-label="Link to The first start">#</a></h3><p>The six steps of the very first start, one by one.</p><span class="go">The first start →</span></a>
+  <a class="card" href="troubleshooting.html"><h3 id="something-is-wrong">Something is wrong<a class="anchor" href="#something-is-wrong" aria-label="Link to Something is wrong">#</a></h3><p>Symptoms, causes and fixes: the VM, Chats, apps, the display, updates.</p><span class="go">Troubleshooting →</span></a>
+</div>
+
+<h2 id="about-this-manual">About this manual<a class="anchor" href="#about-this-manual" aria-label="Link to About this manual">#</a></h2>
+<ul>
+  <li>Written for <strong>Wazza OS 0.2.0</strong> (build 44c5d0ea07c1, published 2026-11-03). The screenshots come from a test computer (Ubuntu 24.04, GNOME) running Wazza OS 0.2.0: alpha 2 and the builds that followed it, whose screens are the same.</li>
+  <li>Press <kbd>/</kbd> anywhere to search every page and heading; the search works offline.</li>
+  <li>The sun and moon button switches between dark (the default, like the app) and light.</li>
+  <li>Words in <span class="ui">bold</span> are what Wazza OS shows on screen: a button, a tab, a menu item.
+  <span class="path">Home › Sign in › API keys</span> means: open Home, then Sign in, then its API keys tab.</li>
+  <li>How each part works inside (for developers): the developer documentation, <a href="../dev/README.md">docs/dev</a>.</li>
+</ul>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="next" href="quick-start.html" rel="next"><span class="dir">Next →</span>Quick start</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#install-wazza-os">Install</a></li><li class="lvl3"><a href="#finds-your-package-type">Finds your package type</a></li><li class="lvl3"><a href="#verifies-the-release">Verifies the release</a></li><li class="lvl3"><a href="#resumes-if-cut">Resumes if cut</a></li><li class="lvl2"><a href="#connect-your-ai-agent">Connect your AI agent</a></li><li class="lvl2"><a href="#control-wazza-os">Control Wazza OS</a></li><li class="lvl2"><a href="#how-it-fits-together">How it fits together</a></li><li class="lvl2"><a href="#capabilities">Capabilities</a></li><li class="lvl3"><a href="#several-agents-at-once-each-in-its-own-app">Several agents at once, each in its own app</a></li><li class="lvl3"><a href="#one-install-the-vm-managed-for-you">One install, the VM managed for you</a></li><li class="lvl3"><a href="#real-desktop-apps-with-your-graphics-card">Real desktop apps, with your graphics card</a></li><li class="lvl3"><a href="#chats-with-the-agent-and-model-you-choose">Chats with the agent and model you choose</a></li><li class="lvl3"><a href="#drive-agents-see-and-use-app-windows">Drive: agents see and use app windows</a></li><li class="lvl3"><a href="#computer-control-an-agent-on-your-real-computer">Computer Control: an agent on your real computer</a></li><li class="lvl3"><a href="#skills-that-improve-from-your-chats">Skills that improve from your Chats</a></li><li class="lvl3"><a href="#extend-it-your-own-apps-its-mcp-its-command-line">Extend it: your own apps, its MCP, its command line</a></li><li class="lvl3"><a href="#files-and-sharing">Files and sharing</a></li><li class="lvl3"><a href="#privacy-and-security">Privacy and security</a></li><li class="lvl3"><a href="#memory-processors-and-disk-handled-for-you">Memory, processors and disk, handled for you</a></li><li class="lvl3"><a href="#the-command-line-and-servers">The command line and servers</a></li><li class="lvl2"><a href="#start-here">Start here</a></li><li class="lvl3"><a href="#quick-start">Quick start</a></li><li class="lvl3"><a href="#install-update-remove">Install, update, remove</a></li><li class="lvl3"><a href="#the-first-start">The first start</a></li><li class="lvl3"><a href="#something-is-wrong">Something is wrong</a></li><li class="lvl2"><a href="#about-this-manual">About this manual</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install, update, remove · Wazza OS manual</title>
+<meta name="description" content="Install Wazza OS on Ubuntu, Debian, Fedora, openSUSE, Arch or any Linux with the tarball; what your computer needs; how to update; how to remove it and what removing deletes.">
+<meta name="keywords" content="install, install.sh, curl, one command, os.wazza.ai, os-downloads.wazza.ai, download, deb, rpm, arch, pacman, apt, dnf, zypper, tar.zst, install.sh, requirements, kvm, update, upgrade, uninstall, remove, wazzaos, wazza-os">
+<!-- HEAD:BEGIN -->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/manual.css">
+<script>(function(){var t=null;try{t=localStorage.getItem('wazza-manual-theme')}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark'}document.documentElement.setAttribute('data-theme',t)})();</script>
+<!-- HEAD:END -->
+</head>
+<body>
+<!-- TOP:BEGIN -->
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+<button type="button" class="icon-btn menu-btn" aria-controls="sidebar" aria-expanded="false" aria-label="Show the manual's pages"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Wazza OS</span><span class="brand-sub">Manual</span></a>
+<span class="topbar-spacer"></span>
+<div class="search" role="search"><svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input id="search-input" type="search" placeholder="Search the manual" autocomplete="off" spellcheck="false" aria-label="Search the manual" aria-controls="search-results" aria-expanded="false" aria-autocomplete="list"><kbd aria-hidden="true">/</kbd><ul id="search-results" class="search-results" role="listbox" hidden></ul></div>
+<button type="button" class="icon-btn theme-btn" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+</header>
+<div class="layout">
+<nav class="sidebar" id="sidebar" aria-label="Manual">
+<div class="nav-group"><p class="nav-group-title">Start here</p><ul>
+<li><a href="index.html">Wazza OS: download, install, connect</a></li>
+<li><a href="quick-start.html">Quick start</a></li>
+<li><a href="install.html" aria-current="page">Install, update, remove</a></li>
+<li><a href="first-start.html">The first start</a></li>
+<li><a href="window.html">Getting around</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
+<li><a href="chats.html">Chats, agents and models</a></li>
+<li><a href="parallel-tabs.html">Several agents at once</a></li>
+<li><a href="signin.html">Sign in, plans and API keys</a></li>
+<li><a href="drive.html">Drive: agents on screen</a></li>
+<li><a href="computer-control.html">Computer Control</a></li>
+<li><a href="skills.html">Skills, learning and personas</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Apps and files</p><ul>
+<li><a href="apps.html">Apps and tabs</a></li>
+<li><a href="gpu-apps.html">Desktop apps and the GPU</a></li>
+<li><a href="custom-apps.html">Add your own apps</a></li>
+<li><a href="files.html">Files and sharing</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Connect and automate</p><ul>
+<li><a href="mcp.html">The Wazza OS MCP</a></li>
+<li><a href="mcp-tools.html">Every MCP tool</a></li>
+<li><a href="cli.html">The command line</a></li>
+<li><a href="cli-server.html">On a server (virtual screen)</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Settings</p><ul>
+<li><a href="settings-general.html">General</a></li>
+<li><a href="settings-vms.html">Virtual machines</a></li>
+<li><a href="settings-resources.html">VM resources</a></li>
+<li><a href="settings-chats.html">Chats &amp; agents</a></li>
+<li><a href="settings-skills.html">Skills &amp; learning</a></li>
+<li><a href="settings-files.html">Files &amp; sharing</a></li>
+<li><a href="settings-sync.html">Sync &amp; team</a></li>
+<li><a href="settings-computer.html">This computer</a></li>
+<li><a href="update.html">The Update page</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">How it behaves</p><ul>
+<li><a href="privacy-security.html">Privacy and security</a></li>
+<li><a href="memory-cpu.html">Memory, CPU and disk</a></li>
+</ul></div>
+<div class="nav-group"><p class="nav-group-title">Help</p><ul>
+<li><a href="troubleshooting.html">Troubleshooting</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+</ul></div>
+</nav>
+<main id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">Wazza OS manual</a></li><li>Start here</li><li aria-current="page">Install, update, remove</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></details></div>
+<!-- TOP:END -->
+<article class="doc">
+<h1>Install, update, remove</h1>
+<p class="lead">Wazza OS installs with one command on any recent Linux, or as a package of your distribution.
+Start it from your app menu, and it sets up the rest (its VM, its apps, its agents) on its first start.</p>
+
+<h2 id="what-your-computer-needs">What your computer needs<a class="anchor" href="#what-your-computer-needs" aria-label="Link to What your computer needs">#</a></h2>
+<div class="table-wrap"><table>
+<thead><tr><th>Need</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td>Linux on a 64-bit Intel or AMD processor (x86-64), with glibc 2.39 or newer (Ubuntu 24.04, Debian 13,
+Fedora 40 and later, a current openSUSE Tumbleweed or Arch)</td><td>Wazza OS is built for it.</td></tr>
+<tr><td>Hardware virtualization (Intel VT-x or AMD-V) turned on, so <code>/dev/kvm</code> exists</td><td>The VM runs
+only with KVM. Most computers have it; on some it must be turned on in the firmware settings (UEFI/BIOS).</td></tr>
+<tr><td>A desktop session with systemd (GNOME, KDE, Xfce, Hyprland, Sway…), and XWayland on Wayland desktops</td>
+<td>Wazza OS's window and the VM's panes are X11 windows. On a server with no desktop, see
+<a href="cli-server.html">On a server</a>.</td></tr>
+<tr><td>Memory: 8 GB works (the computer of this manual's screenshots had 8 GB); 16 GB or more is comfortable for
+3D apps and several agents at once</td><td>The VM takes memory as its apps need it and gives it back; Wazza OS always
+keeps 2 GB and 10 % of your memory for your computer itself (<a href="memory-cpu.html">Memory, CPU and disk</a>).</td></tr>
+<tr><td>Disk: about 8 GB for Wazza OS itself, plus room for the VM's disk (it grows as you use it, by default up
+to half of your free space)</td><td>The package holds the VM's system image.</td></tr>
+<tr><td>A graphics card with its driver (Intel, AMD, or NVIDIA 495 or newer)</td><td>Apps in the VM draw on it.
+Without one the VM still works, with slower software graphics.</td></tr>
+<tr><td>An Internet connection</td><td>For agents' models, installing apps in the VM, updates.</td></tr>
+</tbody></table></div>
+<p>After installing, <code>wazza --check</code> says exactly what your computer has and what is missing
+(<a href="first-start.html#what-is-checked">What is checked</a>).</p>
+
+<h2 id="install-with-one-command">Install with one command<a class="anchor" href="#install-with-one-command" aria-label="Link to Install with one command">#</a></h2>
+<p>Paste this in a terminal, on the Linux computer where Wazza OS will live. It asks for your password once, for
+<code>sudo</code>.</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh</span></code></pre>
+<p>To test first, without installing anything:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh -s -- --check</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>It…</th><th>How</th></tr></thead>
+<tbody>
+<tr><td>finds your package type</td><td>Debian, Ubuntu and their family get the <code>.deb</code>. Fedora and openSUSE get
+the <code>.rpm</code>. Arch and its family get the Arch package. Any other distribution gets the tarball.</td></tr>
+<tr><td>verifies the release</td><td>Nothing installs unless the release manifest carries Wazza's Ed25519 signature
+and the package matches its signed SHA-256 and size.</td></tr>
+<tr><td>resumes if cut</td><td>The package is large (about 7 GB). If the download stops, run the command again: it
+continues where it stopped.</td></tr>
+</tbody></table></div>
+<p>It needs free disk for the package plus about 1 GB, and checks before it starts. It downloads into
+<code>/var/tmp/wazza-install</code> and leaves the package there (delete it to free the space); to use another folder,
+put <code>WAZZA_INSTALL_DIR=/some/big/folder</code> before <code>sh</code>. To choose the package type yourself, add it
+after <code>--</code>: <code>sh -s -- tar</code> (or <code>deb</code>, <code>rpm</code>, <code>arch</code>). When it is
+done, start Wazza OS from your applications menu.</p>
+
+<h2 id="download">Or download a package yourself<a class="anchor" href="#download" aria-label="Link to Or download a package yourself">#</a></h2>
+<p>The packages are on Wazza's release server, <code>os-downloads.wazza.ai</code> (its older name,
+<code>downloads.tadaah.ai</code>, serves the same files, and is the address Wazza OS's own updater uses). Each version
+has four packages of the same build, one per family of Linux:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Your system</th><th>Package</th><th>Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256</th></tr></thead>
+<tbody>
+<tr><td>Ubuntu, Debian, Linux Mint, Pop!_OS and other Debian-based systems</td><td><code>.deb</code></td>
+<td><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb">wazza-20261103T021245Z-11af2d7099e51d8e.deb</a><br><code>11af2d7099e51d8ee03b6605de367fadac537a333c1524d40e3c075f04130517</code></td></tr>
+<tr><td>Fedora, openSUSE</td><td><code>.rpm</code></td>
+<td><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-4b39800484873c92.rpm">wazza-20261103T021245Z-4b39800484873c92.rpm</a><br><code>4b39800484873c92acbcea271710bccc89e6e5ff80960af431a1324d740482b0</code></td></tr>
+<tr><td>Arch, EndeavourOS, Omarchy and other Arch-based systems</td><td><code>.pkg.tar.zst</code></td>
+<td><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst">wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst</a><br><code>5225f3922628ec4edc9b9546e255a9a612d54c9bcc8401f31cbf8eded97cb2e7</code></td></tr>
+<tr><td>Any other Linux (glibc 2.39 or newer, systemd)</td><td><code>.tar.zst</code></td>
+<td><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst">wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst</a><br><code>edd1335e2c1bda8b0a5515622046f39344870701c81b9a5061dc8d9609b91f00</code></td></tr>
+</tbody></table></div>
+<p>Each file is about 7 GB: it carries the VM's whole system, so the first start needs no further big download.
+For a newer version: <code>https://os-downloads.wazza.ai/latest</code> names the current version and the Debian
+package's address and SHA-256 (its <code>files[0].url</code>, relative to <code>https://os-downloads.wazza.ai</code>);
+the other three are in the same folder, <code>/download/&lt;version&gt;/</code>. In a terminal:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">curl -s https://os-downloads.wazza.ai/latest</span>
+<span class="prompt">$ </span><span class="cmd">curl -LO https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb</span>
+<span class="prompt">$ </span><span class="cmd">sha256sum wazza-20261103T021245Z-11af2d7099e51d8e.deb</span></code></pre>
+<p>The SHA-256 printed must be the one in the table (or in <code>/latest</code>); if it differs, the download is
+damaged: download it again.</p>
+<div class="tip"><p>You download a package only once. After the first install, Wazza OS updates itself from the
+<a href="update.html">Update page</a>: it checks for a new signed version every hour, and installing it is two clicks
+and your administrator password.</p></div>
+
+<h2 id="install">Install a downloaded package<a class="anchor" href="#install" aria-label="Link to Install a downloaded package">#</a></h2>
+<h3 id="ubuntu-and-debian">Ubuntu and Debian<a class="anchor" href="#ubuntu-and-debian" aria-label="Link to Ubuntu and Debian">#</a></h3>
+<pre><code><span class="prompt">$ </span><span class="cmd">sudo apt install ./wazza-*.deb</span></code></pre>
+<p>Write the <code>./</code> in front: it tells apt to install that file, and apt installs what it needs with it
+(bubblewrap, ffmpeg, Openbox, Xvfb and the other dependencies).</p>
+<h3 id="fedora">Fedora<a class="anchor" href="#fedora" aria-label="Link to Fedora">#</a></h3>
+<pre><code><span class="prompt">$ </span><span class="cmd">sudo dnf install ./wazza-*.rpm</span></code></pre>
+<h3 id="opensuse">openSUSE<a class="anchor" href="#opensuse" aria-label="Link to openSUSE">#</a></h3>
+<pre><code><span class="prompt">$ </span><span class="cmd">sudo zypper install ./wazza-*.rpm</span></code></pre>
+<h3 id="arch">Arch and Arch-based systems<a class="anchor" href="#arch" aria-label="Link to Arch and Arch-based systems">#</a></h3>
+<pre><code><span class="prompt">$ </span><span class="cmd">sudo pacman -U ./wazza-*.pkg.tar.zst</span></code></pre>
+<h3 id="any-other-linux-tarball">Any other Linux (tarball)<a class="anchor" href="#any-other-linux-tarball" aria-label="Link to Any other Linux (tarball)">#</a></h3>
+<pre><code><span class="prompt">$ </span><span class="cmd">tar --zstd -xf wazza-*.tar.zst</span>
+<span class="prompt">$ </span><span class="cmd">cd wazza-os-*/</span>
+<span class="prompt">$ </span><span class="cmd">./install.sh --check</span>
+<span class="prompt">$ </span><span class="cmd">sudo ./install.sh</span></code></pre>
+<p><code>./install.sh --check</code> only lists what your system is missing (the commands and libraries Wazza OS needs:
+systemd, util-linux, Python 3, Xvfb, xauth, Openbox, D-Bus, FFmpeg, bubblewrap, slirp4netns, iproute2, OpenSSL, Git).
+Install those with your package manager, then <code>sudo ./install.sh</code> puts the files where the packages put
+them. It refuses while something is missing (<code>--force</code> installs anyway).</p>
+
+<h2 id="start-wazza-os">Start Wazza OS<a class="anchor" href="#start-wazza-os" aria-label="Link to Start Wazza OS">#</a></h2>
+<p>Open <strong>Wazza OS</strong> from your app menu (Activities, the application launcher, or the start menu of your
+desktop). Or, in a terminal of your desktop session, run one of these (they are the same program):</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazzaos</span></code></pre>
+<p><code>wazza-os</code> and <code>wazza</code> work too. Only one Wazza OS runs per user: starting it again while it runs
+goes to the one already running. The very first start shows six setup steps: <a href="first-start.html">The first start</a>.</p>
+
+<h2 id="update-wazza-os">Update Wazza OS<a class="anchor" href="#update-wazza-os" aria-label="Link to Update Wazza OS">#</a></h2>
+<p>Three ways, all keep your VMs, Chats, sign-ins and settings:</p>
+<ul>
+  <li><strong>From Wazza OS</strong>: Home › Update shows a new version as soon as it is out (it checks every hour);
+  click <span class="ui">Download Update</span>, then <span class="ui">Install Now</span> (<a href="update.html">The Update page</a>).</li>
+  <li><strong>With your package manager</strong>: download the new package and install it exactly as above, over the
+  installed one (<code>sudo apt install ./new.deb</code>, <code>sudo dnf install ./new.rpm</code>,
+  <code>sudo pacman -U ./new.pkg.tar.zst</code>, or the new tarball's <code>sudo ./install.sh</code>). Then quit and
+  start Wazza OS.</li>
+  <li><strong>With the install command</strong>: run it again (<a href="#install-with-one-command">Install with one
+  command</a>): it installs the newest version over yours. Then quit and start Wazza OS.</li>
+</ul>
+<div class="danger"><span class="callout-title">Never uninstall to update</span>
+<p>Removing the package deletes your Wazza OS data (below). To update, or to go back to an older version, install the
+other package over the one you have.</p></div>
+<p>Going back to an older version is a downgrade: Debian and Ubuntu do it with
+<code>sudo apt install --allow-downgrades ./older.deb</code>; Fedora with <code>sudo dnf downgrade ./older.rpm</code>;
+Arch with <code>sudo pacman -U ./older.pkg.tar.zst</code>.</p>
+
+<h2 id="remove-wazza-os">Remove Wazza OS<a class="anchor" href="#remove-wazza-os" aria-label="Link to Remove Wazza OS">#</a></h2>
+<div class="danger"><span class="callout-title">Removing Wazza OS removes your Wazza OS data too</span>
+<p>Every package's removal stops Wazza OS and its VMs, then deletes Wazza OS's data on this computer: the VMs' disks
+(and every file you made inside them), Chats, sign-ins and keys, settings, caches. Your own files outside Wazza OS
+(Documents, Downloads, Desktop…) stay, including <code>Downloads/From the VM</code> and VM backups. Back up a VM you
+want to keep first (<a href="settings-vms.html#backups">Virtual machines › Backups</a>).</p></div>
+<div class="table-wrap"><table>
+<thead><tr><th>System</th><th>Command</th></tr></thead>
+<tbody>
+<tr><td>Ubuntu, Debian</td><td><code>sudo apt remove wazza-os</code></td></tr>
+<tr><td>Fedora</td><td><code>sudo dnf remove wazza-os</code></td></tr>
+<tr><td>openSUSE</td><td><code>sudo zypper remove wazza-os</code></td></tr>
+<tr><td>Arch</td><td><code>sudo pacman -R wazza-os</code></td></tr>
+<tr><td>Tarball</td><td><code>sudo ./uninstall.sh</code> (in the unpacked folder)</td></tr>
+<tr><td>Any of them</td><td><code>sudo wazzaos --uninstall</code>: removes Wazza OS with the system that installed it
+(apt, dnf, zypper, pacman or the tarball's uninstaller), naming each folder it deletes with its size</td></tr>
+</tbody></table></div>
+<p>To erase Wazza OS's data but keep it installed (a fresh start), use
+<a href="settings-computer.html#remove-all-data">Settings › This computer › Remove all data</a> instead.</p>
+</article>
+<!-- BOTTOM:BEGIN -->
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="quick-start.html" rel="prev"><span class="dir">← Previous</span>Quick start</a><a class="next" href="first-start.html" rel="next"><span class="dir">Next →</span>The first start</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+</main>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></aside>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/manual.js"></script>
+<!-- BOTTOM:END -->
+</body>
+</html>
