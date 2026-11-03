@@ -1,7 +1,9 @@
 # Wazza OS user guide
 
-**[Download Wazza OS](https://os.wazza.ai/download)** for Linux. During the beta, the download page asks for the access
-code you received.
+- The Wazza OS website: **<https://os.wazza.ai/>**
+- **[Download Wazza OS](https://os.wazza.ai/download)** for Linux. During the beta, the download page asks for the access
+  code you received.
+- **[Sign in to your Wazza account (Wazza OS, Wazza Pro)](https://app.wazza.ai/auth/login)**
 
 Read the guide: **<https://wazza-ai.github.io/wazza-os/>**
 
@@ -18,7 +20,6 @@ you watch, step in, or carry on in your own tab.
 - **Any AI.** A plan you already pay for, an API key from one of 73 providers, a company gateway, or a model on your
   own computer.
 
-Website: <https://os.wazza.ai>
 
 ## Install
 
