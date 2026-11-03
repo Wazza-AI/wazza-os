@@ -7,6 +7,17 @@
 
 Read the guide: **<https://wazza-ai.github.io/wazza-os/>**
 
+<table>
+  <tr>
+    <td width="50%"><a href="https://wazza-ai.github.io/wazza-os/apps.html"><img src="img/showcase-apps.webp" alt="The Applications tab of Wazza OS: the Home menu on the left (Apps, Settings, Sign in, History, Update, Notifications, Feedback, the VM card), the app catalog with its search, Add app and categories, and the apps by section: Main apps (Chat, Computer Control, Wazza Pro), Office, Internet"></a></td>
+    <td width="50%"><a href="https://wazza-ai.github.io/wazza-os/chats.html"><img src="img/showcase-task.webp" alt="A GIMP tab at work: on the left its Chat with the request (a 1200 x 800 poster, dark teal, Hello from Wazza OS in white, exported to Pictures) and the agent's steps (a new image, the text, thinking), on the right GIMP showing the poster as the agent builds it"></a></td>
+  </tr>
+  <tr>
+    <td><a href="https://wazza-ai.github.io/wazza-os/apps.html"><b>The Applications tab</b></a>: every app, ready to install in one click.</td>
+    <td><a href="https://wazza-ai.github.io/wazza-os/chats.html"><b>A tab at work</b></a>: the app on the right, its Chat doing your request on the left.</td>
+  </tr>
+</table>
+
 Wazza OS is AI that works with you, in the tools you already use. It runs a computer of its own (a virtual machine)
 next to yours, with real desktop apps in it, and AI agents that work in those apps beside you: you ask, they work,
 you watch, step in, or carry on in your own tab.
