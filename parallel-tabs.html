@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Several agents at once · Wazza OS manual</title>
-<meta name="description" content="How one Chat hands parts of a job to other agents, each in its own app tab (visible agents) or in the background (hidden agents), at the same time; what you see; the limits (4 visible agents per Chat, memory); and why it beats one shared screen.">
+<meta name="description" content="How one Chat hands parts of a job to other agents, each in its own app tab (visible agents) or in the background (hidden agents), at the same time; what you see; the limits (no fixed number of visible agents, up to 2 hidden agents per Chat, the VM's memory); and why it beats one shared screen.">
 <meta name="keywords" content="parallel, several agents, multi agent, subagent, visible agent, hidden agent, app task, spawn tabs, background tab, tab group, crew, schedule, queue, chat peer">
 <!-- HEAD:BEGIN -->
 <link rel="canonical" href="https://os-guide.wazza.ai/parallel-tabs.html">
@@ -89,7 +89,7 @@ in the background, while you watch any of them or keep working in your own tab.<
   <div class="fact"><b>What</b><span>Visible agents, each in its own app tab; hidden agents for background work</span></div>
   <div class="fact"><b>Why</b><span>Every agent has its own window, mouse and keyboard: no one waits for a shared screen</span></div>
   <div class="fact"><b>Who</b><span>Anyone with a job that spans several apps</span></div>
-  <div class="fact"><b>Limit</b><span>4 visible agents per Chat at once, fewer when the VM is short of memory</span></div>
+  <div class="fact"><b>Limit</b><span>Visible agents: no fixed number; hidden agents: up to 2 per Chat (4 per VM); a new one waits only while the VM is short of memory and cannot grow</span></div>
 </div>
 
 <h2 id="why-separate-tabs">Why each agent gets its own tab<a class="anchor" href="#why-separate-tabs" aria-label="Link to Why each agent gets its own tab">#</a></h2>
@@ -146,7 +146,12 @@ first), unless it was asked to leave the result open</td><td data-label="Hidden 
 
 <h2 id="limits">Limits<a class="anchor" href="#limits" aria-label="Link to Limits">#</a></h2>
 <ul>
-  <li><strong>4 visible agents per Chat at once.</strong> A fifth is refused until one has answered; the Chat waits, then starts it.</li>
+  <li><strong>No fixed number of visible agents.</strong> A Chat starts as many agents in their own app tabs as its job
+  needs (they were limited to 4 at once).</li>
+  <li><strong>Up to 2 hidden agents per Chat</strong> (agents without a window), and 4 per VM.</li>
+  <li><strong>The Chat is told how much room is left.</strong> Each time it opens an agent, visible or hidden, it is
+  told which of its agents are running, how much memory the VM has free, and whether it can open more, should wait or
+  should close some (naming the ones to close first: idle hidden agents, then the oldest).</li>
   <li><strong>Memory comes first.</strong> Past the first helper, no visible agent starts while the VM is short of memory
   and cannot grow. The Chat is told why, and starts the next helper when one ends. On the 8 GB test computer of these
   screenshots, the GIMP helper therefore waited for the Chromium one:</li>
@@ -160,6 +165,7 @@ first), unless it was asked to leave the result open</td><td data-label="Hidden 
   close tabs you no longer need, or use a computer with more memory (16 GB or more).</li>
   <li>A helper's tab is a normal tab: you can click in it, stop its Chat, or close it (which ends that helper).</li>
   <li>A helper never closes the tab of the Chat that started it, and never changes the tab you look at.</li>
+  <li>If a window closes while agents are starting, one of them may not start: close its tab and ask the Chat again.</li>
 </ul>
 
 <h2 id="more-ways-to-work-in-parallel">More ways to work in parallel<a class="anchor" href="#more-ways-to-work-in-parallel" aria-label="Link to More ways to work in parallel">#</a></h2>
@@ -177,7 +183,7 @@ first), unless it was asked to leave the result open</td><td data-label="Hidden 
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="chats.html" rel="prev"><span class="dir">← Previous</span>Chats, agents and models</a><a class="next" href="signin.html" rel="next"><span class="dir">Next →</span>Sign in, plans and API keys</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#why-separate-tabs">Why each agent gets its own tab</a></li><li class="lvl2"><a href="#two-kinds-of-helper-agents">Two kinds of helper agents</a></li><li class="lvl2"><a href="#ask-for-several-agents">Ask for several agents</a></li><li class="lvl2"><a href="#limits">Limits</a></li><li class="lvl2"><a href="#more-ways-to-work-in-parallel">More ways to work in parallel</a></li></ul></aside>
 </div>

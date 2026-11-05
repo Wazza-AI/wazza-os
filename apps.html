@@ -148,9 +148,11 @@ and OSM places and routes are installed on the first start.</p>
 </figure>
 <ol class="steps" start="3">
   <li value="3"><p>The tab says <em>Installing …</em> with the time elapsed. You can use other tabs meanwhile;
-  <span class="ui">Cancel installation</span> stops it.</p></li>
+  <span class="ui">Cancel installation</span> stops it. Stopping vm-1 or quitting Wazza OS meanwhile first lets the
+  install's package step finish: the Stop says <em>finishing an install first (at most 60 s)</em>. Another VM is stopped only between installs: its <span class="ui">Stop</span> says so and stops nothing; stop
+  it again once the install ends.</p></li>
   <li value="4"><p>When it is installed and checked, the app opens in the tab, with its Chat on the left. A
-  notification says it is done.</p></li>
+  notification says it is done, by the app's name: <em>Inkscape is installed.</em></p></li>
 </ol>
 <p>Installing takes from under a minute (small apps) to several minutes (Blender, ONLYOFFICE), depending on your
 connection. Apps install inside the VM, so they never change your computer. When an installation fails, the tab says
@@ -209,7 +211,8 @@ app that is not installed: it installs it first.</p></div>
   <li><p><span class="ui">Close its open tabs first</span>: needed when the app is open (otherwise the box says
   <em>Cannot uninstall yet</em> and <span class="ui">Uninstall</span> stays grey).</p></li>
   <li><p><span class="ui">Uninstall</span> removes exactly that plan; <span class="ui">Cancel</span> changes nothing.
-  The card follows it (<em>Uninstalling…</em>) and a notification says when it is done.</p></li>
+  The card follows it (<em>Uninstalling…</em>) and a notification says when it is done (<em>Inkscape is
+  removed.</em>, or why not: <em>Inkscape could not be removed: …</em>).</p></li>
 </ol>
 <p>Your files made with the app (in the VM's folders) stay. Apps that Wazza OS itself needs (Files, Desktop, the
 default tools) cannot be uninstalled.</p>
@@ -222,7 +225,7 @@ default tools) cannot be uninstalled.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="skills.html" rel="prev"><span class="dir">← Previous</span>Skills, learning and personas</a><a class="next" href="gpu-apps.html" rel="next"><span class="dir">Next →</span>Desktop apps and the GPU</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>

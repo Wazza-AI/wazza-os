@@ -77,7 +77,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Help</li><li aria-current="page">Troubleshooting</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Troubleshooting</h1>
@@ -122,8 +122,8 @@ window shows</a>)</td></tr>
 <h2 id="a-chat-does-not-answer">A Chat does not answer<a class="anchor" href="#a-chat-does-not-answer" aria-label="Link to A Chat does not answer">#</a></h2>
 <ul>
   <li><strong>No key or sign-in</strong>: Wazza OS comes without an AI key. A Chat on Hermes then answers at once
-  <em>Add an OpenRouter key under Sign In › API keys, or sign in to your Wazza account</em>: add a key, sign in to your
-  Wazza OS account, or log in with a plan you pay for (<a href="signin.html">Sign in, keys and plans</a>).</li>
+  <em>Add an OpenRouter key under Sign In › API keys, or sign in to your Wazza account</em> (its header says the same
+  beside its red dot): add a key, sign in to your Wazza OS account, or log in with a plan you pay for (<a href="signin.html">Sign in, keys and plans</a>).</li>
   <li><strong>A model your keys do not reach</strong>: a Chat keeps the model it started with. If no key or account
   of yours reaches it, the Chat says which one it needs: <em>This model runs on an OpenRouter key: add one under Sign In
   › API keys, or pick a Wazza model</em>, or <em>This model runs on your Wazza account: sign in to it, or pick an
@@ -138,6 +138,8 @@ window shows</a>)</td></tr>
   <li><strong>Chats on your computer do not start</strong> (Claude Code, Codex…): the check's <em>Chat sandbox</em>
   line is missing or limited. Its fixes reload Wazza OS's AppArmor profile or allow user namespaces, for example
   <code>sudo apparmor_parser -r /etc/apparmor.d/wazza-bwrap</code>.</li>
+  <li><strong>Its VM stopped</strong>: the Chat says its VM stopped before its agent was ready: start the VM, then open
+  the Chat again.</li>
 </ul>
 
 <h2 id="an-app-tab-stays-black-or-frozen">An app tab stays black or frozen<a class="anchor" href="#an-app-tab-stays-black-or-frozen" aria-label="Link to An app tab stays black or frozen">#</a></h2>
@@ -149,6 +151,14 @@ window shows</a>)</td></tr>
   tab", or run <code>wazza --gui drive recover --tab TAB</code>.</p></li>
   <li><p>Look at the VM card at the bottom of Home: if the VM is not <em>running</em>, start or restart it in
   Settings › Virtual machines.</p></li>
+  <li><p>The tab says the VM is not answering (its disk is slow): the VM works again once its disk answers; after a long stall this can take a few minutes, and restarting the VM
+  always brings it back. After the VM's new start the tab clears itself, or a click on it does.</p></li>
+  <li><p>A notice says the tab's Desktop view stopped updating: Wazza OS restarts its display stream by itself. While
+  the VM restarts, the view comes back once the VM has started; if the VM stopped, the notice says <em>vm-N stopped:
+  Start it to get its Desktop back</em>, with <span class="ui">Start again</span>.</p></li>
+  <li><p>The Desktop says the VM's desktop session ended: Wazza OS starts it again by itself and opens the Desktop
+  again; if it cannot, its page says <em>The VM's desktop did not start again. Retry desktop startup starts it
+  again.</em>, and <span class="ui">Retry desktop startup</span> does.</p></li>
   <li><p>Every app slow or black: check the graphics. The VM card's last line names your graphics card;
   <em>llvmpipe</em> there means software graphics. <code>wazza --check</code>'s <em>Graphics driver</em> line says what
   to fix; to rule the card out, set Settings › VM resources › Graphics › GPU to <span class="ui">None (CPU only)</span>
@@ -178,6 +188,15 @@ window shows</a>)</td></tr>
   <li>The VM's sound needs the <em>Sound card drivers</em> tool, installed on the first start: Apps › System; install
   it again if it is missing.</li>
   <li>Your computer's own output and volume apply as for any app.</li>
+</ul>
+
+<h2 id="computer-control-does-not-open">Computer Control does not open<a class="anchor" href="#computer-control-does-not-open" aria-label="Link to Computer Control does not open">#</a></h2>
+<ul>
+  <li>The card says <em>Computer Control cannot see this computer's screens yet: it needs GStreamer's PipeWire
+  plugin</em>: run the command it shows in a terminal, then click <span class="ui">Start</span> again, with no restart
+  (<a href="computer-control.html#screens-plugin">If the card says it cannot see your screens</a>).</li>
+  <li>On KDE Plasma, <span class="ui">Deny</span> in KDE's own dialog leaves the agent blind: close the tab and open
+  Computer Control again.</li>
 </ul>
 
 <h2 id="everything-is-slow">Everything is slow<a class="anchor" href="#everything-is-slow" aria-label="Link to Everything is slow">#</a></h2>
@@ -229,9 +248,9 @@ model, and what you asked.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="memory-cpu.html" rel="prev"><span class="dir">← Previous</span>Memory, CPU and disk</a><a class="next" href="glossary.html" rel="next"><span class="dir">Next →</span>Glossary</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

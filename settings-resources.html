@@ -85,7 +85,7 @@
 screen. Every value here is a limit, not a reservation: a VM starts small, grows up to the limit when its apps need
 it, and gives back what it does not use.</p>
 
-<div class="tip"><p>The defaults suit almost every computer: memory up to 75 % of what is free (never below 8 GB
+<div class="tip"><p>The defaults suit almost every computer: memory up to 75 % of what is free (never below 6 GB
 when your computer has it), processors up to 75 % of your computer's, a disk that grows into half of your free disk
 space, your graphics card shared with the VM. Change them only for a reason (a laptop that must stay responsive, a
 large render). <a href="memory-cpu.html">Memory, CPU and disk</a> explains the behaviour behind them.</p></div>
@@ -111,7 +111,7 @@ defaults. Only these settings: your VMs, Chats and keys are not touched.</td></t
 <figure class="shot">
   <div class="shot-frame"><img src="img/settings-resources-1.webp" width="1215" height="596" alt="Memory and CPU tab: Memory Auto 75 percent, minimum 5.8 GB, equals 5.8 GB; vCPUs Auto More 75 percent equals 9; then the Apply footer"></div>
   <figcaption>Settings › VM resources › Memory &amp; CPU on the test computer (a VM itself with 8 GB of memory and 12
-  threads, so the minimum shows 5.8 GB there instead of 8 GB).</figcaption>
+  threads, so the minimum shows 5.8 GB there instead of 6 GB).</figcaption>
 </figure>
 
 <h3 id="memory">Memory<a class="anchor" href="#memory" aria-label="Link to Memory">#</a></h3>
@@ -123,7 +123,8 @@ computer nothing until it is used.</p>
 <tbody>
 <tr><td data-label="Choice"><strong>Auto</strong> (default)</td><td data-label="Fields">A percentage: pick 25, 35, 50 or 75 in the list, or type any whole
 number from 10 to 100. Default <strong>75 %</strong>.<br><span class="ui">min</span>: a minimum in GB, default
-<strong>8 GB</strong>.</td><td data-label="What it means">The limit is that percentage of the memory free on your computer now (counting the
+<strong>6 GB</strong> (a computer still on the earlier 8 GB default moves to 6 GB once; a minimum you set yourself
+stays).</td><td data-label="What it means">The limit is that percentage of the memory free on your computer now (counting the
 memory Wazza OS's own VMs already hold), split between the running VMs. It follows your computer: when other
 programs take memory, the limit goes down. It is never below the minimum when your computer has that much memory in
 total (minus 2 GB kept for your computer itself). The <span class="ui">= … GB</span> on the right is the result now.</td></tr>
@@ -231,7 +232,7 @@ folder of your computer shared into the VM. You never need them; the command lin
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-vms.html" rel="prev"><span class="dir">← Previous</span>Virtual machines</a><a class="next" href="settings-chats.html" rel="next"><span class="dir">Next →</span>Chats &amp; agents</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#how-this-page-saves">How this page saves</a></li><li class="lvl2"><a href="#memory-and-cpu">Memory &amp; CPU</a></li><li class="lvl3"><a href="#memory">Memory</a></li><li class="lvl3"><a href="#vcpus">vCPUs</a></li><li class="lvl2"><a href="#disks">Disks</a></li><li class="lvl2"><a href="#graphics">Graphics</a></li><li class="lvl2"><a href="#screen">Screen</a></li><li class="lvl2"><a href="#developer-options">Developer options</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>

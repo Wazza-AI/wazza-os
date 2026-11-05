@@ -77,7 +77,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Work with agents</li><li aria-current="page">Computer Control</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#where-it-works">Where it works</a></li><li class="lvl3"><a href="#screens-plugin">If the card says it cannot see your screens</a></li><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#what-it-can-do">What it can do</a></li><li class="lvl3"><a href="#the-shortcuts-it-uses">The shortcuts it uses</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#stop-it">Stop it</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Computer Control</h1>
@@ -88,6 +88,7 @@ as you close its tab.</p>
 <div class="facts">
   <div class="fact"><b>What</b><span>An agent on your real computer's screen, keyboard and mouse</span></div>
   <div class="fact"><b>Why</b><span>Work outside the VM: an app installed only on your computer, your desktop's settings</span></div>
+  <div class="fact"><b>Where</b><span>GNOME (Wayland or X11), KDE Plasma (Wayland), any X11 desktop</span></div>
   <div class="fact"><b>Who</b><span>Experienced users who understand what they allow</span></div>
   <div class="fact"><b>Ends</b><span>When you close its tab (Stop halts a turn at once)</span></div>
 </div>
@@ -96,19 +97,77 @@ as you close its tab.</p>
 <p>Every other Chat works in the VM, a separate computer, where an agent cannot harm your own files. Use Computer
 Control only for a task that must happen on your own computer, and watch it.</p></div>
 
+<h2 id="where-it-works">Where it works<a class="anchor" href="#where-it-works" aria-label="Link to Where it works">#</a></h2>
+<div class="table-wrap"><table class="stack">
+<thead><tr><th>Your desktop</th><th>What the agent sees</th><th>What you do</th></tr></thead>
+<tbody>
+<tr><td data-label="Your desktop">GNOME on Wayland (Ubuntu, Fedora)</td><td data-label="What the agent sees">Your main screen, through
+GNOME's own screen sharing: GNOME shows its screen-sharing indicator for as long as it runs</td><td data-label="What you do"><span class="ui">Start</span> on the card</td></tr>
+<tr><td data-label="Your desktop">GNOME on X11, any other X11 desktop</td><td data-label="What the agent sees">The whole screen, and
+each window on its own</td><td data-label="What you do"><span class="ui">Start</span> on the card</td></tr>
+<tr><td data-label="Your desktop">KDE Plasma on Wayland (Arch, openSUSE)</td><td data-label="What the agent sees">Your main screen,
+through your desktop's portal</td><td data-label="What you do"><span class="ui">Start</span> on the card, then
+<span class="ui">Allow</span> in KDE's own dialog</td></tr>
+<tr><td data-label="Your desktop">Wazza OS on a server (its own virtual screen)</td><td data-label="What the agent sees">Nothing:
+there is no desktop to control, and it says so</td><td data-label="What you do">-</td></tr>
+</tbody></table></div>
+<p>Tested on Ubuntu 24.04 (Wayland and X11), Fedora 44, Arch and openSUSE Tumbleweed (KDE Plasma 6).</p>
+
+<h3 id="screens-plugin">If the card says it cannot see your screens<a class="anchor" href="#screens-plugin" aria-label="Link to If the card says it cannot see your screens">#</a></h3>
+<p>On Wayland (GNOME or KDE Plasma), Computer Control sees your screen through GStreamer's PipeWire plugin. GNOME
+usually has it, and Wazza OS installs it when you install or update Wazza OS
+(<a href="install.html#what-the-packages-bring">What the packages bring</a>). If it is still missing,
+<span class="ui">Start</span> opens nothing: the card stays and says, with only your system's command:</p>
+<p><em>Computer Control cannot see this computer's screens yet: it needs GStreamer's PipeWire plugin. Install it in a
+terminal, then open Computer Control again: sudo apt install gstreamer1.0-pipewire</em></p>
+<div class="table-wrap"><table class="stack">
+<thead><tr><th>Your system</th><th>The command the card shows</th></tr></thead>
+<tbody>
+<tr><td data-label="Your system">Ubuntu, Debian (and systems based on them)</td><td data-label="The command the card shows"><code>sudo apt install gstreamer1.0-pipewire</code></td></tr>
+<tr><td data-label="Your system">Fedora</td><td data-label="The command the card shows"><code>sudo dnf install pipewire-gstreamer</code></td></tr>
+<tr><td data-label="Your system">openSUSE</td><td data-label="The command the card shows"><code>sudo zypper install gstreamer-plugin-pipewire</code></td></tr>
+<tr><td data-label="Your system">Arch (and systems based on it)</td><td data-label="The command the card shows"><code>sudo pacman -Syu gst-plugin-pipewire</code></td></tr>
+</tbody></table></div>
+<ol class="steps">
+  <li><p>Select the command in the card's words and copy it.</p></li>
+  <li><p>Run it in a terminal and enter your password.</p></li>
+  <li><p>Click <span class="ui">Start</span> on the card again (or open Computer Control again). You do not need to
+  restart Wazza OS: Computer Control looks for the plugin again at every <span class="ui">Start</span>.</p></li>
+</ol>
+<ul>
+  <li>On Arch the command updates your system too (<code>-Syu</code>): Arch installs a package only on an up-to-date
+  system. The install Wazza OS does on its own never updates your system, so on an out-of-date Arch it can fail; the
+  command then does it.</li>
+  <li>On a system the card does not know, it says: <em>Computer Control cannot see this computer's screens yet: it
+  needs GStreamer's PipeWire plugin. Install your distribution's package with GStreamer's pipewiresrc element, then
+  open Computer Control again.</em></li>
+  <li>If the card says <em>Computer Control is still checking whether it can see this computer's screens: press Start
+  again in a moment.</em>, wait a few seconds, then click <span class="ui">Start</span> again.</li>
+  <li>An X11 desktop needs no plugin.</li>
+</ul>
+
 <h2 id="open-computer-control">Open Computer Control<a class="anchor" href="#open-computer-control" aria-label="Link to Open Computer Control">#</a></h2>
 <ol class="steps">
   <li><p>Click <span class="ui">+</span> (Show apps), then <span class="ui">Computer Control</span> in Main apps
   (<em>Screen control</em>).</p></li>
   <li><p>A card asks: <em>Open Computer Control?</em> Read it, then click <span class="ui">Start</span>.
   <span class="ui">Cancel</span>, <kbd>Esc</kbd> or a click outside the card closes it and nothing opens.</p></li>
+  <li><p>On KDE Plasma only: KDE then asks with its own dialog, <em>Remote Control Requested</em>. Click
+  <span class="ui">Allow</span>. With <span class="ui">Deny</span>, the agent cannot see your screen and says so: close
+  the tab and open Computer Control again to be asked again.</p></li>
 </ol>
 <figure class="shot half">
   <div class="shot-frame"><img src="img/cc-consent-card.webp" width="555" height="290" alt="The card Open Computer Control? This Chat will look at and act on this computer's screen, keyboard and mouse (your own apps, not a VM's) without asking again until you close its tab. Its own shell and file tools run without asking: they change files only in this Chat's folder. Your own mouse and keyboard, and Stop, always win; closing the tab ends the control. Start, Cancel"></div>
   <figcaption>The consent card. Only your own real click on Start opens it: an agent, a script or the command line cannot.</figcaption>
 </figure>
-<p>The tab then becomes the Computer Control Chat: its name has a red dot, and a red banner over the Chat says what is
-allowed:</p>
+<figure class="shot">
+  <div class="shot-frame"><img src="img/cc-kde-allow.webp" width="1100" height="391" alt="On KDE Plasma, over the Computer Control tab and its red banner: KDE's own dialog Remote Control Requested: Allow an unidentifiable application to gain remote control privileges? The application will be able to: see what's on the screen; move the pointer and type keystrokes. A checked box: Allow the application to do this without asking next time. Allow and Deny buttons"></div>
+  <figcaption>On KDE Plasma, after Start: KDE's own question. <span class="ui">Allow</span> lets this Chat see the
+  screen, move the pointer and type.</figcaption>
+</figure>
+<p>KDE's dialog waits as long as you take; while it waits, the agent answers that it is waiting for your
+<span class="ui">Allow</span>, and closing the tab closes the dialog. The tab then becomes the Computer Control Chat:
+its name has a red dot, and a red banner over the Chat says what is allowed:</p>
 <figure class="shot">
   <div class="shot-frame"><img src="img/cc-active-banner.webp" width="1600" height="72" alt="The Computer Control tab with its red dot, and the banner: Computer Control is active: this Chat can see and use this computer's screen, keyboard and mouse without asking again. Its own shell and file tools run without asking too (Wazza OS has no ask mode) and change files only in this Chat's folder. Stop halts it; closing this tab ends it."></div>
 </figure>
@@ -123,12 +182,57 @@ allowed:</p>
 </tbody></table></div>
 <ul>
   <li><strong>Your own mouse and keyboard always win</strong>: if you move or type, your input goes first.</li>
-  <li><span class="ui">Stop</span> halts the agent's current turn at once.</li>
-  <li><strong>Closing the tab ends the control</strong>: the permission is withdrawn before the tab closes.</li>
   <li>After Wazza OS restarts, a restored Computer Control tab says <em>Computer Control needs your consent again:
   Wazza OS restarted, so this Chat cannot see or use this computer until you allow it</em>, with
   <span class="ui">Allow…</span> to show the card again.</li>
+  <li>A session is kept in <a href="window.html#history">History</a> like any other Chat: its
+  <span class="ui">Open</span> shows its conversation again.</li>
 </ul>
+
+<h2 id="what-it-can-do">What it can do<a class="anchor" href="#what-it-can-do" aria-label="Link to What it can do">#</a></h2>
+<ul>
+  <li><strong>See the screen</strong>: a picture of your whole main screen, before and after each thing it does; your
+  other screens when it asks for them; on X11 also one window at a time.</li>
+  <li><strong>Use the mouse and the keyboard</strong>: click, double-click, right-click, drag, scroll, type text, press
+  keys and shortcuts.</li>
+  <li><strong>Open apps</strong> with your desktop's own launcher.</li>
+  <li><strong>Work with workspaces</strong> (virtual desktops): make a new one, go from one to another, move a window
+  to another one.</li>
+  <li><strong>Switch apps</strong> with the app switcher.</li>
+  <li><strong>Show you each workspace</strong>: it goes to a workspace, then takes its picture, so each picture shows
+  that workspace's windows.</li>
+  <li><strong>Your files</strong>: it lists, reads and opens your files below your home, and copies files between
+  your computer and a VM (<a href="files-move.html#the-computer-control-chat">Move files</a>).</li>
+</ul>
+<p>In our tests, a Chat on MiMo did all of this from one request, on each desktop above: <em>"Make a new workspace,
+open the Text Editor there and type hello. Go back to the first workspace and open the file manager there. Switch
+between the apps with the app switcher. Then show me each workspace and name its windows, and end on the first
+workspace."</em></p>
+
+<h3 id="the-shortcuts-it-uses">The shortcuts it uses<a class="anchor" href="#the-shortcuts-it-uses" aria-label="Link to The shortcuts it uses">#</a></h3>
+<p>The agent works your desktop with the desktop's own shortcuts, as you would. They work for you too.</p>
+<div class="table-wrap"><table class="stack">
+<thead><tr><th>To…</th><th>GNOME (Ubuntu, Fedora)</th><th>KDE Plasma (Arch, openSUSE)</th></tr></thead>
+<tbody>
+<tr><td data-label="To…">open an app</td><td data-label="GNOME (Ubuntu, Fedora)"><kbd>Super</kbd>, type its name,
+<kbd>Enter</kbd></td><td data-label="KDE Plasma (Arch, openSUSE)"><kbd>Super</kbd> (the Application Launcher), type its
+name, <kbd>Enter</kbd></td></tr>
+<tr><td data-label="To…">make a new workspace</td><td data-label="GNOME (Ubuntu, Fedora)">GNOME keeps an empty one after
+the last: <kbd>Super</kbd>+<kbd>Page Down</kbd> from the last one in use goes to it</td><td data-label="KDE Plasma (Arch, openSUSE)">Plasma starts with one desktop: in the Overview
+(<kbd>Super</kbd>+<kbd>W</kbd>), the <span class="ui">+</span> right of the desktops at its top adds one</td></tr>
+<tr><td data-label="To…">go to the next or previous workspace</td><td data-label="GNOME (Ubuntu, Fedora)"><kbd>Super</kbd>+<kbd>Page
+Down</kbd>, <kbd>Super</kbd>+<kbd>Page Up</kbd></td><td data-label="KDE Plasma (Arch, openSUSE)"><kbd>Ctrl</kbd>+<kbd>F1</kbd>,
+<kbd>Ctrl</kbd>+<kbd>F2</kbd>… (desktop 1, 2…), or <kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>→</kbd>,
+<kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>←</kbd></td></tr>
+<tr><td data-label="To…">move a window to the next workspace</td><td data-label="GNOME (Ubuntu, Fedora)"><kbd>Shift</kbd>+<kbd>Super</kbd>+<kbd>Page
+Down</kbd></td><td data-label="KDE Plasma (Arch, openSUSE)"><kbd>Super</kbd>+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>→</kbd></td></tr>
+<tr><td data-label="To…">switch apps</td><td data-label="GNOME (Ubuntu, Fedora)"><kbd>Super</kbd>+<kbd>Tab</kbd> (Fedora also
+<kbd>Alt</kbd>+<kbd>Tab</kbd>; on Ubuntu <kbd>Alt</kbd>+<kbd>Tab</kbd> switches windows)</td><td data-label="KDE Plasma (Arch, openSUSE)"><kbd>Alt</kbd>+<kbd>Tab</kbd></td></tr>
+<tr><td data-label="To…">see every window</td><td data-label="GNOME (Ubuntu, Fedora)"><kbd>Super</kbd> (the overview,
+with the workspaces)</td><td data-label="KDE Plasma (Arch, openSUSE)"><kbd>Super</kbd>+<kbd>W</kbd> (Overview),
+<kbd>Super</kbd>+<kbd>G</kbd> (Grid View)</td></tr>
+</tbody></table></div>
+<p>On another X11 desktop, it uses that desktop's own shortcuts.</p>
 
 <h2 id="ask-it-something">Ask it something<a class="anchor" href="#ask-it-something" aria-label="Link to Ask it something">#</a></h2>
 <p>Write to it like any Chat. Pick a model that takes images (it works by looking at your screen); the model window is
@@ -139,28 +243,41 @@ the same as every Chat's (<a href="chats.html#choose-the-agent-and-the-model">Ch
   lists your windows, takes a picture of the screen and reads it, then answers.</figcaption>
 </figure>
 <p>Good first requests: "look at my screen and tell me what is open (do not click)", "open the Files app and show me
-my Downloads folder", "in my desktop settings, turn on the dark style". Say what it must not do as clearly as what it
-must do. Describing a screen is not always right the first time: in the test above, the agent took the Wazza OS
-window for a browser; a stronger model sees better.</p>
+my Downloads folder", "make a new workspace and open the Text Editor there", "in my desktop settings, turn on the dark
+style". Say what it must not do as clearly as what it must do. Describing a screen is not always right the first time:
+in the test above, the agent took the Wazza OS window for a browser; a stronger model sees better.</p>
+
+<h2 id="stop-it">Stop it<a class="anchor" href="#stop-it" aria-label="Link to Stop it">#</a></h2>
+<ul>
+  <li><span class="ui">Stop</span>, in the Chat, halts the agent's current turn at once. The permission stays until
+  you close the tab.</li>
+  <li><strong>Close the tab</strong> to end Computer Control: the permission is withdrawn before the tab closes, and
+  the desktop's screen sharing ends with it (GNOME's indicator goes away; on KDE, the portal's session ends).</li>
+  <li>Quitting Wazza OS ends it too.</li>
+  <li>From a terminal: <code>wazza --gui invoke modules_call agent computer_control_revoke '{}'</code> ends it, and
+  <code>wazza --gui invoke modules_call agent computer_control_status '{}'</code> says whether it is on.</li>
+</ul>
 
 <h2 id="how-it-works-and-its-limits">How it works, and its limits<a class="anchor" href="#how-it-works-and-its-limits" aria-label="Link to How it works, and its limits">#</a></h2>
 <ul>
-  <li>It uses <a href="drive.html">Drive</a> on your computer's windows (the "host" seat) instead of the VM's: it lists
-  your windows, looks at one or at the whole screen, then clicks and types.</li>
+  <li>It uses <a href="drive.html">Drive</a> on your computer's screen (the "host" seat) instead of the VM's: it looks
+  at the screen, then clicks and types, then looks again.</li>
   <li>It runs on your computer, inside Wazza OS's sandbox: its shell and file tools are limited to its own folder.
   It reaches the Internet and Wazza OS; services of your computer (<code>localhost</code>) only when
   <a href="settings-chats.html#network-and-keys">Local services</a> is on.</li>
-  <li>Each Computer Control tab has its own permission: opening another one asks again.</li>
-  <li>It sees the screen Wazza OS runs on: your desktop session, or, on a server, Wazza OS's own virtual screen
-  (<a href="cli-server.html">On a server</a>).</li>
+  <li>One Computer Control tab at a time: close it to open another. Each opening asks again.</li>
+  <li>It sees the desktop Wazza OS runs on. On a server, Wazza OS runs on its own virtual screen: there is no desktop
+  to control (<a href="cli-server.html">On a server</a>).</li>
+  <li>A session reopened from <a href="window.html#history">History</a> shows its conversation but cannot take new
+  messages yet: start a new Computer Control session to go on.</li>
 </ul>
 <p>See also <a href="privacy-security.html">Privacy and security</a>.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="drive.html" rel="prev"><span class="dir">← Previous</span>Drive: agents on screen</a><a class="next" href="skills.html" rel="next"><span class="dir">Next →</span>Skills, learning and personas</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#where-it-works">Where it works</a></li><li class="lvl3"><a href="#screens-plugin">If the card says it cannot see your screens</a></li><li class="lvl2"><a href="#open-computer-control">Open Computer Control</a></li><li class="lvl2"><a href="#what-the-consent-covers">What the consent covers</a></li><li class="lvl2"><a href="#what-it-can-do">What it can do</a></li><li class="lvl3"><a href="#the-shortcuts-it-uses">The shortcuts it uses</a></li><li class="lvl2"><a href="#ask-it-something">Ask it something</a></li><li class="lvl2"><a href="#stop-it">Stop it</a></li><li class="lvl2"><a href="#how-it-works-and-its-limits">How it works, and its limits</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

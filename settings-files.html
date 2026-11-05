@@ -101,8 +101,17 @@ VM. Allow: they are copied when you paste, or at once for an agent. Ask: Wazza O
 (into <code>Downloads/From the VM</code> by default, as new files, never over one of yours). Ask: Wazza OS asks you
 each time (default). Allow: without asking. Off: nothing leaves a VM, your own copies in its apps and your drags out of
 it included. Your own copy in a VM's app (<kbd>Ctrl</kbd>+<kbd>C</kbd>) never asks.</td></tr>
+<tr><td data-label="Option">Chats in VMs you are not viewing can copy files</td><td data-label="Values">A switch, <strong>on</strong> (default)</td><td data-label="What it does">The
+Chats of a VM Wazza OS does not show now (a tab's Chat in vm-2 while you look at vm-1) may copy
+files too: into their VM, out of it, from it into another VM. Each copy still follows the two rules above: Off refuses
+it, Ask shows a notice that names the Chat's VM (<em>vm-2's Chat asks to copy 1 item from this computer into
+vm-2?</em>) with <span class="ui">Allow</span>, Allow copies. Off: only the Chats of the VM you are viewing copy files;
+the others answer that the setting is off. Searching and reading your computer's files always stays with the Chats of
+the VM you are viewing.</td></tr>
 </tbody></table></div>
-<p>These two rules are about files. Copied <em>text</em> goes both ways between your computer and the VM in every
+<p>Only you turn these rules looser (here, or with your own <code>wazza --gui clipboard files</code>: <code>--to-vm</code>,
+<code>--to-computer</code> and <code>--background-chats on|off</code>); an agent can only make them
+stricter. These rules are about files. Copied <em>text</em> goes both ways between your computer and the VM in every
 case. Your own drag and drop and the Explorer's Copy, Paste and Download need no allowing: your gesture is the
 consent. Every way to move files, and what each rule covers: <a href="files-move.html#what-the-file-copy-settings-cover">Move
 files</a>.</p>
@@ -144,7 +153,7 @@ their own login); without a team, the folders you add are your own.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-skills.html" rel="prev"><span class="dir">← Previous</span>Skills &amp; learning</a><a class="next" href="settings-sync.html" rel="next"><span class="dir">Next →</span>Sync &amp; team</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#between-this-computer-and-vms">Between this computer and VMs</a></li><li class="lvl2"><a href="#company-folders">Company folders</a></li><li class="lvl3"><a href="#add-a-company-folder">Add a company folder</a></li></ul></aside>
 </div>

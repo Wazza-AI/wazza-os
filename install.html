@@ -77,7 +77,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">Install, update, remove</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl3"><a href="#what-the-packages-bring">What the packages bring</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl3"><a href="#move-to-a-new-computer">Move to a new computer</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Install, update, remove</h1>
@@ -130,28 +130,29 @@ after <code>--</code>: <code>sh -s -- tar</code> (or <code>deb</code>, <code>rpm
 done, start Wazza OS from your applications menu.</p>
 
 <h2 id="download">Or download a package yourself<a class="anchor" href="#download" aria-label="Link to Or download a package yourself">#</a></h2>
-<p>The packages are on Wazza's release server, <code>os-downloads.wazza.ai</code> (its older name,
-<code>downloads.tadaah.ai</code>, serves the same files, and is the address Wazza OS's own updater uses). Each version
-has four packages of the same build, one per family of Linux:</p>
+<p>The packages are on Wazza's release server, <code>os-downloads.wazza.ai</code>, which Wazza OS's own updater
+also uses (its older name, <code>downloads.tadaah.ai</code>, serves the same files; versions of Wazza OS published
+before November 4, 2026 update from it). Each version has four packages of the same build, one per family of
+Linux:</p>
 <div class="table-wrap"><table class="stack">
-<thead><tr><th>Your system</th><th>Package</th><th>Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256</th></tr></thead>
+<thead><tr><th>Your system</th><th>Package</th><th>Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256</th></tr></thead>
 <tbody>
 <tr><td data-label="Your system">Ubuntu, Debian, Linux Mint, Pop!_OS and other Debian-based systems</td><td data-label="Package"><code>.deb</code></td>
-<td data-label="Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb">wazza-20261103T021245Z-11af2d7099e51d8e.deb</a><br><code>11af2d7099e51d8ee03b6605de367fadac537a333c1524d40e3c075f04130517</code></td></tr>
+<td data-label="Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-825fc2d05382553f.deb">wazza-20261105T200436Z-825fc2d05382553f.deb</a><br><code>825fc2d05382553f7aa36f83988a8229238ca0bd94d09827c0a98c99256199d2</code></td></tr>
 <tr><td data-label="Your system">Fedora, openSUSE</td><td data-label="Package"><code>.rpm</code></td>
-<td data-label="Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-4b39800484873c92.rpm">wazza-20261103T021245Z-4b39800484873c92.rpm</a><br><code>4b39800484873c92acbcea271710bccc89e6e5ff80960af431a1324d740482b0</code></td></tr>
+<td data-label="Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-e8f89a70aaea9274.rpm">wazza-20261105T200436Z-e8f89a70aaea9274.rpm</a><br><code>e8f89a70aaea927423ee9eb22d17d0d731774238c89ca8cc699f8f921000c13f</code></td></tr>
 <tr><td data-label="Your system">Arch, EndeavourOS, Omarchy and other Arch-based systems</td><td data-label="Package"><code>.pkg.tar.zst</code></td>
-<td data-label="Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst">wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst</a><br><code>5225f3922628ec4edc9b9546e255a9a612d54c9bcc8401f31cbf8eded97cb2e7</code></td></tr>
+<td data-label="Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-796b13807212c0a1.pkg.tar.zst">wazza-20261105T200436Z-796b13807212c0a1.pkg.tar.zst</a><br><code>796b13807212c0a12653bc4440036ddce2d0cbb454803469218bc9cfcda1b8cb</code></td></tr>
 <tr><td data-label="Your system">Any other Linux (glibc 2.39 or newer, systemd)</td><td data-label="Package"><code>.tar.zst</code></td>
-<td data-label="Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst">wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst</a><br><code>edd1335e2c1bda8b0a5515622046f39344870701c81b9a5061dc8d9609b91f00</code></td></tr>
+<td data-label="Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256"><a href="https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-60f81b87a6d271cb.tar.zst">wazza-20261105T200436Z-60f81b87a6d271cb.tar.zst</a><br><code>60f81b87a6d271cb25cd525dd014ac6347d0a3ee819615717d639c4308f11c0c</code></td></tr>
 </tbody></table></div>
 <p>Each file is about 7 GB: it carries the VM's whole system, so the first start needs no further big download.
 For a newer version: <code>https://os-downloads.wazza.ai/latest</code> names the current version and the Debian
 package's address and SHA-256 (its <code>files[0].url</code>, relative to <code>https://os-downloads.wazza.ai</code>);
 the other three are in the same folder, <code>/download/&lt;version&gt;/</code>. In a terminal:</p>
 <pre><code><span class="prompt">$ </span><span class="cmd">curl -s https://os-downloads.wazza.ai/latest</span>
-<span class="prompt">$ </span><span class="cmd">curl -LO https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb</span>
-<span class="prompt">$ </span><span class="cmd">sha256sum wazza-20261103T021245Z-11af2d7099e51d8e.deb</span></code></pre>
+<span class="prompt">$ </span><span class="cmd">curl -LO https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-825fc2d05382553f.deb</span>
+<span class="prompt">$ </span><span class="cmd">sha256sum wazza-20261105T200436Z-825fc2d05382553f.deb</span></code></pre>
 <p>The SHA-256 printed must be the one in the table (or in <code>/latest</code>); if it differs, the download is
 damaged: download it again.</p>
 <div class="tip"><p>You download a package only once. After the first install, Wazza OS updates itself from the
@@ -179,12 +180,39 @@ systemd, util-linux, Python 3, Xvfb, xauth, Openbox, D-Bus, FFmpeg, bubblewrap, 
 Install those with your package manager, then <code>sudo ./install.sh</code> puts the files where the packages put
 them. It refuses while something is missing (<code>--force</code> installs anyway).</p>
 
+<h3 id="what-the-packages-bring">What the packages bring<a class="anchor" href="#what-the-packages-bring" aria-label="Link to What the packages bring">#</a></h3>
+<p>Each package installs what Wazza OS needs with it. One more piece is GStreamer's PipeWire plugin, with which
+<a href="computer-control.html">Computer Control</a> sees a Wayland screen. GNOME usually has it already. On a KDE
+Plasma or a minimal system, Wazza OS installs it once its own install or update has ended (the one-command install,
+and each update from Wazza OS's Update page). Only that one package is installed: your system is never updated with
+it, and if it cannot be installed then, the install or update still ends well and Computer Control names the command
+when you open it (<a href="computer-control.html#screens-plugin">If the card says it cannot see your screens</a>):</p>
+<div class="table-wrap"><table class="stack">
+<thead><tr><th>Your system</th><th>Package</th></tr></thead>
+<tbody>
+<tr><td data-label="Your system">Ubuntu, Debian</td><td data-label="Package"><code>gstreamer1.0-pipewire</code> (recommended: apt
+installs it with Wazza OS)</td></tr>
+<tr><td data-label="Your system">Fedora</td><td data-label="Package"><code>pipewire-gstreamer</code></td></tr>
+<tr><td data-label="Your system">openSUSE</td><td data-label="Package"><code>gstreamer-plugin-pipewire</code></td></tr>
+<tr><td data-label="Your system">Arch</td><td data-label="Package"><code>gst-plugin-pipewire</code></td></tr>
+</tbody></table></div>
+<p>With the tarball installed by hand (<code>sudo ./install.sh</code>), install it yourself to use Computer Control on
+KDE Plasma; Computer Control names the command when it is missing. Its next update from Wazza OS's Update page
+installs it too.</p>
+
 <h2 id="start-wazza-os">Start Wazza OS<a class="anchor" href="#start-wazza-os" aria-label="Link to Start Wazza OS">#</a></h2>
 <p>Open <strong>Wazza OS</strong> from your app menu (Activities, the application launcher, or the start menu of your
 desktop). Or, in a terminal of your desktop session, run one of these (they are the same program):</p>
 <pre><code><span class="prompt">$ </span><span class="cmd">wazzaos</span></code></pre>
 <p><code>wazza-os</code> and <code>wazza</code> work too. Only one Wazza OS runs per user: starting it again while it runs
 goes to the one already running. The very first start shows six setup steps: <a href="first-start.html">The first start</a>.</p>
+
+<h3 id="move-to-a-new-computer">Move to a new computer<a class="anchor" href="#move-to-a-new-computer" aria-label="Link to Move to a new computer">#</a></h3>
+<p>To take your VM with you: on the old computer, back up vm-1 (<a href="settings-vms.html#backups">Settings › Virtual
+machines</a>, <span class="ui">Back up</span> on its row) and copy the zip from Downloads to the new computer. Install
+Wazza OS there, then on its first start click <span class="ui">Start from a backup…</span> and pick the zip: vm-1
+starts as it was, with the setup skipped (<a href="first-start.html#start-from-a-backup">The first start › Start from a
+backup</a>).</p>
 
 <h2 id="update-wazza-os">Update Wazza OS<a class="anchor" href="#update-wazza-os" aria-label="Link to Update Wazza OS">#</a></h2>
 <p>Three ways, all keep your VMs, Chats, sign-ins and settings:</p>
@@ -227,9 +255,9 @@ want to keep first (<a href="settings-vms.html#backups">Virtual machines › Bac
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="quick-start.html" rel="prev"><span class="dir">← Previous</span>Quick start</a><a class="next" href="first-start.html" rel="next"><span class="dir">Next →</span>The first start</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#what-your-computer-needs">What your computer needs</a></li><li class="lvl2"><a href="#install-with-one-command">Install with one command</a></li><li class="lvl2"><a href="#download">Or download a package yourself</a></li><li class="lvl2"><a href="#install">Install a downloaded package</a></li><li class="lvl3"><a href="#ubuntu-and-debian">Ubuntu and Debian</a></li><li class="lvl3"><a href="#fedora">Fedora</a></li><li class="lvl3"><a href="#opensuse">openSUSE</a></li><li class="lvl3"><a href="#arch">Arch and Arch-based systems</a></li><li class="lvl3"><a href="#any-other-linux-tarball">Any other Linux (tarball)</a></li><li class="lvl3"><a href="#what-the-packages-bring">What the packages bring</a></li><li class="lvl2"><a href="#start-wazza-os">Start Wazza OS</a></li><li class="lvl3"><a href="#move-to-a-new-computer">Move to a new computer</a></li><li class="lvl2"><a href="#update-wazza-os">Update Wazza OS</a></li><li class="lvl2"><a href="#remove-wazza-os">Remove Wazza OS</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

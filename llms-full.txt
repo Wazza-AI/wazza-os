@@ -253,9 +253,27 @@ Symptoms, causes and fixes: the VM, Chats, apps, the display, updates.
 
 Troubleshooting →](https://os-guide.wazza.ai/troubleshooting.html)
 
+## What's new in this release
+
+**Wazza OS 0.2.0** (build b8069fa40737, published 2026-11-05): Chats can now work across your whole screen on GNOME and KDE, every VM you run keeps working while you look at another, a VM can start from a backup, and your own AI agents can start Wazza OS and work in it.
+
+- [Computer Control](https://os-guide.wazza.ai/computer-control.html) works on GNOME (Wayland and X11) and KDE Plasma: a Chat sees the whole screen, opens new workspaces, switches apps, takes a picture of each workspace and uses the keyboard and mouse, with a mark on screen while it is in control. Wazza OS installs the GStreamer PipeWire plugin it needs when it installs or updates; if your computer still lacks it, **Start** names your system's command ([If the card says it cannot see your screens](https://os-guide.wazza.ai/computer-control.html#screens-plugin)).
+- Several VMs: show any running VM at any time ([This window shows](https://os-guide.wazza.ai/settings-vms.html#this-window-shows)). The Chats and apps in the VMs you are not viewing keep working, and the switch **Chats in VMs you are not viewing can copy files** ([Settings › Files](https://os-guide.wazza.ai/settings-files.html#between-this-computer-and-vms), on by default) decides whether they may copy files.
+- VM backups: make a new VM from a backup and start it, or [replace vm-1](https://os-guide.wazza.ai/settings-vms.html#replace-vm-1) with one ([Settings › Virtual machines › Backups](https://os-guide.wazza.ai/settings-vms.html#backups); [Import a backup…](https://os-guide.wazza.ai/settings-vms.html#import-a-backup) also takes a backup made on another computer), or [start Wazza OS for the first time from a backup](https://os-guide.wazza.ai/first-start.html#start-from-a-backup) so its setup is skipped. The same from the [command line](https://os-guide.wazza.ai/cli.html#start-from-a-backup) and both MCPs. If the backup's disk does not start, vm-1 goes back to its previous disk. A backup also holds the VM's separate data disk; only a backup that holds one replaces a VM's, and every confirmation says so first ([What a backup holds](https://os-guide.wazza.ai/settings-vms.html#what-a-backup-holds)).
+- Files: a file dragged from the Explorer into a Chat is attached to it ([From the Explorer onto a Chat](https://os-guide.wazza.ai/files-move.html#from-the-explorer-onto-a-chat)), and Chats can copy files between this computer and your VMs, or from one VM to another ([Agents](https://os-guide.wazza.ai/files-move.html#agents)).
+- Agents connected through `wazza-os mcp` ([MCP](https://os-guide.wazza.ai/mcp.html)) can start Wazza OS, take a picture of its window and click, type and scroll in it (only inside its window, with a mark on it), add a key from their environment or a private file, and walk you through signing in. Ready-made setup lines for [Hermes and Prime Agent](https://os-guide.wazza.ai/mcp.html#hermes-and-prime-agent).
+- Fixes: a VM that was running when the computer lost power or the app crashed starts again; a new VM always gets its desktop; your saved tabs come back when you open another VM or an app right after Wazza OS starts; a VM that freezes while it starts in the background restarts by itself; when a VM's disk is very slow, an app that cannot start in time says so; the VM works again once it has caught up after its disk answers (after a long stall this can take a few minutes), and restarting the VM always brings it back (a Chat tab that said the VM was not answering clears itself after the VM's new start, or once you click it); a message sent right after you add a key is answered; VM windows no longer freeze on X11 desktops without a display clock; the AMD GPU driver install in a VM repairs itself after a power cut; notices say in plain words what happened (*Inkscape is installed.*); a VM stopped while it starts stops at once, and a VM started right after it was stopped starts once the stop has ended (at most 45 s), or says why it could not, with **Start** again; a VM whose program ended by itself can be started, stopped or deleted again at once (stopping it says so and ends what was left of its run, its disk kept); after a restore from a backup, **Show vm-N** shows that VM in the window once it runs; a Computer Control tab restored after a restart no longer covers the tab bar; after a VM restarts, its Desktop view comes back by itself once the VM has started, and a stopped VM's Desktop says so, with **Start again**; whenever a Desktop starts and its keyboard and mouse do not turn on at once, Wazza OS tries again by itself before it says so; when work a tab sends to its VM (opening, moving or closing its app) cannot be done, its notice now says why in plain words, such as the VM not answering in time or the VMs changing; a Chat whose message was refused for lack of a key says why in its header too; if a VM's desktop session ends, showing its Desktop starts it again, or says why with Retry. Updates and downloads come from Wazza's release server, `os-downloads.wazza.ai`.
+- Clearer words when a VM is busy: an app opened while another VM starts waits and then opens by itself, and a refused restore or too little memory for another VM say in plain words what happens.
+- If the VM you are looking at is stopped elsewhere (from the command line, an agent or Settings), even while it starts, the window no longer stays on "Starting your VM": within a minute at most, it shows the VM that runs instead, and that VM's Desktop takes your keyboard and mouse and opens new Chats at once.
+- Stopping a VM while one of its Chats is still starting no longer keeps Wazza OS busy in the background; the Chat says its VM stopped, and it starts when you open it again once the VM runs.
+- Stopping vm-1 or quitting Wazza OS while an app installs first lets the install's package step finish (at most a minute), and a Stop of another VM meanwhile is refused in plain words: stop it again once the install ends ([Apps](https://os-guide.wazza.ai/apps.html#install-an-app)).
+- Computer Control sessions now appear in [History](https://os-guide.wazza.ai/window.html#history) like any other Chat; opening one shows its conversation again, but it cannot take new messages yet: start a new Computer Control session to go on.
+- A Chat can start as many agents in their own app tabs as its job needs (they were limited to 4 at once), plus up to 2 agents without a window (4 per VM): each time it opens one, it is told which of its agents are running, how much memory the VM has free, and whether it can open more, should wait or should close some; a new one waits only while the VM is short of memory and cannot grow ([Several agents at once](https://os-guide.wazza.ai/parallel-tabs.html#limits)).
+- Settings: Auto RAM's minimum is now 6 GB by default ([VM resources › Memory](https://os-guide.wazza.ai/settings-resources.html#memory)).
+
 ## About this manual
 
-- Written for **Wazza OS 0.2.0** (build 44c5d0ea07c1, published 2026-11-03). The screenshots come from a test computer (Ubuntu 24.04, GNOME) running Wazza OS 0.2.0: alpha 2 and the builds that followed it, whose screens are the same.
+- Written for **Wazza OS 0.2.0** (build b8069fa40737, published 2026-11-05). The screenshots come from a test computer (Ubuntu 24.04, GNOME) running Wazza OS 0.2.0: alpha 2 and the builds that followed it, whose screens are the same.
 - Press `/` anywhere to search every page and heading; the search works offline.
 - The sun and moon button switches between dark (the default, like the app) and light.
 - Words in **bold** are what Wazza OS shows on screen: a button, a tab, a menu item. Home › Sign in › API keys means: open Home, then Sign in, then its API keys tab.
@@ -397,21 +415,21 @@ It needs free disk for the package plus about 1 GB, and checks before it starts.
 
 ## Or download a package yourself
 
-The packages are on Wazza's release server, `os-downloads.wazza.ai` (its older name, `downloads.tadaah.ai`, serves the same files, and is the address Wazza OS's own updater uses). Each version has four packages of the same build, one per family of Linux:
+The packages are on Wazza's release server, `os-downloads.wazza.ai`, which Wazza OS's own updater also uses (its older name, `downloads.tadaah.ai`, serves the same files; versions of Wazza OS published before November 4, 2026 update from it). Each version has four packages of the same build, one per family of Linux:
 
-| Your system | Package | Wazza OS 0.2.0 (build 44c5d0ea07c1, published 2026-11-03): file and SHA-256 |
+| Your system | Package | Wazza OS 0.2.0 (build b8069fa40737, published 2026-11-05): file and SHA-256 |
 |---|---|---|
-| Ubuntu, Debian, Linux Mint, Pop!_OS and other Debian-based systems | `.deb` | [wazza-20261103T021245Z-11af2d7099e51d8e.deb](https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb); `11af2d7099e51d8ee03b6605de367fadac537a333c1524d40e3c075f04130517` |
-| Fedora, openSUSE | `.rpm` | [wazza-20261103T021245Z-4b39800484873c92.rpm](https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-4b39800484873c92.rpm); `4b39800484873c92acbcea271710bccc89e6e5ff80960af431a1324d740482b0` |
-| Arch, EndeavourOS, Omarchy and other Arch-based systems | `.pkg.tar.zst` | [wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst](https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-5225f3922628ec4e.pkg.tar.zst); `5225f3922628ec4edc9b9546e255a9a612d54c9bcc8401f31cbf8eded97cb2e7` |
-| Any other Linux (glibc 2.39 or newer, systemd) | `.tar.zst` | [wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst](https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-edd1335e2c1bda8b.tar.zst); `edd1335e2c1bda8b0a5515622046f39344870701c81b9a5061dc8d9609b91f00` |
+| Ubuntu, Debian, Linux Mint, Pop!_OS and other Debian-based systems | `.deb` | [wazza-20261105T200436Z-825fc2d05382553f.deb](https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-825fc2d05382553f.deb); `825fc2d05382553f7aa36f83988a8229238ca0bd94d09827c0a98c99256199d2` |
+| Fedora, openSUSE | `.rpm` | [wazza-20261105T200436Z-e8f89a70aaea9274.rpm](https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-e8f89a70aaea9274.rpm); `e8f89a70aaea927423ee9eb22d17d0d731774238c89ca8cc699f8f921000c13f` |
+| Arch, EndeavourOS, Omarchy and other Arch-based systems | `.pkg.tar.zst` | [wazza-20261105T200436Z-796b13807212c0a1.pkg.tar.zst](https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-796b13807212c0a1.pkg.tar.zst); `796b13807212c0a12653bc4440036ddce2d0cbb454803469218bc9cfcda1b8cb` |
+| Any other Linux (glibc 2.39 or newer, systemd) | `.tar.zst` | [wazza-20261105T200436Z-60f81b87a6d271cb.tar.zst](https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-60f81b87a6d271cb.tar.zst); `60f81b87a6d271cb25cd525dd014ac6347d0a3ee819615717d639c4308f11c0c` |
 
 Each file is about 7 GB: it carries the VM's whole system, so the first start needs no further big download. For a newer version: `https://os-downloads.wazza.ai/latest` names the current version and the Debian package's address and SHA-256 (its `files[0].url`, relative to `https://os-downloads.wazza.ai`); the other three are in the same folder, `/download/<version>/`. In a terminal:
 
 ```
 $ curl -s https://os-downloads.wazza.ai/latest
-$ curl -LO https://os-downloads.wazza.ai/download/0.2.0-git.z1793671965.44c5d0ea07c1/wazza-20261103T021245Z-11af2d7099e51d8e.deb
-$ sha256sum wazza-20261103T021245Z-11af2d7099e51d8e.deb
+$ curl -LO https://os-downloads.wazza.ai/download/0.2.0-git.z1793909076.b8069fa40737/wazza-20261105T200436Z-825fc2d05382553f.deb
+$ sha256sum wazza-20261105T200436Z-825fc2d05382553f.deb
 ```
 
 The SHA-256 printed must be the one in the table (or in `/latest`); if it differs, the download is damaged: download it again.
@@ -457,6 +475,19 @@ $ sudo ./install.sh
 
 `./install.sh --check` only lists what your system is missing (the commands and libraries Wazza OS needs: systemd, util-linux, Python 3, Xvfb, xauth, Openbox, D-Bus, FFmpeg, bubblewrap, slirp4netns, iproute2, OpenSSL, Git). Install those with your package manager, then `sudo ./install.sh` puts the files where the packages put them. It refuses while something is missing (`--force` installs anyway).
 
+### What the packages bring
+
+Each package installs what Wazza OS needs with it. One more piece is GStreamer's PipeWire plugin, with which [Computer Control](https://os-guide.wazza.ai/computer-control.html) sees a Wayland screen. GNOME usually has it already. On a KDE Plasma or a minimal system, Wazza OS installs it once its own install or update has ended (the one-command install, and each update from Wazza OS's Update page). Only that one package is installed: your system is never updated with it, and if it cannot be installed then, the install or update still ends well and Computer Control names the command when you open it ([If the card says it cannot see your screens](https://os-guide.wazza.ai/computer-control.html#screens-plugin)):
+
+| Your system | Package |
+|---|---|
+| Ubuntu, Debian | `gstreamer1.0-pipewire` (recommended: apt installs it with Wazza OS) |
+| Fedora | `pipewire-gstreamer` |
+| openSUSE | `gstreamer-plugin-pipewire` |
+| Arch | `gst-plugin-pipewire` |
+
+With the tarball installed by hand (`sudo ./install.sh`), install it yourself to use Computer Control on KDE Plasma; Computer Control names the command when it is missing. Its next update from Wazza OS's Update page installs it too.
+
 ## Start Wazza OS
 
 Open **Wazza OS** from your app menu (Activities, the application launcher, or the start menu of your desktop). Or, in a terminal of your desktop session, run one of these (they are the same program):
@@ -466,6 +497,10 @@ $ wazzaos
 ```
 
 `wazza-os` and `wazza` work too. Only one Wazza OS runs per user: starting it again while it runs goes to the one already running. The very first start shows six setup steps: [The first start](https://os-guide.wazza.ai/first-start.html).
+
+### Move to a new computer
+
+To take your VM with you: on the old computer, back up vm-1 ([Settings › Virtual machines](https://os-guide.wazza.ai/settings-vms.html#backups), **Back up** on its row) and copy the zip from Downloads to the new computer. Install Wazza OS there, then on its first start click **Start from a backup…** and pick the zip: vm-1 starts as it was, with the setup skipped ([The first start › Start from a backup](https://os-guide.wazza.ai/first-start.html#start-from-a-backup)).
 
 ## Update Wazza OS
 
@@ -647,6 +682,19 @@ The stages, in order:
 
 Wazza OS then opens [Home](https://os-guide.wazza.ai/window.html#home) on **Apps**, or on **Sign in** when you picked a sign-in or a login in steps 3 and 4 (each login you picked waits there for you). The apps you picked keep installing in the background; each one sends a notification when it is done ([Home › Notifications](https://os-guide.wazza.ai/window.html#notifications)).
 
+## Start from a backup
+
+On a new computer (or after [Remove all data](https://os-guide.wazza.ai/settings-computer.html#remove-data)) you can start Wazza OS from a VM backup you made before, a vm-1 already set up with your apps, files and settings, instead of setting up a new one. The setup is skipped: the backup's VM starts as it was.
+
+1. On step 1, click **Start from a backup…** (left of **Get started**). A file window opens: **Choose a Wazza OS VM backup**. Pick the backup's zip and click **Choose**. To make a backup on your old computer: [Settings › Virtual machines › Backups](https://os-guide.wazza.ai/settings-vms.html#backups).
+2. The card asks **Start from this backup?** and says what the zip holds (the VM it was made from, when, its size). Click **Start from this backup**, or **Back** for the normal first start.
+3. **Starting vm-1 from your backup**: the new vm-1 this first start began is stopped at once, the backup is read and checked, its disk takes vm-1's place and vm-1 starts on it. Steps 2 to 5 are skipped: the backup's VM brings its own apps and files. Your Wazza OS account and your API keys belong to this computer, not to the VM: add them afterwards in [Sign in, plans and API keys](https://os-guide.wazza.ai/signin.html).
+4. **Starting your computer from the backup** follows vm-1's start, then **Open Wazza OS** opens it, as in step 6.
+
+Wazza OS refuses, in plain words, a zip that is not a Wazza OS VM backup and a backup made on another base image (another version's VM system): the Welcome comes back with *Not started from …* and why, and **Get started** goes on with the normal first start. If the backup's disk does not start, the new vm-1 is put back, and the Welcome says so the same way.
+
+From a terminal, on a new computer, start Wazza OS from a backup directly: `wazza --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip` (see [The command line](https://os-guide.wazza.ai/cli.html#start-from-a-backup)). The first start then shows no steps: only **Starting vm-1 from your backup**, then **Open Wazza OS**.
+
 ## After the first start
 
 - Every later start shows only the startup card (the stages of step 6) and then your tabs as you left them.
@@ -792,6 +840,8 @@ History before any tab was closed.
 
 Every tab and Chat you had, by day, with its time. Filter with **All**, **Chats**, **Tabs** or **Favourites**, or type in **Search tabs and chats** (it searches names, VMs, apps and the lines of Chats). On each entry: its star (favourite), **Open** (reopens the tab, with its Chat), and **×** (deletes the entry).
 
+A [Computer Control](https://os-guide.wazza.ai/computer-control.html) session is there too, named Computer Control and without a star (it cannot be a favourite). Its **Open** shows its tab if it is open; a closed one comes back with its conversation in the VM shown, but it cannot take new messages yet: to go on, start a new Computer Control session. An entry from another VM says to show that VM first.
+
 ## Notifications
 
 ![The Notifications page: Mark all read, Clear; filters All 10, Needs you 0, Updates 0, Agents 9; notifications of package installs completed, the VM processors notice, Sandbox guest is ready](https://os-guide.wazza.ai/img/notifications-page.webp)
@@ -841,7 +891,7 @@ The composer at the bottom of a Chat.
 ![The plus menu: Add to this message, From this computer (asks first), From the VM's files (vm-1)](https://os-guide.wazza.ai/img/chat-attach-menu.webp)
 
 - **From this computer…**: your computer's file chooser opens (*asks first*: nothing is sent before you pick). The files you pick are copied into the VM for the agent and attached to your message.
-- **From the VM's files…**: the Explorer opens on this Chat's VM; drag files from it onto the Chat. They are attached by their path in the VM: nothing is copied. Known issue in the published build (0.2.0): that drag is not attached yet (fixed in the next release); type `@` and pick the file instead ([below](https://os-guide.wazza.ai/chats.html#mention-a-file-or-an-app)).
+- **From the VM's files…**: the Explorer opens on this Chat's VM; drag files from it onto the Chat. A Hermes Chat gets them by their path in the VM (nothing is copied); the other agents run on your computer, so each file is copied into their Chat and attached to your message.
 - Or drop files from your file manager on the Chat, or paste them or an image: every way is in [Move files](https://os-guide.wazza.ai/files-move.html).
 
 ### Mention a file or an app
@@ -984,7 +1034,7 @@ One Chat can hand parts of a job to other agents. An agent that works in an app 
 
 - **Who**: Anyone with a job that spans several apps
 
-- **Limit**: 4 visible agents per Chat at once, fewer when the VM is short of memory
+- **Limit**: Visible agents: no fixed number; hidden agents: up to 2 per Chat (4 per VM); a new one waits only while the VM is short of memory and cannot grow
 
 ## Why each agent gets its own tab
 
@@ -1022,7 +1072,9 @@ The helper agent's own tab.
 
 ## Limits
 
-- **4 visible agents per Chat at once.** A fifth is refused until one has answered; the Chat waits, then starts it.
+- **No fixed number of visible agents.** A Chat starts as many agents in their own app tabs as its job needs (they were limited to 4 at once).
+- **Up to 2 hidden agents per Chat** (agents without a window), and 4 per VM.
+- **The Chat is told how much room is left.** Each time it opens an agent, visible or hidden, it is told which of its agents are running, how much memory the VM has free, and whether it can open more, should wait or should close some (naming the ones to close first: idle hidden agents, then the oldest).
 - **Memory comes first.** Past the first helper, no visible agent starts while the VM is short of memory and cannot grow. The Chat is told why, and starts the next helper when one ends. On the 8 GB test computer of these screenshots, the GIMP helper therefore waited for the Chromium one:
 
 ![The Chat's tool rows: workspace_app_task(chromium) accepted; workspace_app_task(gimp) refused with visible_agent_limit: this VM is low on memory and cannot grow now, and 1 visible agent(s) of this Chat are at work; a short wait; the same refusal again](https://os-guide.wazza.ai/img/parallel-refusal.webp)
@@ -1032,6 +1084,7 @@ The second helper refused for memory: the Chat waits and starts it once the firs
 - To run more agents at once: give the VM more room ([VM resources › Memory](https://os-guide.wazza.ai/settings-resources.html#memory)), close tabs you no longer need, or use a computer with more memory (16 GB or more).
 - A helper's tab is a normal tab: you can click in it, stop its Chat, or close it (which ends that helper).
 - A helper never closes the tab of the Chat that started it, and never changes the tab you look at.
+- If a window closes while agents are starting, one of them may not start: close its tab and ask the Chat again.
 
 ## More ways to work in parallel
 
@@ -1276,6 +1329,8 @@ Computer Control is a Chat whose agent can see and use your own computer (not th
 
 - **Why**: Work outside the VM: an app installed only on your computer, your desktop's settings
 
+- **Where**: GNOME (Wayland or X11), KDE Plasma (Wayland), any X11 desktop
+
 - **Who**: Experienced users who understand what they allow
 
 - **Ends**: When you close its tab (Stop halts a turn at once)
@@ -1284,16 +1339,54 @@ Computer Control is a Chat whose agent can see and use your own computer (not th
 >
 > Every other Chat works in the VM, a separate computer, where an agent cannot harm your own files. Use Computer Control only for a task that must happen on your own computer, and watch it.
 
+## Where it works
+
+| Your desktop | What the agent sees | What you do |
+|---|---|---|
+| GNOME on Wayland (Ubuntu, Fedora) | Your main screen, through GNOME's own screen sharing: GNOME shows its screen-sharing indicator for as long as it runs | **Start** on the card |
+| GNOME on X11, any other X11 desktop | The whole screen, and each window on its own | **Start** on the card |
+| KDE Plasma on Wayland (Arch, openSUSE) | Your main screen, through your desktop's portal | **Start** on the card, then **Allow** in KDE's own dialog |
+| Wazza OS on a server (its own virtual screen) | Nothing: there is no desktop to control, and it says so | - |
+
+Tested on Ubuntu 24.04 (Wayland and X11), Fedora 44, Arch and openSUSE Tumbleweed (KDE Plasma 6).
+
+### If the card says it cannot see your screens
+
+On Wayland (GNOME or KDE Plasma), Computer Control sees your screen through GStreamer's PipeWire plugin. GNOME usually has it, and Wazza OS installs it when you install or update Wazza OS ([What the packages bring](https://os-guide.wazza.ai/install.html#what-the-packages-bring)). If it is still missing, **Start** opens nothing: the card stays and says, with only your system's command:
+
+*Computer Control cannot see this computer's screens yet: it needs GStreamer's PipeWire plugin. Install it in a terminal, then open Computer Control again: sudo apt install gstreamer1.0-pipewire*
+
+| Your system | The command the card shows |
+|---|---|
+| Ubuntu, Debian (and systems based on them) | `sudo apt install gstreamer1.0-pipewire` |
+| Fedora | `sudo dnf install pipewire-gstreamer` |
+| openSUSE | `sudo zypper install gstreamer-plugin-pipewire` |
+| Arch (and systems based on it) | `sudo pacman -Syu gst-plugin-pipewire` |
+
+1. Select the command in the card's words and copy it.
+2. Run it in a terminal and enter your password.
+3. Click **Start** on the card again (or open Computer Control again). You do not need to restart Wazza OS: Computer Control looks for the plugin again at every **Start**.
+
+- On Arch the command updates your system too (`-Syu`): Arch installs a package only on an up-to-date system. The install Wazza OS does on its own never updates your system, so on an out-of-date Arch it can fail; the command then does it.
+- On a system the card does not know, it says: *Computer Control cannot see this computer's screens yet: it needs GStreamer's PipeWire plugin. Install your distribution's package with GStreamer's pipewiresrc element, then open Computer Control again.*
+- If the card says *Computer Control is still checking whether it can see this computer's screens: press Start again in a moment.*, wait a few seconds, then click **Start** again.
+- An X11 desktop needs no plugin.
+
 ## Open Computer Control
 
 1. Click **+** (Show apps), then **Computer Control** in Main apps (*Screen control*).
 2. A card asks: *Open Computer Control?* Read it, then click **Start**. **Cancel**, `Esc` or a click outside the card closes it and nothing opens.
+3. On KDE Plasma only: KDE then asks with its own dialog, *Remote Control Requested*. Click **Allow**. With **Deny**, the agent cannot see your screen and says so: close the tab and open Computer Control again to be asked again.
 
 ![The card Open Computer Control? This Chat will look at and act on this computer's screen, keyboard and mouse (your own apps, not a VM's) without asking again until you close its tab. Its own shell and file tools run without asking: they change files only in this Chat's folder. Your own mouse and keyboard, and Stop, always win; closing the tab ends the control. Start, Cancel](https://os-guide.wazza.ai/img/cc-consent-card.webp)
 
 The consent card. Only your own real click on Start opens it: an agent, a script or the command line cannot.
 
-The tab then becomes the Computer Control Chat: its name has a red dot, and a red banner over the Chat says what is allowed:
+![On KDE Plasma, over the Computer Control tab and its red banner: KDE's own dialog Remote Control Requested: Allow an unidentifiable application to gain remote control privileges? The application will be able to: see what's on the screen; move the pointer and type keystrokes. A checked box: Allow the application to do this without asking next time. Allow and Deny buttons](https://os-guide.wazza.ai/img/cc-kde-allow.webp)
+
+On KDE Plasma, after Start: KDE's own question. **Allow** lets this Chat see the screen, move the pointer and type.
+
+KDE's dialog waits as long as you take; while it waits, the agent answers that it is waiting for your **Allow**, and closing the tab closes the dialog. The tab then becomes the Computer Control Chat: its name has a red dot, and a red banner over the Chat says what is allowed:
 
 ![The Computer Control tab with its red dot, and the banner: Computer Control is active: this Chat can see and use this computer's screen, keyboard and mouse without asking again. Its own shell and file tools run without asking too (Wazza OS has no ask mode) and change files only in this Chat's folder. Stop halts it; closing this tab ends it.](https://os-guide.wazza.ai/img/cc-active-banner.webp)
 
@@ -1306,9 +1399,35 @@ The tab then becomes the Computer Control Chat: its name has a red dot, and a re
 | Running its own shell and file tools, which change files only in this Chat's folder. | Going on after you close the tab, or after Wazza OS restarts. |
 
 - **Your own mouse and keyboard always win**: if you move or type, your input goes first.
-- **Stop** halts the agent's current turn at once.
-- **Closing the tab ends the control**: the permission is withdrawn before the tab closes.
 - After Wazza OS restarts, a restored Computer Control tab says *Computer Control needs your consent again: Wazza OS restarted, so this Chat cannot see or use this computer until you allow it*, with **Allow…** to show the card again.
+- A session is kept in [History](https://os-guide.wazza.ai/window.html#history) like any other Chat: its **Open** shows its conversation again.
+
+## What it can do
+
+- **See the screen**: a picture of your whole main screen, before and after each thing it does; your other screens when it asks for them; on X11 also one window at a time.
+- **Use the mouse and the keyboard**: click, double-click, right-click, drag, scroll, type text, press keys and shortcuts.
+- **Open apps** with your desktop's own launcher.
+- **Work with workspaces** (virtual desktops): make a new one, go from one to another, move a window to another one.
+- **Switch apps** with the app switcher.
+- **Show you each workspace**: it goes to a workspace, then takes its picture, so each picture shows that workspace's windows.
+- **Your files**: it lists, reads and opens your files below your home, and copies files between your computer and a VM ([Move files](https://os-guide.wazza.ai/files-move.html#the-computer-control-chat)).
+
+In our tests, a Chat on MiMo did all of this from one request, on each desktop above: *"Make a new workspace, open the Text Editor there and type hello. Go back to the first workspace and open the file manager there. Switch between the apps with the app switcher. Then show me each workspace and name its windows, and end on the first workspace."*
+
+### The shortcuts it uses
+
+The agent works your desktop with the desktop's own shortcuts, as you would. They work for you too.
+
+| To… | GNOME (Ubuntu, Fedora) | KDE Plasma (Arch, openSUSE) |
+|---|---|---|
+| open an app | `Super`, type its name, `Enter` | `Super` (the Application Launcher), type its name, `Enter` |
+| make a new workspace | GNOME keeps an empty one after the last: `Super`+`Page Down` from the last one in use goes to it | Plasma starts with one desktop: in the Overview (`Super`+`W`), the **+** right of the desktops at its top adds one |
+| go to the next or previous workspace | `Super`+`Page Down`, `Super`+`Page Up` | `Ctrl`+`F1`, `Ctrl`+`F2`… (desktop 1, 2…), or `Super`+`Ctrl`+`→`, `Super`+`Ctrl`+`←` |
+| move a window to the next workspace | `Shift`+`Super`+`Page Down` | `Super`+`Ctrl`+`Shift`+`→` |
+| switch apps | `Super`+`Tab` (Fedora also `Alt`+`Tab`; on Ubuntu `Alt`+`Tab` switches windows) | `Alt`+`Tab` |
+| see every window | `Super` (the overview, with the workspaces) | `Super`+`W` (Overview), `Super`+`G` (Grid View) |
+
+On another X11 desktop, it uses that desktop's own shortcuts.
 
 ## Ask it something
 
@@ -1318,14 +1437,22 @@ Write to it like any Chat. Pick a model that takes images (it works by looking a
 
 "Look at my screen and tell me which apps and windows are open. Do not click or type anything": the agent lists your windows, takes a picture of the screen and reads it, then answers.
 
-Good first requests: "look at my screen and tell me what is open (do not click)", "open the Files app and show me my Downloads folder", "in my desktop settings, turn on the dark style". Say what it must not do as clearly as what it must do. Describing a screen is not always right the first time: in the test above, the agent took the Wazza OS window for a browser; a stronger model sees better.
+Good first requests: "look at my screen and tell me what is open (do not click)", "open the Files app and show me my Downloads folder", "make a new workspace and open the Text Editor there", "in my desktop settings, turn on the dark style". Say what it must not do as clearly as what it must do. Describing a screen is not always right the first time: in the test above, the agent took the Wazza OS window for a browser; a stronger model sees better.
+
+## Stop it
+
+- **Stop**, in the Chat, halts the agent's current turn at once. The permission stays until you close the tab.
+- **Close the tab** to end Computer Control: the permission is withdrawn before the tab closes, and the desktop's screen sharing ends with it (GNOME's indicator goes away; on KDE, the portal's session ends).
+- Quitting Wazza OS ends it too.
+- From a terminal: `wazza --gui invoke modules_call agent computer_control_revoke '{}'` ends it, and `wazza --gui invoke modules_call agent computer_control_status '{}'` says whether it is on.
 
 ## How it works, and its limits
 
-- It uses [Drive](https://os-guide.wazza.ai/drive.html) on your computer's windows (the "host" seat) instead of the VM's: it lists your windows, looks at one or at the whole screen, then clicks and types.
+- It uses [Drive](https://os-guide.wazza.ai/drive.html) on your computer's screen (the "host" seat) instead of the VM's: it looks at the screen, then clicks and types, then looks again.
 - It runs on your computer, inside Wazza OS's sandbox: its shell and file tools are limited to its own folder. It reaches the Internet and Wazza OS; services of your computer (`localhost`) only when [Local services](https://os-guide.wazza.ai/settings-chats.html#network-and-keys) is on.
-- Each Computer Control tab has its own permission: opening another one asks again.
-- It sees the screen Wazza OS runs on: your desktop session, or, on a server, Wazza OS's own virtual screen ([On a server](https://os-guide.wazza.ai/cli-server.html)).
+- One Computer Control tab at a time: close it to open another. Each opening asks again.
+- It sees the desktop Wazza OS runs on. On a server, Wazza OS runs on its own virtual screen: there is no desktop to control ([On a server](https://os-guide.wazza.ai/cli-server.html)).
+- A session reopened from [History](https://os-guide.wazza.ai/window.html#history) shows its conversation but cannot take new messages yet: start a new Computer Control session to go on.
 
 See also [Privacy and security](https://os-guide.wazza.ai/privacy-security.html).
 
@@ -1458,8 +1585,8 @@ Searching *gimp*: one result, not installed yet (the badge at its top right).
 
 ![The new GIMP tab, Starting: Installing GIMP, The app will open once installation and verification finish. You can use another tab while this runs. Elapsed time, Running, Cancel installation](https://os-guide.wazza.ai/img/apps-installing.webp)
 
-1. The tab says *Installing …* with the time elapsed. You can use other tabs meanwhile; **Cancel installation** stops it.
-2. When it is installed and checked, the app opens in the tab, with its Chat on the left. A notification says it is done.
+1. The tab says *Installing …* with the time elapsed. You can use other tabs meanwhile; **Cancel installation** stops it. Stopping vm-1 or quitting Wazza OS meanwhile first lets the install's package step finish: the Stop says *finishing an install first (at most 60 s)*. Another VM is stopped only between installs: its **Stop** says so and stops nothing; stop it again once the install ends.
+2. When it is installed and checked, the app opens in the tab, with its Chat on the left. A notification says it is done, by the app's name: *Inkscape is installed.*
 
 Installing takes from under a minute (small apps) to several minutes (Blender, ONLYOFFICE), depending on your connection. Apps install inside the VM, so they never change your computer. When an installation fails, the tab says why with **Retry installation** and **Show log**; Wazza OS already retried once by itself.
 
@@ -1501,7 +1628,7 @@ Uninstalling GIMP while a GIMP tab is open.
 1. What will be removed (files, commands, packages), the tabs where the app is open, and what is not restored (here, an older GIMP that its install had replaced).
 2. **Show every file, package and folder**: the complete list.
 3. **Close its open tabs first**: needed when the app is open (otherwise the box says *Cannot uninstall yet* and **Uninstall** stays grey).
-4. **Uninstall** removes exactly that plan; **Cancel** changes nothing. The card follows it (*Uninstalling…*) and a notification says when it is done.
+4. **Uninstall** removes exactly that plan; **Cancel** changes nothing. The card follows it (*Uninstalling…*) and a notification says when it is done (*Inkscape is removed.*, or why not: *Inkscape could not be removed: …*).
 
 Your files made with the app (in the VM's folders) stay. Apps that Wazza OS itself needs (Files, Desktop, the default tools) cannot be uninstalled.
 
@@ -1842,15 +1969,21 @@ Your computer and each VM have their own files. You move them by hand (drag and 
 
 - **Where**: The Explorer, any tab, your own file manager
 
+- **Limit**: On vm-2 and later VMs, Ctrl+C / Ctrl+V with this computer and drops onto the VM's window do not work yet
+
 Where files live (the VM's home, its `wazza_os` folder, company folders) and the Explorer itself: [Files and sharing](https://os-guide.wazza.ai/files.html).
 
 ## Which way
+
+> **Not yet on vm-2 and later VMs**
+>
+> On vm-2 and later VMs, copying files with Ctrl+C / Ctrl+V between this computer and the VM, or dropping files onto the VM's window, does not work yet (it works on vm-1), and nothing says so. Ask a Chat to copy them, or attach them from the Explorer.
 
 | You want to… | Do this | It lands in |
 |---|---|---|
 | put files of your computer into a VM | drag them onto a folder of the [Explorer](https://os-guide.wazza.ai/files-move.html#onto-a-folder-of-the-explorer), or copy them in your file manager and **Paste here** in the Explorer | that folder |
 | give a file of your computer to an agent | [drop it on the Chat](https://os-guide.wazza.ai/files-move.html#onto-a-chat), or **+** › **From this computer…** | your message, as an attachment |
-| give a VM file to an agent | type `@` in the message box and pick it; from the next release, also drag it from the [Explorer onto the Chat](https://os-guide.wazza.ai/files-move.html#from-the-explorer-onto-a-chat) | your message, by its path in the VM (nothing is copied) |
+| give a VM file to an agent | drag it from the [Explorer onto the Chat](https://os-guide.wazza.ai/files-move.html#from-the-explorer-onto-a-chat), or type `@` in the message box and pick it | your message: for Hermes by its path in the VM (nothing is copied); dragged on another agent's Chat, as a copy attached to it |
 | open a file of your computer in an app of the VM | [drop it on the app's window](https://os-guide.wazza.ai/files-move.html#onto-an-apps-window) | the VM's `Downloads`, and the app opens it |
 | get a VM file on your computer | in the Explorer, right-click it › **Copy**, then paste in your file manager; or › **Download to this computer**; or drag it out of the app's window | where you paste or drop; your `Downloads` |
 | copy between two VMs | the Explorer's **Copy**, then **Paste here** in the other VM's Explorer | the folder you paste in |
@@ -1888,7 +2021,7 @@ Drop files from your file manager onto a Chat. The message box says *Copying and
 - **8 files at a time**: the message box names the others; drop them again.
 - **A folder** is not attached: it is copied into the VM's `Downloads`, and the message box says where. Ask the agent to look there.
 - **Size**: no limit but the VM's free disk (Wazza OS keeps 256 MB of it free).
-- The [Computer Control](https://os-guide.wazza.ai/computer-control.html) Chat takes no files: it reads your files where they are.
+- On the [Computer Control](https://os-guide.wazza.ai/computer-control.html) Chat, a drop puts the files' paths in your message: it reads them where they are, on your computer.
 
 ### Onto an app's window
 
@@ -1903,13 +2036,16 @@ Drag files from your file manager onto an app in a tab and let go where the app 
 
 ### From the Explorer onto a Chat
 
-> Known issue in the published build (0.2.0, build 44c5d0ea07c1): a VM file dragged from the Explorer onto its Chat, or copied in the Explorer and pasted in the message box, is not attached (the message box says *Not attached: …*). Type `@` in the message box and pick the file instead ([Mention a file or an app](https://os-guide.wazza.ai/chats.html#mention-a-file-or-an-app)). The next release attaches it as this section shows.
-
 ![The Explorer over the Chat: the Pictures folder is open and its file hello-poster.png selected; below, the message box says Attached from vm-1 by its path (nothing copied): hello-poster.png and holds @file:///home/ubuntu/Pictures/hello-poster.png](https://os-guide.wazza.ai/img/move-explorer-chat.webp)
 
-The next release: hello-poster.png, a file of the VM's open Pictures folder, dropped on the Chat of a tab on that VM, attached by its path.
+hello-poster.png, a file of the VM's open Pictures folder, dropped on a Hermes Chat of a tab on that VM: attached by its path.
 
-Drag files or folders of a VM from the Explorer onto the Chat of a tab on that same VM, or copy them in the Explorer (right-click › **Copy**) and paste them in the message box. They are attached by their path in the VM: the message box gets `@file:///home/ubuntu/Documents/report.txt` (a folder's path ends with `/`) and says *Attached from vm-1 by its path (nothing copied): report.txt*. Nothing is copied: the agent reads the file where it is. **+** › **From the VM's files…** opens the Explorer on the Chat's VM for this, and typing `@` picks a file the same way ([Mention a file or an app](https://os-guide.wazza.ai/chats.html#mention-a-file-or-an-app)).
+Drag files or folders of a VM from the Explorer onto the Chat of a tab on that same VM, or copy them in the Explorer (right-click › **Copy**) and paste them in the message box. What the Chat gets depends on where its agent runs ([The agents](https://os-guide.wazza.ai/chats.html#the-agents)):
+
+- **Hermes** runs in the VM: the files are attached by their path in the VM. The message box gets `@file:///home/ubuntu/Documents/report.txt` (a folder's path ends with `/`) and says *Attached from vm-1 by its path (nothing copied): report.txt*. Nothing is copied: the agent reads the file where it is.
+- **Prime Agent, Claude Code, Codex and Antigravity** run on your computer and cannot open a path in the VM: each file is copied into the Chat and attached to your message, as a file of your computer is. The message box says *Attached from the Explorer: report.txt*. A folder is not attached to these Chats: drag its files.
+
+**+** › **From the VM's files…** opens the Explorer on the Chat's VM for this, and typing `@` picks a file by its path ([Mention a file or an app](https://os-guide.wazza.ai/chats.html#mention-a-file-or-an-app)).
 
 - **8 at a time**, like a drop of your own files.
 - A file of **another VM** is not attached: the message box says so. Copy it into this Chat's VM first (the Explorer's **Copy**, then **Paste here** in one of its folders).
@@ -1927,7 +2063,7 @@ Drag files in an app of the VM (its Files app, for instance) out of the VM's pic
 - Let go where nothing takes files: they are put on your clipboard (*On the clipboard: … Nothing took the drop there. Paste with Ctrl+V in Files.*). Paste them in any folder.
 - Back on the same VM's picture, the drop is refused: the files are already there.
 - With **From a VM to this computer** set to **Off**, drags out are refused.
-- From the Explorer, use [Copy and paste](https://os-guide.wazza.ai/files-move.html#with-the-explorer) or [Download](https://os-guide.wazza.ai/files-move.html#the-explorers-download): on Ubuntu 24.04's desktop (GNOME on Wayland), a row of the Explorer dragged onto your file manager does not land in this version.
+- A row of the Explorer, a VM's or this computer's, dragged onto your file manager lands there too (a VM file is copied out of its VM when you let go).
 
 ## Copy and paste
 
@@ -1938,7 +2074,7 @@ Drag files in an app of the VM (its Files app, for instance) out of the VM's pic
 A VM file copied in the Explorer (its line, bottom left), then pasted with Ctrl+V in the computer's Files (bottom right).
 
 1. Right-click a file or folder in the Explorer › **Copy**. A VM file is first saved on your computer (*Copying poster-brief.txt… saving 1 files*), then the line says *Copied poster-brief.txt: paste with Ctrl+V here, in another folder or VM, or in this computer's file manager*.
-2. Paste: `Ctrl`+`V` in a folder of your file manager (the file lands where you paste), or **Paste here** in the Explorer, in another folder, another VM or *This computer*. From the next release, a paste in the message box of a Chat on the same VM attaches it by its path ([above](https://os-guide.wazza.ai/files-move.html#from-the-explorer-onto-a-chat)).
+2. Paste: `Ctrl`+`V` in a folder of your file manager (the file lands where you paste), or **Paste here** in the Explorer, in another folder, another VM or *This computer*. In the message box of a Chat on the same VM, the paste attaches it as a drag does: by its path for Hermes, as a copy for the other agents ([above](https://os-guide.wazza.ai/files-move.html#from-the-explorer-onto-a-chat)).
 
 The other way works too: copy files in your file manager, then **Paste here** in the Explorer (into the selected folder, else the folder shown). These are your own copies: no question, no size limit, new names only.
 
@@ -1958,7 +2094,7 @@ poster-brief.txt copied in the VM's Files (right, in its tab) and pasted in the 
 Right-click a VM file or folder in the Explorer › **Download to this computer** (in an opened folder's list the item reads **Download**):
 
 - It is copied into your `Downloads` folder, whatever its size; a folder stays a folder. The line says *Downloading hello-poster.png to Downloads…*, then *Downloaded to Downloads: hello-poster.png*. A second download of it is `hello-poster_copy1.png`.
-- A file of 16 KB or less opens your computer's Save dialog instead: you choose its name and folder. Known issue in this version: the line may say *not_ready*, or the dialog may close without saving. Use **Download zip**, or the Explorer's **Copy** and paste it in your file manager.
+- A file of 16 KB or less opens your computer's Save dialog instead: you choose its name and folder, and the line says *Saved poster-brief.txt · 57 bytes*.
 - **Download zip** makes one `.zip` in your `Downloads`: a folder's zip (`Pictures.zip`) holds the folder with everything in it.
 
 ## Names, sizes and progress
@@ -1979,6 +2115,8 @@ Right-click a VM file or folder in the Explorer › **Download to this computer*
 | Copy in the VM's apps, paste on your computer | No question (your own copy). Off: nothing is copied. |
 | Copy on your computer, paste in the VM's apps | Allow: copied at the paste. Ask: a question at the paste, with **Allow**. Off: no files (text still is). |
 | An agent's copy, either way | Allow: at once. Ask: a question with **Allow**; after 2 minutes without it, nothing is copied. Off: refused, and the agent tells you. With the defaults: into a VM at once, to your computer after your Allow. |
+| An agent's copy between two VMs (`vm_copy`) | The stricter of the two settings it crosses: Off on either refuses it, Ask on either asks. |
+| An agent's copy from a VM you are not viewing | The same rules, if *Chats in VMs you are not viewing can copy files* is on (the default); off, only the Chats of the VM you are viewing copy files. |
 
 A question appears as a notice at the bottom right of the window and waits in Home › [Notifications](https://os-guide.wazza.ai/window.html#notifications) (*Needs you*), with its **Allow**, until it expires.
 
@@ -1995,7 +2133,10 @@ The agent of a tab's Chat works in its VM's files directly: its commands and app
 | `computer.files.copy` | Copies 1 to 64 files or folders of your computer into its VM (its `~/Downloads`, or the folder named). A taken name becomes `report (2).txt`. |
 | `computer.files.upload` | Copies 1 to 64 VM files or folders to your computer (your `Downloads/From the VM`, or a folder below your home), as new files only. |
 | `computer.files.replace` | Replaces a file on your computer with a VM file, only a file Wazza OS itself made there (an upload) that nobody changed since; never one of yours. |
-| `computer.files.transfer` | How far a copy, upload or replace went: waiting for your Allow, running, done or failed. |
+| `computer.files.transfer` | How far a copy, upload, replace or VM copy went: waiting for your Allow, running, done or failed. |
+| `computer.files.vm_copy` | Copies 1 to 64 files or folders of its VM into another VM of this computer (`to`: `vm-2`…; that VM's `~/Downloads`, or a folder of its home), as new files only (a taken name becomes `report (2).txt`; names that start with a dot are left out). It follows the stricter of your two file-copy settings it crosses: **Off** on either refuses it, **Ask** on either waits for your **Allow** (on the notice of the VM it goes to), both **Allow** run it. |
+
+The Chats of a VM you are not viewing copy files too, by the same rules ([Chats in VMs you are not viewing can copy files](https://os-guide.wazza.ai/settings-files.html#between-this-computer-and-vms), on by default); searching and reading your computer's files stays with the Chats of the VM you are viewing.
 
 An example, on a VM tab's Chat with MiMo: *"Copy Documents/route-tests/report.txt from my computer into this VM's Documents folder. Then make report-checked.txt from it in the VM, with a last line: Checked in the VM. Then put report-checked.txt on my computer."*
 
@@ -2011,7 +2152,7 @@ The copy into the VM ran at once (*vm-1's Chat copied 1 file (69 B) from this co
 
 ### The Computer Control Chat
 
-The [Computer Control](https://os-guide.wazza.ai/computer-control.html) Chat runs on your computer, not in a VM: it lists, searches, reads and opens your files (below your home). It copies nothing into a VM.
+The [Computer Control](https://os-guide.wazza.ai/computer-control.html) Chat runs on your computer, not in a VM: it lists, searches, reads and opens your files (below your home). It also has the copy tools of a VM tab's Chat (above), naming the VM each time (`vm`: `vm-1` to `vm-8`): `computer.files.copy` into that VM, `computer.files.upload` and `computer.files.replace` from it, `computer.files.vm_copy` from it into another VM, and `computer.files.transfer`. They follow the same file-copy settings.
 
 ### Agents outside Wazza OS
 
@@ -2069,6 +2210,7 @@ An MCP server lists tools: each with a name, what it does and its arguments. The
 | Files | The VM's files (list, open in an app, rename, move, delete); your computer's files below your home folder (search, read, copy into the VM, upload results to `Downloads/From the VM`, by your [Files & sharing](https://os-guide.wazza.ai/settings-files.html) rules: [Move files › Agents](https://os-guide.wazza.ai/files-move.html#agents)); company folders (read only) | "Find my latest invoice PDF and copy it into the VM" |
 | Other agents | Start helper agents, visible in their own tabs or hidden; write to the Chat of another tab you opened and read its answer ([Several agents at once](https://os-guide.wazza.ai/parallel-tabs.html)) | "Have a Chromium agent collect the prices while you write the table" |
 | Skills | Search and read skills, learn from this Chat, list and undo what was learned, use personas ([Skills](https://os-guide.wazza.ai/skills.html)) | "Learn from this chat now" |
+| VMs and backups | Read the VMs and their backups, look inside a backup file, and make a new VM from a backup (started if you ask); replacing a VM's disk with a backup needs your **Allow** each time, and its card says what goes: the VM's disk, apps and files, and its data disk too when the backup holds one ([Backups](https://os-guide.wazza.ai/settings-vms.html#backups)) | "Make a new VM from yesterday's backup of vm-2 and start it" |
 | Wazza OS itself | Notifications, the VM's memory and what it has for heavy work, the computer check, the setup state, Wazza OS account tools | "How much memory can the VM use now?" |
 
 ## The rules the tools follow
@@ -2095,8 +2237,8 @@ $ claude mcp add --scope user wazza-os -- wazza-os mcp
 ### Good to know
 
 - **The tools need Wazza OS running.** With it closed, `status` and the other tools answer that the Wazza OS app is not running for this user; `check` (what this computer lacks) and `version` work anyway.
-- **Who starts Wazza OS.** In the published build (0.2.0, build 44c5d0ea07c1) no tool starts it: the agent asks you to, and you start it from your app menu, with `wazzaos` in a terminal, or on a server with `wazza --virtual-screen=always`. From the next release, the `start` tool starts it.
-- **Pictures of Wazza OS and input into it.** In the published build, `screenshot` and `native_input` work only with Wazza OS's own screen on a server ([the virtual screen](https://os-guide.wazza.ai/cli-server.html#the-virtual-screen)). From the next release they also work on a desktop, on Wazza OS's own window only: while an agent holds the input, a mark on the window says so.
+- **Who starts Wazza OS.** The agent, with the [`start`](https://os-guide.wazza.ai/mcp-tools.html#tool-start) tool: it starts Wazza OS as your own start does, its window on your desktop, or with no display (a server, SSH) on its own virtual screen. It waits until Wazza OS answers (2 minutes by default), and when Wazza OS already runs it says so and starts nothing. You can start it yourself too: from your app menu, with `wazzaos` in a terminal, or on a server with `wazza --virtual-screen=always`.
+- **Pictures of Wazza OS and input into it.** On a server, `screenshot` and `native_input` work with Wazza OS's own screen ([the virtual screen](https://os-guide.wazza.ai/cli-server.html#the-virtual-screen)); on a desktop, with Wazza OS's own window only: [`screenshot`](https://os-guide.wazza.ai/mcp-tools.html#tool-screenshot) writes a PNG of that window (never your screen or another window, even when the window is behind others), and [`native_input`](https://os-guide.wazza.ai/mcp-tools.html#tool-native_input) clicks, scrolls and types into it (never with your pointer or your keyboard focus): it begins a lease (at most 160 s and 512 actions), acts, and ends it. While an agent holds the input, a small mark at the bottom centre of the window, on top of everything in it, says *An agent is using this window*. To see the app of a tab, an agent uses [`drive`](https://os-guide.wazza.ai/mcp-tools.html#tool-drive) instead.
 - **Apps open in the background.** The agent opens an app inside Wazza OS with `ui` `open_app`: it gets a tab of its own in the background, and your screen stays as it is.
 
 | Agent | `--print-config` | What to add |
@@ -2106,13 +2248,13 @@ $ claude mcp add --scope user wazza-os -- wazza-os mcp
 | Cursor | `cursor` | `~/.cursor/mcp.json`: `{"mcpServers": {"wazza-os": {"command": "wazza-os", "args": ["mcp"]}}}` |
 | VS Code | `vscode` | `.vscode/mcp.json`: `{"servers": {"wazza-os": {"type": "stdio", "command": "wazza-os", "args": ["mcp"]}}}` |
 | Gemini CLI | `gemini` | `~/.gemini/settings.json`: `{"mcpServers": {"wazza-os": {"command": "wazza-os", "args": ["mcp"]}}}` |
-| Hermes | `hermes` (coming in the next release) | In `~/.hermes/config.yaml`: see [below](https://os-guide.wazza.ai/mcp.html#hermes-and-prime-agent) |
-| Prime Agent | `prime` (coming in the next release) | One `prime-agent mcp add` command: see [below](https://os-guide.wazza.ai/mcp.html#hermes-and-prime-agent) |
+| Hermes | `hermes` | In `~/.hermes/config.yaml`: see [below](https://os-guide.wazza.ai/mcp.html#hermes-and-prime-agent) |
+| Prime Agent | `prime` | One `prime-agent mcp add` command: see [below](https://os-guide.wazza.ai/mcp.html#hermes-and-prime-agent) |
 | Any other | `json` | `{"command": "wazza-os", "args": ["mcp"], "type": "stdio"}` |
 
 ### Hermes and Prime Agent
 
-The two agents of Wazza OS's own Chats can also run on their own, outside Wazza OS. These lines work with the published build (0.2.0, build 44c5d0ea07c1; tested with the Hermes and Prime Agent versions Wazza OS ships: 40 tools, a `status` call answered). `--print-config hermes` and `--print-config prime`, which print exactly these lines, come in the next release.
+The two agents of Wazza OS's own Chats can also run on their own, outside Wazza OS, with these lines (tested with the Hermes and Prime Agent versions Wazza OS ships). `--print-config hermes` and `--print-config prime` print exactly them.
 
 **Prime Agent**: one command, which writes the server into `~/.prime/agent/settings.json`:
 
@@ -2120,7 +2262,7 @@ The two agents of Wazza OS's own Chats can also run on their own, outside Wazza 
 $ prime-agent mcp add wazza-os --env XDG_RUNTIME_DIR=XDG_RUNTIME_DIR --env DISPLAY=DISPLAY --env WAYLAND_DISPLAY=WAYLAND_DISPLAY -- wazza-os mcp
 ```
 
-Prime Agent gives a server only `HOME`, `PATH` and `TMPDIR`. The `--env` parts pass on `XDG_RUNTIME_DIR`, without which `wazza-os mcp` cannot find the running Wazza OS (every call would say it is not running), and your display, for the next release's `start` tool. A variable your session does not have is passed on empty, which does no harm.
+Prime Agent gives a server only `HOME`, `PATH` and `TMPDIR`. The `--env` parts pass on `XDG_RUNTIME_DIR`, without which `wazza-os mcp` cannot find the running Wazza OS (every call would say it is not running), and your display, for the `start` tool. A variable your session does not have is passed on empty, which does no harm.
 
 **Hermes**: add this to `~/.hermes/config.yaml`, under `mcp_servers`:
 
@@ -2136,7 +2278,7 @@ mcp_servers:
       WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}
 ```
 
-`timeout: 600` lets one call run up to 10 minutes (Hermes stops a call after 5 by default, and a Drive step can take longer). Hermes gives a server only a few environment variables (`XDG_RUNTIME_DIR` among them, which `wazza-os mcp` needs): `env` passes your display on, so that the next release's `start` tool can open Wazza OS's window on your desktop. To let the next release's `provider_keys` read an API key from the environment (`add_from_env`), list that variable under `env` too.
+`timeout: 600` lets one call run up to 10 minutes (Hermes stops a call after 5 by default, and a Drive step can take longer). Hermes gives a server only a few environment variables (`XDG_RUNTIME_DIR` among them, which `wazza-os mcp` needs): `env` passes your display on, so that the `start` tool can open Wazza OS's window on your desktop. To let `provider_keys` read an API key from the environment (`add_from_env`), list that variable under `env` too.
 
 ### What the agent does
 
@@ -2187,10 +2329,10 @@ The tools `wazza-os mcp` gives an agent that runs outside Wazza OS: each one is 
 | start, stop or back up VMs; their memory, disk and graphics | [`vm`](https://os-guide.wazza.ai/mcp-tools.html#tool-vm), [`vm_memory`](https://os-guide.wazza.ai/mcp-tools.html#tool-vm_memory), [`vm_disk`](https://os-guide.wazza.ai/mcp-tools.html#tool-vm_disk), [`vm_gpu`](https://os-guide.wazza.ai/mcp-tools.html#tool-vm_gpu), [`gpu`](https://os-guide.wazza.ai/mcp-tools.html#tool-gpu) |
 | API keys and sign-ins | [`provider_keys`](https://os-guide.wazza.ai/mcp-tools.html#tool-provider_keys), [`provider_signin`](https://os-guide.wazza.ai/mcp-tools.html#tool-provider_signin), [`wazza_account`](https://os-guide.wazza.ai/mcp-tools.html#tool-wazza_account) |
 | settings of new Chats and their limits | [`chat_model`](https://os-guide.wazza.ai/mcp-tools.html#tool-chat_model), [`timeouts`](https://os-guide.wazza.ai/mcp-tools.html#tool-timeouts), [`local_services`](https://os-guide.wazza.ai/mcp-tools.html#tool-local_services) |
-| a picture of Wazza OS itself (published build: on a server only; from the next release also on a desktop, its own window) | [`screenshot`](https://os-guide.wazza.ai/mcp-tools.html#tool-screenshot) |
+| a picture of Wazza OS itself (on a desktop its own window, on a server its virtual screen) | [`screenshot`](https://os-guide.wazza.ai/mcp-tools.html#tool-screenshot) |
 | a recording of Wazza OS's own screen on a server | [`record`](https://os-guide.wazza.ai/mcp-tools.html#tool-record) |
 
-Each tool's table: the *verb* (what the tool does this time), its *arguments*, what it does, and an example: the tool's arguments, then `→` the command it runs. This page is made from the same text that `wazza-os mcp --print-docs` prints for the next release. The published build (0.2.0, build 44c5d0ea07c1) has 40 of these tools; new in the next release: the [`start`](https://os-guide.wazza.ai/mcp-tools.html#tool-start) tool; [`provider_keys`](https://os-guide.wazza.ai/mcp-tools.html#tool-provider_keys)' `add_from_env` and `add_from_file`; [`ui`](https://os-guide.wazza.ai/mcp-tools.html#tool-ui)'s `outcome` verb and `timeout_ms`; [`screenshot`](https://os-guide.wazza.ai/mcp-tools.html#tool-screenshot) and [`native_input`](https://os-guide.wazza.ai/mcp-tools.html#tool-native_input) on a desktop, and `native_input`'s `scroll`. In both builds, `explorer`'s `upload` without a folder puts the files in `Downloads/From the VM` (its description below still says `Downloads`).
+Each tool's table: the *verb* (what the tool does this time), its *arguments*, what it does, and an example: the tool's arguments, then `→` the command it runs. This page is made from the same text that `wazza-os mcp --print-docs` prints.
 
 ## How an agent uses them
 
@@ -2199,7 +2341,7 @@ Wazza OS runs apps in virtual machines (VMs vm-1 to vm-8) on this computer; each
 ### The typical flow
 
 1. status: is the Wazza OS app running? If not: start it with start (unless the user said not to start it); it waits until the app answers and returns its window state (check says what this computer lacks when it cannot start).
-2. vm {verb: "list"}: the VMs; vm {verb: "start", vm: "vm-2"} starts a stopped one (minutes; list again).
+2. vm {verb: "list"}: the VMs. vm-1 starts by itself with Wazza OS (its boot takes a minute or more): never start it again. vm {verb: "start", vm: "vm-2"} is for vm-2 to vm-8: it starts a stopped one (minutes; list again). VM backups (only when the user asks): vm {verb: "backup", vm} saves a zip in Downloads; vm {verb: "restore", backup: <its id from verb backups, or its zip's path>, start: true} makes a new VM from it and starts it (verb backups follows the restore); into: "vm-1" with yes: true replaces vm-1 (it stops vm-1, its disk goes for good, it starts again); start {vm1_backup} starts the app with vm-1 made from a backup.
 3. ui {verb: "do", action: "open_app", args: {appId: "files", vmId: "vm-1"}}: the app opens in a background tab (the user's screen stays as it is); ui {verb: "do", action: "vm_tabs_read", args: {vm: "vm-1"}} names its tab id. app {verb: "list"} lists the apps, app {verb: "status", app_id} whether one is installed.
 4. Chat: ui {verb: "do", action: "chat_send", args: {vmId, tabId, childId: "", text}} (childId "": the tab's own Chat, always named; a tab's Chat that never started starts behind the view); then chat_transcript {tab, vm, last: 5} reads its answer.
 5. Drive (GUI work in a tab's app): drive {verb: "look", vm, tab} returns an image and a snapshot_id; drive {verb: "act", vm, tab, args: {snapshot_id, action: "left_click", x, y}} runs one action and returns the next view: check it, then the next act.
@@ -2209,7 +2351,9 @@ Wazza OS runs apps in virtual machines (VMs vm-1 to vm-8) on this computer; each
 
 ### The rules
 
-these tools act with the user's own CLI rights: keep the user's screen as it is unless the user asked to see something (no focus, no Settings page opened on its own). A refusal names its code and why (user_only_app: Computer Control opens only by the user's own click); busy or not ready: call again in a few seconds; ui_outcome_pending (a window action still running after the CLI followed it for 5 minutes): read it with ui {verb: "outcome", outcome: <its id>}, never send the action again. Destructive verbs (delete, reset, remove_all, quit...) only when the user asked for exactly that. pro and wazza_tools runs spend Wazza Pro credits.
+these tools act with the user's own CLI rights: keep the user's screen as it is unless the user asked to see something (no focus, no Settings page opened on its own). A refusal names its code and why (user_only_app: Computer Control opens only by the user's own click); busy or not ready: call again in a few seconds; ui_outcome_pending (a window action still running after the CLI followed it, about 45 s): read it with ui {verb: "outcome", outcome: <its id>}, never send the action again. Destructive verbs (delete, reset, remove_all, quit...) only when the user asked for exactly that. pro and wazza_tools runs spend Wazza Pro credits.
+
+Claude Code shows these instructions to its model; Hermes and Prime Agent never do (they show only each tool's name and description), so each tool's description below carries the same rules.
 
 ## The 41 tools
 
@@ -2217,7 +2361,7 @@ these tools act with the user's own CLI rights: keep the user's screen as it is 
 
 ### `status`
 
-Whether the Wazza OS app is running on this computer and its main window's state (visible, focused, its virtual screen). Call it first: an error means the Wazza OS app is not running (start starts it, unless the user said not to).
+Whether the Wazza OS app is running on this computer and its main window's state (visible, focused, its virtual screen). Call it first: an error means the Wazza OS app is not running (start starts it, unless the user said not to). Every tool here runs Wazza OS's own command line with the user's rights: exit 2 means the CLI refused the arguments (its usage says how; nothing was done); busy or not ready: call again in a few seconds; a refusal names its code and why. Keep the user's screen as it is unless the user asked to see something.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
@@ -2225,11 +2369,11 @@ Whether the Wazza OS app is running on this computer and its main window's state
 
 ### `start`
 
-Start the Wazza OS app when it is not running (CLI `wazza start`): on a desktop as the user's own start (its window on the user's screen), with no display (a server, SSH) on its own virtual screen, the manual's server mode. Already running: it says so and starts nothing. It waits until the app answers (timeout, default 120 s) and answers its window state as status does. Call it when status says the app is not running, unless the user said not to start it.
+Start the Wazza OS app when it is not running (CLI `wazza start`): on a desktop as the user's own start (its window on the user's screen), with no display (a server, SSH) on its own virtual screen, the manual's server mode. Already running: it says so and starts nothing. It waits until the app answers (timeout, default 120 s) and answers its window state as status does. Call it when status says the app is not running, unless the user said not to start it. vm-1 then starts by itself (its boot takes a minute or more): never start vm-1 again. Only when the user asked for it: vm1_backup (a VM backup's zip on this computer, or its id from vm {verb: "backups"}) makes vm-1 from that backup as the app starts, its setup skipped (vm {verb: "backups"} follows the restore): {"vm1_backup": "/srv/backups/wazza-vm-1.zip"} runs `wazza start --vm1-backup /srv/backups/wazza-vm-1.zip`. A vm-1 that already has a disk is refused unless replace_vm1 and yes are true: its disk and everything in it are then replaced for good. The app already running never takes it (it says so): vm {verb: "restore", into: "vm-1", yes: true} replaces vm-1 there.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
-| - | `timeout` (optional): how long to wait for the app to answer, in seconds (5 to 600; default 120) | start the Wazza OS app (or say it already runs) and answer its window state | `{}` → `wazza start` |
+| - | `timeout` (optional): how long to wait for the app to answer, in seconds (5 to 600; default 120); `vm1_backup` (optional): a VM backup vm-1 is made from as the app starts: its .zip on this computer (an absolute path) or its id (vm verb backups); only when the user asked; `replace_vm1` (optional): true with vm1_backup and yes: a vm-1 that has a disk has it replaced, for good (its files, apps and Chats' work go); `yes` (optional): true with replace_vm1: you mean it | start the Wazza OS app (or say it already runs) and answer its window state; with vm1_backup, vm-1 made from a backup | `{}` → `wazza start` |
 
 ### `check`
 
@@ -2249,7 +2393,7 @@ The installed Wazza OS version (works with the Wazza OS app stopped). The runnin
 
 ### `ui`
 
-The Wazza OS app's window actions (the CLI's `wazza --gui invoke modules_call ui do`): open apps in tabs, read tabs and what the user sees, send to a tab's Chat, read Chats, settings, updates and 200 more. They run as the user's own CLI: keep the user's view as it is unless the user asked to see something (open_app opens in a background tab unless focus: true; focus_tab, open_settings and the like change the screen). Most used actions (args): open_app {appId, vmId?, url?, file?}; app_open_in_vm {appId, vm}; vm_tabs_read {vm}; tabs_read {vmId?}; view_read {}; close_tab {tabId, vmId}; tab_rename {tabId, title}; tab_open_with {vmId, path}; chat_send {vmId, tabId, childId: "", text} (childId is required: "" is the tab's own Chat, a subagent's id comes from chat_subagent_list; a tab whose Chat never started starts it behind the view); chat_stop {vmId, tabId}; chat_set_model {vmId, tabId, modelId}; chat_list_threads {vmId, tabId}; chat_conversation_read {vmId, tabId, last?}; chat_default_read {}; chat_default_set {harnessId, modelId}; vm_list {}; vm_start {vm}; start_sandbox {}; settings_get {}; skills_native_read {}; version_read {}; update_read {}; update_check {}. Every action with its arguments: verb catalog. A refusal names its code (user_only_app: Computer Control opens only by the user's own click). A slow action (open_app while its VM is busy) is followed until the window reports it, up to 5 minutes; an answer that still says ui_outcome_pending names its outcome id: read it with verb outcome {outcome: <that id>} (again until it is no longer pending), never by sending the action again.
+The Wazza OS app's window actions (the CLI's `wazza --gui invoke modules_call ui do`): open apps in tabs, read tabs and what the user sees, send to a tab's Chat, read Chats, settings, updates and 200 more. They run as the user's own CLI: keep the user's view as it is unless the user asked to see something (open_app opens in a background tab unless focus: true; focus_tab, open_settings and the like change the screen). Most used actions (args): open_app {appId, vmId?, url?, file?}; app_open_in_vm {appId, vm}; vm_tabs_read {vm}; tabs_read {vmId?}; view_read {}; close_tab {tabId, vmId}; tab_rename {tabId, title}; tab_open_with {vmId, path}; chat_send {vmId, tabId, childId: "", text} (childId is required: "" is the tab's own Chat, a subagent's id comes from chat_subagent_list; a tab whose Chat never started starts it behind the view); chat_stop {vmId, tabId}; chat_set_model {vmId, tabId, modelId}; chat_list_threads {vmId, tabId}; chat_conversation_read {vmId, tabId, last?}; chat_default_read {}; chat_default_set {harnessId, modelId}; vm_list {}; vm_start {vm}; start_sandbox {} (vm-1 starts by itself with the app: only when the user stopped vm-1 and asks to start it); settings_get {}; skills_native_read {}; version_read {}; update_read {}; update_check {}. Every action with its arguments: verb catalog. A refusal names its code (user_only_app: Computer Control opens only by the user's own click). A slow action (open_app while its VM is busy) is followed until the window reports it, about 45 s in all; an answer that still says ui_outcome_pending names its outcome id: read it with verb outcome {outcome: <that id>} (again until it is no longer pending), never by sending the action again.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
@@ -2259,19 +2403,20 @@ The Wazza OS app's window actions (the CLI's `wazza --gui invoke modules_call ui
 
 ### `vm`
 
-Wazza OS's virtual machines by number: vm-1 starts with the Wazza OS app, vm-2 to vm-8 are extra ones (CLI `wazza --gui vm`). A cold start takes minutes: watch verb list. Use delete, reset and restore with into only when the user asked for exactly that: they remove a disk for good.
+Wazza OS's virtual machines by number (CLI `wazza --gui vm`): vm-1 starts by itself with the Wazza OS app (its boot takes a minute or more): never start it again (list shows it starting). vm-2 to vm-8 are extra ones: start starts a stopped one. A cold start takes minutes: watch verb list. Backups: backup saves a VM as a zip in this computer's Downloads, with the VM's separate data disk when it has one; backups lists them, each with its data disk's size; backup_inspect reads what a zip holds; restore makes a new VM from one (start: true starts it once restored; verb backups follows the restore). A restore or replace (into) with a backup that holds a data disk replaces the VM's data disk too (the confirm says so: "<vm>'s data disk is replaced by the backup's too"); with one that holds none the VM keeps its own ("<vm> keeps its own data disk: the backup has none"). Use stop, delete, reset and restore with into only when the user asked for exactly that (delete, reset and restore into remove a disk for good; restore into vm-1 stops vm-1, ending its apps and Chats, replaces its disk and starts it again).
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
 | list | - | every VM: running, starting or stopped, its disk | `{"verb":"list"}` → `wazza --gui vm list` |
 | create | - | a new VM, stopped, with the lowest free number | `{"verb":"create"}` → `wazza --gui vm create` |
-| start | `vm`: the VM by number: vm-1 to vm-8 | start a stopped VM (vm-2 to vm-8; vm-1 starts with the Wazza OS app, or ui {action: "start_sandbox"}) | `{"verb":"start","vm":"vm-2"}` → `wazza --gui vm start vm-2` |
-| stop | `vm`: the VM by number: vm-1 to vm-8 | stop a running VM (its apps end; its disk is kept) (removes or ends something) | `{"verb":"stop","vm":"vm-2"}` → `wazza --gui vm stop vm-2` |
+| start | `vm`: the VM by number: vm-2 to vm-8 (vm-1 is refused here: it starts and stops with Wazza OS's own VM) | start a stopped VM, vm-2 to vm-8 (vm-1 starts by itself with the Wazza OS app: never start it again; only when the user stopped vm-1 and asks to start it: ui {action: "start_sandbox"}) | `{"verb":"start","vm":"vm-2"}` → `wazza --gui vm start vm-2` |
+| stop | `vm`: the VM by number: vm-2 to vm-8 (vm-1 is refused here: it starts and stops with Wazza OS's own VM) | stop a running or starting VM, vm-2 to vm-8 (its apps end; its disk is kept). One still starting has its start ended: "its start is ended now (it never runs)". A stop that did not happen says so: "<vm> did not stop; it still runs, nothing was stopped" (or why: busy, not running). vm-1 is refused here (it stops with Wazza OS's own VM): only when the user asks to stop vm-1: ui {action: "stop_sandbox"} (removes or ends something) | `{"verb":"stop","vm":"vm-2"}` → `wazza --gui vm stop vm-2` |
 | delete | `vm`: the VM by number: vm-1 to vm-8; `yes`: true: you mean it (the disk goes for good) | remove a stopped VM and its disk for good (removes or ends something) | `{"verb":"delete","vm":"vm-3","yes":true}` → `wazza --gui vm delete vm-3 --yes` |
 | reset | `vm`: the VM by number: vm-1 to vm-8; `yes`: true: you mean it (the disk goes for good) | make a stopped VM new: its disk removed for good, its number kept (removes or ends something) | `{"verb":"reset","vm":"vm-3","yes":true}` → `wazza --gui vm reset vm-3 --yes` |
-| backup | `vm`: the VM by number: vm-1 to vm-8 | a backup zip of a VM in Downloads | `{"verb":"backup","vm":"vm-2"}` → `wazza --gui vm backup vm-2` |
-| backups | - | the backups and the backup job that runs | `{"verb":"backups"}` → `wazza --gui vm backups` |
-| restore | `backup`: a backup's id (verb backups) or the path of its .zip; `into` (optional): a stopped VM whose disk the backup replaces for good; `yes` (optional): true with into: you mean it | a new VM from a backup; with into and yes, replace a stopped VM's disk (removes or ends something) | `{"verb":"restore","backup":"bk-1"}` → `wazza --gui vm restore bk-1` |
+| backup | `vm`: the VM by number: vm-1 to vm-8 | a backup zip of a VM in Downloads, its separate data disk included when it has one | `{"verb":"backup","vm":"vm-2"}` → `wazza --gui vm backup vm-2` |
+| backups | - | the backups (each one that holds a data disk with that disk's size: "with its data disk (<size>)") and the backup job that runs | `{"verb":"backups"}` → `wazza --gui vm backups` |
+| backup_inspect | `path`: the backup's .zip on this computer | what a backup zip holds (its VM, when it was made, its disk, and its data disk when it holds one) and whether this computer's base image takes it, before a restore | `{"verb":"backup_inspect","path":"/srv/backups/wazza-vm-2-2026-11-04-1200.zip"}` → `wazza --gui vm backup-inspect /srv/backups/wazza-vm-2-2026-11-04-1200.zip` |
+| restore | `backup`: a backup's id (verb backups) or the path of its .zip on this computer; `start` (optional): true: the VM starts once its disk is the backup's; `into` (optional): a VM whose disk the backup replaces for good: a stopped vm-2 to vm-8, or vm-1 (stopped first: its apps and Chats end; started again); `yes` (optional): true with into: you mean it | a new VM from a backup (start: true starts it once restored); with into and yes, replace a VM's disk for good: a stopped vm-2 to vm-8, or vm-1, which it stops, replaces and starts again (only when the user asked for exactly that). A backup that holds a data disk brings it: a replace replaces the VM's data disk too (its confirm says so); a backup without one leaves the VM's own data disk as it is. Verb backups follows the restore (removes or ends something) | `{"verb":"restore","backup":"/srv/backups/wazza-vm-2-2026-11-04-1200.zip","start":true}` → `wazza --gui vm restore /srv/backups/wazza-vm-2-2026-11-04-1200.zip --start` |
 
 ### `vm_memory`
 
@@ -2373,7 +2518,7 @@ Files (CLI `wazza --gui explorer`): a VM's files (list, rename, move, delete, pe
 | search | `words`: the words to find in file names; `computer`: true: this computer's home; `in` (optional): a folder to search in; `limit` (optional): the most results | find files of this computer's home by name | `{"verb":"search","words":["invoice"],"computer":true}` → `wazza --gui explorer search invoice --computer` |
 | read | `path`: a file of this computer's home; `computer`: true: this computer's home; `offset` (optional): the byte to start at; `length` (optional): how many bytes | read a file of this computer's home | `{"verb":"read","path":"~/notes.txt","computer":true}` → `wazza --gui explorer read ~/notes.txt --computer` |
 | copy_to_vm | `paths`: files of this computer; `vm` (optional): the VM by number: vm-1 (the default) to vm-8; `folder` (optional): the VM folder (default ~/Downloads) | copy files of this computer into a VM (the user's file copy permission applies) | `{"verb":"copy_to_vm","paths":["~/a.pdf"],"vm":"vm-1"}` → `wazza --gui explorer copy-to-vm ~/a.pdf --vm vm-1` |
-| upload | `vm_paths`: files of the VM; `vm` (optional): the VM by number: vm-1 (the default) to vm-8; `folder` (optional): the folder of this computer (default Downloads) | copy VM files to this computer (never overwrites: a new name when taken) | `{"verb":"upload","vm_paths":["~/render.png"]}` → `wazza --gui explorer upload ~/render.png` |
+| upload | `vm_paths`: files of the VM; `vm` (optional): the VM by number: vm-1 (the default) to vm-8; `folder` (optional): the folder of this computer (default Downloads/From the VM) | copy VM files to this computer (never overwrites: a new name when taken) | `{"verb":"upload","vm_paths":["~/render.png"]}` → `wazza --gui explorer upload ~/render.png` |
 | replace | `vm_path`: the VM file; `target`: the file of this computer it replaces (one Wazza OS made); `vm` (optional): the VM by number: vm-1 (the default) to vm-8 | replace a file of this computer that Wazza OS made with a VM file | `{"verb":"replace","vm_path":"~/a.png","target":"~/Downloads/a.png"}` → `wazza --gui explorer replace ~/a.png ~/Downloads/a.png` |
 | copies | `id`: a copy's id (copy_to_vm or upload answered it) | how far a copy went | `{"verb":"copies","id":"cp-1"}` → `wazza --gui explorer copies --id cp-1` |
 
@@ -2482,7 +2627,7 @@ The VM clipboard and the file copy permissions between this computer and the VMs
 |---|---|---|---|
 | status | `vm` (optional): the VM by number: vm-1 (the default) to vm-8 | the clipboard's state | `{"verb":"status"}` → `wazza --gui clipboard status` |
 | copy | `text`: the text to copy; `guest_only` (optional): the VM's clipboard only; `vm` (optional): the VM by number: vm-1 (the default) to vm-8 | put text on the clipboard | `{"verb":"copy","text":"hello"}` → `wazza --gui clipboard copy --stdin` |
-| files | `to_vm` (optional): copies of this computer's files into a VM; `to_computer` (optional): copies of VM files onto this computer | read (no argument) or set the file copy permissions | `{"verb":"files"}` → `wazza --gui clipboard files` |
+| files | `to_vm` (optional): copies of this computer's files into a VM; `to_computer` (optional): copies of VM files onto this computer; `background_chats` (optional): Chats in VMs the window does not show may copy files (each copy still under the permissions) | read (no argument) or set the file copy permissions | `{"verb":"files"}` → `wazza --gui clipboard files` |
 | files_allow | `request`: the waiting copy's id | allow one copy waiting under ask | `{"verb":"files_allow","request":"r1"}` → `wazza --gui clipboard files allow r1` |
 | files_deny | `request`: the waiting copy's id | deny one copy waiting under ask | `{"verb":"files_deny","request":"r1"}` → `wazza --gui clipboard files deny r1` |
 
@@ -2521,7 +2666,7 @@ API keys of Wazza OS's providers (CLI `wazza --gui provider-keys`): list, add (u
 
 ### `provider_signin`
 
-Sign-ins of Wazza OS's providers and logins (CLI `wazza --gui provider-signin`): status, start an OAuth or key sign-in, poll it, open its page, submit a code (stdin), commit, cancel, sign out; the order of a provider's keys or a login's accounts and when one runs out (rotation). Every op takes the same optional flags (vm, provider, method, attempt, auth, browser, prompt, validation_model, account); start names provider and method, the next steps the attempt and auth ids start answered.
+Sign-ins of Wazza OS's providers and logins (CLI `wazza --gui provider-signin`), with the user's own accounts (a token is never copied from one program to another): status, start an OAuth or key sign-in, poll it, open its page, submit a code (stdin), commit, cancel, sign out; the order of a provider's keys or a login's accounts and when one runs out (rotation). A login: start {provider, method: "oauth"} answers its attempt and auth ids; open {attempt, auth, browser: "external"} opens its page in the user's own browser, where the user approves once; poll {attempt, auth} until it is done; commit {attempt, auth} keeps it; status then shows it verified (it is signed in only once verified). On a server (no browser here) open answers the link: give it to the user, who approves on any device and gives you the code it shows; submit {attempt, auth, prompt, secret: <the code>}. Claude's plan login is Claude Code's own: invoke {verb: "modules_call", module: "agent", method: "claude_code_signin", args: {op: "start"}}, then {op: "status", attemptId} names its authUrl for the user, then {op: "submit", attemptId, code}. An API key: provider_keys add_from_env. Every op takes the same optional flags (vm, provider, method, attempt, auth, browser, prompt, validation_model, account); start names provider and method, the next steps the attempt and auth ids start answered.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
@@ -2635,7 +2780,7 @@ Any control-plane command of the running Wazza OS app (CLI `wazza --gui invoke`)
 
 ### `screenshot`
 
-A PNG of the Wazza OS app's own window (CLI `wazza --gui screenshot`): on a desktop the window's own picture (never the screen or another window), on a server its virtual screen. A tab's app: drive {verb: "look"}.
+A PNG of the Wazza OS app's own window (CLI `wazza --gui screenshot`): on a desktop the window's own picture (never the screen or another window), on a server its virtual screen. A tab's app: drive {verb: "look"}. Look before you click: screenshot, one native_input action, screenshot again.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
@@ -2662,7 +2807,7 @@ Apps on the Wazza OS app's own virtual screen beside its window (CLI `wazza --gu
 
 ### `native_input`
 
-Pointer and keyboard input into the Wazza OS app's own window (CLI `wazza --gui native-input`), on a desktop or its virtual screen: begin a lease, then focus, pointer, click, scroll, key, text, end. X,Y are the screenshot's pixels; never the user's pointer or another window.
+Pointer and keyboard input into the Wazza OS app's own window (CLI `wazza --gui native-input`), on a desktop or its virtual screen: begin a lease, then focus, pointer, click, scroll, key, text, end. X,Y are the screenshot's pixels; never the user's pointer or another window. Look before you click: screenshot, one action, screenshot again.
 
 | verb | arguments | what it does | example |
 |---|---|---|---|
@@ -2771,18 +2916,40 @@ $ wazza --gui vm start vm-2
 $ wazza --gui vm stop vm-2
 $ wazza --gui vm backup vm-2
 $ wazza --gui vm backups
-$ wazza --gui vm restore BACKUP_ID
+$ wazza --gui vm backup-inspect ~/Downloads/wazza-vm-2-2026-11-04-1200.zip
+$ wazza --gui vm restore BACKUP_ID --start
+$ wazza --gui vm restore ~/Downloads/wazza-vm-2-2026-11-04-1200.zip --into vm-1 --yes
 ```
 
 | Command | Does |
 |---|---|
 | `vm list` | Every VM by number, running or stopped, with its disk |
 | `vm create` | A new stopped VM with the lowest free number |
-| `vm start VM`, `vm stop VM` | Start or stop one |
-| `vm backup VM`, `vm backups` | A zip of the VM in your Downloads (in the background); the list of backups |
-| `vm restore BACKUP_ID` or `PATH.zip` | A new VM from a backup; with `--into VM --yes`, replaces a stopped VM's disk for good |
+| `vm start VM`, `vm stop VM` | Start or stop one, vm-2 to vm-8 (vm-1 starts and stops with Wazza OS itself); a stop keeps its disk. A VM still starting is stopped at once: *vm-2 was starting: its start is ended now (it never runs); its QEMU closes within seconds*, and its row then says *vm-2 was stopped while it started (its boot); it never ran*. A stop that cannot happen says so, and that the VM still runs: *vm-2 did not stop; it still runs, nothing was stopped* |
+| `vm backup VM`, `vm backups` | A zip of the VM in your Downloads, its data disk too when it has one (in the background); the list of backups, each with its data disk's size when it holds one |
+| `vm backup-inspect PATH.zip` | What a backup zip holds (its VM, when it was made, its disk, its data disk if any) and whether this computer's base image takes it; a read: nothing changes |
+| `vm restore BACKUP_ID` or `PATH.zip` | A new VM from a backup (the id `vm backups` lists, or a backup's zip from anywhere on this computer), stopped, with the backup's data disk when it holds one; with `--start`, started once its disk is made. It answers at once; `vm backups` follows the job and `vm list` the VM |
+| `vm restore … --into VM --yes` | Replaces a stopped VM's disk (vm-2 to vm-8) with the backup's, for good; with `--start` it then starts on it, its own disk put back if that start fails. A backup that holds a data disk replaces the VM's data disk too; one without leaves the VM's own as it is. Without `--yes` it is refused and says what it would replace (here a backup that holds a data disk): *vm restore BACKUP --into vm-2 replaces vm-2's disk and everything in it with the backup's, for good; vm-2's data disk is replaced by the backup's too: … add --yes* |
+| `vm restore … --into vm-1 --yes` | Replaces vm-1: the backup is checked while vm-1 runs, then vm-1 stops (every running VM's apps and Chats end), takes the backup's disk and starts again; if it does not start on it, its own disk is put back. Without `--yes` it is refused (exit 2) and nothing is done |
 | `vm reset VM --yes` | Makes a stopped VM (not vm-1) new at its next start: its disk is removed |
 | `vm delete VM --yes` | Removes a stopped VM (not vm-1) and its disk, for good |
+
+## Start from a backup
+
+On a new computer, or after [Remove all data](https://os-guide.wazza.ai/settings-computer.html#remove-data), Wazza OS can make its vm-1 from a backup at its very first start, with the setup skipped (the first start's own [Start from a backup…](https://os-guide.wazza.ai/first-start.html#start-from-a-backup) does the same by clicks). These start Wazza OS itself, so they take no `--gui`:
+
+```
+$ wazza --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip
+$ wazza start --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip
+```
+
+| Command | Does |
+|---|---|
+| `wazza --vm1-backup PATH.zip` or `BACKUP_ID` | Starts Wazza OS with vm-1 made from the backup (a zip, or the id `vm backups` lists) before its first boot. Only while vm-1 has no disk yet: otherwise it is refused before any window opens (exit 1, the reason on standard error) and nothing changes. A backup that holds a data disk is refused the same way while vm-1 has a data disk of its own, which it would replace: *vm-1 has a data disk, and the backup's data disk replaces it for good: replace it (replace: true; the CLI's --yes), or make a new VM from the backup (vm restore PATH). Nothing was changed* |
+| `wazza --vm1-backup PATH.zip --replace-vm1 --yes` | The same when vm-1 already has a disk: vm-1's disk is replaced by the backup's before vm-1 starts, for good (its own disk is put back if it does not start on it); its data disk too when the backup holds one |
+| `wazza start --vm1-backup PATH.zip` | The same as `wazza start` (on a desktop its window, on a server its own virtual screen), with vm-1 from the backup; refused (exit 1, JSON) when Wazza OS already runs: use `vm restore PATH.zip --into vm-1 --yes` then |
+
+A relative path is taken from your shell's folder. A zip that is not a Wazza OS VM backup, or one made on another base image, is refused with its reason, and nothing changes.
 
 ## Memory, disk and graphics
 
@@ -2872,7 +3039,7 @@ $ wazza --gui clipboard files --to-computer allow
 | `explorer upload VM_PATH… [--vm VM]` | The VM's files to your computer, as new files (default `Downloads/From the VM`), by your copy rule |
 | `explorer list\|details\|open\|search\|read … --computer` | Your own files, below your home |
 | `clipboard copy --stdin [--guest-only]` | Puts text on the VM's clipboard (and yours) |
-| `clipboard files [--to-vm R] [--to-computer R]` | The file-copy rules: `ask`, `allow`, `off` |
+| `clipboard files [--to-vm R] [--to-computer R]` | The file-copy rules: `ask`, `allow`, `off`; and `--background-chats on\|off`: may the Chats of a VM you are not viewing copy files ([Files & sharing](https://os-guide.wazza.ai/settings-files.html#between-this-computer-and-vms)) |
 
 ## The window, and everything else
 
@@ -3069,7 +3236,7 @@ Address: https://os-guide.wazza.ai/settings-vms.html
 
 # Settings › Virtual machines
 
-Your VMs: which one this window shows, start, stop and restart, add another VM, back one up to a zip and bring it back, remove or reset one.
+Your VMs: which one this window shows, start, stop and restart, add another VM, back one up to a zip and bring it back (as a new VM, or as vm-1, from this computer or another one), remove or reset one.
 
 > Most people only ever use **vm-1**, the VM the first start makes. More VMs are for keeping work apart (a client's project, a test setup), each with its own apps, files and Chats. You can have up to 8 VMs, and 4 can run at the same time.
 
@@ -3081,7 +3248,9 @@ Settings › Virtual machines › VMs, with one VM.
 
 ### This window shows
 
-The drop-down names the VM whose tabs, desktop and Chats this Wazza OS window shows, with its state (*vm-1 · ready*). Pick another running VM to switch the window to it. Next to it:
+The drop-down names the VM whose tabs, desktop and Chats this Wazza OS window shows, with its state (*vm-1 · ready*). Pick another running VM to switch the window to it (an app card's **Open in vm-N** does too). The VMs you do not show keep running with their apps and Chats: a Chat there goes on working, and an agent can open an app there in the background. Each VM's Chats are set up with your keys and sign-ins by themselves.
+
+Next to the drop-down:
 
 | Button | What it does |
 |---|---|
@@ -3111,18 +3280,52 @@ At most 4 VMs run at once; with 4 running, stop one before you start another. Ev
 
 ## Backups
 
-![Backups tab: A backup is a zip in Downloads. It becomes a new VM, stopped, or replaces a stopped VM's disk. No backups yet: Back up on a stopped VM makes one.](https://os-guide.wazza.ai/img/settings-vms-2.webp)
+![Backups tab: A backup is a zip in Downloads. It becomes a new VM, replaces a stopped VM's disk, or replaces vm-1. A backup made on another computer is imported here. Start it now, on: a VM made from a backup starts as soon as its disk is made. Import a backup…: a Wazza OS VM backup (.zip) from this computer or another one becomes a new VM or replaces vm-1. No backups yet: Back up on a VM makes one; Import a backup… takes one made on another computer.](https://os-guide.wazza.ai/img/settings-vms-2.webp)
 
 Settings › Virtual machines › Backups, before the first backup.
 
-A backup is a zip file in your computer's Downloads folder holding one VM's disk, compressed. The tab lists the backups Wazza OS made, each with two buttons:
+A backup is a zip file in your computer's Downloads folder holding one VM's disk, compressed: its apps, its files and its settings. **Back up** on a VM's row (above) makes one; a running VM keeps running while it is copied. The tab lists the backups Wazza OS made, each with these buttons:
 
 | Button | What it does |
 |---|---|
-| Make a VM from it | Makes a new VM, stopped, with that disk (the lowest free number). Your other VMs are not touched. |
-| Move into a VM… | Replaces the disk of a stopped VM other than vm-1 with the backup. Everything that was in that VM is lost; confirm with **Replace for good**. |
+| Make a VM from it | Makes a new VM with that disk (the lowest free number) and, with **Start it now** on, starts it. Your other VMs are not touched. |
+| Move into a VM… | Replaces the disk of a stopped VM other than vm-1 with the backup. Everything that was in that VM is lost; confirm with **Replace for good**. With **Start it now** on, that VM then starts on the backup's disk, and its own disk is put back if it does not start. |
+| Replace vm-1… | Puts the backup into vm-1 (shown while vm-1 runs or is stopped): see [Replace vm-1](https://os-guide.wazza.ai/settings-vms.html#replace-vm-1). |
 
-One backup or restore runs at a time, and while it holds a VM's disk, that VM's row offers nothing. Back up before a risky change; copy the zip elsewhere (a USB disk, another computer) to keep it safe. From a terminal: `wazza --gui vm backup vm-2`, `wazza --gui vm backups`, `wazza --gui vm restore BACKUP_ID` (see [The command line](https://os-guide.wazza.ai/cli.html#vms)).
+**Start it now** (on at first) starts the VM a backup becomes as soon as its disk is made. Off, the VM is made and stays stopped; its **Start** runs it later. If the VM cannot start (not enough memory, or 4 VMs already run), it is made anyway and stays stopped, and the line under the list says why.
+
+When a restore has ended, **Show vm-N** takes you to that VM's row, and the window shows the VM when it runs.
+
+### Import a backup
+
+A backup made on another computer (or one you moved out of Downloads) is not in the list: import it.
+
+1. Click **Import a backup…**. A file window opens: **Choose a Wazza OS VM backup**. Pick the zip and click **Choose**.
+2. Wazza OS reads what the zip holds and shows it under the button: its name, the VM it was made from, when, and its size (with *· with its data disk (N GB)* when it holds one), with **Make a VM from it**, **Replace vm-1…** and **Cancel** (nothing is made).
+3. Click **Make a VM from it**: a new VM is made from the zip and, with **Start it now** on, started. The line under the list follows it: reading the zip, checking its disk, then starting it.
+
+The zip is read where it is: it is never copied, changed or moved. Wazza OS refuses, in plain words, a zip that is not a Wazza OS VM backup (*Not imported: notes.zip could not be read as a backup: it holds readme.txt instead of a Wazza OS backup's files (manifest.json and disk.qcow2.xz). Nothing was made*) and a backup made on another base image (another version's VM system that this Wazza OS cannot put the backup's changes on), and it says how much free space a restore needs when your disk has too little. Nothing is made then.
+
+### Replace vm-1
+
+vm-1 is the VM Wazza OS starts with. To bring a backup back as vm-1 (an earlier state of vm-1, or a VM set up elsewhere), click **Replace vm-1…** on a backup's row or on the zip you imported. Its second step says what happens: vm-1 stops (its apps and Chats end, and so do those of any other VM that runs beside it), then it starts again from the backup. Confirm with **Replace vm-1 for good**.
+
+- The backup is read and checked first, while vm-1 still runs: a zip that is no backup changes nothing.
+- vm-1's own disk is kept aside until vm-1 runs on the backup's disk. If that start fails, vm-1 is put back on its own disk, with everything it had, and the line under the list says so.
+- Once vm-1 runs on the backup's disk, its earlier disk is removed: what was in vm-1 and not in the backup is gone for good.
+- While the replace runs, vm-1's row offers nothing and **Import a backup…** waits.
+
+To start a new Wazza OS from a backup (another computer, or after [Remove all data](https://os-guide.wazza.ai/settings-computer.html#remove-data)), use the first start's [Start from a backup…](https://os-guide.wazza.ai/first-start.html#start-from-a-backup) instead: it skips the setup.
+
+### What a backup holds
+
+- The VM's own disk: its apps, files and settings, only what differs from the VM system Wazza OS installs.
+- Its separate data disk too, when the VM has one ([VM resources › Disks](https://os-guide.wazza.ai/settings-resources.html#disks)); the backup's row says *· with its data disk (N GB)*. A VM made from the backup gets that data disk. Only a backup that holds a data disk replaces a VM's: replacing a VM (vm-1 or another one, from Settings, the command line or an agent) with it replaces the VM's data disk too, and every confirmation says so first (*vm-1's data disk is replaced by the backup's too.*). A backup without one never removes a VM's data disk: after the restore Settings says *vm-1 keeps its own data disk: the backup has none*. A replace that starts the VM keeps the VM's own data disk aside with its old disk, and puts both back if the backup's disk does not start.
+- A backup made by an earlier Wazza OS holds no data disk: restoring it keeps the VM's own data disk as it is.
+- A data disk is attached to a VM only while Settings › VM resources › Data disk is on; when it is off, Settings says after the restore: *The VM's data disk is the backup's; Settings › VM resources › Data disk is off on this computer, so the VM attaches it once that is on.*
+- A backup is bound to the VM system it was made on: an update of Wazza OS that changes that system can refuse an older backup.
+
+One backup or restore runs at a time, and while it holds a VM's disk, that VM's row offers nothing. Back up before a risky change; copy the zip elsewhere (a USB disk, another computer) to keep it safe. From a terminal: `wazza --gui vm backup vm-2`, `wazza --gui vm backups`, `wazza --gui vm restore BACKUP_ID --start`, `wazza --gui vm restore PATH.zip --into vm-1 --yes` (see [The command line](https://os-guide.wazza.ai/cli.html#vms)).
 
 ## Remove or reset a VM
 
@@ -3132,7 +3335,7 @@ This tab explains the two buttons of the VM rows (above): **Remove…** takes a 
 
 > **vm-1 cannot be removed or reset here**
 >
-> Its disk holds Wazza OS's own state. To start vm-1 again from nothing, use [Settings › This computer › Remove all data](https://os-guide.wazza.ai/settings-computer.html#remove-data), which erases everything of Wazza OS on this computer (every VM, Chat, sign-in and setting).
+> Its disk holds Wazza OS's own state. To bring vm-1 back to an earlier state, [replace it from a backup](https://os-guide.wazza.ai/settings-vms.html#replace-vm-1). To start vm-1 again from nothing, use [Settings › This computer › Remove all data](https://os-guide.wazza.ai/settings-computer.html#remove-data), which erases everything of Wazza OS on this computer (every VM, Chat, sign-in and setting).
 
 
 ---
@@ -3144,7 +3347,7 @@ Address: https://os-guide.wazza.ai/settings-resources.html
 
 How much of your computer a VM may use (memory, processors, disk, graphics card) and the size of its screen. Every value here is a limit, not a reservation: a VM starts small, grows up to the limit when its apps need it, and gives back what it does not use.
 
-> The defaults suit almost every computer: memory up to 75 % of what is free (never below 8 GB when your computer has it), processors up to 75 % of your computer's, a disk that grows into half of your free disk space, your graphics card shared with the VM. Change them only for a reason (a laptop that must stay responsive, a large render). [Memory, CPU and disk](https://os-guide.wazza.ai/memory-cpu.html) explains the behaviour behind them.
+> The defaults suit almost every computer: memory up to 75 % of what is free (never below 6 GB when your computer has it), processors up to 75 % of your computer's, a disk that grows into half of your free disk space, your graphics card shared with the VM. Change them only for a reason (a laptop that must stay responsive, a large render). [Memory, CPU and disk](https://os-guide.wazza.ai/memory-cpu.html) explains the behaviour behind them.
 
 ## How this page saves
 
@@ -3162,7 +3365,7 @@ This page does not use the Apply bar of the other pages. Its own footer, under e
 
 ![Memory and CPU tab: Memory Auto 75 percent, minimum 5.8 GB, equals 5.8 GB; vCPUs Auto More 75 percent equals 9; then the Apply footer](https://os-guide.wazza.ai/img/settings-resources-1.webp)
 
-Settings › VM resources › Memory & CPU on the test computer (a VM itself with 8 GB of memory and 12 threads, so the minimum shows 5.8 GB there instead of 8 GB).
+Settings › VM resources › Memory & CPU on the test computer (a VM itself with 8 GB of memory and 12 threads, so the minimum shows 5.8 GB there instead of 6 GB).
 
 ### Memory
 
@@ -3170,7 +3373,7 @@ The most memory (RAM) one VM may take. The VM starts with what its desktop needs
 
 | Choice | Fields | What it means |
 |---|---|---|
-| **Auto** (default) | A percentage: pick 25, 35, 50 or 75 in the list, or type any whole number from 10 to 100. Default **75 %**.; **min**: a minimum in GB, default **8 GB**. | The limit is that percentage of the memory free on your computer now (counting the memory Wazza OS's own VMs already hold), split between the running VMs. It follows your computer: when other programs take memory, the limit goes down. It is never below the minimum when your computer has that much memory in total (minus 2 GB kept for your computer itself). The **= … GB** on the right is the result now. |
+| **Auto** (default) | A percentage: pick 25, 35, 50 or 75 in the list, or type any whole number from 10 to 100. Default **75 %**.; **min**: a minimum in GB, default **6 GB** (a computer still on the earlier 8 GB default moves to 6 GB once; a minimum you set yourself stays). | The limit is that percentage of the memory free on your computer now (counting the memory Wazza OS's own VMs already hold), split between the running VMs. It follows your computer: when other programs take memory, the limit goes down. It is never below the minimum when your computer has that much memory in total (minus 2 GB kept for your computer itself). The **= … GB** on the right is the result now. |
 | Manual | A fixed value, picked from the list. | The limit is that value whatever is free. Pick it when you want a predictable size. |
 
 > Wazza OS also keeps 10 % of your computer's memory free at all times: when your computer runs short, the VM stops growing and a notice says so (for example *Wazza OS keeps 10% of this computer's memory free; the VM stays at 3 GB*). See [Memory, CPU and disk](https://os-guide.wazza.ai/memory-cpu.html#when-memory-is-short).
@@ -3412,8 +3615,9 @@ Settings › Files & sharing › Between this computer and VMs, with the default
 |---|---|---|
 | From this computer to a VM | Ask, **Allow** (default), Off | Files you copy on your computer (in your file manager) and paste in an app of a VM (its Files, for instance), and an agent's copies into a VM. Allow: they are copied when you paste, or at once for an agent. Ask: Wazza OS asks you each time (a notice with **Allow**). Off: no files are copied this way (text still is). |
 | From a VM to this computer | Ask (default), Allow, Off | An agent's copies to your computer (into `Downloads/From the VM` by default, as new files, never over one of yours). Ask: Wazza OS asks you each time (default). Allow: without asking. Off: nothing leaves a VM, your own copies in its apps and your drags out of it included. Your own copy in a VM's app (`Ctrl`+`C`) never asks. |
+| Chats in VMs you are not viewing can copy files | A switch, **on** (default) | The Chats of a VM Wazza OS does not show now (a tab's Chat in vm-2 while you look at vm-1) may copy files too: into their VM, out of it, from it into another VM. Each copy still follows the two rules above: Off refuses it, Ask shows a notice that names the Chat's VM (*vm-2's Chat asks to copy 1 item from this computer into vm-2?*) with **Allow**, Allow copies. Off: only the Chats of the VM you are viewing copy files; the others answer that the setting is off. Searching and reading your computer's files always stays with the Chats of the VM you are viewing. |
 
-These two rules are about files. Copied *text* goes both ways between your computer and the VM in every case. Your own drag and drop and the Explorer's Copy, Paste and Download need no allowing: your gesture is the consent. Every way to move files, and what each rule covers: [Move files](https://os-guide.wazza.ai/files-move.html#what-the-file-copy-settings-cover).
+Only you turn these rules looser (here, or with your own `wazza --gui clipboard files`: `--to-vm`, `--to-computer` and `--background-chats on|off`); an agent can only make them stricter. These rules are about files. Copied *text* goes both ways between your computer and the VM in every case. Your own drag and drop and the Explorer's Copy, Paste and Download need no allowing: your gesture is the consent. Every way to move files, and what each rule covers: [Move files](https://os-guide.wazza.ai/files-move.html#what-the-file-copy-settings-cover).
 
 ## Company folders
 
@@ -3575,7 +3779,7 @@ The Update page when no newer version exists.
 ## Install an update
 
 1. When a newer version exists, the page shows it with its version, its date, and the changes since your version (*Technical changes*, *Known issues*). Click **Download Update**.
-2. Wazza OS downloads the package and checks it against its signature (*Downloading and verifying the package*, with the bytes downloaded). **Cancel Download** stops it. When it ends: *Download complete and verified. Select Install Now to continue.*
+2. Wazza OS downloads the package from Wazza's release server, `os-downloads.wazza.ai` (a network that filters sites must allow it), and checks it against its signature (*Downloading and verifying the package*, with the bytes downloaded). **Cancel Download** stops it. When it ends: *Download complete and verified. Select Install Now to continue.*
 3. Click **Install Now**. A small confirmation window of Wazza OS asks you to confirm (**Install Now**, or **Install Later** to keep the download for later).
 4. Your system asks for your administrator password (the installation goes through your system's package manager). The page follows the install: copying the verified package, checking it against its signed hash, installing, setting up the new version, with a percentage.
 5. When the page says *Installed. Restart Wazza OS to finish.*, click **Restart Wazza OS**. Wazza OS closes and starts again on the new version; your tabs come back.
@@ -3680,7 +3884,7 @@ Wazza OS does not reserve your computer for its VM. The VM starts small, takes m
 
 | Resource | At the VM's start | While it runs | The limit, by default |
 |---|---|---|---|
-| Memory | What its desktop needs, fitted to what is free | Grows when its apps need more, gives back when idle | 75 % of the memory free now (counting what the VMs hold), never below 8 GB when your computer has that much |
+| Memory | What its desktop needs, fitted to what is free | Grows when its apps need more, gives back when idle | 75 % of the memory free now (counting what the VMs hold), never below 6 GB when your computer has that much |
 | Processors | 2 | More while its programs wait for processor time | 75 % of your computer's threads |
 | Disk | The space it already uses | Grows as files are written; never shrinks | 50 % of the free space of the drive that holds it |
 | Graphics card | Shared with your computer | Used as its apps draw | Graphics memory: 50 % of what is free, where Linux can bound it (6.14 or newer) |
@@ -3753,11 +3957,12 @@ Find your symptom below. Most problems come from something the computer lacks, w
 
 ## A Chat does not answer
 
-- **No key or sign-in**: Wazza OS comes without an AI key. A Chat on Hermes then answers at once *Add an OpenRouter key under Sign In › API keys, or sign in to your Wazza account*: add a key, sign in to your Wazza OS account, or log in with a plan you pay for ([Sign in, keys and plans](https://os-guide.wazza.ai/signin.html)).
+- **No key or sign-in**: Wazza OS comes without an AI key. A Chat on Hermes then answers at once *Add an OpenRouter key under Sign In › API keys, or sign in to your Wazza account* (its header says the same beside its red dot): add a key, sign in to your Wazza OS account, or log in with a plan you pay for ([Sign in, keys and plans](https://os-guide.wazza.ai/signin.html)).
 - **A model your keys do not reach**: a Chat keeps the model it started with. If no key or account of yours reaches it, the Chat says which one it needs: *This model runs on an OpenRouter key: add one under Sign In › API keys, or pick a Wazza model*, or *This model runs on your Wazza account: sign in to it, or pick an OpenRouter model*. Add it, or pick another model in the Chat's model window ([Choose the agent and the model](https://os-guide.wazza.ai/chats.html#choose-the-agent-and-the-model)).
 - **Out of credit or rate-limited**: `wazza --gui provider-keys list --credit` shows what OpenRouter and DeepSeek keys have left. Add a second key or account: when one runs out, the next takes over ([Several keys or accounts](https://os-guide.wazza.ai/signin.html#several-keys-or-accounts)).
 - **A long job**: a command an agent runs may take up to 10 minutes before it is stopped ([Time limits](https://os-guide.wazza.ai/settings-chats.html#time-limits)). The Chat's steps show what it is doing; the stop button stops it.
 - **Chats on your computer do not start** (Claude Code, Codex…): the check's *Chat sandbox* line is missing or limited. Its fixes reload Wazza OS's AppArmor profile or allow user namespaces, for example `sudo apparmor_parser -r /etc/apparmor.d/wazza-bwrap`.
+- **Its VM stopped**: the Chat says its VM stopped before its agent was ready: start the VM, then open the Chat again.
 
 ## An app tab stays black or frozen
 
@@ -3765,7 +3970,10 @@ Find your symptom below. Most problems come from something the computer lacks, w
 2. Right-click the tab › **Reload**: the tab's app starts again ([The tab menu](https://os-guide.wazza.ai/window.html#the-tab-menu)).
 3. Reset the picture between Wazza OS and the tab, without touching the app: ask the tab's Chat to "recover this tab", or run `wazza --gui drive recover --tab TAB`.
 4. Look at the VM card at the bottom of Home: if the VM is not *running*, start or restart it in Settings › Virtual machines.
-5. Every app slow or black: check the graphics. The VM card's last line names your graphics card; *llvmpipe* there means software graphics. `wazza --check`'s *Graphics driver* line says what to fix; to rule the card out, set Settings › VM resources › Graphics › GPU to **None (CPU only)** and restart the VM ([When 3D is slow](https://os-guide.wazza.ai/gpu-apps.html#when-3d-is-slow)).
+5. The tab says the VM is not answering (its disk is slow): the VM works again once its disk answers; after a long stall this can take a few minutes, and restarting the VM always brings it back. After the VM's new start the tab clears itself, or a click on it does.
+6. A notice says the tab's Desktop view stopped updating: Wazza OS restarts its display stream by itself. While the VM restarts, the view comes back once the VM has started; if the VM stopped, the notice says *vm-N stopped: Start it to get its Desktop back*, with **Start again**.
+7. The Desktop says the VM's desktop session ended: Wazza OS starts it again by itself and opens the Desktop again; if it cannot, its page says *The VM's desktop did not start again. Retry desktop startup starts it again.*, and **Retry desktop startup** does.
+8. Every app slow or black: check the graphics. The VM card's last line names your graphics card; *llvmpipe* there means software graphics. `wazza --check`'s *Graphics driver* line says what to fix; to rule the card out, set Settings › VM resources › Graphics › GPU to **None (CPU only)** and restart the VM ([When 3D is slow](https://os-guide.wazza.ai/gpu-apps.html#when-3d-is-slow)).
 
 ## An app does not install
 
@@ -3784,6 +3992,11 @@ Find your symptom below. Most problems come from something the computer lacks, w
 - Only the tab you are on is heard. Check that tab's menu › **Sound** (muted, volume).
 - The VM's sound needs the *Sound card drivers* tool, installed on the first start: Apps › System; install it again if it is missing.
 - Your computer's own output and volume apply as for any app.
+
+## Computer Control does not open
+
+- The card says *Computer Control cannot see this computer's screens yet: it needs GStreamer's PipeWire plugin*: run the command it shows in a terminal, then click **Start** again, with no restart ([If the card says it cannot see your screens](https://os-guide.wazza.ai/computer-control.html#screens-plugin)).
+- On KDE Plasma, **Deny** in KDE's own dialog leaves the agent blind: close the tab and open Computer Control again.
 
 ## Everything is slow
 

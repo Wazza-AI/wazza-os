@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The first start · Wazza OS manual</title>
 <meta name="description" content="The six steps Wazza OS shows the very first time it opens: the computer check, signing in, your agents, your first apps and the setup of its virtual machine.">
-<meta name="keywords" content="first start, setup, onboarding, welcome, checking this computer, first run, reset first run">
+<meta name="keywords" content="first start, setup, onboarding, welcome, checking this computer, first run, reset first run, start from a backup, vm backup, restore">
 <!-- HEAD:BEGIN -->
 <link rel="canonical" href="https://os-guide.wazza.ai/first-start.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -77,7 +77,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">The first start</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#start-from-a-backup">Start from a backup</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>The first start</h1>
@@ -307,6 +307,34 @@ when you picked a sign-in or a login in steps 3 and 4 (each login you picked wai
 picked keep installing in the background; each one sends a notification when it is done
 (<a href="window.html#notifications">Home › Notifications</a>).</p>
 
+<h2 id="start-from-a-backup">Start from a backup<a class="anchor" href="#start-from-a-backup" aria-label="Link to Start from a backup">#</a></h2>
+<p>On a new computer (or after <a href="settings-computer.html#remove-data">Remove all data</a>) you can start Wazza OS
+from a VM backup you made before, a vm-1 already set up with your apps, files and settings, instead of setting up a new
+one. The setup is skipped: the backup's VM starts as it was.</p>
+<ol class="steps">
+  <li><p>On step 1, click <span class="ui">Start from a backup…</span> (left of <span class="ui">Get started</span>).
+  A file window opens: <span class="ui">Choose a Wazza OS VM backup</span>. Pick the backup's zip and click
+  <span class="ui">Choose</span>. To make a backup on your old computer: <a href="settings-vms.html#backups">Settings ›
+  Virtual machines › Backups</a>.</p></li>
+  <li><p>The card asks <span class="ui">Start from this backup?</span> and says what the zip holds (the VM it was made
+  from, when, its size). Click <span class="ui">Start from this backup</span>, or <span class="ui">Back</span> for the
+  normal first start.</p></li>
+  <li><p><span class="ui">Starting vm-1 from your backup</span>: the new vm-1 this first start began is stopped at once,
+  the backup is read and checked, its disk takes vm-1's place and vm-1 starts on it. Steps 2 to 5 are skipped: the
+  backup's VM brings its own apps and files. Your Wazza OS account and your API keys belong to this computer, not to
+  the VM: add them afterwards in <a href="signin.html">Sign in, plans and API keys</a>.</p></li>
+  <li><p><span class="ui">Starting your computer from the backup</span> follows vm-1's start, then
+  <span class="ui">Open Wazza OS</span> opens it, as in step 6.</p></li>
+</ol>
+<p>Wazza OS refuses, in plain words, a zip that is not a Wazza OS VM backup and a backup made on another base image
+(another version's VM system): the Welcome comes back with <em>Not started from …</em> and why, and
+<span class="ui">Get started</span> goes on with the normal first start. If the backup's disk does not start, the new
+vm-1 is put back, and the Welcome says so the same way.</p>
+<p>From a terminal, on a new computer, start Wazza OS from a backup directly:
+<code>wazza --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip</code> (see
+<a href="cli.html#start-from-a-backup">The command line</a>). The first start then shows no steps: only
+<span class="ui">Starting vm-1 from your backup</span>, then <span class="ui">Open Wazza OS</span>.</p>
+
 <h2 id="after-the-first-start">After the first start<a class="anchor" href="#after-the-first-start" aria-label="Link to After the first start">#</a></h2>
 <ul>
   <li>Every later start shows only the startup card (the stages of step 6) and then your tabs as you left them.</li>
@@ -326,9 +354,9 @@ does the same choices without clicks: see <a href="cli.html#set-up-without-click
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="install.html" rel="prev"><span class="dir">← Previous</span>Install, update, remove</a><a class="next" href="window.html" rel="next"><span class="dir">Next →</span>Getting around</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#step-1-welcome">Step 1: Welcome</a></li><li class="lvl2"><a href="#step-2-checking-this-computer">Step 2: Checking this computer</a></li><li class="lvl3"><a href="#what-is-checked">What is checked, and what to do when a line is not ok</a></li><li class="lvl2"><a href="#step-3-sign-in-to-wazza-os">Step 3: Sign in to Wazza OS (optional)</a></li><li class="lvl3"><a href="#sign-in-with-email-and-password">Sign in with email and password</a></li><li class="lvl3"><a href="#log-in-or-sign-up-online">Log in or sign up online</a></li><li class="lvl2"><a href="#step-4-which-agents-do-you-use">Step 4: Which agents do you use? (optional)</a></li><li class="lvl2"><a href="#step-5-pick-your-first-apps">Step 5: Pick your first apps</a></li><li class="lvl2"><a href="#step-6-setting-up-your-computer">Step 6: Setting up your computer</a></li><li class="lvl2"><a href="#start-from-a-backup">Start from a backup</a></li><li class="lvl2"><a href="#after-the-first-start">After the first start</a></li><li class="lvl2"><a href="#run-the-first-start-again">Run the first start again</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

@@ -120,6 +120,11 @@ tab you opened and read its answer (<a href="parallel-tabs.html">Several agents 
 <td data-label="Ask, for example">"Have a Chromium agent collect the prices while you write the table"</td></tr>
 <tr><td data-label="Family">Skills</td><td data-label="What the agent can do">Search and read skills, learn from this Chat, list and undo what was learned, use personas
 (<a href="skills.html">Skills</a>)</td><td data-label="Ask, for example">"Learn from this chat now"</td></tr>
+<tr><td data-label="Family">VMs and backups</td><td data-label="What the agent can do">Read the VMs and their backups, look inside a backup
+file, and make a new VM from a backup (started if you ask); replacing a VM's disk with a backup needs your
+<span class="ui">Allow</span> each time, and its card says what goes: the VM's disk, apps and files, and its data disk
+too when the backup holds one (<a href="settings-vms.html#backups">Backups</a>)</td>
+<td data-label="Ask, for example">"Make a new VM from yesterday's backup of vm-2 and start it"</td></tr>
 <tr><td data-label="Family">Wazza OS itself</td><td data-label="What the agent can do">Notifications, the VM's memory and what it has for heavy work, the computer check, the
 setup state, Wazza OS account tools</td><td data-label="Ask, for example">"How much memory can the VM use now?"</td></tr>
 </tbody></table></div>
@@ -161,13 +166,20 @@ file copies are in <a href="files-move.html#agents-outside-wazza-os">Move files<
   <li><strong>The tools need Wazza OS running.</strong> With it closed, <code>status</code> and the other tools answer
   that the Wazza OS app is not running for this user; <code>check</code> (what this computer lacks) and
   <code>version</code> work anyway.</li>
-  <li><strong>Who starts Wazza OS.</strong> In the published build (0.2.0, build 44c5d0ea07c1) no tool starts it: the
-  agent asks you to, and you start it from your app menu, with <code>wazzaos</code> in a terminal, or on a server with
-  <code>wazza --virtual-screen=always</code>. From the next release, the <code>start</code> tool starts it.</li>
-  <li><strong>Pictures of Wazza OS and input into it.</strong> In the published build, <code>screenshot</code> and
-  <code>native_input</code> work only with Wazza OS's own screen on a server (<a href="cli-server.html#the-virtual-screen">the
-  virtual screen</a>). From the next release they also work on a desktop, on Wazza OS's own window only: while an
-  agent holds the input, a mark on the window says so.</li>
+  <li><strong>Who starts Wazza OS.</strong> The agent, with the <a href="mcp-tools.html#tool-start"><code>start</code></a>
+  tool: it starts Wazza OS as your own start does, its window on your desktop, or with no display (a server, SSH) on
+  its own virtual screen. It waits until Wazza OS answers (2 minutes by default), and when Wazza OS already runs it says
+  so and starts nothing. You can start it yourself too: from your app menu, with <code>wazzaos</code> in a terminal, or
+  on a server with <code>wazza --virtual-screen=always</code>.</li>
+  <li><strong>Pictures of Wazza OS and input into it.</strong> On a server, <code>screenshot</code> and
+  <code>native_input</code> work with Wazza OS's own screen (<a href="cli-server.html#the-virtual-screen">the virtual
+  screen</a>); on a desktop, with Wazza OS's own window only:
+  <a href="mcp-tools.html#tool-screenshot"><code>screenshot</code></a> writes a PNG of that window (never your screen
+  or another window, even when the window is behind others), and <a href="mcp-tools.html#tool-native_input"><code>native_input</code></a>
+  clicks, scrolls and types into it (never with your pointer or your keyboard focus): it begins a lease (at most 160 s
+  and 512 actions), acts, and ends it. While an agent holds the input, a small mark at the bottom centre of the window,
+  on top of everything in it, says <em>An agent is using this window</em>. To see the app of a tab, an agent uses
+  <a href="mcp-tools.html#tool-drive"><code>drive</code></a> instead.</li>
   <li><strong>Apps open in the background.</strong> The agent opens an app inside Wazza OS with <code>ui</code>
   <code>open_app</code>: it gets a tab of its own in the background, and your screen stays as it is.</li>
 </ul>
@@ -180,22 +192,21 @@ file copies are in <a href="files-move.html#agents-outside-wazza-os">Move files<
 <tr><td data-label="Agent">Cursor</td><td data-label="--print-config"><code>cursor</code></td><td data-label="What to add"><code>~/.cursor/mcp.json</code>: <code>{"mcpServers": {"wazza-os": {"command": "wazza-os", "args": ["mcp"]}}}</code></td></tr>
 <tr><td data-label="Agent">VS Code</td><td data-label="--print-config"><code>vscode</code></td><td data-label="What to add"><code>.vscode/mcp.json</code>: <code>{"servers": {"wazza-os": {"type": "stdio", "command": "wazza-os", "args": ["mcp"]}}}</code></td></tr>
 <tr><td data-label="Agent">Gemini CLI</td><td data-label="--print-config"><code>gemini</code></td><td data-label="What to add"><code>~/.gemini/settings.json</code>: <code>{"mcpServers": {"wazza-os": {"command": "wazza-os", "args": ["mcp"]}}}</code></td></tr>
-<tr><td data-label="Agent">Hermes</td><td data-label="--print-config"><code>hermes</code> (coming in the next release)</td><td data-label="What to add">In <code>~/.hermes/config.yaml</code>: see
+<tr><td data-label="Agent">Hermes</td><td data-label="--print-config"><code>hermes</code></td><td data-label="What to add">In <code>~/.hermes/config.yaml</code>: see
 <a href="#hermes-and-prime-agent">below</a></td></tr>
-<tr><td data-label="Agent">Prime Agent</td><td data-label="--print-config"><code>prime</code> (coming in the next release)</td><td data-label="What to add">One <code>prime-agent mcp add</code> command:
+<tr><td data-label="Agent">Prime Agent</td><td data-label="--print-config"><code>prime</code></td><td data-label="What to add">One <code>prime-agent mcp add</code> command:
 see <a href="#hermes-and-prime-agent">below</a></td></tr>
 <tr><td data-label="Agent">Any other</td><td data-label="--print-config"><code>json</code></td><td data-label="What to add"><code>{"command": "wazza-os", "args": ["mcp"], "type": "stdio"}</code></td></tr>
 </tbody></table></div>
 <h3 id="hermes-and-prime-agent">Hermes and Prime Agent<a class="anchor" href="#hermes-and-prime-agent" aria-label="Link to Hermes and Prime Agent">#</a></h3>
-<p>The two agents of Wazza OS's own Chats can also run on their own, outside Wazza OS. These lines work with the
-published build (0.2.0, build 44c5d0ea07c1; tested with the Hermes and Prime Agent versions Wazza OS ships: 40 tools, a
-<code>status</code> call answered). <code>--print-config hermes</code> and <code>--print-config prime</code>, which print
-exactly these lines, come in the next release.</p>
+<p>The two agents of Wazza OS's own Chats can also run on their own, outside Wazza OS, with these lines (tested with the
+Hermes and Prime Agent versions Wazza OS ships). <code>--print-config hermes</code> and <code>--print-config prime</code>
+print exactly them.</p>
 <p><strong>Prime Agent</strong>: one command, which writes the server into <code>~/.prime/agent/settings.json</code>:</p>
 <pre><code><span class="prompt">$ </span><span class="cmd">prime-agent mcp add wazza-os --env XDG_RUNTIME_DIR=XDG_RUNTIME_DIR --env DISPLAY=DISPLAY --env WAYLAND_DISPLAY=WAYLAND_DISPLAY -- wazza-os mcp</span></code></pre>
 <p>Prime Agent gives a server only <code>HOME</code>, <code>PATH</code> and <code>TMPDIR</code>. The <code>--env</code>
 parts pass on <code>XDG_RUNTIME_DIR</code>, without which <code>wazza-os mcp</code> cannot find the running Wazza OS
-(every call would say it is not running), and your display, for the next release's <code>start</code> tool. A
+(every call would say it is not running), and your display, for the <code>start</code> tool. A
 variable your session does not have is passed on empty, which does no harm.</p>
 <p><strong>Hermes</strong>: add this to <code>~/.hermes/config.yaml</code>, under <code>mcp_servers</code>:</p>
 <pre><code>mcp_servers:
@@ -209,9 +220,9 @@ variable your session does not have is passed on empty, which does no harm.</p>
       WAYLAND_DISPLAY: ${WAYLAND_DISPLAY}</code></pre>
 <p><code>timeout: 600</code> lets one call run up to 10 minutes (Hermes stops a call after 5 by default, and a Drive
 step can take longer). Hermes gives a server only a few environment variables (<code>XDG_RUNTIME_DIR</code> among
-them, which <code>wazza-os mcp</code> needs): <code>env</code> passes your display on, so that the next release's
-<code>start</code> tool can open Wazza OS's window on your desktop. To let the next
-release's <code>provider_keys</code> read an API key from the environment (<code>add_from_env</code>), list that variable
+them, which <code>wazza-os mcp</code> needs): <code>env</code> passes your display on, so that the
+<code>start</code> tool can open Wazza OS's window on your desktop. To let
+<code>provider_keys</code> read an API key from the environment (<code>add_from_env</code>), list that variable
 under <code>env</code> too.</p>
 
 <h3 id="what-the-agent-does">What the agent does<a class="anchor" href="#what-the-agent-does" aria-label="Link to What the agent does">#</a></h3>
@@ -245,7 +256,7 @@ under <code>env</code> too.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="files-move.html" rel="prev"><span class="dir">← Previous</span>Move files</a><a class="next" href="mcp-tools.html" rel="next"><span class="dir">Next →</span>Every MCP tool</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#how-it-works">How it works</a></li><li class="lvl2"><a href="#the-tools-a-chat-gets">The tools a Chat gets</a></li><li class="lvl2"><a href="#the-rules-the-tools-follow">The rules the tools follow</a></li><li class="lvl2"><a href="#connect-an-agent-from-outside">Connect an agent from outside Wazza OS</a></li><li class="lvl3"><a href="#good-to-know">Good to know</a></li><li class="lvl3"><a href="#hermes-and-prime-agent">Hermes and Prime Agent</a></li><li class="lvl3"><a href="#what-the-agent-does">What the agent does</a></li><li class="lvl3"><a href="#what-stays-yours">What stays yours</a></li></ul></aside>
 </div>

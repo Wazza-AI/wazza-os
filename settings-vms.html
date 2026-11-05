@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settings › Virtual machines · Wazza OS manual</title>
-<meta name="description" content="Settings › Virtual machines in Wazza OS: the VM the window shows, start, stop and restart, new VMs, backups, removing and resetting a VM.">
-<meta name="keywords" content="settings, virtual machines, vm, vm-1, start, stop, restart, new vm, backup, restore, zip, remove vm, reset vm, several vms">
+<meta name="description" content="Settings › Virtual machines in Wazza OS: the VM the window shows, start, stop and restart, new VMs, backups, a new VM or vm-1 from a backup, importing a backup, removing and resetting a VM.">
+<meta name="keywords" content="settings, virtual machines, vm, vm-1, start, stop, restart, new vm, backup, restore, import backup, replace vm-1, start it now, zip, another computer, remove vm, reset vm, several vms">
 <!-- HEAD:BEGIN -->
 <link rel="canonical" href="https://os-guide.wazza.ai/settings-vms.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -77,12 +77,12 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Settings</li><li aria-current="page">Virtual machines</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl3"><a href="#this-window-shows">This window shows</a></li><li class="lvl3"><a href="#the-vm-list">The VM list</a></li><li class="lvl3"><a href="#add-a-vm">Add a VM</a></li><li class="lvl2"><a href="#backups">Backups</a></li><li class="lvl2"><a href="#remove-or-reset-a-vm">Remove or reset a VM</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl3"><a href="#this-window-shows">This window shows</a></li><li class="lvl3"><a href="#the-vm-list">The VM list</a></li><li class="lvl3"><a href="#add-a-vm">Add a VM</a></li><li class="lvl2"><a href="#backups">Backups</a></li><li class="lvl3"><a href="#import-a-backup">Import a backup</a></li><li class="lvl3"><a href="#replace-vm-1">Replace vm-1</a></li><li class="lvl3"><a href="#what-a-backup-holds">What a backup holds</a></li><li class="lvl2"><a href="#remove-or-reset-a-vm">Remove or reset a VM</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Settings › Virtual machines</h1>
 <p class="lead">Your VMs: which one this window shows, start, stop and restart, add another VM, back one up to a zip
-and bring it back, remove or reset one.</p>
+and bring it back (as a new VM, or as vm-1, from this computer or another one), remove or reset one.</p>
 
 <div class="note"><p>Most people only ever use <strong>vm-1</strong>, the VM the first start makes. More VMs are for
 keeping work apart (a client's project, a test setup), each with its own apps, files and Chats. You can have up to
@@ -96,7 +96,11 @@ keeping work apart (a client's project, a test setup), each with its own apps, f
 
 <h3 id="this-window-shows">This window shows<a class="anchor" href="#this-window-shows" aria-label="Link to This window shows">#</a></h3>
 <p>The drop-down names the VM whose tabs, desktop and Chats this Wazza OS window shows, with its state
-(<em>vm-1 · ready</em>). Pick another running VM to switch the window to it. Next to it:</p>
+(<em>vm-1 · ready</em>). Pick another running VM to switch the window to it (an app card's
+<span class="ui">Open in vm-N</span> does too). The VMs you do not show keep running with their apps and Chats: a Chat
+there goes on working, and an agent can open an app there in the background. Each VM's Chats are set up with your keys
+and sign-ins by themselves.</p>
+<p>Next to the drop-down:</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Button</th><th>What it does</th></tr></thead>
 <tbody>
@@ -142,22 +146,86 @@ running VMs.</p>
 
 <h2 id="backups">Backups<a class="anchor" href="#backups" aria-label="Link to Backups">#</a></h2>
 <figure class="shot">
-  <div class="shot-frame"><img src="img/settings-vms-2.webp" width="1215" height="245" alt="Backups tab: A backup is a zip in Downloads. It becomes a new VM, stopped, or replaces a stopped VM's disk. No backups yet: Back up on a stopped VM makes one."></div>
+  <div class="shot-frame"><img src="img/settings-vms-2.webp" width="974" height="205" alt="Backups tab: A backup is a zip in Downloads. It becomes a new VM, replaces a stopped VM's disk, or replaces vm-1. A backup made on another computer is imported here. Start it now, on: a VM made from a backup starts as soon as its disk is made. Import a backup…: a Wazza OS VM backup (.zip) from this computer or another one becomes a new VM or replaces vm-1. No backups yet: Back up on a VM makes one; Import a backup… takes one made on another computer."></div>
   <figcaption>Settings › Virtual machines › Backups, before the first backup.</figcaption>
 </figure>
-<p>A backup is a zip file in your computer's Downloads folder holding one VM's disk, compressed. The tab lists the
-backups Wazza OS made, each with two buttons:</p>
+<p>A backup is a zip file in your computer's Downloads folder holding one VM's disk, compressed: its apps, its files
+and its settings. <span class="ui">Back up</span> on a VM's row (above) makes one; a running VM keeps running while it
+is copied. The tab lists the backups Wazza OS made, each with these buttons:</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Button</th><th>What it does</th></tr></thead>
 <tbody>
-<tr><td>Make a VM from it</td><td>Makes a new VM, stopped, with that disk (the lowest free number). Your other VMs are not touched.</td></tr>
+<tr><td>Make a VM from it</td><td>Makes a new VM with that disk (the lowest free number) and, with
+<span class="ui">Start it now</span> on, starts it. Your other VMs are not touched.</td></tr>
 <tr><td>Move into a VM…</td><td>Replaces the disk of a stopped VM other than vm-1 with the backup. Everything that was
-in that VM is lost; confirm with <span class="ui">Replace for good</span>.</td></tr>
+in that VM is lost; confirm with <span class="ui">Replace for good</span>. With <span class="ui">Start it now</span>
+on, that VM then starts on the backup's disk, and its own disk is put back if it does not start.</td></tr>
+<tr><td>Replace vm-1…</td><td>Puts the backup into vm-1 (shown while vm-1 runs or is stopped): see
+<a href="#replace-vm-1">Replace vm-1</a>.</td></tr>
 </tbody></table></div>
+<p><span class="ui">Start it now</span> (on at first) starts the VM a backup becomes as soon as its disk is made. Off,
+the VM is made and stays stopped; its <span class="ui">Start</span> runs it later. If the VM cannot start (not enough
+memory, or 4 VMs already run), it is made anyway and stays stopped, and the line under the list says why.</p>
+<p>When a restore has ended, <span class="ui">Show vm-N</span> takes you to that VM's row, and the window shows the VM
+when it runs.</p>
+
+<h3 id="import-a-backup">Import a backup<a class="anchor" href="#import-a-backup" aria-label="Link to Import a backup">#</a></h3>
+<p>A backup made on another computer (or one you moved out of Downloads) is not in the list: import it.</p>
+<ol class="steps">
+  <li><p>Click <span class="ui">Import a backup…</span>. A file window opens: <span class="ui">Choose a Wazza OS VM
+  backup</span>. Pick the zip and click <span class="ui">Choose</span>.</p></li>
+  <li><p>Wazza OS reads what the zip holds and shows it under the button: its name, the VM it was made from, when,
+  and its size (with <em>· with its data disk (N GB)</em> when it holds one), with <span class="ui">Make a VM from
+  it</span>, <span class="ui">Replace vm-1…</span> and <span class="ui">Cancel</span> (nothing is made).</p></li>
+  <li><p>Click <span class="ui">Make a VM from it</span>: a new VM is made from the zip and, with
+  <span class="ui">Start it now</span> on, started. The line under the list follows it: reading the zip, checking
+  its disk, then starting it.</p></li>
+</ol>
+<p>The zip is read where it is: it is never copied, changed or moved. Wazza OS refuses, in plain words, a zip that is
+not a Wazza OS VM backup (<em>Not imported: notes.zip could not be read as a backup: it holds readme.txt instead of a
+Wazza OS backup's files (manifest.json and disk.qcow2.xz). Nothing was made</em>) and a backup made on another base
+image (another version's VM system that this Wazza OS cannot put the backup's changes on), and it says how much free
+space a restore needs when your disk has too little. Nothing is made then.</p>
+
+<h3 id="replace-vm-1">Replace vm-1<a class="anchor" href="#replace-vm-1" aria-label="Link to Replace vm-1">#</a></h3>
+<p>vm-1 is the VM Wazza OS starts with. To bring a backup back as vm-1 (an earlier state of vm-1, or a VM set up
+elsewhere), click <span class="ui">Replace vm-1…</span> on a backup's row or on the zip you imported. Its second step
+says what happens: vm-1 stops (its apps and Chats end, and so do those of any other VM that runs beside it), then it
+starts again from the backup. Confirm with <span class="ui">Replace vm-1 for good</span>.</p>
+<ul>
+  <li>The backup is read and checked first, while vm-1 still runs: a zip that is no backup changes nothing.</li>
+  <li>vm-1's own disk is kept aside until vm-1 runs on the backup's disk. If that start fails, vm-1 is put back on its
+  own disk, with everything it had, and the line under the list says so.</li>
+  <li>Once vm-1 runs on the backup's disk, its earlier disk is removed: what was in vm-1 and not in the backup is gone
+  for good.</li>
+  <li>While the replace runs, vm-1's row offers nothing and <span class="ui">Import a backup…</span> waits.</li>
+</ul>
+<p>To start a new Wazza OS from a backup (another computer, or after <a href="settings-computer.html#remove-data">Remove
+all data</a>), use the first start's <a href="first-start.html#start-from-a-backup">Start from a backup…</a> instead:
+it skips the setup.</p>
+
+<h3 id="what-a-backup-holds">What a backup holds<a class="anchor" href="#what-a-backup-holds" aria-label="Link to What a backup holds">#</a></h3>
+<ul>
+  <li>The VM's own disk: its apps, files and settings, only what differs from the VM system Wazza OS installs.</li>
+  <li>Its separate data disk too, when the VM has one (<a href="settings-resources.html#disks">VM resources ›
+  Disks</a>); the backup's row says <em>· with its data disk (N GB)</em>. A VM made from the backup gets that data
+  disk. Only a backup that holds a data disk replaces a VM's: replacing a VM (vm-1 or another one, from Settings, the
+  command line or an agent) with it replaces the VM's data disk too, and every confirmation says so first
+  (<em>vm-1's data disk is replaced by the backup's too.</em>). A backup without one never removes a VM's data disk:
+  after the restore Settings says <em>vm-1 keeps its own data disk: the backup has none</em>. A replace that starts the
+  VM keeps the VM's own data disk aside with its old disk, and puts both back if the backup's disk does not start.</li>
+  <li>A backup made by an earlier Wazza OS holds no data disk: restoring it keeps the VM's own data disk as it is.</li>
+  <li>A data disk is attached to a VM only while <span class="path">Settings › VM resources › Data disk</span> is on;
+  when it is off, Settings says after the restore: <em>The VM's data disk is the backup's; Settings › VM resources ›
+  Data disk is off on this computer, so the VM attaches it once that is on.</em></li>
+  <li>A backup is bound to the VM system it was made on: an update of Wazza OS that changes that system can refuse
+  an older backup.</li>
+</ul>
 <p>One backup or restore runs at a time, and while it holds a VM's disk, that VM's row offers nothing. Back up before
 a risky change; copy the zip elsewhere (a USB disk, another computer) to keep it safe. From a terminal:
 <code>wazza --gui vm backup vm-2</code>, <code>wazza --gui vm backups</code>,
-<code>wazza --gui vm restore BACKUP_ID</code> (see <a href="cli.html#vms">The command line</a>).</p>
+<code>wazza --gui vm restore BACKUP_ID --start</code>, <code>wazza --gui vm restore PATH.zip --into vm-1 --yes</code>
+(see <a href="cli.html#vms">The command line</a>).</p>
 
 <h2 id="remove-or-reset-a-vm">Remove or reset a VM<a class="anchor" href="#remove-or-reset-a-vm" aria-label="Link to Remove or reset a VM">#</a></h2>
 <figure class="shot">
@@ -167,15 +235,16 @@ a risky change; copy the zip elsewhere (a USB disk, another computer) to keep it
 disk; <span class="ui">Reset…</span> keeps the VM but replaces its disk with a fresh one. Both work on vm-2 to vm-8
 only, and only when the VM is stopped.</p>
 <div class="warn"><span class="callout-title">vm-1 cannot be removed or reset here</span>
-<p>Its disk holds Wazza OS's own state. To start vm-1 again from nothing, use
+<p>Its disk holds Wazza OS's own state. To bring vm-1 back to an earlier state, <a href="#replace-vm-1">replace it
+from a backup</a>. To start vm-1 again from nothing, use
 <a href="settings-computer.html#remove-data">Settings › This computer › Remove all data</a>, which erases everything
 of Wazza OS on this computer (every VM, Chat, sign-in and setting).</p></div>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-general.html" rel="prev"><span class="dir">← Previous</span>General</a><a class="next" href="settings-resources.html" rel="next"><span class="dir">Next →</span>VM resources</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl3"><a href="#this-window-shows">This window shows</a></li><li class="lvl3"><a href="#the-vm-list">The VM list</a></li><li class="lvl3"><a href="#add-a-vm">Add a VM</a></li><li class="lvl2"><a href="#backups">Backups</a></li><li class="lvl2"><a href="#remove-or-reset-a-vm">Remove or reset a VM</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl3"><a href="#this-window-shows">This window shows</a></li><li class="lvl3"><a href="#the-vm-list">The VM list</a></li><li class="lvl3"><a href="#add-a-vm">Add a VM</a></li><li class="lvl2"><a href="#backups">Backups</a></li><li class="lvl3"><a href="#import-a-backup">Import a backup</a></li><li class="lvl3"><a href="#replace-vm-1">Replace vm-1</a></li><li class="lvl3"><a href="#what-a-backup-holds">What a backup holds</a></li><li class="lvl2"><a href="#remove-or-reset-a-vm">Remove or reset a VM</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

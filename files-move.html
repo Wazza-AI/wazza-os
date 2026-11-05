@@ -90,11 +90,16 @@ it never writes over one of yours.</p>
   <div class="fact"><b>Why</b><span>Give an app or an agent your files; get the results back</span></div>
   <div class="fact"><b>Who</b><span>Everyone</span></div>
   <div class="fact"><b>Where</b><span>The Explorer, any tab, your own file manager</span></div>
+  <div class="fact"><b>Limit</b><span>On vm-2 and later VMs, Ctrl+C / Ctrl+V with this computer and drops onto the VM's window do not work yet</span></div>
 </div>
 <p>Where files live (the VM's home, its <code>wazza_os</code> folder, company folders) and the Explorer itself:
 <a href="files.html">Files and sharing</a>.</p>
 
 <h2 id="which-way">Which way<a class="anchor" href="#which-way" aria-label="Link to Which way">#</a></h2>
+<div class="warn"><span class="callout-title">Not yet on vm-2 and later VMs</span>
+<p>On vm-2 and later VMs, copying files with Ctrl+C / Ctrl+V between this computer and the VM, or dropping files onto
+the VM's window, does not work yet (it works on vm-1), and nothing says so. Ask a Chat to copy them, or attach them
+from the Explorer.</p></div>
 <div class="table-wrap"><table class="stack">
 <thead><tr><th>You want to…</th><th>Do this</th><th>It lands in</th></tr></thead>
 <tbody>
@@ -102,9 +107,9 @@ it never writes over one of yours.</p>
 or copy them in your file manager and <span class="ui">Paste here</span> in the Explorer</td><td data-label="It lands in">that folder</td></tr>
 <tr><td data-label="You want to…">give a file of your computer to an agent</td><td data-label="Do this"><a href="#onto-a-chat">drop it on the Chat</a>, or
 <span class="ui">+</span> › <span class="ui">From this computer…</span></td><td data-label="It lands in">your message, as an attachment</td></tr>
-<tr><td data-label="You want to…">give a VM file to an agent</td><td data-label="Do this">type <kbd>@</kbd> in the message box and pick it; from the next
-release, also drag it from the <a href="#from-the-explorer-onto-a-chat">Explorer onto the Chat</a></td><td data-label="It lands in">your message, by its path in the VM (nothing is
-copied)</td></tr>
+<tr><td data-label="You want to…">give a VM file to an agent</td><td data-label="Do this">drag it from the <a href="#from-the-explorer-onto-a-chat">Explorer onto
+the Chat</a>, or type <kbd>@</kbd> in the message box and pick it</td><td data-label="It lands in">your message: for Hermes by its path in the VM
+(nothing is copied); dragged on another agent's Chat, as a copy attached to it</td></tr>
 <tr><td data-label="You want to…">open a file of your computer in an app of the VM</td><td data-label="Do this"><a href="#onto-an-apps-window">drop it on the app's
 window</a></td><td data-label="It lands in">the VM's <code>Downloads</code>, and the app opens it</td></tr>
 <tr><td data-label="You want to…">get a VM file on your computer</td><td data-label="Do this">in the Explorer, right-click it › <span class="ui">Copy</span>, then paste
@@ -159,8 +164,8 @@ file chooser.</p>
   <li><strong>A folder</strong> is not attached: it is copied into the VM's <code>Downloads</code>, and the message
   box says where. Ask the agent to look there.</li>
   <li><strong>Size</strong>: no limit but the VM's free disk (Wazza OS keeps 256 MB of it free).</li>
-  <li>The <a href="computer-control.html">Computer Control</a> Chat takes no files: it reads your files where they
-  are.</li>
+  <li>On the <a href="computer-control.html">Computer Control</a> Chat, a drop puts the files' paths in your message:
+  it reads them where they are, on your computer.</li>
 </ul>
 
 <h3 id="onto-an-apps-window">Onto an app's window<a class="anchor" href="#onto-an-apps-window" aria-label="Link to Onto an app&#x27;s window">#</a></h3>
@@ -180,23 +185,26 @@ text editor opens a text. A notice follows the copy (<em>Copying the dropped fil
 </ul>
 
 <h3 id="from-the-explorer-onto-a-chat">From the Explorer onto a Chat<a class="anchor" href="#from-the-explorer-onto-a-chat" aria-label="Link to From the Explorer onto a Chat">#</a></h3>
-<div class="note"><p>Known issue in the published build (0.2.0, build 44c5d0ea07c1): a VM file dragged from the Explorer
-onto its Chat, or copied in the Explorer and pasted in the message box, is not attached (the message box says
-<em>Not attached: …</em>). Type <kbd>@</kbd> in the message box and pick the file instead
-(<a href="chats.html#mention-a-file-or-an-app">Mention a file or an app</a>). The next release attaches it as this
-section shows.</p></div>
 <figure class="shot half">
   <div class="shot-frame"><img src="img/move-explorer-chat.webp" width="574" height="680" alt="The Explorer over the Chat: the Pictures folder is open and its file hello-poster.png selected; below, the message box says Attached from vm-1 by its path (nothing copied): hello-poster.png and holds @file:///home/ubuntu/Pictures/hello-poster.png"></div>
-  <figcaption>The next release: hello-poster.png, a file of the VM's open Pictures folder, dropped on the Chat of a tab
-  on that VM, attached by its path.</figcaption>
+  <figcaption>hello-poster.png, a file of the VM's open Pictures folder, dropped on a Hermes Chat of a tab on that VM:
+  attached by its path.</figcaption>
 </figure>
 <p>Drag files or folders of a VM from the Explorer onto the Chat of a tab on that same VM, or copy them in the Explorer
-(right-click › <span class="ui">Copy</span>) and paste them in the message box. They are attached by their path in the
-VM: the message box gets <code>@file:///home/ubuntu/Documents/report.txt</code> (a folder's path ends with
-<code>/</code>) and says <em>Attached from vm-1 by its path (nothing copied): report.txt</em>. Nothing is copied: the
-agent reads the file where it is. <span class="ui">+</span> › <span class="ui">From the VM's files…</span> opens the
-Explorer on the Chat's VM for this, and typing <kbd>@</kbd> picks a file the same way
-(<a href="chats.html#mention-a-file-or-an-app">Mention a file or an app</a>).</p>
+(right-click › <span class="ui">Copy</span>) and paste them in the message box. What the Chat gets depends on where its
+agent runs (<a href="chats.html#the-agents">The agents</a>):</p>
+<ul>
+  <li><strong>Hermes</strong> runs in the VM: the files are attached by their path in the VM. The message box gets
+  <code>@file:///home/ubuntu/Documents/report.txt</code> (a folder's path ends with <code>/</code>) and says
+  <em>Attached from vm-1 by its path (nothing copied): report.txt</em>. Nothing is copied: the agent reads the file
+  where it is.</li>
+  <li><strong>Prime Agent, Claude Code, Codex and Antigravity</strong> run on your computer and cannot open a path in
+  the VM: each file is copied into the Chat and attached to your message, as a file of your computer is. The message
+  box says <em>Attached from the Explorer: report.txt</em>. A folder is not attached to these Chats: drag its files.</li>
+</ul>
+<p><span class="ui">+</span> › <span class="ui">From the VM's files…</span> opens the Explorer on the Chat's VM for this,
+and typing <kbd>@</kbd> picks a file by its path (<a href="chats.html#mention-a-file-or-an-app">Mention a file or an
+app</a>).</p>
 <ul>
   <li><strong>8 at a time</strong>, like a drop of your own files.</li>
   <li>A file of <strong>another VM</strong> is not attached: the message box says so. Copy it into this Chat's VM first
@@ -221,9 +229,8 @@ from vm-1: 40%</em>), and the app you let go on takes them (<em>Dropped on this 
   <li>Back on the same VM's picture, the drop is refused: the files are already there.</li>
   <li>With <span class="ui">From a VM to this computer</span> set to <span class="ui">Off</span>, drags out are
   refused.</li>
-  <li>From the Explorer, use <a href="#with-the-explorer">Copy and paste</a> or
-  <a href="#the-explorers-download">Download</a>: on Ubuntu 24.04's desktop (GNOME on Wayland), a row of the
-  Explorer dragged onto your file manager does not land in this version.</li>
+  <li>A row of the Explorer, a VM's or this computer's, dragged onto your file manager lands there too (a VM file is
+  copied out of its VM when you let go).</li>
 </ul>
 
 <h2 id="copy-and-paste">Copy and paste<a class="anchor" href="#copy-and-paste" aria-label="Link to Copy and paste">#</a></h2>
@@ -239,9 +246,9 @@ from vm-1: 40%</em>), and the app you let go on takes them (<em>Dropped on this 
   computer (<em>Copying poster-brief.txt… saving 1 files</em>), then the line says <em>Copied poster-brief.txt: paste
   with Ctrl+V here, in another folder or VM, or in this computer's file manager</em>.</p></li>
   <li><p>Paste: <kbd>Ctrl</kbd>+<kbd>V</kbd> in a folder of your file manager (the file lands where you paste), or
-  <span class="ui">Paste here</span> in the Explorer, in another folder, another VM or <em>This computer</em>. From the
-  next release, a paste in the message box of a Chat on the same VM attaches it by its path
-  (<a href="#from-the-explorer-onto-a-chat">above</a>).</p></li>
+  <span class="ui">Paste here</span> in the Explorer, in another folder, another VM or <em>This computer</em>. In the
+  message box of a Chat on the same VM, the paste attaches it as a drag does: by its path for Hermes, as a copy for
+  the other agents (<a href="#from-the-explorer-onto-a-chat">above</a>).</p></li>
 </ol>
 <p>The other way works too: copy files in your file manager, then <span class="ui">Paste here</span> in the Explorer
 (into the selected folder, else the folder shown). These are your own copies: no question, no size limit, new names
@@ -275,10 +282,8 @@ folder's list the item reads <span class="ui">Download</span>):</p>
   <li>It is copied into your <code>Downloads</code> folder, whatever its size; a folder stays a folder. The line says
   <em>Downloading hello-poster.png to Downloads…</em>, then <em>Downloaded to Downloads: hello-poster.png</em>. A
   second download of it is <code>hello-poster_copy1.png</code>.</li>
-  <li>A file of 16 KB or less opens your computer's Save dialog instead: you choose its name and folder. Known issue in
-  this version: the line may say <em>not_ready</em>, or the dialog may close without saving. Use
-  <span class="ui">Download zip</span>, or the Explorer's <span class="ui">Copy</span> and paste it in your file
-  manager.</li>
+  <li>A file of 16 KB or less opens your computer's Save dialog instead: you choose its name and folder, and the line
+  says <em>Saved poster-brief.txt · 57 bytes</em>.</li>
   <li><span class="ui">Download zip</span> makes one <code>.zip</code> in your <code>Downloads</code>: a folder's zip
   (<code>Pictures.zip</code>) holds the folder with everything in it.</li>
 </ul>
@@ -313,6 +318,10 @@ with <span class="ui">Allow</span>. Off: no files (text still is).</td></tr>
 <tr><td>An agent's copy, either way</td><td>Allow: at once. Ask: a question with <span class="ui">Allow</span>; after 2
 minutes without it, nothing is copied. Off: refused, and the agent tells you. With the defaults: into a VM at once, to
 your computer after your Allow.</td></tr>
+<tr><td>An agent's copy between two VMs (<code>vm_copy</code>)</td><td>The stricter of the two settings it
+crosses: Off on either refuses it, Ask on either asks.</td></tr>
+<tr><td>An agent's copy from a VM you are not viewing</td><td>The same rules, if <em>Chats in VMs you are
+not viewing can copy files</em> is on (the default); off, only the Chats of the VM you are viewing copy files.</td></tr>
 </tbody></table></div>
 <p>A question appears as a notice at the bottom right of the window and waits in Home ›
 <a href="window.html#notifications">Notifications</a> (<em>Needs you</em>), with its <span class="ui">Allow</span>,
@@ -335,9 +344,18 @@ when asked, never keys, keyrings or browser profiles).</td></tr>
 <code>Downloads/From the VM</code>, or a folder below your home), as new files only.</td></tr>
 <tr><td><code>computer.files.replace</code></td><td>Replaces a file on your computer with a VM file, only a file Wazza OS
 itself made there (an upload) that nobody changed since; never one of yours.</td></tr>
-<tr><td><code>computer.files.transfer</code></td><td>How far a copy, upload or replace went: waiting for your Allow,
-running, done or failed.</td></tr>
+<tr><td><code>computer.files.transfer</code></td><td>How far a copy, upload, replace or VM copy went: waiting for your
+Allow, running, done or failed.</td></tr>
+<tr><td><code>computer.files.vm_copy</code></td><td>Copies 1 to 64 files or folders of its VM
+into another VM of this computer (<code>to</code>: <code>vm-2</code>…; that VM's <code>~/Downloads</code>, or a folder
+of its home), as new files only (a taken name becomes <code>report (2).txt</code>; names that start with a dot are left
+out). It follows the stricter of your two file-copy settings it crosses: <span class="ui">Off</span> on either refuses
+it, <span class="ui">Ask</span> on either waits for your <span class="ui">Allow</span> (on the notice of the VM it goes
+to), both <span class="ui">Allow</span> run it.</td></tr>
 </tbody></table></div>
+<p>The Chats of a VM you are not viewing copy files too, by the same rules
+(<a href="settings-files.html#between-this-computer-and-vms">Chats in VMs you are not viewing can copy files</a>, on
+by default); searching and reading your computer's files stays with the Chats of the VM you are viewing.</p>
 <p>An example, on a VM tab's Chat with MiMo: <em>"Copy Documents/route-tests/report.txt from my computer into this
 VM's Documents folder. Then make report-checked.txt from it in the VM, with a last line: Checked in the VM. Then put
 report-checked.txt on my computer."</em></p>
@@ -356,7 +374,11 @@ report-checked.txt on my computer."</em></p>
 
 <h3 id="the-computer-control-chat">The Computer Control Chat<a class="anchor" href="#the-computer-control-chat" aria-label="Link to The Computer Control Chat">#</a></h3>
 <p>The <a href="computer-control.html">Computer Control</a> Chat runs on your computer, not in a VM: it lists,
-searches, reads and opens your files (below your home). It copies nothing into a VM.</p>
+searches, reads and opens your files (below your home). It also has the copy tools of a VM tab's Chat (above),
+naming the VM each time (<code>vm</code>:
+<code>vm-1</code> to <code>vm-8</code>): <code>computer.files.copy</code> into that VM,
+<code>computer.files.upload</code> and <code>computer.files.replace</code> from it, <code>computer.files.vm_copy</code>
+from it into another VM, and <code>computer.files.transfer</code>. They follow the same file-copy settings.</p>
 
 <h3 id="agents-outside-wazza-os">Agents outside Wazza OS<a class="anchor" href="#agents-outside-wazza-os" aria-label="Link to Agents outside Wazza OS">#</a></h3>
 <p>An agent connected through <a href="mcp.html#connect-an-agent-from-outside"><code>wazza-os mcp</code></a> moves
@@ -389,7 +411,7 @@ subcommand: <a href="cli.html#files">The command line › Files</a>.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="files.html" rel="prev"><span class="dir">← Previous</span>Files and sharing</a><a class="next" href="mcp.html" rel="next"><span class="dir">Next →</span>The Wazza OS MCP</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#which-way">Which way</a></li><li class="lvl2"><a href="#drag-and-drop">Drag and drop</a></li><li class="lvl3"><a href="#onto-a-folder-of-the-explorer">Onto a folder of the Explorer</a></li><li class="lvl3"><a href="#onto-a-chat">Onto a Chat</a></li><li class="lvl3"><a href="#onto-an-apps-window">Onto an app&#x27;s window</a></li><li class="lvl3"><a href="#from-the-explorer-onto-a-chat">From the Explorer onto a Chat</a></li><li class="lvl3"><a href="#out-of-a-vm-onto-your-computer">Out of a VM, onto your computer</a></li><li class="lvl2"><a href="#copy-and-paste">Copy and paste</a></li><li class="lvl3"><a href="#with-the-explorer">With the Explorer</a></li><li class="lvl3"><a href="#with-the-vms-files-app">With the VM&#x27;s Files app</a></li><li class="lvl2"><a href="#the-explorers-download">The Explorer&#x27;s Download</a></li><li class="lvl2"><a href="#names-sizes-and-progress">Names, sizes and progress</a></li><li class="lvl2"><a href="#what-the-file-copy-settings-cover">What the file-copy settings cover</a></li><li class="lvl2"><a href="#agents">Agents</a></li><li class="lvl3"><a href="#a-chat-in-a-vm-tab">A Chat in a VM tab</a></li><li class="lvl3"><a href="#the-computer-control-chat">The Computer Control Chat</a></li><li class="lvl3"><a href="#agents-outside-wazza-os">Agents outside Wazza OS</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>

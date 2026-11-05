@@ -77,7 +77,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Connect and automate</li><li aria-current="page">The command line</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#start-from-a-backup">Start from a backup</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>The command line</h1>
@@ -163,19 +163,65 @@ ran). <code>--file -</code> reads the file from standard input; <code>--json</co
 <span class="prompt">$ </span><span class="cmd">wazza --gui vm stop vm-2</span>
 <span class="prompt">$ </span><span class="cmd">wazza --gui vm backup vm-2</span>
 <span class="prompt">$ </span><span class="cmd">wazza --gui vm backups</span>
-<span class="prompt">$ </span><span class="cmd">wazza --gui vm restore BACKUP_ID</span></code></pre>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm backup-inspect ~/Downloads/wazza-vm-2-2026-11-04-1200.zip</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm restore BACKUP_ID --start</span>
+<span class="prompt">$ </span><span class="cmd">wazza --gui vm restore ~/Downloads/wazza-vm-2-2026-11-04-1200.zip --into vm-1 --yes</span></code></pre>
 <div class="table-wrap"><table>
 <thead><tr><th>Command</th><th>Does</th></tr></thead>
 <tbody>
 <tr><td><code>vm list</code></td><td>Every VM by number, running or stopped, with its disk</td></tr>
 <tr><td><code>vm create</code></td><td>A new stopped VM with the lowest free number</td></tr>
-<tr><td><code>vm start VM</code>, <code>vm stop VM</code></td><td>Start or stop one</td></tr>
-<tr><td><code>vm backup VM</code>, <code>vm backups</code></td><td>A zip of the VM in your Downloads (in the background); the list of backups</td></tr>
-<tr><td><code>vm restore BACKUP_ID</code> or <code>PATH.zip</code></td><td>A new VM from a backup; with <code>--into VM --yes</code>,
-replaces a stopped VM's disk for good</td></tr>
+<tr><td><code>vm start VM</code>, <code>vm stop VM</code></td><td>Start or stop one, vm-2 to vm-8 (vm-1 starts and stops with
+Wazza OS itself); a stop keeps its disk. A VM still starting is stopped at once: <em>vm-2 was starting: its start is
+ended now (it never runs); its QEMU closes within seconds</em>, and its row then says <em>vm-2 was stopped while it
+started (its boot); it never ran</em>. A stop that cannot happen says so, and that the VM still runs: <em>vm-2 did not
+stop; it still runs, nothing was stopped</em></td></tr>
+<tr><td><code>vm backup VM</code>, <code>vm backups</code></td><td>A zip of the VM in your Downloads, its data disk too when it has
+one (in the background); the list of backups, each with its data disk's size when it holds one</td></tr>
+<tr><td><code>vm backup-inspect PATH.zip</code></td><td>What a backup zip holds (its VM, when it was made, its disk, its data
+disk if any) and whether this computer's base image takes it; a read: nothing changes</td></tr>
+<tr><td><code>vm restore BACKUP_ID</code> or <code>PATH.zip</code></td><td>A new VM from a backup (the id
+<code>vm backups</code> lists, or a backup's zip from anywhere on this computer), stopped, with the backup's data disk when it
+holds one; with <code>--start</code>, started once its disk is made. It answers at once; <code>vm backups</code> follows the
+job and <code>vm list</code> the VM</td></tr>
+<tr><td><code>vm restore … --into VM --yes</code></td><td>Replaces a stopped VM's disk (vm-2 to vm-8) with the backup's, for
+good; with <code>--start</code> it then starts on it, its own disk put back if that start fails. A backup that holds a data
+disk replaces the VM's data disk too; one without leaves the VM's own as it is. Without <code>--yes</code> it is refused
+and says what it would replace (here a backup that holds a data disk): <em>vm restore BACKUP --into vm-2 replaces
+vm-2's disk and everything in it with the backup's, for good; vm-2's data disk is replaced by the backup's too: …
+add --yes</em></td></tr>
+<tr><td><code>vm restore … --into vm-1 --yes</code></td><td>Replaces vm-1: the backup is checked while vm-1 runs, then vm-1
+stops (every running VM's apps and Chats end), takes the backup's disk and starts again; if it does not start on it,
+its own disk is put back. Without <code>--yes</code> it is refused (exit 2) and nothing is done</td></tr>
 <tr><td><code>vm reset VM --yes</code></td><td>Makes a stopped VM (not vm-1) new at its next start: its disk is removed</td></tr>
 <tr><td><code>vm delete VM --yes</code></td><td>Removes a stopped VM (not vm-1) and its disk, for good</td></tr>
 </tbody></table></div>
+
+<h2 id="start-from-a-backup">Start from a backup<a class="anchor" href="#start-from-a-backup" aria-label="Link to Start from a backup">#</a></h2>
+<p>On a new computer, or after <a href="settings-computer.html#remove-data">Remove all data</a>, Wazza OS can make its
+vm-1 from a backup at its very first start, with the setup skipped (the first start's own
+<a href="first-start.html#start-from-a-backup">Start from a backup…</a> does the same by clicks). These start Wazza OS
+itself, so they take no <code>--gui</code>:</p>
+<pre><code><span class="prompt">$ </span><span class="cmd">wazza --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip</span>
+<span class="prompt">$ </span><span class="cmd">wazza start --vm1-backup ~/backups/wazza-vm-1-2026-11-04-1200.zip</span></code></pre>
+<div class="table-wrap"><table>
+<thead><tr><th>Command</th><th>Does</th></tr></thead>
+<tbody>
+<tr><td><code>wazza --vm1-backup PATH.zip</code> or <code>BACKUP_ID</code></td><td>Starts Wazza OS with vm-1 made from the backup (a zip,
+or the id <code>vm backups</code> lists) before its first boot.
+Only while vm-1 has no disk yet: otherwise it is refused before any window opens (exit 1, the reason on standard
+error) and nothing changes. A backup that holds a data disk is refused the same way while vm-1 has a data disk of its
+own, which it would replace: <em>vm-1 has a data disk, and the backup's data disk replaces it for good: replace it
+(replace: true; the CLI's --yes), or make a new VM from the backup (vm restore PATH). Nothing was changed</em></td></tr>
+<tr><td><code>wazza --vm1-backup PATH.zip --replace-vm1 --yes</code></td><td>The same when vm-1 already has a disk: vm-1's disk
+is replaced by the backup's before vm-1 starts, for good (its own disk is put back if it does not start on it); its
+data disk too when the backup holds one</td></tr>
+<tr><td><code>wazza start --vm1-backup PATH.zip</code></td><td>The same as <code>wazza start</code> (on a desktop its window, on a
+server its own virtual screen), with vm-1 from the backup; refused (exit 1, JSON) when Wazza OS already runs: use
+<code>vm restore PATH.zip --into vm-1 --yes</code> then</td></tr>
+</tbody></table></div>
+<p>A relative path is taken from your shell's folder. A zip that is not a Wazza OS VM backup, or one made on another base
+image, is refused with its reason, and nothing changes.</p>
 
 <h2 id="vm-resources">Memory, disk and graphics<a class="anchor" href="#vm-resources" aria-label="Link to Memory, disk and graphics">#</a></h2>
 <pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui vm-resources</span>
@@ -265,7 +311,9 @@ the Explorer; never overwrites; delete is permanent</td></tr>
 <code>Downloads/From the VM</code>), by your copy rule</td></tr>
 <tr><td><code>explorer list|details|open|search|read … --computer</code></td><td>Your own files, below your home</td></tr>
 <tr><td><code>clipboard copy --stdin [--guest-only]</code></td><td>Puts text on the VM's clipboard (and yours)</td></tr>
-<tr><td><code>clipboard files [--to-vm R] [--to-computer R]</code></td><td>The file-copy rules: <code>ask</code>, <code>allow</code>, <code>off</code></td></tr>
+<tr><td><code>clipboard files [--to-vm R] [--to-computer R]</code></td><td>The file-copy rules: <code>ask</code>, <code>allow</code>, <code>off</code>; and
+<code>--background-chats on|off</code>: may the Chats of a VM you are not viewing copy files
+(<a href="settings-files.html#between-this-computer-and-vms">Files &amp; sharing</a>)</td></tr>
 </tbody></table></div>
 
 <h2 id="the-window-and-everything-else">The window, and everything else<a class="anchor" href="#the-window-and-everything-else" aria-label="Link to The window, and everything else">#</a></h2>
@@ -292,9 +340,9 @@ commands as you, in its shell or through <code>wazza-os mcp</code>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="mcp-tools.html" rel="prev"><span class="dir">← Previous</span>Every MCP tool</a><a class="next" href="cli-server.html" rel="next"><span class="dir">Next →</span>On a server (virtual screen)</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build 44c5d0ea07c1) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#start-from-a-backup">Start from a backup</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>
