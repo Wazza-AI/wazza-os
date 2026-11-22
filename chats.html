@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html" aria-current="page">Chats, agents and models</a></li>
@@ -199,8 +200,9 @@ conversation to save room), and more down the list.</p>
   OpenRouter key or your own keys, a plan, your Google account).</figcaption>
 </figure>
 <ol class="steps">
-  <li><p><span class="ui">Apply to</span>: <span class="ui">This chat</span>, or <span class="ui">Default for new chats</span>
-  (the same as Settings › New Chats).</p></li>
+  <li><p><span class="ui">Apply to</span>: <span class="ui">This chat</span>, <span class="ui">All chats</span> (every Chat
+  you have open; new Chats keep their default), or <span class="ui">Default for new chats</span> (the same as Settings ›
+  New Chats).</p></li>
   <li><p>The <strong>agent</strong> (<em>default</em> marks the one new Chats use). Under each: what it needs.</p></li>
   <li><p><span class="ui">Search models</span>: type part of a name (for example <em>mimo</em>, <em>claude</em>,
   <em>free</em>); the count says how many match.</p></li>
@@ -243,8 +245,10 @@ Chat uses (<em>25.7k of 1.1M tokens</em>), and:</p>
   <li><span class="ui">Compact now</span>: the agent sums up what was said and goes on with less (Hermes uses its
   <code>/compress</code>, Claude Code, Codex and Prime Agent their <code>/compact</code>).</li>
   <li><span class="ui">New chat from a summary</span>: a new Chat that starts from a summary of this one.</li>
-  <li><span class="ui">Compact at … tokens</span> › <span class="ui">Set</span>: compact by itself at that size (default
-  80k tokens, 50 % of the window, or the agent's own rule).</li>
+  <li><span class="ui">Compact at … tokens</span> › <span class="ui">Set</span>: compact by itself at that size. Without
+  it: Hermes at 50 % of the window, Claude Code by its own rule, about 23k under the window it runs its model in (the
+  model's own, which Wazza OS tells it), Codex and Prime Agent at 80k tokens at most, and an agent on its own plan by its
+  own rule.</li>
   <li><strong>Use in this chat</strong>: tokens in and out, cache hits, speed, answers, and who pays. Claude Code and
   Codex do not report tokens: for them the numbers are Wazza OS's estimate, marked <em>estimated</em>.</li>
 </ul>
@@ -307,8 +311,8 @@ persona learns from it (<a href="skills.html#personas">Personas</a>).</td></tr>
 <p>Reading a Chat, setting the default model, the queued messages: <a href="cli.html#chats">The command line › Chats</a>.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
-<nav class="pager" aria-label="Previous and next page"><a class="prev" href="window.html" rel="prev"><span class="dir">← Previous</span>Getting around</a><a class="next" href="parallel-tabs.html" rel="next"><span class="dir">Next →</span>Several agents at once</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="whats-new.html" rel="prev"><span class="dir">← Previous</span>What&#x27;s new in 0.3</a><a class="next" href="parallel-tabs.html" rel="next"><span class="dir">Next →</span>Several agents at once</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-a-chat">Open a Chat</a></li><li class="lvl2"><a href="#write-to-the-agent">Write to the agent</a></li><li class="lvl3"><a href="#add-files">Add files</a></li><li class="lvl3"><a href="#mention-a-file-or-an-app">Mention a file or an app</a></li><li class="lvl3"><a href="#slash-commands">Slash commands</a></li><li class="lvl2"><a href="#follow-the-agents-work">Follow the agent&#x27;s work</a></li><li class="lvl2"><a href="#choose-the-agent-and-the-model">Choose the agent and the model</a></li><li class="lvl3"><a href="#the-agents">The agents</a></li><li class="lvl2"><a href="#compact-a-long-chat">Compact a long Chat</a></li><li class="lvl2"><a href="#chat-settings">Chat settings</a></li><li class="lvl2"><a href="#what-an-agent-can-do">What an agent can do</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>

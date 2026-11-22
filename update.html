@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,12 +78,15 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Settings</li><li aria-current="page">The Update page</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#updates-without-a-restart">Updates without a restart</a></li><li class="lvl2"><a href="#updates-that-restart-wazza-os">Updates that restart Wazza OS</a></li><li class="lvl2"><a href="#updating-from-wazza-os-0-2-0">Updating from Wazza OS 0.2.0</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>The Update page</h1>
-<p class="lead">Wazza OS checks for a new signed version when it starts and every hour. When one is out, you
-download it, install it with your administrator password, and restart Wazza OS. Your VMs, Chats and settings stay.</p>
+<p class="lead">Wazza OS checks for a new signed version when it starts and every hour. An update that changes only
+the interface applies with no restart and no password when you click <span class="ui">Update now</span>: your
+VMs, apps and Chats keep running. Any other
+update you download, install with your administrator password, and finish with one restart. Your VMs, Chats and
+settings stay.</p>
 
 <h2 id="open-the-update-page">Open the Update page<a class="anchor" href="#open-the-update-page" aria-label="Link to Open the Update page">#</a></h2>
 <p>Click <span class="ui">Update</span> in the Home menu (open Home with the <span class="ui">+</span> at the end of the
@@ -98,7 +102,12 @@ tab strip). When an update is waiting, a notification says so too (Home › Noti
 <h2 id="install-an-update">Install an update<a class="anchor" href="#install-an-update" aria-label="Link to Install an update">#</a></h2>
 <ol class="steps">
   <li><p>When a newer version exists, the page shows it with its version, its date, and the changes since your
-  version (<em>Technical changes</em>, <em>Known issues</em>). Click <span class="ui">Download Update</span>.</p></li>
+  version (<em>Technical changes</em>, <em>Known issues</em>). Click <span class="ui">Download Update</span>.</p>
+  <p>When your computer cannot install it yet (pkexec, which asks for your password, is missing: on Arch without
+  polkit, or with the tarball), the page says so above the button before anything is downloaded, with the command
+  that installs pkexec on your system, and the button reads <span class="ui">Download anyway</span>. Run the command
+  first, or download now: the download is kept, and <span class="ui">Install Now</span> works once pkexec is
+  installed.</p></li>
   <li><p>Wazza OS downloads the package from Wazza's release server, <code>os-downloads.wazza.ai</code> (a network that
   filters sites must allow it), and checks it against its signature (<em>Downloading and verifying the
   package</em>, with the bytes downloaded). <span class="ui">Cancel Download</span> stops it. When it ends:
@@ -106,8 +115,11 @@ tab strip). When an update is waiting, a notification says so too (Home › Noti
   <li><p>Click <span class="ui">Install Now</span>. A small confirmation window of Wazza OS asks you to confirm
   (<span class="ui">Install Now</span>, or <span class="ui">Install Later</span> to keep the download for later).</p></li>
   <li><p>Your system asks for your administrator password (the installation goes through your system's package
-  manager). The page follows the install: copying the verified package, checking it against its signed hash,
-  installing, setting up the new version, with a percentage.</p></li>
+  manager, by pkexec and your desktop's password prompt). The page follows the install: copying the verified package,
+  checking it against its signed hash, installing, setting up the new version, with a percentage. The Wazza OS
+  package for Debian, Ubuntu, Fedora and openSUSE installs pkexec with it. On Arch (where polkit, which most desktops
+  already have, carries it) and with the tarball it may be missing: the message then names the command that installs
+  it on your system.</p></li>
   <li><p>When the page says <em>Installed. Restart Wazza OS to finish.</em>, click <span class="ui">Restart Wazza OS</span>.
   Wazza OS closes and starts again on the new version; your tabs come back.</p></li>
 </ol>
@@ -121,6 +133,75 @@ Home › <a href="signin.html#your-wazza-os-account">Sign in</a>.</p>
 <div class="note"><span class="callout-title">You can also update with your package manager</span>
 <p>Install the new package over the old one, exactly like the first install (<a href="install.html#update-wazza-os">Install ›
 Update</a>). Never remove the old package first: removing it deletes your Wazza OS data.</p></div>
+
+<h2 id="updates-without-a-restart">Updates without a restart<a class="anchor" href="#updates-without-a-restart" aria-label="Link to Updates without a restart">#</a></h2>
+<p>Many updates change only the Wazza OS interface, not its engine. Those apply while your VMs, your apps and their
+tabs, and your Chats keep running. A Chat that is answering finishes first: the update waits for it.</p>
+<ol class="steps">
+  <li><p>Wazza OS downloads such an update by itself (about 20 MB) and checks it against its signature. The Update page
+  then shows <em>Wazza OS {version} is ready</em> with the tag <em>no restart</em>: <em>Ready (about 20 MB). No restart:
+  your VMs, apps and Chats keep running; the windows refresh once. Private tabs (Incognito browser tabs, Wazza OS's sign-in
+  tab) keep nothing, so the update waits until you close them.</em></p></li>
+  <li><p>Click <span class="ui">Update now</span>. No password is needed. The windows of Wazza OS refresh once; the
+  VMs, apps, tabs and Chats stay as they were, and the page says <em>Applied with no restart.</em></p></li>
+</ol>
+<p>If Wazza OS is busy, the card says what it waits for (<em>Waiting for ...</em>: a Chat answering, a VM starting or
+stopping, a sign-in, the package update or an app install to finish, or your private tabs to close) and applies the
+update as soon as that ends. A private tab (an Incognito browser tab, or Wazza OS's sign-in tab) keeps nothing, so the
+refresh would end it with its pages and anything typed there: the update waits until you close it.
+<span class="ui">Later</span>, or quitting Wazza OS first, keeps the update: it applies at the next start of Wazza
+OS, with the same check as Update now: if the new interface does not come up, Wazza OS goes back to the previous one
+by itself. New versions of apps that the update carries take effect with it too (at Update now, or at that next
+start), never before.</p>
+<p>If the new interface does not come up within 30 seconds, Wazza OS goes back to the previous one by itself and says
+<em>The update could not be applied; Wazza OS kept the previous interface.</em> Nothing else changes.</p>
+<div class="note"><span class="callout-title">Apps update with it</span>
+<p>Such an update can also carry new versions of apps. An app updates the next time you open it, and shows that it is
+updating. A tab that is already open keeps the version it started with; the old version is removed once its last tab
+is closed. An app that can have only one version in a VM waits until no tab of it is open
+(<a href="apps.html#apps-that-have-only-one-version">Apps that have only one version</a>).</p></div>
+
+<h2 id="updates-that-restart-wazza-os">Updates that restart Wazza OS<a class="anchor" href="#updates-that-restart-wazza-os" aria-label="Link to Updates that restart Wazza OS">#</a></h2>
+<p>An update that changes the engine of Wazza OS is installed as above (<span class="ui">Download Update</span>,
+<span class="ui">Install Now</span>, your password), and then needs one restart. When you click
+<span class="ui">Restart Wazza OS</span>:</p>
+<ul>
+  <li><p>Every tab whose app has unsaved work asks first, one at a time, as when you quit:
+  <span class="ui">Close without saving</span>, <span class="ui">Save</span> (the tab's Chat is asked to save it), or
+  <span class="ui">Keep open</span>. <span class="ui">Keep open</span> cancels the restart; the page keeps
+  <span class="ui">Restart Wazza OS</span> for later.</p></li>
+  <li><p>A private tab or window (an Incognito browser tab, also an Incognito or Guest window opened in a browser tab, or
+  Wazza OS's sign-in tab) keeps nothing and does not come back after a restart, so while one is open the restart does
+  not start, nothing is asked and nothing is closed. Close your private tabs and windows, then click
+  <span class="ui">Restart Wazza OS</span> again. If Wazza OS could not check a VM's Chromium for such a window, it
+  says so and waits too: close the Chromium tabs there, or stop that VM.</p></li>
+  <li><p>After the restart, every tab comes back, and its app reopens with its project if the project was saved.</p></li>
+</ul>
+
+<h2 id="updating-from-wazza-os-0-2-0">Updating from Wazza OS 0.2.0<a class="anchor" href="#updating-from-wazza-os-0-2-0" aria-label="Link to Updating from Wazza OS 0.2.0">#</a></h2>
+<p>Wazza OS 0.2.0 (build b8069fa40737, November 5) cannot ask your apps about their unsaved work when it restarts for
+an update. So when you install a newer version from it, the install itself asks first, before anything is replaced:</p>
+<ul>
+  <li><p>Each app open in your VM is asked to close, as its tab's &#215; does. An app with unsaved work asks you in its own
+  window: click into the app, then answer it there. If an app's question has no Save button (GIMP's "Quit GIMP"),
+  choose Cancel and save your work: the update asks the app again within a minute.</p></li>
+  <li><p>A private tab or window (an Incognito browser tab, also an Incognito or Guest window opened in a browser tab, and
+  Wazza OS's sign-in tab) keeps nothing, so the update waits until you close it.</p></li>
+  <li><p>Another running VM holds the update too. Show it (<span class="ui">Settings › Virtual machines › This window
+  shows</span>), close its apps, then stop it. Never stop a VM while its apps are open: a stop ends them without
+  asking.</p></li>
+  <li><p>While the update waits for your apps, your system's package manager stays busy (its lock is held), so your
+  other system updates, automatic ones included, wait too. On Debian, Ubuntu, Fedora and openSUSE it waits at most 40
+  minutes, then says <em>Wazza OS's update was not installed</em>: nothing was installed and nothing was lost, and any
+  app the update already closed stays closed until you open it again. On Arch Linux it waits until your apps are
+  closed. An app you open while the update installs makes it wait again, with no limit, until you close it.</p></li>
+  <li><p>When it is installed, Wazza OS restarts by itself, and the apps it closed reopen in their tabs.</p></li>
+</ul>
+<p>On openSUSE Tumbleweed with SELinux on (its default): if every update ends with <em>Update failed; installation was
+not proved</em>, your installed version cannot start its own installer there, because the system's security policy
+refuses it. Install the new version once by hand: download its <code>.rpm</code> and run the command in
+<a href="install.html#opensuse">Install a downloaded package › openSUSE</a>. Wazza OS restarts by itself when the
+install has finished. From that version on, updates install from inside Wazza OS again.</p>
 
 <h2 id="what-the-messages-mean">What the messages mean<a class="anchor" href="#what-the-messages-mean" aria-label="Link to What the messages mean">#</a></h2>
 <div class="table-wrap"><table>
@@ -137,6 +218,11 @@ short time. Wait a minute.</td></tr>
 30 seconds, then 2 minutes, then 10 minutes between attempts. The button comes back by itself.</td></tr>
 <tr><td>Four downloads completed this hour</td><td>A limit against loops: <span class="ui">Download Update</span> comes back
 after the hour.</td></tr>
+<tr><td>Wazza OS needs pkexec to install this update, and this computer does not have it. Install it with: …</td><td>Said
+before the download (the button reads <span class="ui">Download anyway</span>), while it downloads and before
+<span class="ui">Install Now</span>: pkexec, the tool that asks for your password, is missing. Run the command the
+message names for your system (the same as in the <em>Install it with: … then click Install again</em> message below).
+You can download first: the download is kept until pkexec is installed.</td></tr>
 <tr><td>The package on the server is not the size its signed release names. Nothing was installed.</td><td>The download
 did not match its signature, so it was refused. Try again later.</td></tr>
 <tr><td>This version is no longer published: a newer one replaced it while it downloaded.</td><td>Wazza OS checks for
@@ -150,8 +236,41 @@ answer the window.</td></tr>
 <tr><td>Wazza OS's window was not in front, so the confirmation could not be shown.</td><td>Bring Wazza OS to the
 front, click <span class="ui">Install Now</span> again.</td></tr>
 <tr><td>Waiting for the administrator password, then installing</td><td>Type your password in the system's prompt.</td></tr>
+<tr><td>Wazza OS needs pkexec to install this update. Install it with: … then click Install again.</td><td>pkexec, the
+tool that asks for your password, is missing. Run the command the message names for your system (openSUSE:
+<code>sudo zypper install pkexec</code>; Fedora: <code>sudo dnf install polkit</code>; Arch:
+<code>sudo pacman -S polkit</code>; Debian, Ubuntu: <code>sudo apt install pkexec</code>; on another system it names
+<code>/usr/bin/pkexec</code> and the package that usually provides it, pkexec or polkit), then click
+<span class="ui">Install Now</span> again. Nothing was installed; the update stays downloaded.</td></tr>
+<tr><td>Wazza OS could not ask for your password: no authentication agent is running.</td><td>Your desktop's password
+prompt (its polkit agent) is not running, so no password could be asked. Log out and back in, or start your desktop's
+polkit agent, then click <span class="ui">Install Now</span> again. Nothing was installed; the update stays
+downloaded.</td></tr>
 <tr><td>Installed. Restart Wazza OS to finish.</td><td>Click <span class="ui">Restart Wazza OS</span>.</td></tr>
+<tr><td>Close your private tabs and windows first (Incognito browser tabs, also an Incognito or Guest window opened in a
+browser tab, and Wazza OS's sign-in tab): they keep nothing, so the restart waits for you. Then choose Restart Wazza OS
+again.</td><td>A private tab is open in a Wazza OS window. Nothing was
+restarted or closed, and the update stays installed. Close your private tabs, then click
+<span class="ui">Restart Wazza OS</span> again.</td></tr>
+<tr><td>Wazza OS {version} is ready (no restart): Ready (about 20 MB). No restart: your VMs, apps and Chats keep
+running; the windows refresh once. Private tabs (Incognito browser tabs, Wazza OS's sign-in tab) keep nothing, so the
+update waits until you close them.</td><td>An update of the interface only. Click <span class="ui">Update now</span>, or
+<span class="ui">Later</span> to get it at the next start.</td></tr>
+<tr><td>Waited 30 minutes for ... The update applies at the next start of Wazza OS, or now with Update now.</td>
+<td>What it waited for (a Chat answering, a VM starting, ...) did not end within 30 minutes. Nothing is lost: the update
+stays ready. Click <span class="ui">Update now</span> to apply it now, or it applies when Wazza OS next starts.</td></tr>
+<tr><td>Some app updates in this update could not be read; those apps keep their current version.</td><td>The interface
+was updated; a few apps' new files did not check out, so those apps keep the version they had. Wazza OS fetches their
+files again once by itself. Nothing to do.</td></tr>
+<tr><td>Waiting for ... (a Chat to finish its answer, a VM to start, a sign-in to finish, an app install to finish)</td>
+<td>Wazza OS applies the update as soon as that ends. Nothing to do.</td></tr>
+<tr><td>The update could not be applied; Wazza OS kept the previous interface.</td><td>The new interface did not come up, so
+Wazza OS went back to the previous one by itself. Your VMs, apps and Chats were not touched. The next update fixes
+it.</td></tr>
 <tr><td>Wazza OS could not restart by itself</td><td>Quit Wazza OS and start it again from your app menu.</td></tr>
+<tr><td>Update failed; installation was not proved (every time, on openSUSE Tumbleweed)</td><td>Your installed version
+cannot start its own installer while SELinux is on: install the new version once by hand, as
+<a href="#updating-from-wazza-os-0-2-0">Updating from Wazza OS 0.2.0</a> says.</td></tr>
 <tr><td>The original installation result is unknown. Check status; do not repeat it.</td><td>Click
 <span class="ui">Check Installation Status</span>: Wazza OS reads what your package manager installed. Do not
 install a second time.</td></tr>
@@ -162,9 +281,9 @@ the list of changes is affected; the update itself is fine.</td></tr>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-computer.html" rel="prev"><span class="dir">← Previous</span>This computer</a><a class="next" href="privacy-security.html" rel="next"><span class="dir">Next →</span>Privacy and security</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-the-update-page">Open the Update page</a></li><li class="lvl2"><a href="#install-an-update">Install an update</a></li><li class="lvl2"><a href="#updates-without-a-restart">Updates without a restart</a></li><li class="lvl2"><a href="#updates-that-restart-wazza-os">Updates that restart Wazza OS</a></li><li class="lvl2"><a href="#updating-from-wazza-os-0-2-0">Updating from Wazza OS 0.2.0</a></li><li class="lvl2"><a href="#what-the-messages-mean">What the messages mean</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

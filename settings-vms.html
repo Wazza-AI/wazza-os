@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -105,9 +106,19 @@ and sign-ins by themselves.</p>
 <thead><tr><th>Button</th><th>What it does</th></tr></thead>
 <tbody>
 <tr><td>Start</td><td>Starts the VM shown (when it is stopped). A cold start takes about a minute.</td></tr>
-<tr><td>Stop</td><td>Shuts the VM down: its apps end (unsaved work in them is lost), its disk and files are kept.</td></tr>
+<tr><td>Stop</td><td>Shuts the VM down: its apps are asked to close first, and each one with unsaved work asks you
+(<span class="ui">Close without saving</span>, <span class="ui">Save</span> or <span class="ui">Keep open</span>; Save
+and Keep open cancel the Stop, and once the tab's Chat has saved, you stop again; with Always save or Always close
+without saving chosen in <a href="settings-general.html#unsaved-work">Settings › General › Unsaved work</a>, that
+choice answers and the Stop goes on; with Always save, Wazza OS still asks about an app it could not save or could
+not check); its disk and files are kept. When it starts again, its tabs reopen with their saved projects
+(<a href="window.html#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts again</a>). A note at the bottom
+right says it as it happens: the apps checked (&ldquo;Stopping vm-1: checking 3 apps for unsaved work… (1 of 3)&rdquo;),
+an install it lets finish first (at most 60 s), then &ldquo;vm-1 stopped&rdquo;, or &ldquo;vm-1 was not stopped: its apps
+stay open.&rdquo;</td></tr>
 <tr><td>Restart</td><td>Stops and starts the VM. Use it when the VM's desktop or apps stop answering, or so that a
-setting that "applies at the next start" (disk, graphics, screen size) takes effect now.</td></tr>
+setting that "applies at the next start" (disk, graphics, screen size) takes effect now. Its note says
+&ldquo;Restarting vm-1…&rdquo; and ends &ldquo;vm-1 restarted&rdquo;, or why not.</td></tr>
 </tbody></table></div>
 
 <h3 id="the-vm-list">The VM list<a class="anchor" href="#the-vm-list" aria-label="Link to The VM list">#</a></h3>
@@ -242,7 +253,7 @@ of Wazza OS on this computer (every VM, Chat, sign-in and setting).</p></div>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="settings-general.html" rel="prev"><span class="dir">← Previous</span>General</a><a class="next" href="settings-resources.html" rel="next"><span class="dir">Next →</span>VM resources</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl3"><a href="#this-window-shows">This window shows</a></li><li class="lvl3"><a href="#the-vm-list">The VM list</a></li><li class="lvl3"><a href="#add-a-vm">Add a VM</a></li><li class="lvl2"><a href="#backups">Backups</a></li><li class="lvl3"><a href="#import-a-backup">Import a backup</a></li><li class="lvl3"><a href="#replace-vm-1">Replace vm-1</a></li><li class="lvl3"><a href="#what-a-backup-holds">What a backup holds</a></li><li class="lvl2"><a href="#remove-or-reset-a-vm">Remove or reset a VM</a></li></ul></aside>
 </div>

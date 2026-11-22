@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html" aria-current="page">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,7 +78,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">Getting around</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts again</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Getting around</h1>
@@ -160,7 +161,13 @@ running when you switch away: an app keeps working and its agent keeps going in 
   <li><p>The divider: drag it to give the Chat or the app more room. Which side the Chat is on is a setting
   (<a href="settings-general.html#tabs-and-layout">General › Chat side</a>).</p></li>
   <li><p>The <strong>app</strong>, live from the VM. Click into it and use it as on your own computer: your mouse and
-  keyboard go to the app while the pointer is over it.</p></li>
+  keyboard go to the app while the pointer is over it. Your computer keeps its own <kbd>Super</kbd> key: for the VM's,
+  which opens Wazza OS's app launcher for that VM (the page a new tab shows; until this update it typed
+  <kbd>Super</kbd> into the VM, where nothing answered it), press
+  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd>, then let go; to send
+  <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> itself to the app (Blender's fullscreen area, for one), press
+  <kbd>Space</kbd> twice while holding <kbd>Ctrl</kbd> and <kbd>Alt</kbd>. You can turn this off
+  (<a href="settings-general.html#keyboard">General › Keyboard</a>).</p></li>
   <li><p>The composer, where you write to the agent.</p></li>
   <li><p>The agent and model this Chat uses (a click opens the model window).</p></li>
 </ol>
@@ -170,7 +177,22 @@ running when you switch away: an app keeps working and its agent keeps going in 
   <li><strong>Open</strong>: click <span class="ui">+</span>, then an app on the Apps page (or ask a Chat to open
   one). An app that is not installed yet installs first, then opens (<a href="apps.html#install-an-app">Install an app</a>).</li>
   <li><strong>Switch</strong>: click a tab. A tab an agent opened in the background carries a badge until you look at it.</li>
-  <li><strong>Close</strong>: the <span class="ui">×</span> on the tab. Its app is asked to close (it may ask you to save).</li>
+  <li><strong>Close</strong>: the <span class="ui">×</span> on the tab. Its app is asked to close. When it has unsaved
+  work, Wazza OS asks you what to do: <span class="ui">Close without saving</span>, <span class="ui">Save</span> (the
+  tab's Chat is asked to save it; in a tab without a Chat, <span class="ui">Save in</span> the app focuses the app for
+  you to save) or <span class="ui">Keep open</span>. Tick <span class="ui">Remember my choice</span> in that
+  question to answer every later close the same way, with no question: <span class="ui">Save</span> then always has
+  the tab's Chat save first, <span class="ui">Close without saving</span> always closes without saving.
+  <span class="ui">Keep open</span> is never remembered. Change it in
+  <a href="settings-general.html#unsaved-work">Settings › General › Unsaved work</a>.
+  On a Desktop tab, <span class="ui">Close without saving</span> ends every app started from that tab's dock (even
+  one whose window you moved elsewhere) and every other app whose windows are all in that tab. An app started
+  elsewhere that also has a window outside the tab (in another tab, on every desktop, or in a window no tab shows)
+  keeps running with its work, and Wazza OS names it once the tab is closed. An app Wazza OS could not end keeps the
+  tab open, and Wazza OS says which one and why: save or close it there, then close the tab again.
+  After <span class="ui">Close without saving</span> (chosen in the question or remembered), the tab stays where it is
+  and shows <span class="ui">Closing…</span> until its app has really ended; then it goes. An app that has not ended
+  about 30 seconds later is ended the ordinary way. If it cannot be ended, the tab says why: close it again.</li>
   <li><strong>Reopen</strong>: a closed tab is in <a href="#history">History</a>.</li>
 </ul>
 <h3 id="the-tab-card">The tab card<a class="anchor" href="#the-tab-card" aria-label="Link to The tab card">#</a></h3>
@@ -197,6 +219,51 @@ the group's own menu adds tabs or <span class="ui">Ungroup</span>s them (they st
 Only the tab you are on is heard.</td></tr>
 <tr><td>Close tab</td><td>(on tabs that can be closed) Closes it; its app is asked to close.</td></tr>
 </tbody></table></div>
+
+<h3 id="when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts again<a class="anchor" href="#when-a-vm-or-wazza-os-starts-again" aria-label="Link to When a VM or Wazza OS starts again">#</a></h3>
+<p>Your tabs come back, like your apps after a restart of your computer (unless you turned <span class="ui">Restore tabs
+after a restart</span> off in <a href="settings-general.html#tabs-and-layout">Settings › General › Tabs &amp; layout</a>:
+then after a restart your apps don't come back and open fresh when you open them; your Chats stay). When a VM starts again (after
+<span class="ui">Stop</span>, after you quit and start Wazza OS, after a crash or a restart of your computer), every
+tab of it reopens and its app starts again with its project, if the project was saved: in your home folder, or on a
+shared folder of your computer, a second disk or a removable drive (<code>/mnt</code>, <code>/media</code>). Apps that restore themselves
+do so: Chromium reopens its pages, VSCodium and Zed their windows. An app you or a Chat added (<a
+href="custom-apps.html">Add your own apps</a>) reopens its file when it opens files (<span class="ui">Opens a
+file</span> ticked, or, with it off, when its launch script is one plain <code>exec</code> line of a program whose own
+desktop entry opens files, as a start from the dock does); otherwise it starts without the file, and its tab says so. Apps you started yourself inside a tab (from the dock of a Desktop tab,
+for example) start again in it, with their saved project, when that tab starts again; an app running on no tab (its tab
+was closed, or it shows on every desktop) starts again with the VM's first Desktop tab (else its first app tab other than
+Chromium); on a VM with no tab at all it is not started again. After a crash,
+each tab reopens with the project Wazza OS last noted for it: it notes it when you leave the tab, when the window loses
+focus, and every 5 minutes while you work in it or a Chat answers. The tabs of a VM you do not look at reopen too, in
+the background, one app after another while that VM has the memory for them; an app that cannot start yet waits, and
+starts when you show that VM.</p>
+<p><span class="ui">Stop</span> and quitting Wazza OS close the apps first, the same way as closing a tab: each tab whose
+app has unsaved work asks you, one at a time. On a <span class="ui">Stop</span>, a note at the bottom right names
+the VMs it stops and counts the apps while they are checked (&ldquo;Stopping vm-1: checking 3 apps for unsaved work…
+(1 of 3)&rdquo;), then says when they are stopped (&ldquo;vm-1 stopped&rdquo;), or why not (&ldquo;vm-1 was not
+stopped: its apps stay open.&rdquo;). A VM that is installing an app says it finishes that install first (at most 60
+seconds). A <span class="ui">Restart</span> says the same in its own words (&ldquo;Restarting vm-1…&rdquo;, then
+&ldquo;vm-1 restarted&rdquo;). Quitting shows the count alone (&ldquo;Checking 3 apps for unsaved work… (1 of
+3)&rdquo;). An app that marks unsaved work in its window title (a <code>*</code> before its name, as GIMP and Inkscape do)
+asks at once. An app whose window stays open without asking anything is asked about after up to 15 seconds: it did not close
+when Wazza OS asked it to. An app whose window has gone but which is still quitting gets up to 30 seconds to finish, and
+nothing is asked when it does; if it is still running then, Wazza OS says it is still closing: <span class="ui">Stop
+now</span> (or <span class="ui">Quit now</span>) ends it, <span class="ui">Keep open</span> cancels and it goes on
+closing by itself. While another app is asking, Wazza OS does not wait for those: it asks about them after that
+question, and only about the ones still running. <span class="ui">Save</span> or <span class="ui">Keep open</span> on any of
+them cancels the Stop or the quit (after Save, the tab's Chat saves the work and you stop or quit again), and the apps
+that had already closed open again at once. With <span class="ui">Always save</span> or <span class="ui">Always close
+without saving</span> chosen (<a href="settings-general.html#unsaved-work">Settings › General › Unsaved work</a>), no
+question comes where that choice can answer: each tab's Chat saves first, or the apps close without saving, and the
+Stop or the quit goes on. With Always save, Wazza OS still asks about an app it could not save or could not check
+(and Keep open there cancels); with Always close without saving, nothing is asked. The same happens before an update that restarts
+Wazza OS (<a href="update.html">Update</a>). If the window cannot answer when you quit (it is busy or reloading), a
+small Wazza OS dialog asks instead, "Some apps may have unsaved work. Quit anyway?": <span class="ui">Quit</span> quits,
+<span class="ui">Cancel</span> keeps everything open. Wazza OS never quits by itself while it cannot ask you.</p>
+<p>When you log out or shut down the computer, Wazza OS cannot ask you: within a few seconds it notes each tab's
+project and asks every app to close, as your desktop does, then stops its VMs. The tabs stay and reopen at the next start.
+An app with unsaved work shows its own question, which the computer may not wait for: save before you log out.</p>
 
 <h3 id="many-tabs">Many tabs<a class="anchor" href="#many-tabs" aria-label="Link to Many tabs">#</a></h3>
 <p>When the strip is full, tabs shrink to their icons, then fold into one square that shows how many there are:
@@ -241,6 +308,11 @@ open it in its app, in a new tab. More in <a href="files.html#the-explorer">File
 <span class="ui">Search tabs and chats</span> (it searches names, VMs, apps and the lines of Chats). On each entry:
 its star (favourite), <span class="ui">Open</span> (reopens the tab, with its Chat), and <span class="ui">×</span>
 (deletes the entry).</p>
+<p>A tab you reopen from History comes back on the project it had when you closed it: its app opens the file its
+last save wrote (a photo GIMP saved over, or the new <code>.xcf</code> it saved beside it), and its Chat is there
+with the whole conversation. A favourite made from a tab reopens it the same way, on that tab's last project; any
+other favourite opens as it was made. When that file is no longer there, the tab says so and its app opens without
+it.</p>
 <p>A <a href="computer-control.html">Computer Control</a> session is there too, named Computer Control and without a
 star (it cannot be a favourite). Its <span class="ui">Open</span> shows its tab if it is open; a closed one comes back
 with its conversation in the VM shown, but it cannot take new messages yet: to go on, start a new Computer Control
@@ -266,10 +338,10 @@ WebP, at most 5 MB): drop it on the box, paste it, or <span class="ui">Attach im
 <span class="ui">Send feedback</span>. It is sent without your account; Wazza OS adds only its version.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
-<nav class="pager" aria-label="Previous and next page"><a class="prev" href="first-start.html" rel="prev"><span class="dir">← Previous</span>The first start</a><a class="next" href="chats.html" rel="next"><span class="dir">Next →</span>Chats, agents and models</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<nav class="pager" aria-label="Previous and next page"><a class="prev" href="first-start.html" rel="prev"><span class="dir">← Previous</span>The first start</a><a class="next" href="whats-new.html" rel="next"><span class="dir">Next →</span>What&#x27;s new in 0.3</a></nav>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window">The window</a></li><li class="lvl2"><a href="#home">Home</a></li><li class="lvl3"><a href="#the-vm-card">The VM card</a></li><li class="lvl2"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#open-switch-and-close-tabs">Open, switch and close tabs</a></li><li class="lvl3"><a href="#the-tab-card">The tab card</a></li><li class="lvl3"><a href="#the-tab-menu">The tab menu</a></li><li class="lvl3"><a href="#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts again</a></li><li class="lvl3"><a href="#many-tabs">Many tabs</a></li><li class="lvl2"><a href="#the-desktop-menu">The Desktop menu</a></li><li class="lvl2"><a href="#the-explorer">The Explorer</a></li><li class="lvl2"><a href="#history">History</a></li><li class="lvl2"><a href="#notifications">Notifications</a></li><li class="lvl2"><a href="#feedback">Feedback</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

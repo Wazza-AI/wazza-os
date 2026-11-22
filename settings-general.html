@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,7 +78,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Settings</li><li aria-current="page">General</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#unsaved-work">Unsaved work</a></li><li class="lvl2"><a href="#keyboard">Keyboard</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Settings › General</h1>
@@ -91,7 +92,7 @@ fold, the frame rate of app tabs, and which version runs.</p>
   <li><p>Pick a page in the list on the left: General, Virtual machines, VM resources, Chats &amp; agents, Skills
   &amp; learning, Files &amp; sharing, Sync &amp; team, This computer. In a narrow window the list becomes a drop-down
   next to the title.</p></li>
-  <li><p>Each page has tabs (here Appearance, Tabs &amp; layout, Display, About); one tab shows at a time.</p></li>
+  <li><p>Each page has tabs (here Appearance, Unsaved work, Tabs &amp; layout, Display, About); one tab shows at a time.</p></li>
   <li><p>Or type in <span class="ui">Search settings</span> (top right): every row of every page that matches your
   words shows, whatever its page and tab.</p></li>
 </ol>
@@ -126,6 +127,36 @@ Wazza OS. Use it if motion bothers you or on a slow computer. When your desktop 
 Wazza OS follows it too.</td></tr>
 </tbody></table></div>
 
+<h2 id="unsaved-work">Unsaved work<a class="anchor" href="#unsaved-work" aria-label="Link to Unsaved work">#</a></h2>
+<p>What Wazza OS does when an app with unsaved work is about to close: when you close its tab, stop its VM, quit
+Wazza OS, or restart Wazza OS to finish an update (<a href="window.html#when-a-vm-or-wazza-os-starts-again">When a VM
+or Wazza OS starts again</a>). The close question's <span class="ui">Remember my choice</span> box sets the same
+option.</p>
+<div class="table-wrap"><table class="stack">
+<thead><tr><th>Option</th><th>Values</th><th>What it does</th></tr></thead>
+<tbody>
+<tr><td data-label="Option">When an app with unsaved work closes</td><td data-label="Values"><strong>Ask every time</strong>
+(default), Always save, Always close without saving</td><td data-label="What it does">Ask every time shows the
+question: Close without saving, Save, Keep open. Always save has the tab's Chat save the app's work first, then the
+close, the stop or the quit goes on; where no Chat can save it (a tab without a Chat, a Desktop tab, another app
+asking, a window Wazza OS could not check) or the save is not done in time (3 minutes on a Stop or a quit), Wazza OS
+asks you as usual. Always close without saving closes the apps without saving and without asking, including windows
+Wazza OS could not check: what they had not saved is lost. It also answers the question Quit and Stop ask when a
+private tab is open (an Incognito browser tab, Wazza OS's sign-in tab), so those close with no question too.</td></tr>
+</tbody></table></div>
+<p>Keep open (and Escape) is never remembered. Your choice here is never used for an agent's close.</p>
+
+<h2 id="keyboard">Keyboard<a class="anchor" href="#keyboard" aria-label="Link to Keyboard">#</a></h2>
+<p><span class="ui">VM's Super key</span>: your computer keeps its own <kbd>Super</kbd> key, also while a tab of the VM has your
+keyboard. With <span class="ui">Ctrl+Alt+Space</span> (the default), pressing <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> and
+then letting go is the VM's <kbd>Super</kbd>: it opens Wazza OS's app launcher for that VM (the page a new tab shows),
+and the app you pick opens in its own tab. Until this update it typed <kbd>Super</kbd> into the VM, where nothing
+answered it: the VM's desktop has no overview and no dock. Pressing <kbd>Space</kbd> twice while holding
+<kbd>Ctrl</kbd> and <kbd>Alt</kbd> sends <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> itself to the app, and any other key
+after it goes to the app as usual. With <span class="ui">Off</span>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> always goes to
+the app, as before; open the VM's apps with <span class="ui">+</span> instead. The first time the VM has your keys, a
+hint says this once.</p>
+
 <h2 id="tabs-and-layout">Tabs &amp; layout<a class="anchor" href="#tabs-and-layout" aria-label="Link to Tabs &amp; layout">#</a></h2>
 <figure class="shot">
   <div class="shot-frame"><img src="img/settings-general-2.webp" width="1215" height="395" alt="Tabs and layout tab: Chat side Left of the app or Right of the app; Tabs shown before they fold, Auto with minus and plus buttons"></div>
@@ -141,6 +172,13 @@ tabs shrink to their icons when the strip is full, then group once even the icon
 the count square's menu. A number (for example 6): when you open one tab more, all tabs fold into one square that
 shows how many there are; click it to see and pick any tab. Use <span class="ui">−</span> and <span class="ui">+</span>
 or type the number.</td></tr>
+<tr><td data-label="Option">Restore tabs after a restart</td><td data-label="Values"><strong>On</strong> (default), Off</td><td data-label="What it does">On:
+after a VM restarts (<span class="ui">Stop</span> and <span class="ui">Start</span>, <span class="ui">Restart</span>,
+quitting and starting Wazza OS, or an update), each tab comes back with its app and its file (<a
+href="window.html#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts again</a>). Off: after a restart your
+apps don't come back and open fresh when you open them, each in a new tab, as before this option
+existed; your Chats stay. A change applies
+at the VM's next start: it never closes or opens an app that is running now.</td></tr>
 </tbody></table></div>
 
 <h2 id="display">Display<a class="anchor" href="#display" aria-label="Link to Display">#</a></h2>
@@ -179,9 +217,9 @@ To look for a newer version, use <a href="update.html">the Update page</a>.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="cli-server.html" rel="prev"><span class="dir">← Previous</span>On a server (virtual screen)</a><a class="next" href="settings-vms.html" rel="next"><span class="dir">Next →</span>Virtual machines</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#open-settings">Open Settings and find an option</a></li><li class="lvl3"><a href="#apply-and-discard">Apply and Discard</a></li><li class="lvl2"><a href="#appearance">Appearance</a></li><li class="lvl2"><a href="#unsaved-work">Unsaved work</a></li><li class="lvl2"><a href="#keyboard">Keyboard</a></li><li class="lvl2"><a href="#tabs-and-layout">Tabs &amp; layout</a></li><li class="lvl2"><a href="#display">Display</a></li><li class="lvl2"><a href="#about">About</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

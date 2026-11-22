@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -98,6 +99,9 @@ screen, and for agents outside Wazza OS.</p>
   <code>wazza</code>.</li>
   <li>Wazza OS must be running for the same user: <code>wazza --gui status</code> says so. The commands never open a
   second window, and only change what you see when you ask (the <code>--focus</code> options).</li>
+  <li><code>wazza --gui help</code> lists every command, one line each; <code>wazza --gui help COMMAND</code> (or
+  <code>wazza --gui COMMAND --help</code>) shows that command's forms, an example and its part of this page. A
+  command that does not exist names the closest ones.</li>
   <li>Answers are JSON on standard output. Exit codes: <strong>0</strong> done; <strong>1</strong> refused, failed, or
   Wazza OS not reachable; <strong>2</strong> the command was wrong and nothing was sent (the usage is printed).</li>
   <li>Passwords, keys and tokens are read only from standard input (<code>--stdin</code>,
@@ -148,7 +152,7 @@ Write it once and run it on every computer:</p>
 <tr><td><code>whenOneRunsOut</code></td><td>Per provider: <code>in order</code>, <code>take turns</code>, <code>least used</code>, <code>random</code></td></tr>
 <tr><td><code>apps</code></td><td>App ids to install (<code>wazza --gui app list</code> shows them)</td></tr>
 <tr><td><code>vm</code></td><td>Only <code>"auto"</code> (numbers are set in Settings or with the commands below)</td></tr>
-<tr><td><code>appearance</code></td><td><code>theme</code> dark, light or system; <code>glass</code> on, reduced or off; <code>reduceMotion</code></td></tr>
+<tr><td><code>appearance</code></td><td><code>theme</code> dark, deep, light, system or custom; <code>glass</code> on, reduced or off (or true/false); <code>reduceMotion</code>; for custom, <code>customBase</code> (dark, deep or light) and <code>custom</code> (any of background, panels, text, accent, borders, bubbles as <code>#rrggbb</code>)</td></tr>
 <tr><td><code>tabs.limit</code></td><td>Tabs before they fold: 0 = Auto, up to 99</td></tr>
 </tbody></table></div>
 <p>It runs only the steps not done yet, so running it twice changes nothing. Each step prints one line as it ends:
@@ -172,7 +176,11 @@ ran). <code>--file -</code> reads the file from standard input; <code>--json</co
 <tr><td><code>vm list</code></td><td>Every VM by number, running or stopped, with its disk</td></tr>
 <tr><td><code>vm create</code></td><td>A new stopped VM with the lowest free number</td></tr>
 <tr><td><code>vm start VM</code>, <code>vm stop VM</code></td><td>Start or stop one, vm-2 to vm-8 (vm-1 starts and stops with
-Wazza OS itself); a stop keeps its disk. A VM still starting is stopped at once: <em>vm-2 was starting: its start is
+Wazza OS itself); a stop keeps its disk. A stop asks first in the Wazza OS window, as its own Stop does: an app with
+unsaved work is asked about there, and Keep open or Save stops nothing (the command then says the VM was not stopped,
+and why); while you are still answering it says so and the stop waits for your answer. <code>vm stop VM --force</code>
+stops it without asking: its apps end at once, and what they have not saved is lost (for a window that does not answer;
+a stop the window did not take names it). A VM still starting is stopped at once: <em>vm-2 was starting: its start is
 ended now (it never runs); its QEMU closes within seconds</em>, and its row then says <em>vm-2 was stopped while it
 started (its boot); it never ran</em>. A stop that cannot happen says so, and that the VM still runs: <em>vm-2 did not
 stop; it still runs, nothing was stopped</em></td></tr>
@@ -340,7 +348,7 @@ commands as you, in its shell or through <code>wazza-os mcp</code>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="mcp-tools.html" rel="prev"><span class="dir">← Previous</span>Every MCP tool</a><a class="next" href="cli-server.html" rel="next"><span class="dir">Next →</span>On a server (virtual screen)</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#before-you-start">Before you start</a></li><li class="lvl2"><a href="#check">Check this computer</a></li><li class="lvl2"><a href="#set-up-without-clicks">Set up without clicks</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#start-from-a-backup">Start from a backup</a></li><li class="lvl2"><a href="#vm-resources">Memory, disk and graphics</a></li><li class="lvl2"><a href="#keys-and-sign-ins">Keys and sign-ins</a></li><li class="lvl2"><a href="#chats">Chats</a></li><li class="lvl2"><a href="#apps">Apps</a></li><li class="lvl2"><a href="#files">Files</a></li><li class="lvl2"><a href="#the-window-and-everything-else">The window, and everything else</a></li><li class="lvl2"><a href="#when-an-agent-runs-these-commands">When an agent runs these commands</a></li></ul></aside>
 </div>

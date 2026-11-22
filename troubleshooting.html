@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,7 +78,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Help</li><li aria-current="page">Troubleshooting</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#behind-a-proxy">Behind a proxy</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Troubleshooting</h1>
@@ -93,8 +94,10 @@ the commands that fix what is missing (<a href="first-start.html#what-is-checked
   <li><strong>No X11 display</strong>: Wazza OS's window needs X11, which Wayland desktops give through XWayland.
   <code>wazza --check</code> names the package to install for your distribution (for example
   <code>sudo apt install xwayland</code>).</li>
-  <li><strong>Already running</strong>: a second start only brings the running window to the front. Look for it on
-  another workspace or screen.</li>
+  <li><strong>Already running</strong>: a second start brings the running window to the front. Look for it on
+  another workspace or screen. If it runs where you cannot see it (it started before your desktop was ready),
+  opening Wazza OS from your app menu replaces it: the hidden one closes as a Quit does, its questions about
+  unsaved work are asked on your desktop, and your tabs come back.</li>
   <li><strong>On a server</strong>, start it with its own screen: <a href="cli-server.html">Wazza OS on a server</a>.</li>
 </ul>
 
@@ -218,15 +221,29 @@ window shows</a>)</td></tr>
   (<a href="signin.html#several-keys-or-accounts">Several keys or accounts</a>).</li>
 </ul>
 
+<h2 id="behind-a-proxy">Behind a proxy<a class="anchor" href="#behind-a-proxy" aria-label="Link to Behind a proxy">#</a></h2>
+<ul>
+  <li>Wazza OS's own connections (its updates, your account, sign-ins) go through the proxy your computer's environment
+  names: <code>HTTPS_PROXY</code>, else <code>ALL_PROXY</code>. The sites listed in <code>NO_PROXY</code> are reached
+  directly.</li>
+  <li>It speaks <code>http</code>, <code>https</code>, <code>socks5</code>, <code>socks5h</code>, <code>socks4</code>
+  and <code>socks4a</code> proxies, with the user and password the proxy's address carries.</li>
+  <li>With <code>socks5</code> as with <code>socks5h</code>, Wazza OS sends the site's name to the proxy, which looks it
+  up: no lookup of the site leaves your computer. A proxy that only takes addresses refuses that, and the error says
+  it "does not take that kind of address".</li>
+  <li>An <code>https</code> proxy's certificate is checked against your system's authorities (or those of
+  <code>SSL_CERT_FILE</code>). A proxy whose certificate is not trusted is refused before anything is sent through
+  it.</li>
+</ul>
+
 <h2 id="updates">Updates<a class="anchor" href="#updates" aria-label="Link to Updates">#</a></h2>
 <ul>
   <li>Each message of the Update page, with what to do: <a href="update.html#what-the-messages-mean">What the messages
   mean</a>.</li>
   <li>The update downloads but does not install: <span class="ui">Install Now</span> needs your confirmation, then your
   administrator password. Keep Wazza OS's window in front while you confirm.</li>
-  <li>The page cannot reach the update server: check your connection. You can always update with the install command,
-  or download the package from <code>https://os-downloads.wazza.ai</code> and install it over your version
-  (<a href="install.html#update-wazza-os">Install › Update</a>).</li>
+  <li>The page cannot reach the update server: check your connection. You can always update with the install command: it installs the newest version over
+  yours (<a href="install.html#update-wazza-os">Install › Update</a>).</li>
   <li>After an update, restart Wazza OS: until then the old version keeps running.</li>
 </ul>
 <div class="danger"><p>Never remove the Wazza OS package to reinstall it: removing it deletes your Wazza OS data (VMs,
@@ -248,9 +265,9 @@ model, and what you asked.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="memory-cpu.html" rel="prev"><span class="dir">← Previous</span>Memory, CPU and disk</a><a class="next" href="glossary.html" rel="next"><span class="dir">Next →</span>Glossary</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-window-does-not-open">The window does not open</a></li><li class="lvl2"><a href="#the-vm-does-not-start">The VM does not start</a></li><li class="lvl2"><a href="#a-chat-does-not-answer">A Chat does not answer</a></li><li class="lvl2"><a href="#an-app-tab-stays-black-or-frozen">An app tab stays black or frozen</a></li><li class="lvl2"><a href="#an-app-does-not-install">An app does not install</a></li><li class="lvl2"><a href="#files-do-not-copy">Files do not copy</a></li><li class="lvl2"><a href="#no-sound">No sound</a></li><li class="lvl2"><a href="#computer-control-does-not-open">Computer Control does not open</a></li><li class="lvl2"><a href="#everything-is-slow">Everything is slow</a></li><li class="lvl2"><a href="#sign-in-problems">Sign-in problems</a></li><li class="lvl2"><a href="#behind-a-proxy">Behind a proxy</a></li><li class="lvl2"><a href="#updates">Updates</a></li><li class="lvl2"><a href="#start-fresh">Start fresh</a></li><li class="lvl2"><a href="#send-feedback">Send feedback</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

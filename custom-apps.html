@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,7 +78,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Apps and files</li><li aria-current="page">Add your own apps</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#apps-you-install-with-apt-yourself">Apps you install with apt yourself</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#apps-that-keep-one-copy">Apps that keep one copy of themselves</a></li><li class="lvl3"><a href="#a-second-copy-on-a-bus-of-its-own">A second copy on a bus of its own</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Add your own apps</h1>
@@ -104,6 +105,24 @@ own tools for agents and its own skill.</p>
 writes and checks the recipe, and installs it.</td></tr>
 <tr><td><span class="ui">Your own app…</span></td><td>When you know the commands: a form with every field of the recipe.</td></tr>
 </tbody></table></div>
+
+<h2 id="apps-you-install-with-apt-yourself">Apps you install with apt yourself<a class="anchor" href="#apps-you-install-with-apt-yourself" aria-label="Link to Apps you install with apt yourself">#</a></h2>
+<p>An app you install yourself in a VM, with <code>apt</code> or <code>dpkg</code> in its Terminal (or that an agent
+installs there the same way), gets a card in Apps too: Wazza OS <em>adopts</em> it. An app you install with apt
+appears in Apps the next time you open Apps (filter <span class="ui">Your apps</span>), with the name its own menu
+entry gives it, and Wazza OS finishes its setup in the background; nothing is downloaded. Nothing looks for such apps
+while Apps is closed. From then on it is an app like one you added:</p>
+<ul>
+  <li>When apt has a newer version of its package, its next open says <span class="ui">Updating…</span> and installs
+  it. A tab of it that is already open keeps the version it runs until you close that tab.</li>
+  <li>Its tabs come back after a restart, and closing or quitting asks first when it has unsaved work, as for every
+  app.</li>
+</ul>
+<p>Wazza OS adopts only the apps you installed: never the VM's own programs (its terminal, its file manager and the
+rest of the system), never a package that came in only because another one needed it, and never an app Wazza OS
+installed itself. Uninstalling an adopted app in Wazza OS never removes the package you installed: remove that with
+<code>sudo apt remove</code>. <span class="ui">Remove from catalog…</span> takes its card away for good: it is not
+adopted again, even if you install the package again (add it with <span class="ui">Add app</span> then).</p>
 
 <h2 id="ask-a-chat-to-add-an-app">Ask a Chat to add an app<a class="anchor" href="#ask-a-chat-to-add-an-app" aria-label="Link to Ask a Chat to add an app">#</a></h2>
 <ol class="steps">
@@ -150,7 +169,15 @@ as the administrator (root) inside the VM, never on your computer, and only afte
 in the foreground: start it with <code>exec</code>, do not send it to the background. It gets the variables
 <code>WAZZA_APP_OWNER</code> and <code>WAZZA_APP_ID</code>.</td></tr>
 <tr><td data-label="Field">Opens a file</td><td data-label="Rules">Off by default</td><td data-label="What it is">On: the app can open files (double-click in the Explorer, "open
-this in Krita"); the launch script gets the file as <code>$1</code>.</td></tr>
+this in Krita"); the launch script gets the file as <code>$1</code>. Opened without a file, a launch script of one line
+<code>PROGRAM ARGS "$1"</code> of plain words (no quotes, variables or other shell signs before <code>"$1"</code>; with or
+without <code>exec</code>) starts the app with no argument. In any other script <code>$1</code> is not set when the app is opened without a file, and the script then stops
+(it runs with <code>sh -eu</code>): write <code>${1+"$1"}</code> there, which gives the app the file when there is one and
+nothing otherwise. When its VM starts again, its tab reopens the app
+with the file it had open, if that file was saved. Off: the app opens a file only when its launch script is one plain <code>exec PROGRAM ARGS</code> line (no quotes,
+variables or other shell signs) and that program's own desktop entry opens files (as a start from the dock does);
+otherwise it starts without the file, and its tab says so. To open files with such an app, tick <span class="ui">Opens a file</span> in its
+<span class="ui">Edit app…</span> (right-click its card in Apps) and <span class="ui">Apply</span>.</td></tr>
 <tr><td data-label="Field">Uninstall script</td><td data-label="Rules">Optional; up to 8192 characters</td><td data-label="What it is">Runs as root before the app's files are
 removed, when you uninstall it.</td></tr>
 <tr><td data-label="Field">Skill for the app's Chat</td><td data-label="Rules">Optional; no length limit</td><td data-label="What it is">Becomes the app's <code>SKILL.md</code>: what
@@ -177,12 +204,46 @@ installation, which runs in a new tab like any app's (<a href="apps.html#install
 <tr><td>Description</td><td>A guest X11 terminal</td></tr>
 <tr><td>Executable name</td><td><code>xterm</code></td></tr>
 <tr><td>Launch script</td><td><code>exec /usr/bin/xterm</code></td></tr>
+<tr><td>Update check</td><td><code>apt-cache policy xterm | sed -n 's/^ *Candidate: //p'</code></td></tr>
 </tbody></table></div>
 <p>Install script:</p>
 <pre><code>set -eu
 apt-get -o Acquire::ForceIPv4=true update
 DEBIAN_FRONTEND=noninteractive apt-get install -y xterm</code></pre>
+<p>Uninstall script:</p>
+<pre><code>set -eu
+DEBIAN_FRONTEND=noninteractive apt-get remove -y xterm</code></pre>
+<p>It also fills the skill for the app's Chat: a few lines on how to work in the terminal. XTerm has no MCP server and
+opens no file, so those boxes stay off (the form says so), and <span class="ui">Updates from its source</span> stays on.</p>
 <p>The same pattern works for any app of Ubuntu's packages: change the name, the program and the package.</p>
+
+<h2 id="apps-that-keep-one-copy">Apps that keep one copy of themselves<a class="anchor" href="#apps-that-keep-one-copy" aria-label="Link to Apps that keep one copy of themselves">#</a></h2>
+<p>Some apps run only one copy for each person, held by a lock file instead of the desktop: VSCodium and other Electron
+apps, and some Qt apps such as KeePassXC. When you add such an app, Wazza OS gives each of its tabs a copy of its own,
+and the app's card says so.</p>
+<ul>
+<li><strong>Electron apps</strong>, such as VSCodium: each tab has its own settings. The first time a tab opens,
+VSCodium and other VS Code apps get a copy of your settings, keybindings, tasks and snippets, never your sign-ins, your
+open files or your extensions' data. Other Electron apps start with fresh settings in each tab.</li>
+<li><strong>Qt apps</strong>, such as KeePassXC: each tab runs its own copy, and all of them share your settings.</li>
+</ul>
+<p>This works when the app's launch script is one line that starts the program, with its file (if any) as its last
+word, as the form's hint shows, for example <code>exec /opt/vscodium/codium</code>. A longer script runs as before, and a
+second tab then hands its window to the first copy.</p>
+<p>Other apps keep one copy through a lock of their own that no tab can give a copy of its own: LibreOffice, Firefox,
+or a browser built on Chromium, for example. A new tab of such an app opens what you asked for in the app's window in
+the tab where it already runs. The new tab says which tab that is, and that tab comes to the front.</p>
+
+<h3 id="a-second-copy-on-a-bus-of-its-own">A second copy on a bus of its own<a class="anchor" href="#a-second-copy-on-a-bus-of-its-own" aria-label="Link to A second copy on a bus of its own">#</a></h3>
+<p>Apps such as gedit or Text Editor keep one copy through the desktop's message bus. A second tab of one of them runs
+its copy on a private bus of its own, so that it opens in its own tab. A screen reader sees that copy, but some desktop
+services are not shared with it:</p>
+<ul>
+<li><strong>Saved passwords (the keyring):</strong> that copy may not read or keep them. Sign in in the app's first tab
+instead.</li>
+<li><strong>Notifications:</strong> they show in a plain style, outside the desktop's list of notifications.</li>
+<li><strong>Network folders</strong> mounted in the desktop's Files: that copy does not see them.</li>
+</ul>
 
 <h2 id="give-your-app-tools">Give your app tools<a class="anchor" href="#give-your-app-tools" aria-label="Link to Give your app tools">#</a></h2>
 <p>An app's tools let its agent do exact operations (GIMP's agent has 40, from "new image" to "export"). They come
@@ -204,6 +265,12 @@ opens; it works for the apps of the catalog too.</p>
   script, 4 MCP execution command, 5 MCP execution arguments, 6 App skill. For an app that comes with Wazza OS, a note
   at the top says which parts you can change: for GIMP, its installation script (as your own version), while how it
   starts stays read-only.</li>
+  <li><strong>Opens a file</strong>, for an app you added: the same box as in the form. Tick it, and
+  <span class="ui">Apply</span>: the app then opens the file it is given (its launch script gets it as <code>$1</code>.
+  Opened without a file, a one-line <code>PROGRAM ARGS "$1"</code> of plain words (no quotes, variables or other shell
+  signs before <code>"$1"</code>; with or without <code>exec</code>) starts the app with no argument; in any other script <code>$1</code> is not set when the app is opened
+  without a file, so write it <code>${1+"$1"}</code> there);
+  untick it to stop. An app that comes with Wazza OS has no such box: its definition decides.</li>
   <li><span class="ui">Apply</span> saves your changes as a new version of the recipe. It does not install, open or
   restart the app: a changed installation script takes effect when you install the app again.</li>
   <li><span class="ui">Discard unsaved edits</span> forgets your changes; <span class="ui">Close editor tab</span> closes it.</li>
@@ -263,9 +330,9 @@ changes</a> lists every change with its Undo.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="gpu-apps.html" rel="prev"><span class="dir">← Previous</span>Desktop apps and the GPU</a><a class="next" href="files.html" rel="next"><span class="dir">Next →</span>Files and sharing</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#two-ways-to-add-an-app">Two ways to add an app</a></li><li class="lvl2"><a href="#apps-you-install-with-apt-yourself">Apps you install with apt yourself</a></li><li class="lvl2"><a href="#ask-a-chat-to-add-an-app">Ask a Chat to add an app</a></li><li class="lvl2"><a href="#fill-the-form">Fill the form</a></li><li class="lvl3"><a href="#example-xterm">Example: XTerm</a></li><li class="lvl2"><a href="#apps-that-keep-one-copy">Apps that keep one copy of themselves</a></li><li class="lvl3"><a href="#a-second-copy-on-a-bus-of-its-own">A second copy on a bus of its own</a></li><li class="lvl2"><a href="#give-your-app-tools">Give your app tools</a></li><li class="lvl2"><a href="#edit-an-app">Edit an app</a></li><li class="lvl2"><a href="#edit-an-apps-skill">Edit an app&#x27;s skill</a></li><li class="lvl2"><a href="#remove-an-app-you-added">Remove an app you added</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

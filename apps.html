@@ -33,6 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,7 +78,7 @@
 </nav>
 <main id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Apps and files</li><li aria-current="page">Apps and tabs</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#when-an-app-updates">When an app updates</a></li><li class="lvl3"><a href="#open-tabs-keep-their-version">Open tabs keep their version</a></li><li class="lvl3"><a href="#apps-that-have-only-one-version">Apps that have only one version</a></li><li class="lvl3"><a href="#if-an-update-fails">If an update fails</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>Apps and tabs</h1>
@@ -149,7 +150,7 @@ and OSM places and routes are installed on the first start.</p>
 <ol class="steps" start="3">
   <li value="3"><p>The tab says <em>Installing …</em> with the time elapsed. You can use other tabs meanwhile;
   <span class="ui">Cancel installation</span> stops it. Stopping vm-1 or quitting Wazza OS meanwhile first lets the
-  install's package step finish: the Stop says <em>finishing an install first (at most 60 s)</em>. Another VM is stopped only between installs: its <span class="ui">Stop</span> says so and stops nothing; stop
+  install's package step finish: the Stop's words and the install's line both say <em>finishing an install first (at most 60 s)</em>. Another VM is stopped only between installs: its <span class="ui">Stop</span> says so and stops nothing; stop
   it again once the install ends.</p></li>
   <li value="4"><p>When it is installed and checked, the app opens in the tab, with its Chat on the left. A
   notification says it is done, by the app's name: <em>Inkscape is installed.</em></p></li>
@@ -191,6 +192,77 @@ app that is not installed: it installs it first.</p></div>
 <tr><td>Remove from catalog…</td><td>(an app you added) Takes your app out of the catalog, once it is uninstalled everywhere.</td></tr>
 </tbody></table></div>
 
+<h2 id="when-an-app-updates">When an app updates<a class="anchor" href="#when-an-app-updates" aria-label="Link to When an app updates">#</a></h2>
+<p>New versions of the apps come with Wazza OS updates (<a href="update.html">The Update page</a>). An update never
+touches a tab that is open: each app updates the next time you open it. Wazza OS updates GIMP itself, so GIMP's own
+check for a newer GIMP is off: it never shows its <em>Update available</em> box over your image.</p>
+<ul>
+  <li>On the Apps page, an app that has a new version says <em>Update and open</em>. A click updates it, then opens it
+  in a new tab.</li>
+  <li>While it updates, the new tab shows <em>Updating GIMP…</em> (with the app's name); its tab in the tab bar says
+  <em>Updating…</em>, then the share done (<em>Updating 40%</em>), and so does its card. You can use other tabs
+  meanwhile.</li>
+  <li>When the new version is installed and checked, the app opens in the tab.</li>
+  <li>A program that Wazza OS did not install is not an older version of the app: for example the GIMP that comes
+  with the VM, or one you installed yourself with <code>sudo apt</code>. Its card says <em>Install and open · Replaces
+  the GIMP already in this VM</em>, and the install says so too: Wazza OS's version takes that program's place (GIMP's
+  install removes the distribution's GIMP package; your files and GIMP's settings in your home folder stay). A
+  program that already is the app's own install counts as installed, whoever installed it: an <code>sudo apt
+  install vlc</code> of yours is VLC's very package, so its card says <em>Installed</em>, and a new version that comes
+  with a Wazza OS update updates it on its next open (<em>Update and open</em>).</li>
+</ul>
+
+<h3 id="open-tabs-keep-their-version">Open tabs keep their version<a class="anchor" href="#open-tabs-keep-their-version" aria-label="Link to Open tabs keep their version">#</a></h3>
+<ul>
+  <li>A tab that already runs the app keeps the version it started with until you close it: the update never
+  interrupts your work in it.</li>
+  <li>A new tab of the same app opens the new version. Both run side by side.</li>
+  <li>The old version is removed when its last tab closes, or at once when no tab of the app was open. A VM that
+  starts again keeps only the current version.</li>
+</ul>
+
+<h3 id="apps-that-have-only-one-version">Apps that have only one version<a class="anchor" href="#apps-that-have-only-one-version" aria-label="Link to Apps that have only one version">#</a></h3>
+<p>Some apps exist in only one version in a VM: the apps installed as system packages (Brave, Signal, Opera,
+Proton Mail, Proton VPN, VSCodium, Spotify) and the apps whose own installer replaces the program in place (for
+example Blender, GIMP, Inkscape and Zed). Their update does not wait for their tabs either:</p>
+<ul>
+  <li>Each tab that runs the app keeps the files it started with until you close it: Wazza OS holds them for that tab
+  while the update replaces them for the rest of the VM. The tab says so, and names what the update replaced: <em>Inkscape
+  keeps its previous version in this tab: an update replaced it. To use the new version, reopen the tab.</em> A package
+  you update yourself (for example with <code>apt</code> in a Terminal tab) is named the same way. When Wazza OS cannot
+  tell what was replaced, the tab says <em>An update replaced software this tab uses: the tab keeps the version it started
+  with. To use the new version, reopen the tab.</em> Its <span class="ui">Reopen in the new version</span>
+  button, like the tab's <span class="ui">Reload</span>, asks about unsaved work first, then reopens the tab with its
+  project in the new version.</li>
+  <li>A new tab of the app opens the new version.</li>
+  <li>For the apps whose own installer replaces the program in place, a tab that starts while the app's update is
+  installing (your click, an agent's open, a tab Wazza OS restores after a restart, a <span class="ui">Reload</span>)
+  waits for it: the tab says <em>Updating…</em>, a notification notes the wait
+  (<a href="window.html#notifications">Home › Notifications</a>), then the app opens on its new version. If the update
+  fails, the tab says so and opens the version still installed, if there is one.</li>
+  <li>An app you start from the dock of a Desktop tab runs inside that tab and is held the same way. Some apps keep
+  a single copy: if one already runs elsewhere in the VM, the dock's start opens in that copy, outside the tab, and the
+  desktop says so: <em>Text Editor opened in its copy that already runs outside this Desktop tab. An app update may
+  change its files while that copy runs; close it there and open it again from this desktop to keep it inside.</em></li>
+  <li>In a tab that keeps the previous version, a change to that app's own folders (for example a
+  <code>sudo make install</code> into them) is refused (they are read-only there) until you reopen the tab in the new
+  version, or until that tab installs packages itself with <code>sudo apt</code> or <code>sudo dpkg</code>: its held
+  files are then let go, so it sees the system as it is now, what it installed included. Installing packages with
+  <code>sudo apt</code> or <code>sudo dpkg</code> works from any tab.</li>
+  <li>A tab whose hold failed (rare) sees the new files, and the install's log names it. If Wazza OS cannot hold the
+  files at all (rarer still), the update does not install this time, and the tab says so: <em>Update ready: it
+  installs at your next open of VSCodium. This tab opened the version installed now.</em></li>
+</ul>
+
+<h3 id="if-an-update-fails">If an update fails<a class="anchor" href="#if-an-update-fails" aria-label="Link to If an update fails">#</a></h3>
+<p>An update installs beside the version you have and takes its place only once it is installed and checked. If it
+fails (Wazza OS already retried once by itself), the previous version stays and the app opens on it, with a note that
+says why, for example <em>GIMP could not be updated (…). This tab opened the previous version; its next open tries the
+update again.</em> The card says <em>Update failed, previous version kept</em>.</p>
+<p>The apps you or an agent added (<a href="custom-apps.html">Add your own apps</a>) update the same way when their
+install changes, and your own changes to an app (<span class="ui">Edit app…</span>) keep winning over what an update
+brings.</p>
+
 <h2 id="uninstall-an-app">Uninstall an app<a class="anchor" href="#uninstall-an-app" aria-label="Link to Uninstall an app">#</a></h2>
 <ol class="steps">
   <li><p>Right-click the app on the Apps page › <span class="ui">Uninstall from vm-1…</span>.</p></li>
@@ -225,9 +297,9 @@ default tools) cannot be uninstalled.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="skills.html" rel="prev"><span class="dir">← Previous</span>Skills, learning and personas</a><a class="next" href="gpu-apps.html" rel="next"><span class="dir">Next →</span>Desktop apps and the GPU</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.2.0 (build b8069fa40737) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#when-an-app-updates">When an app updates</a></li><li class="lvl3"><a href="#open-tabs-keep-their-version">Open tabs keep their version</a></li><li class="lvl3"><a href="#apps-that-have-only-one-version">Apps that have only one version</a></li><li class="lvl3"><a href="#if-an-update-fails">If an update fails</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>
