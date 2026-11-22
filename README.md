@@ -1,8 +1,7 @@
 # Wazza OS user guide
 
 - The Wazza OS website: **<https://os.wazza.ai/>**
-- **[Download Wazza OS](https://os.wazza.ai/download)** for Linux. During the beta, the download page asks for the access
-  code you received.
+- Install Wazza OS on Linux with one command in a terminal: `curl -fsSL https://os.wazza.ai/install.sh | sh`
 - **[Sign in to your Wazza account (Wazza OS, Wazza Pro)](https://app.wazza.ai/auth/login)**
 
 Read the guide: **<https://os-guide.wazza.ai/>**
