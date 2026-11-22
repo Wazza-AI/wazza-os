@@ -112,7 +112,8 @@ Without one the VM still works, with slower software graphics.</td></tr>
 <p>Paste this in a terminal, on the Linux computer where Wazza OS will live. It asks for your password once, for
 <code>sudo</code>.</p>
 <pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh</span></code></pre>
-<p>To test first, without installing anything:</p>
+<p>To check your system first, without installing Wazza OS (only the few tools the installer itself uses, such as
+<code>curl</code> and <code>zstd</code>, are installed when they are missing):</p>
 <pre><code><span class="prompt">$ </span><span class="cmd">curl -fsSL https://os.wazza.ai/install.sh | sh -s -- --check</span></code></pre>
 <div class="table-wrap"><table>
 <thead><tr><th>It…</th><th>How</th></tr></thead>
@@ -121,7 +122,7 @@ Without one the VM still works, with slower software graphics.</td></tr>
 the <code>.rpm</code>. Arch and its family get the Arch package. Any other distribution gets the tarball.</td></tr>
 <tr><td>verifies the release</td><td>Nothing installs unless the release manifest carries Wazza's Ed25519 signature
 and the package matches its signed SHA-256 and size.</td></tr>
-<tr><td>resumes if cut</td><td>The package is large (about 7 GB). If the download stops, run the command again: it
+<tr><td>resumes if cut</td><td>The package is large (about 6 GB). If the download stops, run the command again: it
 continues where it stopped.</td></tr>
 </tbody></table></div>
 <p>It needs free disk for the package plus about 1 GB, and checks before it starts. It downloads into
@@ -160,9 +161,9 @@ them. It refuses while something is missing (<code>--force</code> installs anywa
 <h3 id="what-the-packages-bring">What the packages bring<a class="anchor" href="#what-the-packages-bring" aria-label="Link to What the packages bring">#</a></h3>
 <p>Each package installs what Wazza OS needs with it. One more piece is GStreamer's PipeWire plugin, with which
 <a href="computer-control.html">Computer Control</a> sees a Wayland screen. GNOME usually has it already. On a KDE
-Plasma or a minimal system, Wazza OS installs it once its own install or update has ended (the one-command install,
-and each update from Wazza OS's Update page). Only that one package is installed: your system is never updated with
-it, and if it cannot be installed then, the install or update still ends well and Computer Control names the command
+Plasma or a minimal system, Wazza OS installs it after each update from Wazza OS's Update
+page. Only that one package is installed: your system is never updated with
+it, and if it cannot be installed then, the update still ends well and Computer Control names the command
 when you open it (<a href="computer-control.html#screens-plugin">If the card says it cannot see your screens</a>):</p>
 <div class="table-wrap"><table class="stack">
 <thead><tr><th>Your system</th><th>Package</th></tr></thead>

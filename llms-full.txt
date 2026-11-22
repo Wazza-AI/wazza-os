@@ -12,9 +12,9 @@ Address: https://os-guide.wazza.ai/
 
 The Wazza OS website: [https://os.wazza.ai/](https://os.wazza.ai/)
 
-[Download Wazza OS](https://os.wazza.ai/download) [Sign in to your Wazza account (Wazza OS, Wazza Pro)](https://app.wazza.ai/auth/login)
+[Install Wazza OS](https://os-guide.wazza.ai/install.html#install-with-one-command) [Sign in to your Wazza account (Wazza OS, Wazza Pro)](https://app.wazza.ai/auth/login)
 
-Wazza OS is for Linux. During the beta, the download page asks for the access code you received.
+Wazza OS is for Linux. Install it with one command in a terminal: `curl -fsSL https://os.wazza.ai/install.sh | sh`
 
 [
 
@@ -407,7 +407,7 @@ Paste this in a terminal, on the Linux computer where Wazza OS will live. It ask
 $ curl -fsSL https://os.wazza.ai/install.sh | sh
 ```
 
-To test first, without installing anything:
+To check your system first, without installing Wazza OS (only the few tools the installer itself uses, such as `curl` and `zstd`, are installed when they are missing):
 
 ```
 $ curl -fsSL https://os.wazza.ai/install.sh | sh -s -- --check
@@ -417,7 +417,7 @@ $ curl -fsSL https://os.wazza.ai/install.sh | sh -s -- --check
 |---|---|
 | finds your package type | Debian, Ubuntu and their family get the `.deb`. Fedora and openSUSE get the `.rpm`. Arch and its family get the Arch package. Any other distribution gets the tarball. |
 | verifies the release | Nothing installs unless the release manifest carries Wazza's Ed25519 signature and the package matches its signed SHA-256 and size. |
-| resumes if cut | The package is large (about 7 GB). If the download stops, run the command again: it continues where it stopped. |
+| resumes if cut | The package is large (about 6 GB). If the download stops, run the command again: it continues where it stopped. |
 
 It needs free disk for the package plus about 1 GB, and checks before it starts. It downloads into `/var/tmp/wazza-install` and leaves the package there (delete it to free the space); to use another folder, put `WAZZA_INSTALL_DIR=/some/big/folder` before `sh`. To choose the package type yourself, add it after `--`: `sh -s -- tar` (or `deb`, `rpm`, `arch`). When it is done, start Wazza OS from your applications menu.
 
@@ -466,7 +466,7 @@ $ sudo ./install.sh
 
 ### What the packages bring
 
-Each package installs what Wazza OS needs with it. One more piece is GStreamer's PipeWire plugin, with which [Computer Control](https://os-guide.wazza.ai/computer-control.html) sees a Wayland screen. GNOME usually has it already. On a KDE Plasma or a minimal system, Wazza OS installs it once its own install or update has ended (the one-command install, and each update from Wazza OS's Update page). Only that one package is installed: your system is never updated with it, and if it cannot be installed then, the install or update still ends well and Computer Control names the command when you open it ([If the card says it cannot see your screens](https://os-guide.wazza.ai/computer-control.html#screens-plugin)):
+Each package installs what Wazza OS needs with it. One more piece is GStreamer's PipeWire plugin, with which [Computer Control](https://os-guide.wazza.ai/computer-control.html) sees a Wayland screen. GNOME usually has it already. On a KDE Plasma or a minimal system, Wazza OS installs it after each update from Wazza OS's Update page. Only that one package is installed: your system is never updated with it, and if it cannot be installed then, the update still ends well and Computer Control names the command when you open it ([If the card says it cannot see your screens](https://os-guide.wazza.ai/computer-control.html#screens-plugin)):
 
 | Your system | Package |
 |---|---|
@@ -2589,7 +2589,7 @@ What changed in Wazza OS since version 0.2.0 (build b8069fa40737). Wazza OS: the
 - Part 1 fix: the uninstall dispatch's units compile (a format string's braces escaped).
 - The lab and debug scripts find Wazza OS by its new name AND its old one.
 - Part 3: the rpm extractor's renamed path proven on a hand-built rpm.
-- Part 2: the executable is /usr/bin/wazza-os in every package, so the process is named wazza-os; /usr/bin/wazza, tadaah and wazzaos are its wrappers.
+- Part 2: the executable is /usr/bin/wazza-os in every package, so the process is named wazza-os; /usr/bin/wazza and wazzaos are its wrappers.
 - The REAL drag of a picture onto the feedback box, in the real app (the one leg not shown).
 - Part 2c: a mid-test note from the page to the runner (for real drag).
 - Part 1: the RED units: every shipped build stamps its install records "unknown+unknown".
