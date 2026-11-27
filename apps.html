@@ -33,7 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
-<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3.1</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -106,6 +106,16 @@ installs an app and opens it in a tab, with a Chat beside it whose agent knows t
   <li><p>A <strong>not installed</strong> app: a download badge at its top right. A click installs it, then opens it.</p></li>
   <li><p>Each section says how many of its apps are installed and how many are left to install.</p></li>
 </ol>
+<p>The page fills the whole window and keeps its apps centered, at any window size. A right-click on an app opens its
+menu (<span class="ui">Open</span> or <span class="ui">Install and open</span>, <span class="ui">Edit app…</span>,
+<span class="ui">Edit layout</span>, <span class="ui">Repair</span>, <span class="ui">Uninstall</span>), on Computer
+Control's tile too. A right-click on the empty part of the page offers <span class="ui">Edit layout</span>,
+<span class="ui">Add app…</span> and the other view (<span class="ui">Show as Sections</span> or
+<span class="ui">Show as Pages</span>).</p>
+<p>When several VMs run, one Applications page serves them all: its VM picker lists the running VMs, with the VM shown
+pressed, and picking another VM shows that VM with its page. The Applications sidebar and Settings show each running
+VM's own CPU and memory, and every tab shows which VM it belongs to, an app's Edit tab too. When an app install holds
+back a new VM or a VM's start, Wazza OS says so in its own words.</p>
 
 <h3 id="the-main-apps">The main apps<a class="anchor" href="#the-main-apps" aria-label="Link to The main apps">#</a></h3>
 <div class="table-wrap"><table>
@@ -156,7 +166,9 @@ and OSM places and routes are installed on the first start.</p>
   notification says it is done, by the app's name: <em>Inkscape is installed.</em></p></li>
 </ol>
 <p>Installing takes from under a minute (small apps) to several minutes (Blender, ONLYOFFICE), depending on your
-connection. Apps install inside the VM, so they never change your computer. When an installation fails, the tab says
+connection. Big apps such as Blender and Kdenlive download from their official sites the first time you open them, and
+the tab shows the download moving. When the VM is still installing its own updates, the tab says the install waits for
+them. Apps install inside the VM, so they never change your computer. When an installation fails, the tab says
 why with <span class="ui">Retry installation</span> and <span class="ui">Show log</span>; Wazza OS already retried once
 by itself.</p>
 <div class="tip"><p>An agent can install apps for you too: ask "install Inkscape and open it", or give it a job in an
@@ -185,7 +197,11 @@ app that is not installed: it installs it first.</p></div>
 <thead><tr><th>Item</th><th>What it does</th></tr></thead>
 <tbody>
 <tr><td>Open in vm-1</td><td>Opens it in that VM (one item per VM where it is installed).</td></tr>
-<tr><td>Open in a new VM</td><td>Makes a new VM and opens the app there (<a href="settings-vms.html#add-a-vm">several VMs</a>).</td></tr>
+<tr><td>Open in a new VM</td><td>Makes a new VM and opens the app there (<a href="settings-vms.html#add-a-vm">several VMs</a>).
+While the new VM waits (another VM is still starting, or it boots), the app's card says what it waits for, with
+<em>Cancel</em> beside it. If there is no room for another VM, the card says why and what you can do; that stays until
+your next action on the card. A new VM whose first start is refused (for example while an app installs in another VM)
+is removed again, so nothing of it is left in Settings › VMs; choose Open in a new VM again once that install ends.</td></tr>
 <tr><td>Edit app…</td><td>The app's recipe and its skill files: how it installs and starts, and what its agent knows
 (<a href="custom-apps.html#edit-an-apps-skill">Edit an app's skill</a>).</td></tr>
 <tr><td>Uninstall from vm-1…</td><td>Removes the app from that VM (below).</td></tr>
@@ -286,8 +302,9 @@ brings.</p>
   The card follows it (<em>Uninstalling…</em>) and a notification says when it is done (<em>Inkscape is
   removed.</em>, or why not: <em>Inkscape could not be removed: …</em>).</p></li>
 </ol>
-<p>Your files made with the app (in the VM's folders) stay. Apps that Wazza OS itself needs (Files, Desktop, the
-default tools) cannot be uninstalled.</p>
+<p>Uninstall removes the app's package and only its own files: what other apps or the system still use stays. Your
+files made with the app (in the VM's folders) stay too. Apps that Wazza OS itself needs (Files, Desktop, the default
+tools) cannot be uninstalled.</p>
 
 <h2 id="from-the-command-line">From the command line<a class="anchor" href="#from-the-command-line" aria-label="Link to From the command line">#</a></h2>
 <pre><code><span class="prompt">$ </span><span class="cmd">wazza --gui app list</span>
@@ -297,7 +314,7 @@ default tools) cannot be uninstalled.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="skills.html" rel="prev"><span class="dir">← Previous</span>Skills, learning and personas</a><a class="next" href="gpu-apps.html" rel="next"><span class="dir">Next →</span>Desktop apps and the GPU</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.1 (build 344048ba2f7d) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl3"><a href="#the-main-apps">The main apps</a></li><li class="lvl3"><a href="#what-is-in-the-catalog">What is in the catalog</a></li><li class="lvl2"><a href="#install-an-app">Install an app</a></li><li class="lvl2"><a href="#open-and-use-an-app">Open and use an app</a></li><li class="lvl3"><a href="#the-app-menu">The app menu</a></li><li class="lvl2"><a href="#when-an-app-updates">When an app updates</a></li><li class="lvl3"><a href="#open-tabs-keep-their-version">Open tabs keep their version</a></li><li class="lvl3"><a href="#apps-that-have-only-one-version">Apps that have only one version</a></li><li class="lvl3"><a href="#if-an-update-fails">If an update fails</a></li><li class="lvl2"><a href="#uninstall-an-app">Uninstall an app</a></li><li class="lvl2"><a href="#from-the-command-line">From the command line</a></li></ul></aside>
 </div>

@@ -33,7 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
-<li><a href="whats-new.html">What&#x27;s new in 0.3</a></li>
+<li><a href="whats-new.html">What&#x27;s new in 0.3.1</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -294,44 +294,27 @@ page: how to do it step by step, every option, the limits and examples.</p>
 </div>
 
 <h2 id="whats-new">What's new in this release<a class="anchor" href="#whats-new" aria-label="Link to What&#x27;s new in this release">#</a></h2>
-<p class="release-line"><strong>Wazza OS 0.3.0</strong> (build 485dbf2b8dbf, published 2026-11-22): apps with unsaved work no longer close without asking
-you, your tabs come back after a restart, and most updates install while you work, for Wazza OS itself and for the
-apps in your VMs.</p>
+<p class="release-line"><strong>Wazza OS 0.3.1</strong> (build 344048ba2f7d, published 2026-11-27): a lighter download
+with a smaller VM image that keeps your files from 0.3, Wazza OS shown as one process, one Applications page that fills
+your screen for every VM, and many fixes to Chats, apps, tabs and updates. Every change is on
+<a href="whats-new.html">What's new</a>; the main ones:</p>
 <ul>
-  <li>Unsaved work: before an app with unsaved work closes (you close its tab, stop its VM or quit Wazza OS), Wazza OS
-  asks you: <span class="ui">Close without saving</span>, <span class="ui">Save</span> (the tab's Chat is asked to save the
-  work; the tab closes only once its app has closed, so if the Chat did not save, the app keeps the work and asks again,
-  unless you close the tab again meanwhile: see the known limits below) or <span class="ui">Keep open</span> (<a href="window.html#open-switch-and-close-tabs">Open, switch and close
-  tabs</a>). To answer once for all, use <a href="settings-general.html#unsaved-work">Settings › General › Unsaved
-  work</a>, or <span class="ui">Remember my choice</span> in the question. After <span class="ui">Close without
-  saving</span>, the tab stays where it is and shows <span class="ui">Closing…</span> until its app has really
-  ended.</li>
-  <li>Stopping or restarting a VM is said as it happens, at the bottom right: the VMs it stops, the apps it checks
-  for unsaved work (&ldquo;Stopping vm-1: checking 3 apps for unsaved work… (1 of 3)&rdquo;), which VM finishes an
-  install first, and when they are
-  stopped, or why not (<a href="window.html#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS starts
-  again</a>).</li>
-  <li>An agent inside the VM that closes a tab with unsaved work is told so, and must choose: save the work first, or
-  close the tab anyway. Your remembered choice is never used for an agent's close.</li>
-  <li>Your tabs come back: when a VM or Wazza OS starts again, every tab reopens and its app starts again with its
-  project, if the project was saved; apps that restore themselves do so (<a href="window.html#when-a-vm-or-wazza-os-starts-again">When a VM or Wazza OS
-  starts again</a>).</li>
-  <li>Updates without a restart: most Wazza OS updates now install while you work. The windows refresh, and your tabs,
-  Chats and VMs keep running (<a href="update.html#updates-without-a-restart">Updates without a restart</a>). An update that cannot be applied leaves you on the
-  version you had.</li>
-  <li>App updates in your VMs: a tab that runs an app keeps its version until you close it, and a new tab opens the new version, with <span class="ui">Updating…</span> on its tab while it installs (<a href="apps.html#when-an-app-updates">When an app updates</a>). This is the same for an app an agent installed for you.</li>
-  <li>Keyboard: your computer keeps its own Super key, also while a tab of the VM has your keyboard
-  (<a href="settings-general.html#keyboard">Settings › General › Keyboard</a>).</li>
-  <li>A Chat's connection check now goes the way that Chat's own messages go, never to a provider you added no key for: for a Chat on this computer (Computer
-  Control) it checks the provider from this computer, and it reaches a provider your environment lists in
-  <code>NO_PROXY</code> directly.</li>
-  <li>Fixes: in our test, a logout right after a VM start waited about 5.5 seconds for Wazza OS (it was about 6).</li>
+  <li>The VM image is smaller, so the download is lighter. When you update from 0.3, your files, Chats and settings in
+  the VM come over to the new image (<a href="update.html">The Update page</a>).</li>
+  <li>One <span class="ui">Applications</span> page for all your VMs, filling the window, with a right-click menu
+  everywhere and each running VM's CPU and memory on it; with two or more VMs, every tab shows which VM it belongs to
+  (<a href="apps.html">Apps</a>).</li>
+  <li>The Wazza OS window resizes from every edge and corner, and Wazza OS shows as one process,
+  <span class="ui">wazza-os</span>, in your system monitor (<a href="window.html">The window</a>,
+  <a href="memory-cpu.html">Memory, CPU and disk</a>).</li>
+  <li><a href="settings-general.html">Settings › General › Web browser</a>: one choice of browser for every web app and
+  every web link.</li>
+  <li>Kdenlive downloads the first time you open it, every app install shows its download moving, and an app tab
+  always shows its own app while it starts.</li>
+  <li>Many fixes to Chats, sign-in, updates, tabs and Settings: see <a href="whats-new.html">What's new</a>.</li>
 </ul>
 <h3 id="known-limits">Known limits in this release<a class="anchor" href="#known-limits" aria-label="Link to Known limits in this release">#</a></h3>
 <ul>
-  <li>Updating to this release from the one before it (build b8069fa40737) restarts Wazza OS without asking about
-  unsaved work: that version has no question yet. Save your work before you click <span class="ui">Restart Wazza
-  OS</span>; in our test, unsaved changes in GIMP and Blender were lost.</li>
   <li>Memory: with one Chat open, Wazza OS and its VM still use more of your computer's memory at rest than we aim
   for; making it smaller continues in the next updates (<a href="memory-cpu.html">Memory, CPU and disk</a>).</li>
   <li>An agent on your computer (Claude Code, Codex and the other harnesses that run outside the VM) does not close a
@@ -360,7 +343,7 @@ apps in your VMs.</p>
 
 <h2 id="about-this-manual">About this manual<a class="anchor" href="#about-this-manual" aria-label="Link to About this manual">#</a></h2>
 <ul>
-  <li>Written for <strong>Wazza OS 0.3.0</strong> (build 485dbf2b8dbf, published 2026-11-22). The screenshots come from a test computer (Ubuntu 24.04, GNOME) running Wazza OS 0.2.0: alpha 2 and the builds that followed it, whose screens are the same.</li>
+  <li>Written for <strong>Wazza OS 0.3.1</strong> (build 344048ba2f7d, published 2026-11-27). The screenshots come from a test computer (Ubuntu 24.04, GNOME) running Wazza OS 0.2.0: alpha 2 and the builds that followed it, whose screens are the same.</li>
   <li>Press <kbd>/</kbd> anywhere to search every page and heading; the search works offline.</li>
   <li>The sun and moon button switches between dark (the default, like the app) and light.</li>
   <li>Words in <span class="ui">bold</span> are what Wazza OS shows on screen: a button, a tab, a menu item.
@@ -370,7 +353,7 @@ apps in your VMs.</p>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="next" href="quick-start.html" rel="next"><span class="dir">Next →</span>Quick start</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.1 (build 344048ba2f7d) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
 <aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#install-wazza-os">Install</a></li><li class="lvl3"><a href="#finds-your-package-type">Finds your package type</a></li><li class="lvl3"><a href="#verifies-the-release">Verifies the release</a></li><li class="lvl3"><a href="#resumes-if-cut">Resumes if cut</a></li><li class="lvl2"><a href="#connect-your-ai-agent">Connect your AI agent</a></li><li class="lvl2"><a href="#control-wazza-os">Control Wazza OS</a></li><li class="lvl2"><a href="#how-it-fits-together">How it fits together</a></li><li class="lvl2"><a href="#capabilities">Capabilities</a></li><li class="lvl3"><a href="#several-agents-at-once-each-in-its-own-app">Several agents at once, each in its own app</a></li><li class="lvl3"><a href="#one-install-the-vm-managed-for-you">One install, the VM managed for you</a></li><li class="lvl3"><a href="#real-desktop-apps-with-your-graphics-card">Real desktop apps, with your graphics card</a></li><li class="lvl3"><a href="#chats-with-the-agent-and-model-you-choose">Chats with the agent and model you choose</a></li><li class="lvl3"><a href="#drive-agents-see-and-use-app-windows">Drive: agents see and use app windows</a></li><li class="lvl3"><a href="#computer-control-an-agent-on-your-real-computer">Computer Control: an agent on your real computer</a></li><li class="lvl3"><a href="#skills-that-improve-from-your-chats">Skills that improve from your Chats</a></li><li class="lvl3"><a href="#extend-it-your-own-apps-its-mcp-its-command-line">Extend it: your own apps, its MCP, its command line</a></li><li class="lvl3"><a href="#files-and-sharing">Files: drag, drop, copy, share</a></li><li class="lvl3"><a href="#privacy-and-security">Privacy and security</a></li><li class="lvl3"><a href="#memory-processors-and-disk-handled-for-you">Memory, processors and disk, handled for you</a></li><li class="lvl3"><a href="#the-command-line-and-servers">The command line and servers</a></li><li class="lvl2"><a href="#start-here">Start here</a></li><li class="lvl3"><a href="#quick-start">Quick start</a></li><li class="lvl3"><a href="#install-update-remove">Install, update, remove</a></li><li class="lvl3"><a href="#the-first-start">The first start</a></li><li class="lvl3"><a href="#something-is-wrong">Something is wrong</a></li><li class="lvl2"><a href="#whats-new">What&#x27;s new in this release</a></li><li class="lvl3"><a href="#known-limits">Known limits in this release</a></li><li class="lvl2"><a href="#about-this-manual">About this manual</a></li></ul></aside>
 </div>

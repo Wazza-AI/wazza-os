@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's new · Wazza OS manual</title>
-<meta name="description" content="What changed in Wazza OS since version 0.2.0: the agents, the Chat, Settings and Sign In, the Apps page, apps and their updates, tabs, the close guard, VMs, copy and paste, and Wazza OS's own updates.">
-<meta name="keywords" content="what's new, changes, changelog, release notes, new features, fixes, update, version">
+<meta name="description" content="What changed in Wazza OS 0.3.1 since 0.3, and in 0.3 since version 0.2.0: the agents, the Chat, Settings and Sign In, the Apps page, apps and their updates, tabs, the close guard, VMs, copy and paste, and Wazza OS's own updates.">
+<meta name="keywords" content="what's new, changes, changelog, release notes, new features, fixes, update, version, 0.3.1, 0.3">
 <!-- HEAD:BEGIN -->
 <link rel="canonical" href="https://os-guide.wazza.ai/whats-new.html">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -33,7 +33,7 @@
 <li><a href="install.html">Install, update, remove</a></li>
 <li><a href="first-start.html">The first start</a></li>
 <li><a href="window.html">Getting around</a></li>
-<li><a href="whats-new.html" aria-current="page">What&#x27;s new in 0.3</a></li>
+<li><a href="whats-new.html" aria-current="page">What&#x27;s new in 0.3.1</a></li>
 </ul></div>
 <div class="nav-group"><p class="nav-group-title">Work with agents</p><ul>
 <li><a href="chats.html">Chats, agents and models</a></li>
@@ -77,12 +77,101 @@
 </ul></div>
 </nav>
 <main id="main">
-<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">What&#x27;s new in 0.3</li></ol></nav>
-<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#in-short">In short</a></li><li class="lvl2"><a href="#hermes-the-agent-in-each-vm-and-on-this-computer">Hermes (the agent in each VM, and on this computer)</a></li><li class="lvl2"><a href="#claude-code">Claude Code</a></li><li class="lvl2"><a href="#codex">Codex</a></li><li class="lvl2"><a href="#prime-agent">Prime Agent</a></li><li class="lvl2"><a href="#antigravity">Antigravity</a></li><li class="lvl2"><a href="#every-agent">Every agent</a></li><li class="lvl2"><a href="#models-the-model-window-and-sign-in">Models, the model window and Sign In</a></li><li class="lvl2"><a href="#chat">Chat</a></li><li class="lvl2"><a href="#settings-and-sign-in">Settings and Sign In</a></li><li class="lvl2"><a href="#copy-paste-and-files-between-this-computer-and-a-vm">Copy, paste and files between this computer and a VM</a></li><li class="lvl2"><a href="#vms-tabs-and-apps">VMs, tabs and apps</a></li><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl2"><a href="#getting-repairing-and-removing-apps">Getting, repairing and removing apps</a></li><li class="lvl2"><a href="#updates-for-apps">Updates for apps</a></li><li class="lvl2"><a href="#the-vm-s-system-and-its-first-installs">The VM&#x27;s system and its first installs</a></li><li class="lvl2"><a href="#browsers">Browsers</a></li><li class="lvl2"><a href="#apps-one-by-one">Apps, one by one</a></li><li class="lvl2"><a href="#the-tab-strip">The tab strip</a></li><li class="lvl2"><a href="#closing-apps-without-losing-work-the-close-guard">Closing apps without losing work (the close guard)</a></li><li class="lvl2"><a href="#tabs-coming-back-restore-history-and-favourites">Tabs coming back: restore, History and Favourites</a></li><li class="lvl2"><a href="#tabs-while-apps-update">Tabs while apps update</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#keyboard-clipboard-and-files-into-vms">Keyboard, clipboard and files into VMs</a></li><li class="lvl2"><a href="#native-gpu-a-graphics-card-lent-to-a-vm">Native GPU (a graphics card lent to a VM)</a></li><li class="lvl2"><a href="#the-picture-of-each-vm-and-wazza-os-s-own-use-of-your-computer">The picture of each VM, and Wazza OS&#x27;s own use of your computer</a></li><li class="lvl2"><a href="#updating-wazza-os">Updating Wazza OS</a></li><li class="lvl2"><a href="#mcp-tools-and-servers">MCP tools and servers</a></li><li class="lvl2"><a href="#other-fixes">Other fixes</a></li><li class="lvl2"><a href="#internal-improvements">Internal improvements</a></li><li class="lvl2"><a href="#tests">Tests</a></li><li class="lvl2"><a href="#docs-and-guide">Docs and guide</a></li><li class="lvl2"><a href="#tools-and-release-pipeline">Tools and release pipeline</a></li><li class="lvl2"><a href="#generated-files">Generated files</a></li></ul></details></div>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="index.html">User guide</a></li><li>Start here</li><li aria-current="page">What&#x27;s new in 0.3.1</li></ol></nav>
+<div class="toc-inline"><details><summary>On this page</summary><ul><li class="lvl2"><a href="#0-3-1-in-short">0.3.1 in short</a></li><li class="lvl2"><a href="#0-3-1-every-change-by-area">0.3.1, every change by area</a></li><li class="lvl3"><a href="#chats">Chats</a></li><li class="lvl3"><a href="#sign-in-and-the-first-start">Sign in and the first start</a></li><li class="lvl3"><a href="#updates">Updates</a></li><li class="lvl3"><a href="#apps">Apps</a></li><li class="lvl3"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#agents">Agents</a></li><li class="lvl3"><a href="#drive">Drive</a></li><li class="lvl3"><a href="#stability">Stability</a></li><li class="lvl2"><a href="#what-changed-in-0-3-since-0-2-0">What changed in 0.3, since 0.2.0</a></li><li class="lvl2"><a href="#in-short">In short</a></li><li class="lvl2"><a href="#hermes-the-agent-in-each-vm-and-on-this-computer">Hermes (the agent in each VM, and on this computer)</a></li><li class="lvl2"><a href="#claude-code">Claude Code</a></li><li class="lvl2"><a href="#codex">Codex</a></li><li class="lvl2"><a href="#prime-agent">Prime Agent</a></li><li class="lvl2"><a href="#antigravity">Antigravity</a></li><li class="lvl2"><a href="#every-agent">Every agent</a></li><li class="lvl2"><a href="#models-the-model-window-and-sign-in">Models, the model window and Sign In</a></li><li class="lvl2"><a href="#chat">Chat</a></li><li class="lvl2"><a href="#settings-and-sign-in">Settings and Sign In</a></li><li class="lvl2"><a href="#copy-paste-and-files-between-this-computer-and-a-vm">Copy, paste and files between this computer and a VM</a></li><li class="lvl2"><a href="#vms-tabs-and-apps">VMs, tabs and apps</a></li><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl2"><a href="#getting-repairing-and-removing-apps">Getting, repairing and removing apps</a></li><li class="lvl2"><a href="#updates-for-apps">Updates for apps</a></li><li class="lvl2"><a href="#the-vm-s-system-and-its-first-installs">The VM&#x27;s system and its first installs</a></li><li class="lvl2"><a href="#browsers">Browsers</a></li><li class="lvl2"><a href="#apps-one-by-one">Apps, one by one</a></li><li class="lvl2"><a href="#the-tab-strip">The tab strip</a></li><li class="lvl2"><a href="#closing-apps-without-losing-work-the-close-guard">Closing apps without losing work (the close guard)</a></li><li class="lvl2"><a href="#tabs-coming-back-restore-history-and-favourites">Tabs coming back: restore, History and Favourites</a></li><li class="lvl2"><a href="#tabs-while-apps-update">Tabs while apps update</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#keyboard-clipboard-and-files-into-vms">Keyboard, clipboard and files into VMs</a></li><li class="lvl2"><a href="#native-gpu-a-graphics-card-lent-to-a-vm">Native GPU (a graphics card lent to a VM)</a></li><li class="lvl2"><a href="#the-picture-of-each-vm-and-wazza-os-s-own-use-of-your-computer">The picture of each VM, and Wazza OS&#x27;s own use of your computer</a></li><li class="lvl2"><a href="#updating-wazza-os">Updating Wazza OS</a></li><li class="lvl2"><a href="#mcp-tools-and-servers">MCP tools and servers</a></li><li class="lvl2"><a href="#other-fixes">Other fixes</a></li><li class="lvl2"><a href="#internal-improvements">Internal improvements</a></li><li class="lvl2"><a href="#tests">Tests</a></li><li class="lvl2"><a href="#docs-and-guide">Docs and guide</a></li><li class="lvl2"><a href="#tools-and-release-pipeline">Tools and release pipeline</a></li><li class="lvl2"><a href="#generated-files">Generated files</a></li></ul></details></div>
 <!-- TOP:END -->
 <article class="doc">
 <h1>What's new</h1>
-<p class="lead">What changed in Wazza OS since version 0.2.0 (build b8069fa40737). Wazza OS: the Apps page now works like an iPad, big apps such as Blender download from their official sites the first time you ask for them so Wazza OS is much lighter, every VM gets Ubuntu's newest kernel and security updates safely, and the agents, the tabs, the VMs and Wazza OS's own updates get many fixes.</p>
+<p class="lead">What changed in Wazza OS 0.3.1, since version 0.3: a lighter download with a smaller VM image that keeps your files from 0.3, Wazza OS shown as one process, one Applications page that fills your screen for every VM, and many fixes to Chats, apps, tabs and updates. Below it, what changed in 0.3 since version 0.2.0.</p>
+
+<h2 id="0-3-1-in-short">0.3.1 in short<a class="anchor" href="#0-3-1-in-short" aria-label="Link to 0.3.1 in short">#</a></h2>
+<ul>
+  <li><p>The Wazza OS window resizes from every edge and corner, and the cursor shows where you can drag.</p></li>
+  <li><p>The Applications page fills the whole window, centered, and has a right-click menu everywhere: on every app, on Computer Control's tile and on the empty space (Edit layout, Add app, the other view).</p></li>
+  <li><p>One Applications page for all your VMs, with each running VM's own CPU and memory on it and in Settings. With two or more VMs, every tab shows which VM it belongs to, an app's Edit tab too, and an Add VM or a Start that an app install holds back says so in its own words.</p></li>
+  <li><p>A folded tab group still shows its main Chat's tab.</p></li>
+  <li><p>Wazza OS shows as one process, wazza-os, in your system monitor, instead of separate QEMU and WebKit processes.</p></li>
+  <li><p>The VM image is smaller (its unused files removed, then compressed), so the download is lighter. When you update from 0.3, your files, Chats and settings in the VM come over to the new image, with every file in Hermes's memories, Hermes's persona (SOUL.md), your Chrome profile and the settings of every app you added yourself, and the update checks that each of your files arrived. Your shell history, and the app settings the new image already has, start at the new defaults. Apps you installed in 0.3 download their files once more the first time you open them after the update. If that copy cannot finish at once, your Chats still start, and the copy tries again at the VM's next start. Another VM starting at the same moment no longer sends the copy to the next start.</p></li>
+  <li><p>Settings › Disks shows the older VM images Wazza OS still keeps after an update, the room they take and what keeps them. An update removes an old image only once no VM, backup or account on this computer needs it.</p></li>
+  <li><p>Kdenlive is no longer inside the download: it downloads the first time you open it.</p></li>
+  <li><p>All the 3D apps install, and every app install shows its download moving, as Wazza OS's own installer now does.</p></li>
+  <li><p>Installing an app such as Brave no longer adds a second app without an icon to Your apps, and Uninstall removes the app's package and only its own files.</p></li>
+  <li><p>Settings › General › Web browser: one choice of browser for every web app and every web link. A link opened inside a VM goes to that browser too, the one already running in your tab, instead of starting a second copy of it, and a web app such as YouTube runs in Brave when Brave is your choice, and one that falls back to Chromium when your chosen browser cannot run it opens with its sound, instead of an "AudioDenied" error; the first web app you open in Brave on a VM where Brave never ran starts in Brave too, with no first-run analytics notice on top of it.</p></li>
+  <li><p>Web apps and Incognito tabs keep their temporary browser profiles on the VM's disk and remove them when their tab closes, so many open web apps no longer fill the VM's memory; the private sign-in tab keeps its profile in memory only.</p></li>
+  <li><p>wsurf installs in the snap Chromium as in every other Chromium-based browser, and websites no longer take Chromium for a bot.</p></li>
+  <li><p>The Chat shown when Wazza OS opens starts its agent at once, so its model menu is ready, also the first time after an update. While a VM installs its security updates before its desktop, its start page says so. When the VM's disk is slow at that moment, the Chat waits for the VM and starts once it answers, instead of staying stuck. While a new Chat starts, its status shows each step of the start, such as Starting Hermes, and the slow disk while it waits for it, instead of "Chat ACP connection has not been observed" through the whole start.</p></li>
+  <li><p>Agents look for Wazza OS's own skill for a task first, and make a file you ask for in its app's window, installing the app first when needed.</p></li>
+  <li><p>In a Chat, a line from Wazza OS that comes while an answer is being written is shown after the answer. A folded Thinking stays folded while it runs and says it is still running. An agent's own Chat shows the same agents control as the main Chat.</p></li>
+  <li><p>A Hermes Chat on Wazza OS MiMo sees Drive's screen, and a Chat whose model cannot read images gets a description of the screen instead.</p></li>
+  <li><p>A subagent started from a Hermes Chat no longer shows an "ack" error.</p></li>
+</ul>
+
+<h2 id="0-3-1-every-change-by-area">0.3.1, every change by area<a class="anchor" href="#0-3-1-every-change-by-area" aria-label="Link to 0.3.1, every change by area">#</a></h2>
+<h3 id="chats">Chats<a class="anchor" href="#chats" aria-label="Link to Chats">#</a></h3>
+<ul>
+  <li><p>A new Chat after you sign in to Wazza OS starts on your default model.</p></li>
+  <li><p>A "provider refused this turn" label clears when the next turn works.</p></li>
+  <li><p>Every tool row names its tool, and a finished tool's row no longer says "Running".</p></li>
+  <li><p>A task given to an app tab runs on the model you chose for it.</p></li>
+  <li><p>Hermes in a VM uses the model you set for new Chats.</p></li>
+  <li><p>A new Chat opens even while another Chat's agent is busy.</p></li>
+  <li><p>Talking to a Chat no longer draws another Chat into its agents' group.</p></li>
+</ul>
+<h3 id="sign-in-and-the-first-start">Sign in and the first start<a class="anchor" href="#sign-in-and-the-first-start" aria-label="Link to Sign in and the first start">#</a></h3>
+<ul>
+  <li><p>The first start offers its private sign-in tab again.</p></li>
+  <li><p>While the Wazza sign-in waits, Wazza OS no longer retries it again and again.</p></li>
+  <li><p>Wazza OS's built-in model connection starts in every install, and a model provider you remove disappears from the model menu at once, with no turn sent to it.</p></li>
+</ul>
+<h3 id="updates">Updates<a class="anchor" href="#updates" aria-label="Link to Updates">#</a></h3>
+<ul>
+  <li><p>When you update from 0.3 with Install now, every VM that runs while the update installs starts again with its apps, including a VM you made with Open in a new VM, at its own size, and no "Sandbox owner readiness" error is shown.</p></li>
+  <li><p>A VM whose memory you set under the 1.25 GB a VM needs says so in its own row, and how to raise it, instead of "not enough memory".</p></li>
+</ul>
+<h3 id="apps">Apps<a class="anchor" href="#apps" aria-label="Link to Apps">#</a></h3>
+<ul>
+  <li><p>Sticky Notes opens again.</p></li>
+  <li><p>Wave Terminal, ONLYOFFICE and FreeCAD no longer cover your work with their first-run screens.</p></li>
+  <li><p>Slides an agent makes in ONLYOFFICE show on screen.</p></li>
+  <li><p>An app tab restored after an app update is no longer blank.</p></li>
+  <li><p>An install that waits for the VM's own updates says so.</p></li>
+  <li><p>Open in a new VM says on the app's card what it waits for, with Cancel, and a refusal stays there until your next action on that card.</p></li>
+  <li><p>A new VM whose first start is refused (for example while an app installs in another VM) is removed again instead of staying in Settings › VMs, stopped, and its message no longer tells you to start it again.</p></li>
+</ul>
+<h3 id="tabs">Tabs<a class="anchor" href="#tabs" aria-label="Link to Tabs">#</a></h3>
+<ul>
+  <li><p>Switching tabs no longer shows a black page, and a switch that fails no longer freezes the window: the next switch and new Chats work without a restart.</p></li>
+  <li><p>A web link opens in the browser tab you already have.</p></li>
+  <li><p>An app tab always shows its own app: while the app starts, the tab says "Starting" with the app's name until the app's own window is there.</p></li>
+  <li><p>A browser tab restored after a restart no longer opens its page again on top of the browser's own restored pages, and none of your pages is lost.</p></li>
+  <li><p>Browser tabs keep all your sign-ins, and each browser profile keeps its own add-ons.</p></li>
+  <li><p>A browser tab that hands its page to your running browser, or whose page the browser's own restore already shows, no longer shows as failed: it says in which tab the page opened, and that tab comes to the front.</p></li>
+  <li><p>A task an agent gives to an app whose tab is still opening goes to that tab once it is ready, never to a second tab, and never to an idle tab whose Chat runs another agent.</p></li>
+</ul>
+<h3 id="agents">Agents<a class="anchor" href="#agents" aria-label="Link to Agents">#</a></h3>
+<ul>
+  <li><p>An agent asked to stop the VMs says when they are really stopped.</p></li>
+  <li><p>An agent's screen capture works as soon as it can see the screen.</p></li>
+  <li><p>Hermes and its skills are set up in a new VM without waiting on other work.</p></li>
+  <li><p>A task that has already ended is no longer started again after a late start failure.</p></li>
+  <li><p>A Chat's agent does its web work in the apps you see, never in a hidden browser of its own.</p></li>
+  <li><p>An agent that checks on an app it started with a wrong id is told its own app starts by their exact ids, so it can go on.</p></li>
+  <li><p>An agent typing in a web page can press any printable key, such as "." or "@".</p></li>
+  <li><p>A helper agent that a Chat's model asks for starts also when the request does not say whether the helper is shown, and in a Hermes Chat also when the model writes the request slightly wrong (a stray closing bracket, or true or false in quotes).</p></li>
+</ul>
+<h3 id="drive">Drive<a class="anchor" href="#drive" aria-label="Link to Drive">#</a></h3>
+<ul>
+  <li><p>Claude Code, Codex, Antigravity and Prime read Drive's screen the same way as Hermes, and Claude Code's model gets every word of Wazza OS's answers too.</p></li>
+</ul>
+<h3 id="stability">Stability<a class="anchor" href="#stability" aria-label="Link to Stability">#</a></h3>
+<ul>
+  <li><p>Wazza OS no longer closes right after you save Settings, and a Save made while another one is still writing waits for it instead of failing.</p></li>
+  <li><p>Settings can always be saved: they are no longer refused after a few hundred saves (also after a restart), and a Chat's Settings calls are no longer refused after a long session.</p></li>
+  <li><p>A fresh VM's kernel update no longer holds up your first app.</p></li>
+</ul>
+
+<h2 id="what-changed-in-0-3-since-0-2-0">What changed in 0.3, since 0.2.0<a class="anchor" href="#what-changed-in-0-3-since-0-2-0" aria-label="Link to What changed in 0.3, since 0.2.0">#</a></h2>
+<p>Version 0.3 (build 485dbf2b8dbf) brought these changes since version 0.2.0 (build b8069fa40737).</p>
 
 <h2 id="in-short">In short<a class="anchor" href="#in-short" aria-label="Link to In short">#</a></h2>
 <ul>
@@ -903,17 +992,17 @@
 <h2 id="internal-improvements">Internal improvements<a class="anchor" href="#internal-improvements" aria-label="Link to Internal improvements">#</a></h2>
 <ul>
   <li><p>The release unit gate's list pins follow the real tree on v2t (test and tooling data only, none in the deb).</p></li>
-  <li><p>Wazza_repair_removed.py, the bootstrap's 72nd plain pair, joins the agent files repair list.</p></li>
+  <li><p>The agent files' repair list includes the tool that repairs removed agent files.</p></li>
   <li><p>The host's app_task words name the tool in its neutral form, and a hidden agent of a gateway Codex Chat is told the gateway's tool names.</p></li>
   <li><p>The shipped Blender installer fits its own 32 KiB lint again.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>A harness's used of 0 is no measure; Wazza OS's estimate shows.</p></li>
   <li><p>One gated core boundary; the quit marked after its claim (test only).</p></li>
   <li><p>A received descriptor is close-on-exec on arrival; one with no seals at all is refused in the reply's words.</p></li>
-  <li><p>A gateway reply past MAX_RESPONSE travels whole in one sealed memfd, so no SEQPACKET message needs a large kernel buffer.</p></li>
+  <li><p>A very large reply from the model connection travels whole, without needing a large kernel buffer.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
-  <li><p>The agent-files repair list carries wazza_browser_addons.py, as the install command does.</p></li>
-  <li><p>The models units take the runtime's guard after PROBE_UNITS_SERIAL, so the units that drain the main window's queue never take their rows in a parallel run.</p></li>
+  <li><p>The agent files' repair list includes the browser add-ons tool, as the install does.</p></li>
+  <li><p>The model tests that use the main window run one at a time, never beside each other.</p></li>
   <li><p>A route timeout is only ever a GUEST harness turn's, and only when guest Hermes alone could have made the call.</p></li>
   <li><p>The route's own 504 gateway_timeout is a failed call of the one turn it can be of, heard by that turn's budget.</p></li>
   <li><p>Twins (iv): the one agents wording says its tool in the neutral form and its operation in the call form.</p></li>
@@ -925,7 +1014,7 @@
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>Lean.1's own source tree, the codex-lean folder and its build script exactly as has them.</p></li>
   <li><p>A failed word watch says its errno in a debug build, and an idle Chat still hears native's word through a bounded stat.</p></li>
-  <li><p>A turn that ENDED on a retryable failure of its model call, the gateway's log of it with nothing answered after, is that failure (MODEL_PROVIDER_FAILED), never the harness's give-up read as an answer.</p></li>
+  <li><p>A turn that ended on a model call that failed and could be retried is said as that failure, never as an empty answer.</p></li>
   <li><p>A host Chat's call of a global MCP tool is admitted against the global rows at the list's revision now, never a stale read.</p></li>
   <li><p>A guest Chat's cmd.&lt;name&gt; reads the Chat's tool call bound native holds at its call (settings.timeouts, once) and waits to it, not to the bound its server started with.</p></li>
   <li><p>The visible run's bound guest exec waits out the wire's not-dispatched refusal.</p></li>
@@ -944,24 +1033,24 @@
   <li><p>STORM: code PEER taken: the siblings end the same way; four nits.</p></li>
   <li><p>A DEBUG build's app launch carries the guest's DEBUG-only lines switch (release bytes unchanged).</p></li>
   <li><p>A paste of this computer's file into a VM app is a paste however quick, because a press since the owner tells it from Files' look.</p></li>
-  <li><p>Two terms from PEER notes on: the unknown requestor's direct read is asserted, the guest's libxres1 is pinned, FILE_MANAGER_APPS' doc names the unknown requestor.</p></li>
+  <li><p>Follow-ups from a review: the file manager's unknown-requester case is checked, and a guest library is pinned.</p></li>
   <li><p>DISCRIMINATOR, two added terms: a requestor whose process cannot be read counts as a file manager, and a file manager is refused a target its TARGETS reply did not name.</p></li>
   <li><p>The guest offers a file manager the file list alone, so its looks never read the CLIPBOARD and its only ask is its paste.</p></li>
   <li><p>Phase 1, term: the hold's two new line kinds are DEBUG-only, said only where the guest carries Wazza OS's DEBUG mark.</p></li>
   <li><p>A guest copy held under the keeper's notice is drawn when the keeper's notice ends.</p></li>
   <li><p>The window's notice owner is the registry's key, origin included, so a guest record never replaces, clears or hides the keeper's notice.</p></li>
-  <li><p>BASE RED 2, in gpu_lend.rs: the Native GPU words name the Settings places the person finds.</p></li>
+  <li><p>The graphics card notices name the Settings places where you change it.</p></li>
   <li><p>Settings' MCP servers page reads its list again each time native tells the windows that a VM's install of a global server changed, never on a timer.</p></li>
   <li><p>PEER note 1: why the keeper's probe fell back is one debug-build line.</p></li>
   <li><p>Wazza OS's own binary keeps a host Chat's MCP server running.</p></li>
   <li><p>Part 5: a folder at a spool name is moved aside and the owner file made, and a folder there no longer ends the whole read.</p></li>
   <li><p>Part 4: root's spool names are never free for the desktop user, and a guest line never replaces, evicts or stands in for a host-origin record.</p></li>
-  <li><p>A change to test/unit.</p></li>
+  <li><p>A change to the tests.</p></li>
   <li><p>Part 2: a hidden agent's Chat is its own record key.</p></li>
   <li><p>The recovery records' interface: the guest spool and its emitter, the host registry, the event and the sandbox ops.</p></li>
   <li><p>Part 1 (d), base finding: the repair ready lines that name a pinned version are places of their pins.</p></li>
   <li><p>A lost display's stop ends the app (RuntimeStopCause::ends_the_app names DisplayLost, true).</p></li>
-  <li><p>The generated files regenerated (the stage changed wazza_drive_mcp.py, a Drive skill and the launcher).</p></li>
+  <li><p>The generated files were updated (Drive's tools, a Drive skill and the launcher changed).</p></li>
   <li><p>At EOF the drain stops the refresh first, so a list read that ends while the loop drains says no list_changed.</p></li>
   <li><p>Every Drive guest exec names the VM of the act it serves.</p></li>
   <li><p>A guest exec, file call or metrics read runs in the VM its instanceId names, or is refused.</p></li>
@@ -974,7 +1063,7 @@
   <li><p>HOLD and notes on: a page kept for back and forward is never disposed; a studio-N window whose close began disposes without its flush; the controller's intervals are cleared; the harness's unload runs every listener.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>Each guest helper artifact's member count is generated from GROUPS, never a literal.</p></li>
-  <li><p>The Pro guest helpers write the guest user's home only from the guest's installed copy; any other copy without WAZZA_PRO_HOME refuses and writes nothing.</p></li>
+  <li><p>The Wazza Pro helpers in the VM write the VM user's home only from their installed copy; any other copy writes nothing.</p></li>
   <li><p>The re-list table names Codex at the pinned lean.1, where its cell was proved.</p></li>
   <li><p>The UI's Settings contract takes cpu_only_vms list, so Settings loads again on a build that saves a VM's CPU-only choice.</p></li>
   <li><p>The GL probe's kept answer holds only for the render nodes it was asked under, so a GPU that stops opening is named.</p></li>
@@ -986,7 +1075,7 @@
   <li><p>Memory.auto never gives a busy guest's RAM back while its CPU use, which is being read, is not yet read over the shrink's window (hold busy_unread).</p></li>
   <li><p>A tab exec refused before dispatch for its whole bound answers the typed exhausted admission wherever the bound ran out.</p></li>
   <li><p>The unsaved default takes the offered set's word too, and new Chats drop a default only on that word.</p></li>
-  <li><p>A person's VM folder 9+ levels below home lists, opens, copies, renames, moves and deletes like any other: a guest path is bounded by its bytes (1024) and each name, never by a count; the folder copy's descent at FILE_COPY_MAX_DEPTH (32).</p></li>
+  <li><p>A VM folder nine or more levels below the home folder lists, opens, copies, renames, moves and deletes like any other.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>A Chat's provider check goes the way its hop goes.</p></li>
   <li><p>The provider gateway's egress filter, and a proxy's refusal typed.</p></li>
@@ -1006,9 +1095,9 @@
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>A Pro sign-in's Chromium owner proof waits out a busy guest owner before and after its one exec, instead of failing the sign-in.</p></li>
   <li><p>Every word that named a Settings section as a page names its page and section; the gate's ratchet is empty.</p></li>
-  <li><p>A DEBUG build hands its WAZZA_DEBUG_LINES switch to the guest processes whose refusals write a debug line.</p></li>
+  <li><p>A debug build passes its debug switch to the VM's processes, so their refusals are written to the debug log.</p></li>
   <li><p>The two chat-model pins move to the entries they guard.</p></li>
-  <li><p>A store-bound APT step keeps its DETACHED_APT: marker first.</p></li>
+  <li><p>An app install step that runs the VM's package manager keeps its marker first.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>Classify the VM bar's Keys button (btn-vm-keys) in ui_control_catalog.</p></li>
@@ -1030,7 +1119,7 @@
   <li><p>(b) (3): a held retained repaint does no work; the visible hold's release wakes the producer.</p></li>
   <li><p>(b) (2): the stall supervisor never judges a view a visible action holds; past the hold's own bound it says so in words, with no stop; released, the view is judged afresh.</p></li>
   <li><p>(b) (1): no ACTION take blocks under the ordered-target mutation; a visible hold defers the stop.</p></li>
-  <li><p>Test helper sits after runtime_engine.rs's production code, as the file's source-text units read it.</p></li>
+  <li><p>A test helper moved after the product code it tests.</p></li>
   <li><p>A call that has not ended has no result text; an empty text result says nothing; the units see native's key order.</p></li>
   <li><p>Unit, test only: the whole share observation of a secondary VM through a real Runtime.</p></li>
   <li><p>(b): a debug build's visible Hermes broker says how its terminal client's cmdline differs from the exact invocation.</p></li>
@@ -1049,7 +1138,7 @@
   <li><p>The harness-auth payload rebuilt on the stack tail, so it carries this tree's launcher.</p></li>
   <li><p>The MCP loader's one config import, on line.</p></li>
   <li><p>One read of native's command rows in flight at a time (the refresh waits for the list's read, a list waits for the refresh's).</p></li>
-  <li><p>Tabs' unit leaves (the selection lock, test_set_selected) after all production code.</p></li>
+  <li><p>The tab tests' helpers moved after the product code.</p></li>
   <li><p>Tabd's op focus counts GTK's focus child of the in-view tab's own window; a debug build's hello asks for its focus_debug line; wazza-tabd 1.0~t8.27 built and pinned.</p></li>
   <li><p>(b) MECHANICAL: wazza-tabd 1.0~t8.26 built and pinned.</p></li>
   <li><p>A shown terminal-only Chat tab is concealed for Drive, said at the visibility edge AND at every committed selection.</p></li>
@@ -1079,7 +1168,7 @@
   <li><p>Hold path (a),: no From&lt;ModuleError&gt; for Refusal.</p></li>
   <li><p>On top of + (a new commit, never an amend).</p></li>
   <li><p>Hold path (a), native: a Wazza OS child's refusal is TYPED where it is decided; a held tab is answered Held at once; a follow-up refused only for now is never retired.</p></li>
-  <li><p>An act stopped mid-way says why, in its stop's own words; in place, IN_PLACE_STALE once.</p></li>
+  <li><p>An action stopped part way says why, in its own words.</p></li>
   <li><p>The in-place act writes head 0 through its own QMP entry.</p></li>
   <li><p>Drive_lanes' t8 re-exports tab_lanes_endpoints.</p></li>
   <li><p>Which epoch condition refused, and each look's placement and route (debug build only).</p></li>
@@ -1119,20 +1208,20 @@
   <li><p>MUST 3 (ii) ON MAIN:, as.</p></li>
   <li><p>A Hermes turn its provider refused the key for is Wazza OS's typed refusal, said in Wazza OS's words.</p></li>
   <li><p>The guide line reaches every harness's model: Prime Agent, Antigravity and Hermes too.</p></li>
-  <li><p>START_HERE opens the first-called tool's description in every server's tools/list.</p></li>
+  <li><p>Every Wazza OS tool server names its first tool to call first in its list of tools.</p></li>
   <li><p>Name install_visible_early_quiet_logging in.</p></li>
-  <li><p>The harness hook catalog as ONE machine-read file (source/pins/capabilities.json, kept true by release/script/capabilities.py) and ONE read-only pin-diff entry for a candidate release (release/script/harness_pin_diff.py).</p></li>
+  <li><p>The harnesses' hook catalog is one file, kept true by a check, with one read-only comparison of a candidate release's harness versions.</p></li>
   <li><p>No Hermes record or warning reaches the visible turn's stderr at any time, from its first line.</p></li>
   <li><p>The guest launcher's visible turn runs as the visible broker's dedicated account, and hook_owner now takes THAT account's ids for it.</p></li>
-  <li><p>The pin registry names the shipped Hermes v0.23.1, the contract's Local runner starts the launcher as hermes_local.rs does, and the hermes contract is re-proved at v0.23.1.</p></li>
+  <li><p>The shipped Hermes is version 0.23.1, and its checks were proved again at that version.</p></li>
   <li><p>(b) +: the visible turn's stderr says nothing of Hermes' logging (a DEBUG build's run keeps it in a debug file), and the broker's install check holds the launcher to its installer's mode.</p></li>
   <li><p>(b): the visible guest Hermes runs its one turn through the launcher's in-process agent over ACP, never v0.23.1's CLI gateway daemon.</p></li>
   <li><p>Part 4, first commit: the hermes pin names its shipped plugin, so hermes-runtime-pin.json carries "plugins".</p></li>
-  <li><p>The guest installer ships the vendored github-copilot plugin root-owned at &lt;HERMES_ROOT&gt;/wazza-plugins/github-copilot, only on a core without Copilot, exactly its reviewed files.</p></li>
+  <li><p>The VM's installer adds the reviewed GitHub Copilot plugin for Hermes only where Hermes does not already have it.</p></li>
   <li><p>GitHub Copilot keeps working when it leaves Hermes's core: the github-copilot plugin vendored at its reviewed pin, linked into each Hermes home by setup, and the sign-in worker's Copilot login reaching it.</p></li>
   <li><p>Three v0.23.1 breaks the units found, and the last test drift.</p></li>
   <li><p>The compiled v0.23.1 payload, baked and pinned.</p></li>
-  <li><p>Part 4: the guest installer's pip check passes exactly what Hermes' own lock overrides on purpose, as Hermes' pm/pip_check.py does.</p></li>
+  <li><p>The VM installer's package check accepts exactly the versions Hermes itself pins on purpose.</p></li>
   <li><p>An adopting Chat whose harness's report it cannot take sets nothing (never a set_model of its never-chosen default), and a model the person picks while it waits is set as any pick is.</p></li>
   <li><p>The started Chat ADOPTS the door model its harness reports running, never a switch, so its labels equal the model that runs at every step and no second Hermes start happens.</p></li>
   <li><p>The 'keys' line is retired by its own state; the line under the send box and its way out are typed together (rule 2).</p></li>
@@ -1141,24 +1230,24 @@
   <li><p>Every fixed guest command its OWN bound from ONE table; a busy poster asked again on the next job's end.</p></li>
   <li><p>Step 2: the generated UI action block and the bootstrap bundle regenerated.</p></li>
   <li><p>The FreeCAD overlay ported to freecad-mcp, and: every app's overlay held to the archive its manifest fetches.</p></li>
-  <li><p>(46-plain, freecad follow-up): freecad-check's line and Wazza OS's detect pattern name the PINNED commits, and every short copy of them is a pins.py place.</p></li>
+  <li><p>FreeCAD's check and Wazza OS's detection name the same pinned version.</p></li>
   <li><p>(Blender paste), never silent: the guest helper pins Gdk 3.0 (GTK 4 there made every paste say no_gtk), a refusal is an ERROR report (Blender's popup at the pointer), and the software-GL notice is shorter.</p></li>
   <li><p>Generated files regenerated once at the tip.</p></li>
   <li><p>A global MCP server's install, and a host Chat's long tool call, run as DETACHED guest jobs within the guest exec bound.</p></li>
-  <li><p>The debug-logs flavour: every wlog_kv! of hermes_local.rs passes string slices.</p></li>
+  <li><p>A debug build's log lines for the local Hermes are written correctly.</p></li>
   <li><p>CPU, condition: each wrap of a private Hermes function checks its target first.</p></li>
   <li><p>A Local Chat's Hermes starts from the launcher's compiled form.</p></li>
   <li><p>8kr2 LANDED IN LOCAL MAIN, SOURCE ONLY, NOT PUBLISHABLE: 8kr2 FINAL + go.</p></li>
   <li><p>(46-plain, postiz follow-up): ORIGIN names v2.25.3's own release, date and index digest.</p></li>
-  <li><p>(46-plain 0): pins.py check reads GIMP and Blender by their download listings and Discord through its two redirects.</p></li>
+  <li><p>The version check reads GIMP's and Blender's download pages, and follows Discord's redirects.</p></li>
   <li><p>A drag-out's stage answers typed (wait_staged -&gt; Result&lt;paths, StageError&gt;), its ONE event wait.</p></li>
   <li><p>A drop's origin is typed (DropOrigin {Host, Vm}), from the window's text once; no behaviour change.</p></li>
   <li><p>Part 2: wazza-controller compiles the release identity too; the release compile refuses a binary whose two stamps are not its commit's.</p></li>
   <li><p>The registry reaches every copy of an app pin: places, scope and locks in pins.json.</p></li>
-  <li><p>Part 2: the DEBUG build writes app_close_requested when a close's WM_DELETE is acknowledged; a release build holds none of it.</p></li>
+  <li><p>A debug build writes a line when an app acknowledges a close request; a release build writes none.</p></li>
   <li><p>A Claude Code Chat's per-prompt identity probe is answered from a cache.</p></li>
   <li><p>The pin registry 44a/44b on the final tip 2033, at SHIPPED versions.</p></li>
-  <li><p>A change to test/unit.</p></li>
+  <li><p>A change to the tests.</p></li>
   <li><p>Advice: a budget timer of an older generation ends nothing.</p></li>
   <li><p>A Hermes turn on a dead upstream ends as a typed provider failure.</p></li>
   <li><p>MCP servers in Settings get a working Time example and a modern look, and each VM's install is kept typed.</p></li>
@@ -1167,7 +1256,7 @@
   <li><p>Slice 2: every subagent of a Chat shows on every harness; a residual harness's own forbidden tool, used anyway, is its agent too.</p></li>
   <li><p>Found building: the door's listener is served by one named accept thread, with no GTK in agent code, so the controller crate compiles.</p></li>
   <li><p>A Local Chat's Hermes runs on the Wazza door with a VM Chat's custom:wazza:&lt;id&gt; ids, through gateway_route's own Wazza dialect served inside Wazza OS's process.</p></li>
-  <li><p>One Pro root (WAZZA_PRO_HOME), so no host test writes the real.</p></li>
+  <li><p>Wazza Pro uses one home folder, so no test writes to your real one.</p></li>
   <li><p>The latch units' shared boot.</p></li>
   <li><p>A package launch refused by the guest wire inside its run, after its note, waits for the line within its own deadline.</p></li>
   <li><p>The generated files regenerated once at the tip.</p></li>
@@ -1206,7 +1295,7 @@
   <li><p>The model gateway CLIProxyAPI 8.0.27 -&gt; 8.0.67, its pin alone.</p></li>
   <li><p>Antigravity 1.4.3 -&gt; 1.4.5 in main's own pin block.</p></li>
   <li><p>One announcement takes its cause, so an announcement from a path that noted nothing says cause=unknown, never the last cause noted.</p></li>
-  <li><p>Every chat.model_default publication, said or dropped, writes WAZZA_CHAT_DEFAULT_ANNOUNCED with its generation, source, harness, model and cause.</p></li>
+  <li><p>A debug build writes a line each time the default model for Chats is announced, with what changed and why.</p></li>
   <li><p>An applied shrink voids the give-back's stale regrowth baseline and makes one give-back due on the next quiet tick; says why it waits (DEBUG builds only).</p></li>
   <li><p>The broker saves a web tab's pages into its EXPLICIT folder (run.web.folder), never a label-derived one.</p></li>
   <li><p>Fixup: the viewer's poster is set as the vm build script's UI binder takes a URL.</p></li>
@@ -1215,7 +1304,7 @@
   <li><p>Nothing saved, no MiMo, and the person's Custom APIs alone, native's default for new Chats is Hermes on the ONE plan's Custom API model.</p></li>
   <li><p>True words on every branch; MUSTs (1)-(3).</p></li>
   <li><p>A Custom API alone runs guest Hermes.</p></li>
-  <li><p>Build.rs's cleared-environment children get TMPDIR = OUT_DIR/cc-tmp.</p></li>
+  <li><p>The build's helper programs use their own temporary folder.</p></li>
   <li><p>LANDED IN LOCAL MAIN, SOURCE ONLY, NOT PUBLISHABLE: FINAL + go.</p></li>
   <li><p>A message's Regenerate button carries a test id and its own message's id.</p></li>
   <li><p>STALE R-11a: r8iGk2's path runs real, from the upgraded user's key removal to the windows' event bus, red on for the live cause.</p></li>
@@ -1225,14 +1314,14 @@
   <li><p>STALE: a key removed makes native's none reach the window at once, and a Chat still on the old default that has not run takes no model.</p></li>
   <li><p>The trial reset's words tell the truth.</p></li>
   <li><p>The runtime bootstrap bundle carries the regenerated wazza-app-mcp and wazza-workspace-mcp that list vm-kernel.</p></li>
-  <li><p>The kernel step runs a 1.2 KiB step script that loads the app root's own lib/vm_kernel.py, so no step script passes app_registry's 32 KiB limit.</p></li>
+  <li><p>The kernel update step loads its own script from the app folder, so it stays under the size limit of a step.</p></li>
   <li><p>An orphaned group's first x asks at once on native's REAL capture error, for that tab only.</p></li>
   <li><p>MUST on (next train): EVERY renewal of a close that was never sent asks first, never a teardown unasked.</p></li>
   <li><p>LOWs: a log that cannot be made takes its playlist away again, and a failed render leaves no file open.</p></li>
   <li><p>OpenRouter's Claude models go through its Anthropic Messages API, so each harness's prompt-cache markers reach them.</p></li>
   <li><p>No reader cuts or refuses the installed broker at a fixed size.</p></li>
   <li><p>295 tree, and: an ended tree entry leaves after one more drain; a stale entry leaves at its pid's new fork.</p></li>
-  <li><p>MUST on: "nothing was sent to it" and the question at once only for a close that never had a WM_DELETE acknowledged.</p></li>
+  <li><p>"Nothing was sent to it" is said, and the question asked at once, only for a close the app never acknowledged.</p></li>
   <li><p>The UI binder's fixed JavaScript-token and JSON-node bound is gone; every token is still validated.</p></li>
   <li><p>A path typed in HOME's path bar outside HOME (/, /home, /etc) opens the VM's own files, read-only, at that folder.</p></li>
   <li><p>(B), LOWs 1 and 2: an exact "&lt;field&gt;" is refused in plain words, and a call to make shows a long TEXT cut, as a placeholder.</p></li>
@@ -1254,7 +1343,7 @@
   <li><p>After a planned reload, the Chats native still runs start again on their own thread and harness, with no prompt.</p></li>
   <li><p>Chat_choices_restore admits only a harness Wazza OS offers; vm unit compiles; every Chat keeps running across the seamless refresh, and the card and the manual say so again.</p></li>
   <li><p>Each tab Chat's harness choice kept across a reload and a restart and handed to native at start; an apply never reloads over a turn that began after its idle read; the card's words true of every Chat.</p></li>
-  <li><p>Build.rs names the debug overlay for a rerun only when it exists, else its existing folder.</p></li>
+  <li><p>The build reruns for its debug part only when that part exists.</p></li>
   <li><p>295 (b): a failed start's page says native's sentence by the app's label, with no wrappers and no machine codes.</p></li>
   <li><p>Ui.do's enqueue and a guest Chat's chrome effect wait for the runtime, bounded, instead of answering "chrome queue owner is busy" after 25 ms.</p></li>
   <li><p>A guest Chat's cmd.&lt;name&gt; keeps native's kind of a refused run (bad_args "arguments", not_ready "transient") and says its next step, as a host Chat's does.</p></li>
@@ -1262,28 +1351,28 @@
   <li><p>A Chat's "failed" skills report is read, recorded and said once with its typed words.</p></li>
   <li><p>A tab's prewarm of a Chat that runs another harness starts nothing, answered at once.</p></li>
   <li><p>A field an operation does not take is lifted only where it belongs and refused TYPED, naming what the operation takes and to call again without it.</p></li>
-  <li><p>Build.rs names vm/addons/shipped-commands for a rerun only when it exists, else its parent.</p></li>
+  <li><p>The build reruns for the shipped commands only when they exist.</p></li>
   <li><p>A show adopts the running app of a background start native completed but Wazza OS could not confirm, in the same runtime and boot.</p></li>
   <li><p>A person's tab-switch hold ends ONLY at the person's own act, and the new tab's Desktop takes the keys when its input opens while the hold stands.</p></li>
   <li><p>The person's chip-switch hand-over says its arm, each release, its end and each target it asks of native, as WZTX lines, so a DEBUG row names the line that lets the keys go; a diagnostic only, no behaviour change.</p></li>
   <li><p>Say why the read's flights are keyed by the row object.</p></li>
   <li><p>The clients' fan-out: a moved commands revision makes every open Chat list its tools again, at its next call, with no thread and no timer.</p></li>
   <li><p>Part 2, CommandsHooks.</p></li>
-  <li><p>A change to test/unit.</p></li>
+  <li><p>A change to the tests.</p></li>
   <li><p>Hermes' server says its list changed once it can read the rows.</p></li>
-  <li><p>A change to source/agent.</p></li>
+  <li><p>A change to the agent code.</p></li>
   <li><p>Regenerated harness-auth payload after.</p></li>
   <li><p>A unit build starts no delivery thread.</p></li>
   <li><p>Regenerated harness-auth payload after MUST A plugin half.</p></li>
   <li><p>MUST A, the plugin half: a VM Chat's turn uses the guest pointer only when it names the mark Wazza OS named for the turn.</p></li>
   <li><p>Cycle 2's four red units were test bugs, fixed; minor and duplicate keys.</p></li>
   <li><p>Regenerated harness-auth payload after (D).</p></li>
-  <li><p>(D), the plugin pins no shipped skill: build-harness-auth-assets.py keeps only Drive's MODULE pin.</p></li>
+  <li><p>The sign-in plugin pins no shipped skill, only Drive's.</p></li>
   <li><p>(A) MUST 3 units: the guest program says why a mark is NEED or unverified, on stderr.</p></li>
   <li><p>The acp_bridge unit for the Chats' skills reports.</p></li>
   <li><p>Regenerated harness-auth payload for (B)'s plugin.</p></li>
   <li><p>Part 2 fixes before the first compile.</p></li>
-  <li><p>(A), the guest store program: source/vm/addons/vm-runtime/wazza_shipped_skills.py.</p></li>
+  <li><p>The VM's skill store program was added.</p></li>
   <li><p>Part 1/3, the core boundary.</p></li>
   <li><p>The stop's guest flush and its poweroff request are Wazza OS's own short system calls, on the wire's own turn and the guest agent's system workers, never queued behind other work.</p></li>
   <li><p>A content tab's x closes at the person's press, as its chip switches at its press.</p></li>
@@ -1308,8 +1397,8 @@
   <li><p>An open whose probe missed a just-newer version failed with exit 46, and the refusal's update never opened the app again.</p></li>
   <li><p>An apt update never installed beside an open tab, because versions_helper cut the helper's hold answer to 400 characters.</p></li>
   <li><p>$1, the WORDS for 7e, matching part B: Add app's "Opens a file" hint, Edit app and the guide say that a one-line exec PROGRAM ARGS "$1" starts the app with no argument when there is no file, and that in a longer script "$1" is then not set, so write ${1+"$1"} there.</p></li>
-  <li><p>Regenerate the generated files (merge-regenerate.sh) after the batch.</p></li>
-  <li><p>Group-start admits native's WZ_OWN_BUS=1 and gives it to the app's command only.</p></li>
+  <li><p>The generated files were updated after the batch.</p></li>
+  <li><p>An app's start passes Wazza OS's own message bus only to the app's own command.</p></li>
   <li><p>A remembered "Close without saving" ends an app showing its own prompt again. Native ran the checked end without the GNOME/X11 session the broker's check reads windows in, so EVERY checked end failed before any check.</p></li>
   <li><p>$1, part B: with no file to give, a launch script that is one line `exec PROGRAM ARGS "$1"` starts PROGRAM ARGS with NO argument, instead of stopping at sh -u before its app. The person's stored text is never rewritten.</p></li>
   <li><p>The handed-file words say what the code knows, and the pre-check's bus read is bounded.</p></li>
@@ -1317,7 +1406,7 @@
   <li><p>A tab job's own exec that the guest wire refused before dispatch waits for the line within its own bound, never fails at once; every existing test and pinned call text as before.</p></li>
   <li><p>The https proxy's trust is read once per authority file, the socks4, SOCKS5-address and proxy-name units are added, the GIO trust-swap unit runs apart, and an https website named by an IPv6 address works (its unit found it).</p></li>
   <li><p>The bootstrap's install table counts the apps artifact's 6 members, not 5, and a Python unit now holds the Rust table to the generator's.</p></li>
-  <li><p>A doc comment of https_client.rs no longer names a website host.</p></li>
+  <li><p>A code comment no longer names a website host.</p></li>
   <li><p>The comment is back above its own function, and the no-read pin is anchored on the close's own requests.</p></li>
   <li><p>A failed GIMP start names its real cause under load, never "channel-authority".</p></li>
   <li><p>The guard's Save saves a GIMP image opened from a.png/.tif/.bmp/.jpg again: written over its own file when that file holds all of it, else as a new.xcf beside it, never flattened.</p></li>
@@ -1338,7 +1427,7 @@
   <li><p>A probe without an answer in time is "not yet" in the wait; GTK's start failure is.</p></li>
   <li><p>The start waits for Wazza OS's own X display; GTK starts before tauri, never a panic.</p></li>
   <li><p>The helper's probe connects, and probe-x11 asks Wazza OS's own X display.</p></li>
-  <li><p>The codegen places its UI bundle dump under a lock in OUT_DIR.</p></li>
+  <li><p>The build writes its interface bundle under a lock.</p></li>
   <li><p>A unit build hashes its own executable up to 4 GiB; the product keeps 1 GiB.</p></li>
   <li><p>The not-confirmed words keep where the timeout comes from, "(the tool call timeout, Settings › Agent)".</p></li>
   <li><p>A call that timed out while its workspace effect was out with the window says it was not confirmed, never "closed" and never "NOT closed".</p></li>
@@ -1351,7 +1440,7 @@
   <li><p>Option (i) end deadline: a user's end whose app's exit is never proven is bounded: 30 s after native's end answered, a close still requested with its exit unproven and no teardown begun is ended by the ordinary teardown, and its tab goes or says why; never drawn closing for good.</p></li>
   <li><p>A Computer Control Chat reopened from History asks native to reopen its closed harness slot.</p></li>
   <li><p>A tab selection's priority covers only its own dispatch, a growth's memory probe is a system call, and the wire's refusal names its limit in the debug log.</p></li>
-  <li><p>Build: the UI binder's per-file token bound MAX_JS_TOKENS 221_000 -&gt; 243_000, measured: tabs.mjs is 220_076 at.</p></li>
+  <li><p>The build's size bound for one interface file was raised to fit the tabs code.</p></li>
   <li><p>An agent's close of a tab with unsaved work gets the guard's warning at once, and a forced close native settled applied_late gets its answer.</p></li>
   <li><p>Never a Wazza OS with no window a person sees; a relaunch takes over, its questions asked on the person's desktop.</p></li>
   <li><p>A switch keyed to one tab, and an authority hold for.</p></li>
@@ -1364,22 +1453,22 @@
   <li><p>Layout_containment: its 7 reds on brought up to what the UI does; one was a real UI bug, fixed.</p></li>
   <li><p>The compiled detect pins become manifest data, generic, never a list of app ids.</p></li>
   <li><p>6, -7, -9, -11, -12 and in the seamless client and its card.</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after broker uid fix (merge-regenerate.sh).</p></li>
-  <li><p>The broker checks the session user by GUEST_UID; two tests follow.</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after (merge-regenerate.sh).</p></li>
-  <li><p>Vm/build.rs's UI binder refused tabs.mjs; its constant moves to the module's constants.</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after the round-2 broker picks (merge-regenerate.sh).</p></li>
-  <li><p>A tabs.mjs comment says "those are closed tabs", so `grep -rn 'tabs are closed' source/ui` finds nothing.</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after the F3R-9b broker picks (merge-regenerate.sh).</p></li>
+  <li><p>The VM's runtime bundle was regenerated after a fix.</p></li>
+  <li><p>The VM checks the session user by its id; two tests follow.</p></li>
+  <li><p>The VM's runtime bundle was regenerated.</p></li>
+  <li><p>The interface size bound moved to the build's constants.</p></li>
+  <li><p>The VM's runtime bundle was regenerated after a fix.</p></li>
+  <li><p>A code comment was reworded.</p></li>
+  <li><p>The VM's runtime bundle was regenerated after a fix.</p></li>
   <li><p>A tab start whose app group is orphaned starts and ends nothing, and says so.</p></li>
   <li><p>The guest reaper never ends an orphaned tab group with no close under way.</p></li>
   <li><p>An orphaned app group is never ended unasked: prepare-open answers ORPHANED, no "MAIN ended", stale reads say app_orphaned.</p></li>
   <li><p>Revert ": interim, guest side: the guest tab.close says what its route does".</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after the fixer's merge and broker commits (merge-regenerate.sh).</p></li>
+  <li><p>The VM's runtime bundle was regenerated after a merge.</p></li>
   <li><p>Group-status: an orphaned app group exits 3 and prints "orphaned PID START", never exit 2.</p></li>
   <li><p>Owner-documents: startFileNotTaken for a tab whose saved app's launcher did not pass this start's file (-a-2, broker side).</p></li>
   <li><p>Drop at the merge (revert): replaces it.</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after the, L and acp merges (merge-regenerate.sh).</p></li>
+  <li><p>The VM's runtime bundle was regenerated after merges.</p></li>
   <li><p>A Desktop discard says why each app ran on; the tab stays over an app of it native could not end, and a shared app is named; -c3's orphan mark passes.</p></li>
   <li><p>K (MED) + request + comment LOW: bundle files are owned by their registry, never leaked.</p></li>
   <li><p>K (MED) + I LOW: field codes only in a one-command Exec-like launch script; a held restore never empties its folder.</p></li>
@@ -1388,7 +1477,7 @@
   <li><p>Only stages and writes adapt; every probe keeps the fixed 1 s.</p></li>
   <li><p>K (, /) + L-a, L-b, L-c: lock waits without wake-ups; a void legacy hold refused; a killed hold never loses its snapshot.</p></li>
   <li><p>A Chat's owner exec bound adapts to a slow guest, and a starved request fails in words.</p></li>
-  <li><p>An app group whose leader is gone while its members run is never NO_LIVE_APP.</p></li>
+  <li><p>An app whose first process ended while its other processes still run is never said to have no running app.</p></li>
   <li><p>The dialog's open attribute, never its `open` member (the vm crate's UI binder refused it).</p></li>
   <li><p>Native passes the broker's startFileNotTaken and the tab says its project could not be reopened.</p></li>
   <li><p>An agent's force on a Desktop tab closes nothing when native's discard left an asking app running.</p></li>
@@ -1429,7 +1518,7 @@
   <li><p>A Start of the running live generation is never memory-gated (FINAL Arch: start_low_memory while QEMU ran).</p></li>
   <li><p>The person's own close of the Desktop tab decides; the force never ends what they are asked.</p></li>
   <li><p>This line's 3 new window list reads go through window_list too; bootstrap bundle regenerated (, 3121).</p></li>
-  <li><p>Regenerate the runtime bootstrap bundle after the follow-ups (merge-regenerate.sh).</p></li>
+  <li><p>The VM's runtime bundle was regenerated after follow-ups.</p></li>
   <li><p>A never-kept session counts as the Chat's own only if the tab start it (review BLOCKER).</p></li>
   <li><p>A Chat's never-kept session that it ran before the refresh is its own too (the REAL apply: own=false).</p></li>
   <li><p>Save and a failed guard never discard; the discard says how; the tab re-checked.</p></li>
@@ -1484,7 +1573,7 @@
   <li><p>The bootstrap bundle regenerated after and.</p></li>
   <li><p>Chromium restores its last session; desktop entry of a pid.</p></li>
   <li><p>The bootstrap bundle regenerated from the merged guest sources (T1+,).</p></li>
-  <li><p>After a refresh of the Wazza OS window, Chats start and send again (no ACP_NATIVE_DOCUMENT_PENDING).</p></li>
+  <li><p>After a refresh of the Wazza OS window, Chats start and send again.</p></li>
   <li><p>A plan app's tab runs pinned to its current version; its pin goes on every end of its owner.</p></li>
   <li><p>App_detect answers installCause; the saved-app tab test names the new profile step.</p></li>
   <li><p>A refresh of the Wazza OS window keeps each tab's Chat document lease, so a running host harness is not restarted.</p></li>
@@ -1508,18 +1597,18 @@
   <li><p>The fixture takes native's firstTurnTools (test only).</p></li>
   <li><p>The real-reads hold units bound by the hold's own reads, never the wall clock (test only).</p></li>
   <li><p>The u12 skills tree lives under the run's own private temp root, never the user's ~/.cache alone (test only).</p></li>
-  <li><p>A behaviour unit through the real tabs.mjs (test only).</p></li>
+  <li><p>A behaviour test through the real tabs code (test only).</p></li>
   <li><p>And pin the lines the product says now (test only).</p></li>
   <li><p>(1) and (2): the twins' tool names in two stale pins follow the product's harness-neutral words.</p></li>
   <li><p>Words beside the FINAL's growth lose 36 characters, so the largest recipe preloads 42,597 (&lt; 42,600; the bound stays).</p></li>
   <li><p>The 4K TUI frame budget measured by the encoder thread's own CPU time (test only).</p></li>
-  <li><p>(2) sibling: test_hermes_tool_observations' 11 reds under the pinned Hermes Python are the same helpers report; the flow's connection keeps it apart, checked whole.</p></li>
-  <li><p>(2) test_hermes_full_tool_output_sdk x2: the turn's last update is the helpers report added; the tool's own row is unchanged.</p></li>
+  <li><p>Hermes's tool tests read Hermes's helper report as one report.</p></li>
+  <li><p>Hermes's full tool-output test reads the helper report added at a turn's end; the tool's own row is unchanged.</p></li>
   <li><p>(1): the units read the launcher's DEBUG lines with the base module's debug switch (test only).</p></li>
   <li><p>A harness that lists Wazza OS's tools by name holds Wazza OS's server (test only).</p></li>
   <li><p>Rule 5 never reads a tool of Wazza OS's own MCP servers as the harness's subagent tool (test only).</p></li>
   <li><p>Recapture on Wazza OS's golden: studio-mcp.json + the 5 harness captures.</p></li>
-  <li><p>A change to test/unit.</p></li>
+  <li><p>A change to the tests.</p></li>
   <li><p>The unit finds the bind by its call, in either form.</p></li>
   <li><p>The FINAL compose's registry scope pin (43, 22, 156, 221).</p></li>
   <li><p>The idle-gate units hold the runtime test guard, then their own serial, so no other unit's Chat work or page beat is read as theirs.</p></li>
@@ -1530,8 +1619,8 @@
   <li><p>The registry build refuses a row that names a tab and no VM.</p></li>
   <li><p>A paste chord for a VM that is not shown never says the shown VM's mark.</p></li>
   <li><p>The skill-search bench compiles again on the controller's own debug-only print macros and lint rule.</p></li>
-  <li><p>(2)+(3): the release unit fixtures name the product's binary member by package-deb's own BINARY_PATH (usr/bin/wazza-os), not the old usr/bin/wazza.</p></li>
-  <li><p>A change to test/unit.</p></li>
+  <li><p>The release tests name the program's new file name, wazza-os.</p></li>
+  <li><p>A change to the tests.</p></li>
   <li><p>(A) unit fix: a server added with no name is named by its id.</p></li>
   <li><p>The cold-readiness unit's strict guest fake answers the GPU provider's read.</p></li>
   <li><p>The twin unit reads the one refusal code.</p></li>
@@ -1543,24 +1632,24 @@
   <li><p>Unit, term: the bound from the constants with one named slack, the count for both deadline exits, a drop guard for the hook (test only).</p></li>
   <li><p>Unit,: the seamless update's unit loads the compiled registry first, as Wazza OS has by then, so its apply is the swap it checks.</p></li>
   <li><p>STORM: term on: every caller of the shared spelling table, named, and a unit on gateway_serves.</p></li>
-  <li><p>The install tell's unit holds PROBE_UNITS_SERIAL first, so it never drains the models card units' rows (nor they its own).</p></li>
+  <li><p>The install notice's test runs alone, never beside the model card's tests.</p></li>
   <li><p>PEER note 1: the unit's cleanup tells no window.</p></li>
   <li><p>The harness fact and the seal's side fact: Antigravity's first turn offers no MCP tool, held at its pin; the contract seal never reaches the system's schedulers.</p></li>
   <li><p>PEER note 2,: the place in the row's words is pinned to the Sign In tab the person clicks as well as to its card.</p></li>
-  <li><p>Claude-agent-acp's states re-proved at its 0.106.0 pin, the KNOWN_STALE entry gone, two pin facts named.</p></li>
+  <li><p>Claude Code's connector was checked again at its pinned version.</p></li>
   <li><p>Prime-agent's coverage cases re-proved at 0.10.1, the v2 pin (test only).</p></li>
   <li><p>ACPCOV, re-read nit: acp_rpc's default arm, the bound of what a caller can have written, is pinned.</p></li>
   <li><p>PEER nit as term: the Settings › Chats &amp; agents › New Chats sibling named and pinned (test only).</p></li>
   <li><p>The quota unit waits for its answer by a bounded deadline, never by a count of event-loop turns.</p></li>
-  <li><p>Read every import line of wazza_chat_look.mjs in deepchat_pane.mjs, not only the first.</p></li>
-  <li><p>ACPCOV, PEER findings 1 and 2: M also reads source/modules and the forwarders, so session/close is in it; session/load gets a case per harness (agent.rs chat_restore writes it to any harness).</p></li>
-  <li><p>HERMES / -: each method Wazza OS writes is now sent by a contract case or named NOT_SENT with checked product lines (OWED 0).</p></li>
-  <li><p>Session/set_mode: NOT_SENT with checked product lines.</p></li>
+  <li><p>A Chat pane test reads every import of the Chat code, not only the first.</p></li>
+  <li><p>Every method Wazza OS sends to an agent is covered by a test for every harness, saving and restoring a Chat included.</p></li>
+  <li><p>Each method Wazza OS sends to Hermes is now covered by a test, or named as never sent.</p></li>
+  <li><p>A mode change is named as never sent to Hermes, checked.</p></li>
   <li><p>Each ACP method Wazza OS writes to a harness is sent by each ACP pin's contract, or named.</p></li>
   <li><p>Every contract module names its pin's version under test, on every gate run.</p></li>
   <li><p>ONE re-cut of +, both sides kept.</p></li>
   <li><p>Route, part 2: the vendor pre-cache also reads the LFS store beside the objects a shared clone borrows.</p></li>
-  <li><p>The vendor pre-cache takes a harness the tree carries at release/vendor/&lt;file&gt; from this repository's own LFS store, never from the network.</p></li>
+  <li><p>The release takes a harness it carries from its own storage, never from the network.</p></li>
   <li><p>A new Hermes Chat's list is native's own, read by Settings, the model window and the default's check.</p></li>
   <li><p>Part 1 (d), missed caller: the install-plan fixture's enqueue says it is an install (repair: false).</p></li>
   <li><p>The view-switch unit asserts the Num Lock read's VM too; the typed act's keys probe is required.</p></li>
@@ -1570,12 +1659,12 @@
   <li><p>Every spec and lab that reads the launcher's OLD diagnostic lines takes the acp_debug_channel guard, a census holds it.</p></li>
   <li><p>The three live readers of the launcher's DEBUG-only lines STOP where the switch has not reached the launcher, never judging a missing line as a product RED or a 0 count as a pass.</p></li>
   <li><p>Three vm lib units read the code they pin as it is now, each assert kept.</p></li>
-  <li><p>Wazza_thinking_test.mjs goes, as removes it.</p></li>
+  <li><p>A test file that no longer tested anything was removed.</p></li>
   <li><p>Own_xvfb is included at module level.</p></li>
   <li><p>Parent waits bounded (rule 14); a hung child is killed and said.</p></li>
   <li><p>The placement unit starts from a first start's tracker, as Wazza OS's does.</p></li>
   <li><p>A stray file in vm/addons must not rerun the controller's build script.</p></li>
-  <li><p>Test.sh writes no Python bytecode into the product tree (the test seal's controller recompiles).</p></li>
+  <li><p>The tests write no compiled Python files into the product.</p></li>
   <li><p>The apps section unit holds floors, not frozen counts.</p></li>
   <li><p>The goal-routing units patch the goal plugin's WAIT for each test alone and restore it at its end.</p></li>
   <li><p>Term on (rule 2, the real entry): unit drives the REAL pagehide of a closing studio-N window.</p></li>
@@ -1584,12 +1673,12 @@
   <li><p>A slow contract holds the pinned Claude Code's window and compaction point to the constants Wazza OS's Chat info computes them from.</p></li>
   <li><p>Storage_listing reads each entry's mode, and the named root itself.</p></li>
   <li><p>(2/2), test only: the chronological ACP fixture re-recorded by its one producer, so the stdio chronological unit matches native again.</p></li>
-  <li><p>The release scripts' dry runs run the REAL test.sh / build.sh, path-safety.sh and compile.py on a staged real checkout; "no storage touched" is read at every root storage_paths names.</p></li>
-  <li><p>Test_compile_safety.py is executable again, 100755 as on its base.</p></li>
-  <li><p>The vm-runtime bound case stages what test.sh's dry run reads, and reads the bound of both discovery passes.</p></li>
-  <li><p>Class 3, the last: the build-stamp gate runs compile.py whole on a staged checkout; the stub cargo builds a binary whose self-test answer is a real release binary's own report.</p></li>
-  <li><p>The cargo-timeout case runs compile.py whole on a staged checkout; only cargo is a stub, and the real run_cargo_build cuts it.</p></li>
-  <li><p>The stale launcher case runs compile.py for real on a staged checkout, and the real auth asset check refuses it before cargo.</p></li>
+  <li><p>The release scripts' dry runs run the real build and test steps on a staged copy, and check that nothing on your computer was touched.</p></li>
+  <li><p>A test file can be run directly again.</p></li>
+  <li><p>A test reads what the tests' dry run reads.</p></li>
+  <li><p>The build check runs the real compile step on a staged copy.</p></li>
+  <li><p>The build's time-limit test runs the real compile step; only the compiler is stood in.</p></li>
+  <li><p>The test for an old launcher runs the real compile step, and the real check refuses it before compiling.</p></li>
   <li><p>The staged release checkout, and CargoTargetSafetyTests on it.</p></li>
   <li><p>Sign in's Website press says nothing and swallows a refusal; the window's website still writes to two Settings elements nothing creates.</p></li>
   <li><p>The native start units wait for their script's own exit, never a wall-clock bound on two Python starts.</p></li>
@@ -1597,10 +1686,10 @@
   <li><p>Re-cut fix (test only): its e6 tests start after the restore test's closing brace, as items of their own.</p></li>
   <li><p>OPEN (c2), re-cut onto '' (test only): its two no-host-GPU units take the base's one unit-socket rule.</p></li>
   <li><p>OPEN (c2) env put-back, re-cut fix (test only): the unit's environment list is saved_env, never shadowed by its saved Settings.</p></li>
-  <li><p>OPEN (c2) test only: its gpu_mode_set unit puts back WAZZA_DATA_DIR and WAZZA_SETTINGS_KEY as they were, never removes them.</p></li>
+  <li><p>A test puts back two settings of its environment as they were, never removes them.</p></li>
   <li><p>The notification centre's CPU only click is an asserted reach, so a centre that drops useCpuOnly fails by its assert.</p></li>
   <li><p>Its captures on Wazza OS's own initialize: token counting asks no model, so the kit's one model_requests leaves it out.</p></li>
-  <li><p>Term and: no list of the unit's own; the adapter and sign-in envs are the launchers' own builders, the key shapes host_stderr.rs SECRET_PREFIXES.</p></li>
+  <li><p>A test reads the harnesses' environment from their own launchers, and the key shapes from the product's own list.</p></li>
   <li><p>Every start the kit makes sends the initialize Wazza OS sends that harness, from one copy of each, and no initialize env carries a sign-in variable or a key.</p></li>
   <li><p>Prime-agent's, hermes's and antigravity's request captures re-recorded on, each change read and named.</p></li>
   <li><p>A harness's request capture writes the host facts in its own instructions as tokens, so an unchanged harness re-captures byte-equal on any day and kernel.</p></li>
@@ -1618,12 +1707,12 @@
   <li><p>The stop unit checks that restage puts back the SIGTERM handler it found.</p></li>
   <li><p>Vm-kernel's units mark every assertion 1a changed as CHANGED, with what it said before.</p></li>
   <li><p>Units, RED-first (test only): an app's release of the fullscreen it took over Wazza OS's gives Wazza OS's back.</p></li>
-  <li><p>Part 4, re-cut onto '' (test only): the exec-bit unit lists release/script/gen-app-mcp-helpers.py.</p></li>
+  <li><p>A test checks that a release helper script stays executable.</p></li>
   <li><p>Workspace_chat_control_keeps_desktop_input_disabled takes the crate-wide test guard.</p></li>
-  <li><p>Part 4, re-cut onto ': the exec-bit unit lists release/script/gen-start-here.py.</p></li>
-  <li><p>Part 4: a unit catches a dropped exec bit on release/script.</p></li>
+  <li><p>A test checks that another release helper script stays executable.</p></li>
+  <li><p>A test catches a release script that lost its executable mark.</p></li>
   <li><p>Its sibling words (test only): the nested guest-list unit's precondition names the guest list's byte bound, not the 8-part count the fix removes.</p></li>
-  <li><p>Drive whatever the window's handling of the frame's load calls, read from deepchat_pane.mjs, so the pick carries to unchanged.</p></li>
+  <li><p>Drive tests read the Chat pane's frame load as the product does.</p></li>
   <li><p>BACKTICKS, the real-engine proof (stack-g7k-r8LY3-0423 n=46-47): in real WebKitGTK the record's answer draws its inline code with nothing before or after it, once the window's look was applied.</p></li>
   <li><p>The parity unit's carried_split takes only the carried install, never the network form's update.</p></li>
   <li><p>Two guest_hermes source pins follow 2c's setup_model_of.</p></li>
@@ -1658,7 +1747,7 @@
   <li><p>The Start-control layout test runs in the canonical suite and guards today's Start controls.</p></li>
   <li><p>Crew's hidden-agent words say what the admission does; the preload floor is under its budget again.</p></li>
   <li><p>Wazza-app-mcp's deployed guest helpers are generated from their sources.</p></li>
-  <li><p>The input_after_switch and wheel harnesses bind ui.js's cross-VM switch guard as ui.js declares it.</p></li>
+  <li><p>Two input tests use the product's own guard for switching between VMs.</p></li>
   <li><p>The Pro tab reservation unit reads the probe's waited identity lookup, before and after its one exec.</p></li>
   <li><p>Kind (a) RED (test only): the gate's ratchet is EMPTY, a PREVIOUS WORDS block is pinned, and a change's status labels are the page's own.</p></li>
   <li><p>The t8 splice test counts a debug build's third insertion.</p></li>
@@ -1671,9 +1760,9 @@
   <li><p>The model window lost the old Chat menu's Apply to all chats, its Serif font, a look for all chats and a small window's Refresh.</p></li>
   <li><p>Wave Terminal's Remove leaves the 9 files its own installer wrote outside its roots.</p></li>
   <li><p>Kind (b) RED: the places Settings does not have.</p></li>
-  <li><p>Only the files build.rs's binder leaves opaque (deepchat-renderer/) get every token escaped; any other script changes only inside its comments; a strip-then-bind test runs the binder's own check on the release-stripped tree.</p></li>
+  <li><p>Only the files the build cannot read get every word escaped; a test checks the stripped release tree.</p></li>
   <li><p>The release UI transform makes every shipped script pure ASCII with the same meaning, so WebKit keeps one copy of each script's source instead of two.</p></li>
-  <li><p>The release UI closure fixture names /vm_boot_failed.mjs, which added.</p></li>
+  <li><p>The release interface file list includes the VM boot failure page.</p></li>
   <li><p>The live receipt gate follows the accepted marker rule ((b)).</p></li>
   <li><p>Two ui pins follow the press's moved code; each asserts the same invariant, never weakened.</p></li>
   <li><p>The live test target's receipt names the new field.</p></li>
@@ -1695,7 +1784,7 @@
   <li><p>The deb, its builds and its verifier leave the on-demand apps out.</p></li>
   <li><p>(b) ENTRY: the Desktop menu's drawn-whole check counts the visible Hermes check's Run row.</p></li>
   <li><p>Before readiness the only native call is the strip's own drop geometry, named, and no guest call leaves the window.</p></li>
-  <li><p>The input-rearm and screen-hit harnesses bind ui.js's cross-VM switch guard and starting card as ui.js declares them.</p></li>
+  <li><p>Two input tests use the product's own guard and starting card for switching between VMs.</p></li>
   <li><p>The clipboard source test reads per-VM clipboard in both of its pins.</p></li>
   <li><p>The global MCP's three other lock sites are listed.</p></li>
   <li><p>The 295 shell test composes the scan as the product does.</p></li>
@@ -1709,7 +1798,7 @@
   <li><p>The units Rust mutants RM6, RM8 and RM9 need.</p></li>
   <li><p>The refusals that make an answered turn the typed FAILED are pinned to refusal_ends_turn's closed list.</p></li>
   <li><p>The 402 case (test only): the production door's 402 refusal of a Codex turn is its one error row and credit note follows once.</p></li>
-  <li><p>The two never-run SOURCE Hermes case files RUN in test.sh's vm-runtime group, each alone on the pinned root, every named case required; the two OLD import errors gone.</p></li>
+  <li><p>Two Hermes test files that never ran now run, each on the pinned Hermes.</p></li>
   <li><p>The never-run goal-tool RECOVERY file reads the pinned v0.23.1 as it is, 6 of 6 cases passing (was 1, then a stall).</p></li>
   <li><p>The never-run goal/subagent producer file reads the pinned v0.23.1 as it is, 5 of 5 cases passing (was 2 of 5).</p></li>
   <li><p>(a), test only: a release host reads an untrusted row with invalidDetail exactly as one without it.</p></li>
@@ -1742,7 +1831,7 @@
   <li><p>Fixup: hidden lease assertion follows phase 2c (Drive + workspace.invoke for its own agents only).</p></li>
   <li><p>The helper tabs' native golden re-recorded, since 2d's rows carry parentTaskId.</p></li>
   <li><p>N35_u3c, the in-place stop's words through lane_message (m-double's killer).</p></li>
-  <li><p>(test only): test_package_deb pins the two lines that carry the GPU provider's staged path now.</p></li>
+  <li><p>A packaging test checks the graphics provider's two lines.</p></li>
   <li><p>The capacity fixture's helper leaf named too.</p></li>
   <li><p>The helper's stand-ins named.</p></li>
   <li><p>The 7 tabs units that pinned the pre- window tools read the window mode helper.</p></li>
@@ -1772,7 +1861,7 @@
   <li><p>Rule reads a problem+json body's words, and the cells keep the real gateway's log.</p></li>
   <li><p>Each harness's first record of a saved Custom API's 403, as captured.</p></li>
   <li><p>Every harness's cell for a Custom API the person saved, refused with NVIDIA's real 403.</p></li>
-  <li><p>(b) S golden: test/contract/captures/s31b-failures.json as the S test wrote it on the chain.</p></li>
+  <li><p>A saved test result was updated.</p></li>
   <li><p>Every harness's cell asserts how many times it asks its provider in one refused turn.</p></li>
   <li><p>Stage B on the (b) chain: the chain's callers take their harness, and CX unit joins as an extra RED.</p></li>
   <li><p>(b) / units: the stand-in reads its parameters from ONE file (Wazza OS's start caps args).</p></li>
@@ -1781,7 +1870,7 @@
   <li><p>(b) C: an untied retryable log never counts, from the real gateway's own 500.</p></li>
   <li><p>(b) part 9b: the S golden, as by-name WRITE run made it.</p></li>
   <li><p>(b) red units: a gateway turn whose key the provider refused, and only the turn the log names.</p></li>
-  <li><p>On a Local Chat's Hermes (HL), the same two cells as HG's, recorded as Hermes's facts (answers-1709 (1)). - test/contract/fixtures/launch.json "hermes-local" gains "studioConfig" {alias, port, text}: the config launch writes on the person's Custom APIs alone (StudioOnly), hermes_local::studio_config_text(alias, port, ToolTimeouts::default), for the alias custom-wz-custom-b-b4c5d6/wz-model-b and port 41999. harness_adapters__tests.rs np19 holds it to the builder as it holds config_text. - capture.studio_config(port, alias): those bytes with the gateway's port (its " base_url: http://:&lt;port&gt;/v1" line) and the JSON-quoted alias (its " default: " line) swapped in, each asserted to occur exactly once. - capture.launch_hermes_local(studio=(port, key, alias)): that config, and sign_in's StudioOnly env: WAZZA_GATEWAY_KEY (the gateway's client key), PYTHONPATH, no lazy installs, no byte code, no OpenRouter pair. Default None: today's. - test_slow_states: spell, the studio rows' order (studio_rows_sorted) and test_c4b / test_c4a move to RouteCells, named ROUTE + "-"/"-"; LocalStates.launch_gateway = launch_local_gateway (Wazza OS's stdio initialize, as launch_local's). studio_rows_sorted now also orders HL's rows: the same Hermes lists the same gateway's rows. - The facts: HL- (started on B): 4 models, the prompt reached B alone. HL- (started on A): the prompt reached A; after the gateway restarted serving A and B, a NEW session of the running Hermes does not list B (listsB false) and reaches A; the pick of B's row (session/set_model) answers no error, and the next prompt reaches B. The same as HG's. - HG- re-recorded on part 9c: c4_saved_after's newSession now records modelOption, the harness's own model option whole; Hermes gives models and no configOptions, so it is null on both places (HG- and HL-). Nothing else in HG- changed. -: every start's key is asserted against the one its cell asked before anything runs (started_with: HG reads the.env the start wrote, HL its environment; local start holds no OpenRouter key and the gateway's client key). Never prints a key.</p></li>
+  <li><p>The local Chat's Hermes is tested with the same two checks as Hermes in a VM, its config written only from your Custom APIs.</p></li>
   <li><p>(b) part: the kept gateway logs keep their JSON request body whole; Claude Code's log re-kept.</p></li>
   <li><p>(b) part 9c: records the harness's whole model option (the S units'); the words half reads a Chat on Wazza OS's sign-in.</p></li>
   <li><p>(b) hermes: HG-/HG- on Wazza OS's real provider gateway; re-recorded signed out.</p></li>
@@ -1813,7 +1902,7 @@
   <li><p>The workspace MCP's loop must not end under its own command-rows read.</p></li>
   <li><p>The stall record's line is stamped, read it by its words.</p></li>
   <li><p>The unit reads native's recorded agents read.</p></li>
-  <li><p>Test.sh --skip P (repeatable) splits a filtered lib-only module run into shards.</p></li>
+  <li><p>The tests can split a long run into parts.</p></li>
   <li><p>Unit fix: the stdio end-to-end unit's storage root is private under any umask.</p></li>
   <li><p>A menu reopened on another tile with the same items acts on that tile.</p></li>
   <li><p>The peer-deadline unit compares the deadline built from the same nanoseconds.</p></li>
@@ -1826,7 +1915,7 @@
   <li><p>Test_hermes_local_launcher lays its package out where a sealed run may write, and a link the run's Landlock refuses is a copy (test-only).</p></li>
   <li><p>The layout guards find the palettes as selector lists.</p></li>
   <li><p>The Pages WebKit drive keeps its executable mode (100644 -&gt; 100755).</p></li>
-  <li><p>Fixup 2: the suites that press a named tile through tabs.mjs reach it as a person does, in the owner's default Pages view.</p></li>
+  <li><p>Tests that press an app's tile do it as a person does, in the default Pages view.</p></li>
   <li><p>Fixup: the WebKit suites choose the Apps page's view as a person does (Sections scenarios on Sections; Pages at rest checked too).</p></li>
   <li><p>An overlay one folder deeper is RED as misplaced.</p></li>
   <li><p>Owed tests: the three surviving mutants, and killed.</p></li>
@@ -1846,9 +1935,9 @@
   <li><p>Test_guest_helper_artifacts: re-pin the Pro artifact's last exec (44732 / 44841 bytes) after the Pro-root picks.</p></li>
   <li><p>Part 1: the units: an acknowledged close writes no DEBUG line, so no live row can prove "the app was asked".</p></li>
   <li><p>Part 2: two more tests keep to their own home.</p></li>
-  <li><p>Part 2b: the runner gives the door a module's sibling imports too (a shared helper beside page_test.mjs).</p></li>
+  <li><p>The test runner gives a test its shared helpers too.</p></li>
   <li><p>An idle Chat's guest server lists again as soon as native's served commands move, with no call.</p></li>
-  <li><p>RED, native's plan and words: a Wazza sign-in alone plans a Local Chat's Hermes on the door, and NO_PROVIDER names it as a way out.</p></li>
+  <li><p>With only a Wazza sign-in, a local Chat's Hermes runs on Wazza's own connection, and the message about a missing provider names that way out.</p></li>
   <li><p>RED, the renderer's rows: a Local Chat's Hermes is offered the Wazza door's models whenever the account is signed in and this computer's gateway can run.</p></li>
   <li><p>The release key gate fails on any NVIDIA key.</p></li>
   <li><p>A host Codex's and a host Claude Code's start never send this computer's loopback to the person's proxy.</p></li>
@@ -1856,7 +1945,7 @@
   <li><p>The release UI's closure fixture carries Settings page and strip order.</p></li>
   <li><p>The media stage's guest-script test answers from its own xdg-mime and gio.</p></li>
   <li><p>The socket test's own root is short enough for the product's cap.</p></li>
-  <li><p>The chromium BPF helper's pin reads its compiler call as build.rs makes it now.</p></li>
+  <li><p>A browser helper's check reads its compile step as the build runs it.</p></li>
   <li><p>Two older units name every key of a default_installs row.</p></li>
   <li><p>H_g62's pin reads chat_model_set's moved-default block.</p></li>
   <li><p>Every way Wazza OS starts a vm-kernel program works with the mode Wazza OS packs it with.</p></li>
@@ -1877,13 +1966,13 @@
   <li><p>The Hermes guard row re-taken on it, 0 RED on both routes; a Local Chat's Hermes starts from golden.</p></li>
   <li><p>The global MCP daemon's start lock is never in the tabs folder.</p></li>
   <li><p>A contract run's helper never outlives its run: RunFolder ends every process of its folder, on every exit path, and the next run reaps a killed run's.</p></li>
-  <li><p>Notes on: the Local Chat's Hermes config mirror is checked against hermes_local.rs itself, and an older guest tree copy is removed.</p></li>
-  <li><p>Contract framework: test/contract/ + its guard unit as has them.</p></li>
+  <li><p>The local Chat's Hermes settings are checked against the product itself; an older copy was removed.</p></li>
+  <li><p>A test framework for the agents' contracts was added, with its own check.</p></li>
   <li><p>The vm-runtime gate runs the real-Hermes files on a pinned root, lists every skip, and fails on a required skip.</p></li>
   <li><p>The goal-routing and Pro media units run on today's launcher and Pro route, bounded, with no wait of their own.</p></li>
   <li><p>The real-Hermes drive-skills prompt test reads the fixture's shipped store.</p></li>
   <li><p>The cold-Pro test is named for the Pro tab it now runs on.</p></li>
-  <li><p>Test_hermes_full_acp_entry.py runs green again on the real pinned Hermes payload: three stale test causes fixed, with the cold-Pro check moved to where that risk now lives.</p></li>
+  <li><p>Hermes's full test runs green again on the real pinned Hermes.</p></li>
   <li><p>(b) (test only): the "Anthropic" in the outcome's words pinned to its source.</p></li>
   <li><p>(b) (test only): r8iG2's EXACT state, the API keys tab's Claude card with one Hermes PKCE account.</p></li>
   <li><p>Step 1a: the update guard takes "wazza" and "wazza-os".</p></li>
@@ -1894,7 +1983,7 @@
   <li><p>With no app's tab open, no simulation runs and all three shadowed tools are lifted for the install.</p></li>
   <li><p>An offline VM's kernel step says the network, a transient cause, never a missing package.</p></li>
   <li><p>Every launcher card with a manifest says exactly its manifest's card.</p></li>
-  <li><p>The state-locks census names vm_kernel.py's GrubLock.</p></li>
+  <li><p>A check of the VM's locks names the kernel update's lock.</p></li>
   <li><p>A RELEASE build's status-line action is found by its role and accessible name.</p></li>
   <li><p>Unit x: the test id only on a DEBUG page; a RELEASE page's Sign in found by its role and words.</p></li>
   <li><p>Test fixup: the viewer's tests click "Play here" first, as viewer asks.</p></li>
@@ -1911,7 +2000,7 @@
   <li><p>26, composition REDs.</p></li>
   <li><p>Test fixup: two units the chain's own later commits left stale.</p></li>
   <li><p>The host MCP instructions' bound is stated once, as a per-turn cost budget with its reason, its measured cost and what each growth bought, and both tests read it.</p></li>
-  <li><p>Follow-up: test_drive_skills_preload keeps the same host-instructions bound as the.mjs test.</p></li>
+  <li><p>A Drive skills test keeps the same limit as the Chat code's test.</p></li>
   <li><p>PINS: a Hermes Chat that has not started is offered exactly what its Hermes runs, in the two drifts' states.</p></li>
   <li><p>Ruling: only the helper's own lines ignore SIGPIPE, and a missing relay is said.</p></li>
   <li><p>The install helper keeps its own output read from its first line.</p></li>
@@ -1921,7 +2010,7 @@
   <li><p>The Drive paste test drives a private X display, never:0.</p></li>
   <li><p>The catalog test hands its fixture its own temp root, never the managed storage.</p></li>
   <li><p>(a), test only: a VM switch during a close's awaits never moves it onto the shown VM's tab.</p></li>
-  <li><p>Ui.js's half: /login key opens Sign In on its API keys tab.</p></li>
+  <li><p>In a Chat, the /login command opens Sign In on its API keys tab.</p></li>
   <li><p>A Local Chat's refused start says its words alone, with a working API keys action.</p></li>
   <li><p>A send from a Chat with no model says why, its way out and a working action (np11_none).</p></li>
   <li><p>An agent switch mid-reply, followed or not, stops it and goes on in one action.</p></li>
@@ -1964,14 +2053,14 @@
   <li><p>Nothing saved and a Custom API alone, new Chats start on its model, never the shipped free fallback.</p></li>
   <li><p>A Local Chat's Hermes runs on the person's Custom APIs, and an OpenRouter key keeps today's config byte for byte.</p></li>
   <li><p>The controller's twin copy and every cleared-environment site, by assertion.</p></li>
-  <li><p>Real_ui_resource_closure.txt lists /helper_tabs.mjs.</p></li>
+  <li><p>The release interface file list includes the tab helpers.</p></li>
   <li><p>System holds 9 OS packages, asserted by name.</p></li>
   <li><p>Unit, test only: its bound is asserted without hanging.</p></li>
   <li><p>Test only: the read asked again on the failure path leaves nothing behind.</p></li>
   <li><p>A LIVE-driven whole-preload test, page 1's list teaches, the store's own save keeps, the reload's own load names.</p></li>
   <li><p>Native's hermesStudio list proven on r8iF6's own seven Custom APIs (test only).</p></li>
   <li><p>R8iF6's real order in real WebKit, a Custom API saved after Hermes's first start is a new Hermes Chat's after its Refresh (test only).</p></li>
-  <li><p>STALE J-11b: ui.js's own loadChatModelDefault and its chat.model_default forward run in the fixture, lifted at run time from the served ui.js, never a copy.</p></li>
+  <li><p>A test runs the product's own default-model code, never a copy.</p></li>
   <li><p>STALE J-11b: r8iGk2's window path runs real in WebKitGTK, from the upgraded user's held key to a NEW tab after its removal, red on for the live cause.</p></li>
   <li><p>STALE R-11a fixup 2: the test clears the environment exactly as AcpTestEnvironment does.</p></li>
   <li><p>STALE R-11a fixup: the test's storage is private, as AcpTestEnvironment makes it.</p></li>
@@ -1989,7 +2078,7 @@
   <li><p>A stopped seal keeps its records; one exit shape.</p></li>
   <li><p>The seal keeps a capped caller's cgroup; it cleans up on a signal.</p></li>
   <li><p>The UI suite's files and the UI gate's solo reruns run SEALED.</p></li>
-  <li><p>Test only: the packager test follows: the generator keeps no per-file bound (MAX_BYTES is gone).</p></li>
+  <li><p>A packaging test follows the generator, which keeps no per-file limit any more.</p></li>
   <li><p>Test isolation: each chat-source test starts with an empty refused-call memory.</p></li>
   <li><p>Test_web_login_roundtrip takes HelperCase's module fixture.</p></li>
   <li><p>Part 2: the workspace Rust consumer of custom_app_form.json takes the form's extras out first, as the native handler does.</p></li>
@@ -2001,7 +2090,7 @@
   <li><p>When the release ends some other way while the install runs, the install's output gets its own reader before post writes or returns; post-wait quits only once the helper still running has one.</p></li>
   <li><p>An ended release is waited on for its OWN VMs only, never for another program's.</p></li>
   <li><p>Another local user's processes never stop or delay Wazza OS's restart: the one-relauncher check counts the release's user's processes only, and the helper checks count root's only.</p></li>
-  <li><p>An unanswered read counts its own time on the boot clock toward post's bound and DEAD_WAIT, never only the POLL after it.</p></li>
+  <li><p>A read that gets no answer counts its own time toward its time limit.</p></li>
   <li><p>The install output's reader walks down the helper's own subtree by the kernel's children lists, never the whole process table, at each look.</p></li>
   <li><p>The release's CLI and the person's session are reached in the release's OWN runtime folder, read from its GUI-owner listener and recorded for post and post-wait; the fake CLI checks it.</p></li>
   <li><p>The guard's own Quit makes a release's end its restart only within 20 min of its LAST Quit or SIGTERM; a later end is the person's own.</p></li>
@@ -2012,17 +2101,17 @@
   <li><p>Two holds before "restarts now" tell the person once.</p></li>
   <li><p>"Wazza OS restarts now" is told before the last read, never between it and the Quit, by post and post-wait alike.</p></li>
   <li><p>The update guard and its test back to versions (Option A).</p></li>
-  <li><p>Test_wazza_account.py never reaches the host's systemctl; a fake records surrender's exact calls, and a tripwire fails any other systemctl.</p></li>
+  <li><p>A test of the Wazza account never reaches your computer's system services.</p></li>
   <li><p>Part 4's loss fields and the review unit name the four tree states.</p></li>
   <li><p>The update guard and its test back to versions.</p></li>
   <li><p>295 S3, part 4 rows: losses before the arm (tree=none) are counted apart from the tree's losses, over the tab's whole log.</p></li>
   <li><p>Group_start's launch_ended line carries this round's source labels.</p></li>
   <li><p>295 S3, part 4 rows: each supervisor's row gives its tab log's tracker buffer, anchored lines and launch_ended source.</p></li>
-  <li><p>295 S3, part 4: s3_measure_supervisor.py, the supervisors' cost measured as root in a lab guest.</p></li>
+  <li><p>A measurement of the app supervisors' cost in a test VM.</p></li>
   <li><p>The review's MUSTs as red-first units of the real tracker and late path; they fail on and are round's to turn green.</p></li>
   <li><p>The group_start unit's stand-in app ends with its test.</p></li>
-  <li><p>The tracker units follow MUST B change: forks are kept only once ARMED, until the seed; a new unit, test_an_unarmed_tracker_keeps_no_forks (pending None before arm and after seed; a fork queued before arm never the tree's).</p></li>
-  <li><p>Group_start's return bound after the app's end follows as built: up to VALIDATE_INTERVAL with no window receipt, 2.0 s with its margin.</p></li>
+  <li><p>The app process tracker keeps a started process only once it watches, with a new test.</p></li>
+  <li><p>An app's start waits after the app ends up to its own limit.</p></li>
   <li><p>295 S3, part 3: the tab close path through the REAL broker commands in the group's states, red-first; GREEN waits for.</p></li>
   <li><p>295 S3, parts 1-2: the tracker's tree and a saved custom app's REAL group_start path, red-first units; GREEN waits for and.</p></li>
   <li><p>Rpm_spec doubles every % of the values it copies in.</p></li>
@@ -2037,7 +2126,7 @@
   <li><p>Test_clipboard_sync_drop puts os.path.exists back, so no later vm test reads every path as absent.</p></li>
   <li><p>295 (b): a unit for the machine fields with no Details before them.</p></li>
   <li><p>Install discovery's one native call is the saved commands' context read, declared.</p></li>
-  <li><p>The release UI's closure fixture names close_capture.mjs and settings_commands.mjs.</p></li>
+  <li><p>The release interface file list includes two more files.</p></li>
   <li><p>An intent from before the guard never marks when the guard's first look could not read rows.</p></li>
   <li><p>The guard marks a tab also on DURABLE close intent made while its app still ran.</p></li>
   <li><p>The shipped skills line's generation check is audited.</p></li>
@@ -2048,13 +2137,13 @@
   <li><p>FINAL studio.command shapes in the lesson and the docs.</p></li>
   <li><p>The lesson names a command by `command`, and says v1 step rule.</p></li>
   <li><p>The three Settings-open test harnesses declare the Commands controller.</p></li>
-  <li><p>Build-bundle.py's `commands` section.</p></li>
+  <li><p>The app bundle builder has a section for saved commands.</p></li>
   <li><p>Personas.json with a key given twice is refused at the cut.</p></li>
   <li><p>The residual pinned: a subagent call with no session_id and no carried context reads only the latest VERIFIED snapshot.</p></li>
   <li><p>Two acp_bridge units that pin the exact prompt block now expect the served mark in its _meta.</p></li>
   <li><p>The core rule takes file pattern exactly.</p></li>
   <li><p>The card state's pinned field list gains "skills".</p></li>
-  <li><p>(C), build-bundle.py's skills section.</p></li>
+  <li><p>The app bundle builder has a section for skills.</p></li>
   <li><p>Part 1, the core boundary.</p></li>
   <li><p>App_skill_digest's two tests hold the owned skill text before borrowing its body.</p></li>
   <li><p>The two Rust test files that pinned the OLD bootstrap delivery follow the moved product.</p></li>
@@ -2072,7 +2161,7 @@
   <li><p>The ask's sentence for a question with no Save is honest for an app the guard does not ask again (more than one window of its own): "... choose Cancel and save your work: the update asks the app again within a minute (if it does not, close the app).".</p></li>
   <li><p>The -&gt; new update guard asks an app again when it stayed open after the person answered its own question window (GIMP's "Quit GIMP": Cancel, then save), so the update goes on within a minute instead of holding 40 min and refusing. Never over a question or a Save dialog; apps whose question is inside their window are never asked again, as before.</p></li>
   <li><p>The startup composition test gives app_script's own_bus_first, and checks the pre-check's real text before the first start.</p></li>
-  <li><p>The window round never sends WM_DELETE to an app's own question, so it stays for the person to answer and the update waits for that answer. With, one read gives a round's private tabs and its owners, and the private tabs are read again right before the window round.</p></li>
+  <li><p>The window round never closes an app's own question, so it stays for you to answer and the update waits for that answer; private tabs are read again right before it.</p></li>
   <li><p>While a private tab is open in the guest (Chromium Incognito, Wazza OS's sign-in window), the guard asks nothing, keeps nothing, and the update holds; both asks tell the person to close their private tabs first.</p></li>
   <li><p>The other-VM hold and its refusal are true for another program's VM too, since the count stays fail-closed on every QEMU of the user.</p></li>
   <li><p>Never fail open: a VM count that did not read is a read not answered, never "one VM".</p></li>
@@ -2080,10 +2169,10 @@
   <li><p>Both asks say "click into the app, then answer it there. If your keys do not reach it, use its buttons.", true whatever ow7d finds.</p></li>
   <li><p>The guard's ask says to answer each app's question with a click, because during the update the person's keys may not reach it.</p></li>
   <li><p>The guard's notifications are normal and resident, never critical.</p></li>
-  <li><p>The release UI's runtime resource closure lists the new /settings_restore_tabs.mjs.</p></li>
+  <li><p>The release interface file list includes the restored tabs code.</p></li>
   <li><p>The post-install step holds the install while an app opened during it is open, so never offers its unguarded Restart then.</p></li>
   <li><p>A release that ended counts as gone only once no VM of its user still runs.</p></li>
-  <li><p>Test_guest_helper_artifacts.py's per-artifact exec sizes re-pinned from the generated artifacts, five rows stale since.</p></li>
+  <li><p>A test's expected sizes of the VM helpers were brought up to date.</p></li>
   <li><p>FROZEN7 (a) units read a real sha16 in three fixtures.</p></li>
   <li><p>GIO side units: GIO refuses an https proxy whose certificate is not trusted, reaches an IPv6-literal proxy, and the IPv4 preference is set before the proxy.</p></li>
   <li><p>A release that ended by itself (its own Restart clicked first) gets no false words.</p></li>
@@ -2101,7 +2190,7 @@
   <li><p>F3_app_restore, an app from any install route back after Stop + Start.</p></li>
   <li><p>The FPS read runs under one deadline and ends with a typed timeout.</p></li>
   <li><p>MiMo picked, and the model read, for every Chat turn.</p></li>
-  <li><p>F5_rows_steps names no website host (test_website_hosts).</p></li>
+  <li><p>A test checks that a test step names no website host.</p></li>
   <li><p>A Computer Control Chat is read and set on its owner local.vm-1.</p></li>
   <li><p>WaveTerm's later first-run modals answered and the shell prompt seen and clicked before typing.</p></li>
   <li><p>Home &gt; Apps shown by show_apps starts with an EMPTY search box.</p></li>
@@ -2116,22 +2205,22 @@
   <li><p>(i) and (ii) read the OLD version's own folder under /usr/share/wazza/app-versions/&lt;app&gt;/ before (present) and after (gone): judge_old_folder, a positive read, never an absence alone; also needs the open's tab running the new revision (its.appver = refs current); units.</p></li>
   <li><p>Guard_kept no longer fails open; guard_saved records the Save turn's model; the person's Terminal by its label; app_card brings a card into reach; super_host's words with no keys.</p></li>
   <li><p>Tabs_restart_restore_test: "saved selectedVm waits until the selector option exists and then restores once" awaits the restored tab's one-shot background start before its fake DOM goes, and proves it one-shot (one save, one drawing, one restore).</p></li>
-  <li><p>(a)'s test reader: test_app_startup_phase_composition gives the start template's new {update_gate} key.</p></li>
+  <li><p>A test reads the app start template's new key.</p></li>
   <li><p>_sh_desktop_armed keeps _fr_keys_into's answer (self._sh_keys_on: Wazza OS's guest_keys_on after up to 3 clicks on the Desktop's picture); super_combo and super_host record keys_on in their facts and words; a combo that never had the keys and did not open the guest's overview is a setup RED (the clicks did not give the guest the keys: said), never the product's; with the keys on, no overview stays the product's RED; units for the three cases.</p></li>
   <li><p>The receipt guard counts wazza-app-mcp's two new receipt names (it reads).</p></li>
-  <li><p>Test.sh runs every command of a group although one failed.</p></li>
+  <li><p>The tests run every command of a group even when one failed.</p></li>
   <li><p>First version's test assertion was wrong (71 vs 64); fixed; GREEN owed: the vm group on.</p></li>
   <li><p>A jobs_list reply with no jobs list is UNREAD (_f5_jobs_why 'jobs_list unreadable: no jobs list in the reply'), never an empty list: an empty 'before' set would make every old job look new (fail-open); jobs_value shared by the check and jobs_of; unit: four reply shapes without a list are unread, a read empty list is read.</p></li>
-  <li><p>Red-first units for the reply read: the same fake lab answers the old read (l1.py's cli tail) and the new one (JOBS_READ), and the lab's pretty enveloped reply must yield the MCP install's job; step_kl_check on the pretty enveloped reply: want 'none' RED when a provider was contacted or the reply was refused, the wanted check GREEN. All four FAIL on modules (jobs [], and 'none' passed on {}), pass on.</p></li>
-  <li><p>The live GUI CLI's reply is read whole and unwrapped (gui_answer): it prints PRETTY (single_instance.rs to_string_pretty: 450 lines for jobs_list) inside {owner, response: {ok, value}, schema: wazza.gui-control.v1}; the old reads took the last line ('}') and looked for 'value' at the top, so every jobs_list read was [] and every kl_check read {}.</p></li>
-  <li><p>The job reads use the product's own Job fields (state/jobs.rs: id job-&lt;n&gt;, created_at a runtime stamp; never the createdAtMs no build writes): job_done takes the job ids read just before the act (its own job is the new one) and newest_job orders by created_at then the id's number; f3_no_tab_update, f3_8b_bad_manifest and the mcp route's origin read the act's own job (the dry run's f3_no_tab_update:zed waited 15 min on a filter nothing could pass); f3_edit_app_v2 clears the Apps search and needs the card drawn before its right-click (the dry run's search still held 'zed').</p></li>
+  <li><p>Tests for reading an install's job from a test VM's reply.</p></li>
+  <li><p>The live test reads the command line's reply whole.</p></li>
+  <li><p>The live test reads jobs by the product's own fields.</p></li>
   <li><p>A unit for the display owner's recommit tell, red-first (test-only).</p></li>
   <li><p>The live bench's Calc controls open ONLYOFFICE Spreadsheets, since LibreOffice Calc left the launcher catalog.</p></li>
   <li><p>The spare pair: perf_pair_steps' pair_block shared by the planned pairs and spare_steps (on the SAME twins: no window 0, the pin read again, from each lab's last arm), last-arm and steps --spare on the CLI; perf_pairs_summary --voids (the void pairs with their reasons) for the run-only-on-one-void decision; units: the spare's lists (lab1 A-&gt;B update, lab2 B-&gt;A downgrade), the CLI, the voids query, one void + the spare = 3 valid pairs in both orientations.</p></li>
-  <li><p>A RED from 'every B above every A' is printed with its pairs and chance (3 pairs, chance 1/20); run-seamless.sh's SEAMLESS_N0_PRESENT=1 reads the staged disk's installed package (it must name commit, else STOP) instead of installing again; units for 3 pairs (the chance words, d^ in rule 1 with 2 AB + 1 BA, one void = NO VERDICT).</p></li>
+  <li><p>A measurement test says when its result could be chance, and reads the installed package instead of installing it again.</p></li>
   <li><p>The shell pair's kill and relaunch stamps are the own clock (date in the kill's shell, date just before the relaunch), as the display sockets' mtimes; host_guest_skew_s in the facts.</p></li>
-  <li><p>The shell pair's predisplay mode: a relaunch at once after the display manager's restart, before the new session's display exists, with the session's own XDG_SESSION_TYPE; judge_predisplay: RED for any abort (panic, 6/ABRT, core dump), GREEN when the window shows once the display comes or only past the 60 s wait, None when the display came first; early keeps the socket wait (the hand-over's earliest relaunch); kl_logger_up's never-hosts and kl_never ((8): 0 CONNECT/DIRECT to Wazza's model server before sign-in), judge_kl_never pure.</p></li>
-  <li><p>The cut's lab feed: lab-feed-vm.sh writes the lab marker /etc/wazza/lab-feed (app_update.rs LAB_FEED_MARKER: without it channel_admitted refuses the lab channel = app_update_manifest_contract_invalid), lab-feeds.sh, README, and the feed-signing tools + units they are tested with (lab-sign.py, update_manifest.py, publish-update.py, update-path-gate.py; test_lab_feed + test_lab_sign_guard 17/17). The dry run repeated feed reds without it; frozen4 had it since.</p></li>
+  <li><p>A live test of restarting Wazza OS right after the display manager restarts.</p></li>
+  <li><p>The test VMs' update channel, with the tools that sign it.</p></li>
   <li><p>Incomplete's words claim native's held answer only when every status read before the first Incomplete card came back cached; a miss (a fresh guest read that fills the card's cache) is said by turn, held + the misses in the facts.</p></li>
   <li><p>Incomplete row reads native's held app_status (refresh false) beside each card, ONE refresh only after the verdict to classify (b) kept / (c) own detect, first Incomplete's turn and time said; chmod_took unknown without the probe's OPTS line; the dead packages.app_detect call gone, the fake refuses unknown methods; rl_page: a shot per occurrence, the + read before its click, an unreachable button's own row + Home page + launcher panel.</p></li>
   <li><p>Without unsaved work is a setup red; incomplete row reads whether the chmod took and app_detect beside each card.</p></li>
@@ -2140,7 +2229,7 @@
   <li><p>The guest MCP's own tool workspace.application_install, never workspace_invoke.</p></li>
   <li><p>Nd_tools installs Python bindings on the (the lab images lack pyatspi); without them the question is NOT PROVEN, never green.</p></li>
   <li><p>The windowless start and the shell-restart pair find KDE's session.</p></li>
-  <li><p>A change to test/live.</p></li>
+  <li><p>A change to the live tests.</p></li>
   <li><p>Super_combo + super_host replace super_overview.</p></li>
   <li><p>The fresh-profile GIMP's install notice keeps 'It replaces the GIMP already in this VM' through progress.</p></li>
   <li><p>An answer given by keys says 'keys (missing: not a real click)' in the step's words.</p></li>
@@ -2149,13 +2238,13 @@
   <li><p>Start time vs from the rows' own start/ready steps.</p></li>
   <li><p>Another tab's unreadable manifest never blocks VLC's first install by the card.</p></li>
   <li><p>The bundle's marker read through ui/index.json and its brotli blob; an identical-interface pair is NOT TESTABLE.</p></li>
-  <li><p>A change to test/live.</p></li>
+  <li><p>A change to the live tests.</p></li>
   <li><p>The row flow attaches f5_f3_steps.</p></li>
   <li><p>Rows on the three install routes.</p></li>
   <li><p>Put back reload_rows' 5 tests; OW-7a's Writer row says LOST when no backup held the typed words.</p></li>
   <li><p>Routes read unwraps native's {ok, value} answer and keeps its facts; rl_page keeps each act's answer.</p></li>
-  <li><p>A change to test/live.</p></li>
-  <li><p>CONNECT-only logging proxy started in the as the desktop user; Wazza OS started with HTTPS_PROXY (and NO_PROXY) in its own environment only, read back from its environ; the Computer Control Chat (Local Chat's replacement: Hermes on this computer; the consent card's Start by a real click; MiMo picked; harness hermes); the connection check's CLI answer by its check name (provider_through_proxy / provider_from_computer / none: online null, no checks); a silent 'sleep 70' turn; the proxy log judged per window: the check is a tunnel carrying nothing (TUNNEL_END up=0 down=0), a harness's request carries TLS, a DIRECT line is a connection around the proxy. The network drop rows (3)/(4)/(6) follow. Units 21/21 (4 new).</p></li>
+  <li><p>A change to the live tests.</p></li>
+  <li><p>A live test of Computer Control through a proxy, with Wazza OS started with the proxy settings in its own environment only.</p></li>
   <li><p>Nd_windowless_start (Wazza OS on its own invisible screen: wazza --virtual-screen=always in the session's environment as a user unit; its ui socket answering, no window, a wazza-screen dir) and nd_relaunch_handover (the person's relaunch from the menu entry: the window within 90 s, the WZP11 hand-over lines per pid in order, the old pid ending after the relay, one Wazza OS at the end). Units 17/17 (4 new).</p></li>
   <li><p>On a fresh profile GIMP's card must read 'replaces' (missing, 'Install and open · Replaces the GIMP already in this VM': the image's own GIMP 2.10 is there and Wazza OS's install replaces it); 'Update and open' for it is said as the fix not being in the build; the other 11 stay 'not-installed'. Units 23/23.</p></li>
   <li><p>Guard_saved_on_stop:WAIT:discard answers Close without saving the Stop's question for ANOTHER tab (one with no Chat: Always save cannot save it, so asking is right; R-4b's restored GIMP) and goes on waiting; a question for the row's own Chat tab stays red, the mixed case without the no-Chat question is red, and the Chat tab's file must carry its change after the restart. The default (keep) is unchanged. Units 25/25 (3 new).</p></li>
@@ -2163,12 +2252,12 @@
   <li><p>A Stop's or a Quit's wait for the row's own question gives EACH question its own window (restarted after every other tab's answered question) and answers up to 20 others (f1restore Ubuntu,: the wait stopped after 6 others inside ONE 60 s window while the Quit asked 8+ tabs one by one, so its own question came after the wait and the next step clicked Close without saving on that left-over Quit dialog). Unit: 8 other tabs' questions all answered and the row's own found (red on the old code). f1_rows 114/114.</p></li>
   <li><p>F1r_shell_restart_v2: the told apart from a fresh start: the old Wazza OS pid alive at the relaunch (kill -0, its start time), the hand-over in Wazza OS's own lines, the old pid ending AFTER the relay, then the window and the tabs; when the old Wazza OS ended with the session the row says the no-display path was NOT reproduced: a plain relaunch-and-restore row, never a pass or fail. Units 13/13.</p></li>
   <li><p>F1r_shell_restart_v2: the lab's shell killed; when no shell returns within 30 s the lab's display manager is restarted (its autologin brings the desktop back, inside the); MODE back: the person's relaunch once the desktop is settled must show Wazza OS's window within 60 s AND every app tab of before; MODE early: the relaunch right after the display manager's restart, the window must show on the desktop once it is settled; / words only when the desktop never comes, said, never a pass. Units 9/9.</p></li>
-  <li><p>With Wazza OS and its VM up, SIGTERM to Wazza OS (a logout's or kill's signal); green when Wazza OS's own 'WAZZA_UI_LIFECYCLE event=termination_sweep signal=SIGTERM outcome=answered' (app.rs, right before the stop starts) comes within 3 s of the signal, never timed_out (always waited 6 s); Wazza OS started again after it. Units 5/5.</p></li>
+  <li><p>A live test checks that Wazza OS answers a logout's stop signal within 3 seconds.</p></li>
   <li><p>A screenshot just before the click on the native confirm and after each click, so the button hit is visible in the evidence (evidence only). Units 12/12 + served 6/6.</p></li>
   <li><p>The native confirm's Install update is the button, so it is clicked 40 px in from the right edge, not at 0.75 of the width (which lands on Cancel); heights 22/30/16 px above the bottom (no CSD margin). Unit: the first click lands on the right-most button. Units 12/12 + served 6/6.</p></li>
   <li><p>(1) install step accepts native confirm safely (round: said 'Install Now was not confirmed... app_update_native_consent_declined'; its GTK MessageDialog is Cancel | Install update with Cancel the DEFAULT): the Install update row is clicked at a few heights until the dialog is gone, nothing is typed while it is open (setup red when it stays), the password goes only to the system's own prompt once pkexec/polkit shows, and a declined consent ends the wait at once with Wazza OS's words instead of 1800 s; (2) a GENUINE bundle's apply proven by the product's own identity: seamless_apply:served and ui_served check the served digest changed to the bundle's own (its index.html in the store's active generation), native's card phase 'applied' and the store's last outcome 'applied' for the active generation; it FAILS while the old interface is served. Units: install 11/11 (4 new), served 6/6.</p></li>
   <li><p>Two controller source-text units follow code.</p></li>
-  <li><p>Ffmpeg, an internal component with no card by design, is never looked for on Home &gt; Apps (its native state said as information) and installs through the packages module's install_request, checked by native's app_status and dpkg-query; WaveTerm's card is found by its name 'Terminal' (APP_SEARCH); Kdenlive's version is read as the desktop user in the X11 session (the product's canonical X11 run), never as root with no display; incomplete:gimp keeps the AppRun right after the chmod and native's app_status with each card read's time. Units 22/22.</p></li>
+  <li><p>A live test installs FFmpeg, which has no card by design, through Wazza OS's packages, and finds Wave Terminal by its name.</p></li>
   <li><p>Uflow app_card: the record is reset on every call and says whether Apps' search box was drawn; a search an earlier lookup left in the box is cleared before the card is looked for. Units 2/2.</p></li>
   <li><p>Guard_unsaved's setup write is verified: the write is made again every 10 s while the file is not a regular file the desktop user owns, up to 120 s; a file still missing is the step's setup red and nothing is opened. Units 33/33 (3 new: refused twice then written; never written; a missing or root-owned file opens nothing).</p></li>
   <li><p>The one Chat must be RUNNING at both reads: chat_info_read's harnessId hermes and a MiMo modelId, and the guest's Hermes process present (pids and RSS kept), else VOID (a restored plain Terminal tab would understate the number by Hermes's RSS); the guest's page_reporting_order at each read said in the row (RAM-0b: whether the lever was in). Units 9/9.</p></li>
@@ -2177,9 +2266,9 @@
   <li><p>The failed-body cleanup compiles.</p></li>
   <li><p>A failed producer body never cascades; the fake guest's step survives load.</p></li>
   <li><p>The start template's composition test formats the orphaned group's line too.</p></li>
-  <li><p>Parallel crossover pairs: two twin labs' step lists (window 0, then pairs AB BA BA AB; the VM started together so the idle reads run at the same moment; the Chat turns staggered, lab1's then lab2's), file barriers with bounded waits (ab_mark/ab_wait/ab_sync), each lab's QEMU pinned to its own host cores and read back (ab_pin), window state with host cpu PSI and the steal time (perf_state2); perf_pairs_summary.py: a VOID window voids its pair (A.3's rules + cpu PSI &gt;= 5 % + steal &gt;= 2 %), A.4's rules unchanged on the valid pairs plus the paired rule (every valid pair's B - A above the floor, at least 3 pairs), each pair's B - A and the lab effect L printed, the owner's 1.4 GiB absolute on the B windows, verdict words; never GREEN. Units 21/21.</p></li>
+  <li><p>Paired live measurements on two test VMs at the same moment.</p></li>
   <li><p>Liv_bench's 3 reds: the run-app helper's pins follow the owner's control revisions; the start tests stub the storage preflight.</p></li>
-  <li><p>The two input-wiring harnesses that run ui.js's guest-keys code give it noteVmSuperHint.</p></li>
+  <li><p>Two input tests give the product's keys code what it needs.</p></li>
   <li><p>Each file's main guard moved to its end, so a script run also runs the classes added after it.</p></li>
   <li><p>The agent tab-close verdict gates on the route: the Chat's harness and MiMo model (chat_info_read), and for a host harness Wazza OS's gateway sign-in, usable (harness_routes_read).</p></li>
   <li><p>The agent's tab.close row takes a harness (hermes: the guest route; claude-code: host route on Wazza OS's gateway, MiMo), the harness's sign-in facts kept.</p></li>
@@ -2187,7 +2276,7 @@
   <li><p>C26_identity: only the FIRST entry of a cumulative DEB.txt vouches, and only when its commit is the installed one.</p></li>
   <li><p>Always save on Stop with a real MiMo save as a step: no question drawn, the VM stops, starts again, the file on disk carries the change.</p></li>
   <li><p>The two-hop register and the update-path composer judge a non-green idle row by ONE rule.</p></li>
-  <li><p>The shell-restart probe reads the windowless Wazza OS's display facts before the relaunch: its DISPLAY/WAYLAND_DISPLAY/GDK_BACKEND/XAUTHORITY, its children, wazza-screen in the runtime dir, its display sockets, its main thread's wchan and state.</p></li>
+  <li><p>A live test reads Wazza OS's display facts before restarting it.</p></li>
   <li><p>The lab's desktop shell ended under a running Wazza OS; green only when the person ends with a Wazza OS window, still there or by their relaunch.</p></li>
   <li><p>Stop_page keeps the recorder's sampled report/poll rows beside its 60 s counts, so the count's own calls can be named from the records.</p></li>
   <li><p>The guest's scale for the Activities click is read from its own gsettings first; the size guess only when automatic, and which one was used is in the facts.</p></li>
@@ -2211,7 +2300,7 @@
   <li><p>The person's Desktop discard by owner rule: own editor ends, a shared (sticky) app keeps running and is named, a guest-exec app keeps the tab open with why.</p></li>
   <li><p>The key injector counters per try and read-only focus probe on keys that did nothing (, BLOCKER-2b).</p></li>
   <li><p>Two units take the apply wait's id, as (a)'s ApplyBackend.busy does.</p></li>
-  <li><p>Test: test_f1_other_apps' spawn_session stand-ins take mount_ns.</p></li>
+  <li><p>A test's stand-ins follow a changed function.</p></li>
   <li><p>The restart's Stop questions are recorded with their words, the tab's app, its title before the Stop and at the question, and the seconds after the Stop; a VM-level wait's own-tab notes said when the row is red.</p></li>
   <li><p>The vm crate's lib tests compile again (L's CustomAppExtras fields in an old tabs test).</p></li>
   <li><p>15 reds green, each test following the product as it is, no assertion dropped.</p></li>
@@ -2246,7 +2335,7 @@
   <li><p>The remembered choice is read at the row's start; anything but Ask is a setup red, said in the facts.</p></li>
   <li><p>Each restart names the row's own tabs; restart_asked goes in the facts and an own tab asked is red (LIVEA-48b); guard_setting opens Settings &gt; General first.</p></li>
   <li><p>A Stop+Start helper answers the stop questions it meets with Close without saving and says which tabs were asked.</p></li>
-  <li><p>Every guard-relevant real click leaves a timestamped LIVEA_CLICK line in flow.out.</p></li>
+  <li><p>Every real click of a guard test is logged with its time.</p></li>
   <li><p>A Stop counts only when Wazza OS says not running, a Start is offered AND the VM's QEMU is gone in the.</p></li>
   <li><p>A re-click that asks nothing gets the person's next click (information), so the run goes on from a Wazza OS that quit.</p></li>
   <li><p>3116, xprop and 3117 rows: leftover editors ended first; the xprop row proves its wrapper and put-back in the person's session; a VM-level question counts as asked (, overlay).</p></li>
@@ -2255,16 +2344,16 @@
   <li><p>Rt_add_app_noopen, the -a path.</p></li>
   <li><p>The shown VM is sampled in every poll of the wait and must read vm-1 each time.</p></li>
   <li><p>The lab feed signs the rpm, Arch and tar family manifests, so the package path runs on every OS.</p></li>
-  <li><p>Live row ow_ns_check + test_owner_rows_steps alone too.</p></li>
+  <li><p>A live test can run one step alone.</p></li>
   <li><p>A bundle goes out only with a proof against the deb's own binary.</p></li>
   <li><p>No path updates a running VM's guest helpers under its old tabs (proven from the sources).</p></li>
-  <li><p>Every build input the tree names is in the engine fingerprint, proven by unit and gated in compile.py.</p></li>
+  <li><p>Every build input is part of the build's fingerprint, proved by a test and checked at build time.</p></li>
   <li><p>Test_owner_rows_steps: the steps' lqlib is the test's own stub in any run order.</p></li>
   <li><p>Its words print no stray '' when the wrapper is proven (LIVEA-42b, words only).</p></li>
   <li><p>The card is read by the words its aria-label holds (" &lt;label&gt; workspace"), whatever its action (LIVEA-41b).</p></li>
-  <li><p>Lab-sign.py --old-client-stable for a row whose starting client predates the gate.</p></li>
+  <li><p>A signing option for an old update client in the test VMs.</p></li>
   <li><p>The saved app's card is read by its own words (aria-label), never the page's first card.</p></li>
-  <li><p>Compile.py takes this binary's own UI dump, and a lab feature build gets no bundle-bearing fingerprint.</p></li>
+  <li><p>The build uses this program's own interface bundle.</p></li>
   <li><p>The Add app dialog's button and checkbox are scrolled into view by the person's wheel before the click.</p></li>
   <li><p>Install route (b) as lab rows: the agent's MCP install, and a remembered choice that never answers for an agent.</p></li>
   <li><p>The unsaved words go into THE EDITOR's window.</p></li>
@@ -2305,7 +2394,7 @@
   <li><p>Wazza OS's keys flag read where the product sets it.</p></li>
   <li><p>(f) as a lab row (f1r_two_files): saved-drawing.svg and drawing.svg tabs, capture, open_app's answer, restore after Stop+Start.</p></li>
   <li><p>The update-path gate's throwaway key and the lab feed server's start, in the canonical environment.</p></li>
-  <li><p>The release suite can pass in test.sh's canonical environment.</p></li>
+  <li><p>The release tests can pass in the tests' standard setup.</p></li>
   <li><p>Check_now_any: an update check that says it failed is RED, never 'any answer'.</p></li>
   <li><p>Perf_ab_steps: perf_smaps, Wazza OS's and WebKit's PSS by mapping kind (attribution data).</p></li>
   <li><p>The person's keys wait until Wazza OS gives the guest the keys, and a person's second try.</p></li>
@@ -2324,20 +2413,20 @@
   <li><p>A live row that makes the guest's xprop fail (made real,); apt within the guest exec cap.</p></li>
   <li><p>Tab B required, Updating watched during the person's open, tab A closed by its x, apt install checked.</p></li>
   <li><p>The second Wazza OS window, moved and clicked the person's way.</p></li>
-  <li><p>The 5 controller reds of test.sh's canonical environment are test path bugs, fixed.</p></li>
+  <li><p>Five test failures in the tests' standard setup were test bugs, fixed.</p></li>
   <li><p>Perf_ab_summary: print each window's host load beside its CPU and Chat numbers.</p></li>
   <li><p>A production-signed lab feed is marked, broken lab bundles need an explicit switch, and the publisher refuses lab inputs.</p></li>
   <li><p>F1_guard_steps: a change the person's keys did not make is never a green guard_unsaved.</p></li>
   <li><p>(harness) osrows: restore the three helpers uflow puts into the VM.</p></li>
   <li><p>Perf_ab_summary: a missing CPU read is no 0; the 300 s idle CPU read is printed.</p></li>
-  <li><p>(harness) accept.py: a failed check makes the row a failure even when the spec then says not-run or skip.</p></li>
+  <li><p>A failed check makes a test row a failure even when it is then marked not run or skipped.</p></li>
   <li><p>Osrows: restore the three helpers uflow puts into the VM.</p></li>
   <li><p>Perf_ab_summary: a missing CPU read is no 0; print the 300 s idle CPU read.</p></li>
-  <li><p>Accept.py: a failed check makes the row a failure even when the spec then says not-run or skip.</p></li>
+  <li><p>A failed check makes a test row a failure even when it is then marked not run or skipped.</p></li>
   <li><p>Apt-get -q install waits for the open tab like any install.</p></li>
   <li><p>The run's own steps and its verdict script, committed before any data.</p></li>
   <li><p>Flash_hidden with no refresh race is, never green.</p></li>
-  <li><p>Install-local.sh is core (package-deb.py ships it; no bundle carries it).</p></li>
+  <li><p>The local install helper is part of the core package.</p></li>
   <li><p>Exact tab and window identity, never a substring.</p></li>
   <li><p>X, box, remembered Close without saving with no dialog, Settings back to Ask.</p></li>
   <li><p>A card still asking Wazza OS to apply is not the gate's release.</p></li>
@@ -2352,29 +2441,29 @@
   <li><p>Flash_hidden judges only a DRAWN failure (pre-FINAL b phase red was a false positive).</p></li>
   <li><p>3114 closes its second Wazza OS window by its label, also when its tab already went.</p></li>
   <li><p>3120's Save As removes the target file first, so only the app's own save proves it.</p></li>
-  <li><p>The lab moves Zed's installer VERSION line (1.23.3 -&gt; 1.23.3-n1, same pinned tarball), so x5_zed_update_click:bump sees a real reinstall; make-n1.sh replace_line refuses unless the line occurs once.</p></li>
+  <li><p>A test changes Zed's version line so an update test sees a real reinstall.</p></li>
   <li><p>Old-style app row (Zed) through a real seamless bundle: it waits for its open tab, then a real card click updates it.</p></li>
   <li><p>Close-guard row, bug 6's flash_hidden, a3_files.</p></li>
   <li><p>The lab also moves an old-style app's installer (zed/install.sh: the Editor card), for old-style rows; fingerprint unchanged (checked).</p></li>
   <li><p>Seamless_apply fails when the Chat says its own session was lost after the refresh.</p></li>
-  <li><p>Run-seamless.sh is never GREEN for an unfinished run (the flow's rc != 0, or any step is named).</p></li>
+  <li><p>The seamless-update test is never green for an unfinished run.</p></li>
   <li><p>Pin the moved Chat and the failed reopen as not the Chat's own session (review).</p></li>
   <li><p>A running VM with no tab gets ONE VM-level question on Stop; Keep keeps the text, Close without saving stops.</p></li>
   <li><p>The open once no Zed tab is left falls back to the agent's open_app as s3101's does.</p></li>
   <li><p>3120's Save As waits for the file chooser and proves the file; the Start click yields to the VM's start.</p></li>
-  <li><p>UPDATE_CARD is a module constant (attach copies methods only: phase D's update_install raised AttributeError); _sx_chat_start proves the composer held the prompt and a turn started (: on openSUSE Send answered while the prompt stayed a draft).</p></li>
+  <li><p>The update test proves that a Chat turn really started.</p></li>
   <li><p>After a seamless apply, no tab's app is opened twice and no other app is relaunched.</p></li>
   <li><p>Row 3114 raises main before its real Settings clicks; row 3115 reads ui.do's typed refusals.</p></li>
-  <li><p>Seamless_apply sends its Chat prompts by real keys (chat_send needs the inbox childId), re-opens Home &gt; Update after the refresh, reads WAZZA_UI_APPLY from the user journal; bundle_tamper starts Wazza OS itself.</p></li>
+  <li><p>The seamless-update test sends its Chat prompts with real keys and reopens Home › Update after the refresh.</p></li>
   <li><p>Sandbox_lifecycle_test reads the guarded legacy /stop (fix 2: the close guard first, then the same fail-closed flow).</p></li>
   <li><p>Live specs 3116 + 3122: apps installed other ways get the close guard and the restore.</p></li>
   <li><p>The scoped plan fixture gives the install record its mkdir and mv and a folder of its own.</p></li>
-  <li><p>One folder per version in a lab feed root (n1badapp gets feed-badapp / labfeed-badapp); lab-feed-vm.sh up refuses a root where two folders name one version and the server serves neither.</p></li>
+  <li><p>One folder per version in a test update channel; a channel where two folders name one version is refused.</p></li>
   <li><p>The source-text test reads bug 6's new restore failure words (" could not be reopened: ", no restart named).</p></li>
   <li><p>F3_apt_stale, precondition for the rule (b) row (must change VSCodium's revision).</p></li>
   <li><p>F3_apt_older, rule (b) setup (installed codium made an older version).</p></li>
   <li><p>A Zed tab is judged by its window (zed_editor.has_window), not by a title word.</p></li>
-  <li><p>F3_app_before keeps the full state as evidence; run-seamless.sh SEAMLESS_SNAP (a second VM name on a staged disk).</p></li>
+  <li><p>An app test keeps the full state as evidence; the seamless-update test can use a second VM name.</p></li>
   <li><p>The last-content-tab Save case (live find): the person's close after the Chat's turn.</p></li>
   <li><p>Zed's update waits for its open tab, then installs; a version bump reinstalls once no tab runs it.</p></li>
   <li><p>The older version stores its own run profile; spec E's script builds the absolute apt-get path at run time.</p></li>
@@ -2391,8 +2480,8 @@
   <li><p>The close-guard rows write their SVG with real newlines (shlex.quote), so Inkscape opens it.</p></li>
   <li><p>A saved app whose update script calls /usr/bin/apt-get by its absolute path waits for its other tabs (rule b).</p></li>
   <li><p>Seamless_rowflow attaches f1_close_row_steps.</p></li>
-  <li><p>Run-seamless.sh's share under.wazza-storage/seamless-shares (SEAMLESS_SHARES), where safe_rm.py deletes it at the end.</p></li>
-  <li><p>The close-guard steps on a tab's own close and the restore after a VM restart (f1_close_row_steps.py).</p></li>
+  <li><p>The seamless-update test keeps the folder it shares with its test VM in a test-only place, and removes it when it ends.</p></li>
+  <li><p>Tests of the close guard on a tab's own close and of the restore after a VM restart.</p></li>
   <li><p>The after-Quit restore row re-reads the saved-projects row's tabs instead of finding none.</p></li>
   <li><p>The older version is a real older one: its own check reports an older version, and tabs on it keep their pin.</p></li>
   <li><p>Stop + Keep open with a dirty Blender cancels its in-window prompt (order 3113).</p></li>
@@ -2401,15 +2490,15 @@
   <li><p>An agent's close_tab of a tab whose app asks ends it only with force (close_r2_blockers test).</p></li>
   <li><p>The package path in two halves (update_install, update_restart_click) and restarted_on, so FINAL's guard on the engine restart sits between them.</p></li>
   <li><p>Seamless_apply waits through idle gate (300 s) and checks the Chat answers a new prompt after the refresh (bug 1).</p></li>
-  <li><p>Bundle_engine_refused step (another engine: no seamless offer, the package path offered), lab-feeds.sh signs each folder once (a rerun adds e1 without re-signing what a client saw), SEAMLESS_RUN for a second run on a kept VM.</p></li>
+  <li><p>The seamless-update test covers an update that needs a package, signs each folder once, and can run twice on a kept VM.</p></li>
   <li><p>The card is clicked after an Apps search; the agent's update state is its notification; rule (b) starts from a real older version.</p></li>
-  <li><p>Make-n1.sh e1 (a new engine: the page's mark e1 + one app.rs comment, the restart path) and lab-feeds.sh's feed/e1 chained on n1.</p></li>
-  <li><p>Lab-feeds.sh signs n1badapp (vscodium/install.sh changed after apps/index.json, check 4) and reads the generated commits from GIT_REPO (the release build's clone).</p></li>
+  <li><p>The seamless-update test has a new update with a restart.</p></li>
+  <li><p>The test update channel signs a broken app's update and reads the release build's versions.</p></li>
   <li><p>An app update through the seamless update, as live steps; lab-sign --corrupt-app.</p></li>
   <li><p>Seamless_apply keeps a turn running in the Chat tab itself (shown, sent, then Home &gt; Update), never the active Home page.</p></li>
-  <li><p>Test_app_mcp_large_requests no longer re-executes test_app_mcp under another name.</p></li>
+  <li><p>A large-request test no longer runs another test twice.</p></li>
   <li><p>The spec closes the app's tabs its install opened, and clicks a card only once Home › Apps stopped moving.</p></li>
-  <li><p>The seamless-update E2E harness in test/live/update/seamless (run-seamless.sh, seamless_flow.py steps, make-n1.sh, lab-feeds.sh).</p></li>
+  <li><p>The seamless-update end-to-end test.</p></li>
   <li><p>Lane D+E integration test (the Stop guard with real dialog).</p></li>
   <li><p>The window's WZTX lines are read from the run's stdout.log (t.mark/t.since), Save proven by close_guard_save ok=1.</p></li>
   <li><p>Live specs for Wazza OS's close guard and restore (from drafts).</p></li>
@@ -2434,23 +2523,23 @@
   <li><p>The generated files regenerated at the stack tip.</p></li>
   <li><p>The Drive skill's seat line fits the preload budget again (42,600).</p></li>
   <li><p>The user manual says what agent admission does: no fixed number of agents, visible or hidden; past a Chat's first agent at work, none starts while its VM is short of memory and cannot grow.</p></li>
-  <li><p>Kind (a) DOCS (docs only): the MCP tools page says the gpu tool's place as cli_mcp.rs now does.</p></li>
+  <li><p>The MCP tools page says where the graphics tool is, as the product does.</p></li>
   <li><p>AGENTS.md + CLAUDE.md: the owner's 7 non-negotiable rules for every agent in every worktree.</p></li>
   <li><p>The generated files regenerated at the tip (1 files).</p></li>
-  <li><p>Docs/dev/reference/environment-index.md regenerated at the tip (gen_reference.py).</p></li>
+  <li><p>The developer reference of environment variables was regenerated.</p></li>
   <li><p>Seven rules after line 138: a test file runs whole in every runner (a Python module's main block is its LAST statement; RAN is named against DEFINED); an absence is checked against the raw record; a test filter is listed before it is used (cargo test -- --list on its tree); a live step reads its precondition first (VOID in its words otherwise; inputs derived on the image they run on); a version bump is measured on its first build (RAM and CPU, old vs new, interleaved, under load); a batch proves the tree that lands (re-cut onto main when main's newer commits touch its filters' files, else the spec states that read); a live check is driven before it is automated (a recorded drive of the real app first). + + (2H pass). Docs only.</p></li>
   <li><p>Two-feature compiles, own compile lines, OLD classes on main AND the tip.</p></li>
   <li><p>Read-back before the first click + 3 method bullets.</p></li>
   <li><p>Whole-record parity + claimed checks.</p></li>
   <li><p>Reach proof + near-DONE rank.</p></li>
   <li><p>Follow-up: the SWEEP as a FINAL gate.</p></li>
-  <li><p>The agent pipeline, replicable: docs/dev/agent-pipeline.md + AGENTS.md rules 25-28.</p></li>
+  <li><p>The agents' development pipeline is written down for others to repeat.</p></li>
   <li><p>Option B (fixup): regenerate the module-methods reference for sandbox display_scale_set.</p></li>
-  <li><p>A change touching source/ui/** runs the vm crate's cargo check before hand-over.</p></li>
-  <li><p>The runbook in the repo: docs/dev/release/harness-update.md (v1.1 + the drill's numbers).</p></li>
+  <li><p>A change to the interface is compiled before it is handed over.</p></li>
+  <li><p>The harness update runbook is in the repository.</p></li>
   <li><p>Three owner rules under 'Every change':, DONE = every part in main, every unit run sealed.</p></li>
   <li><p>Rule 3's two missing sentences and today's four code rules, so the methodology copies agree again.</p></li>
-  <li><p>Regenerate docs/dev/reference/error-code-index.md (ACP_MODEL_KEY_MISSING) on top of.</p></li>
+  <li><p>The developer reference of error codes was regenerated.</p></li>
   <li><p>Rule 3 gains the live-leg, verdict and same-step sentences.</p></li>
   <li><p>Rules 3 and 15 gain the hand-over and control-run sentences.</p></li>
   <li><p>The owner's method, rules 1-24, in "Every change: the owner's rules".</p></li>
@@ -2467,24 +2556,24 @@
   <li><p>The owner's rules for every change (docs only).</p></li>
   <li><p>The user guide tells openSUSE Tumbleweed users of, and to install the new version once by hand.</p></li>
   <li><p>Part 3b, docs: on Hermes the cmd.&lt;name&gt; rows appear a moment after the Chat starts.</p></li>
-  <li><p>Part 2, docs: docs/dev/capabilities/mcp.md section 11, saved commands.</p></li>
-  <li><p>Release/script/README.md says what build-bundle.py and bundle_container.py's commands section is.</p></li>
-  <li><p>Release/script/README.md says what build-harness-auth-assets.py, build-bundle.py and bundle_container.py do now.</p></li>
+  <li><p>The developer documentation of MCP describes saved commands.</p></li>
+  <li><p>The release scripts' guide describes the bundle builders' commands section.</p></li>
+  <li><p>The release scripts' guide describes what the bundle builders do now.</p></li>
   <li><p>Vm/README.md says where the shipped skills live now.</p></li>
   <li><p>The hermes-skills README's delivery summary says how a skill reaches a Chat now.</p></li>
   <li><p>The custom apps page says what a second copy on a bus of its own does not share, and where a lock-kept app's new tab goes.</p></li>
-  <li><p>Regenerate the reference pages (gen_reference.py) after the batch.</p></li>
+  <li><p>The developer reference pages were regenerated after the batch.</p></li>
   <li><p>The guide says, in plain words, how Wazza OS uses a proxy, and that socks5 sends the site's name like socks5h.</p></li>
   <li><p>"an app you install with apt appears in Apps the next time you open Apps"; NO timer runs the scan at idle.</p></li>
   <li><p>Only what window showed.</p></li>
   <li><p>Three of What's new's sentences say exactly what the code does.</p></li>
   <li><p>Own "What's new" replaces list; its release line stays.</p></li>
-  <li><p>Regenerate docs/dev/reference after the batch (gen_reference.py: GDK_BACKEND is also read in close_guard_relay.rs).</p></li>
+  <li><p>The developer reference pages were regenerated after the batch.</p></li>
   <li><p>An agent in Claude Code or Codex may get a time-out instead of the unsaved-work warning.</p></li>
   <li><p>An agent inside the VM that closes a tab with unsaved work is warned and must choose, as a Claude Code or Codex one is.</p></li>
   <li><p>The Stop's words and the install's line both say "finishing an install first (at most 60 s)".</p></li>
   <li><p>The PUBLISHED user guide's pages on top of manual, with tonight's D-rows kept.</p></li>
-  <li><p>Regenerate docs/dev/reference (gen_reference.py): error-code-index loses NATIVE_BUILD_VERSION and environment-index gains WAZZA_DEBUG_ARM_FAULT_FILE.</p></li>
+  <li><p>The developer reference pages were regenerated.</p></li>
   <li><p>A window still up is asked about after UP TO 15 seconds (8 s while another app asks).</p></li>
   <li><p>The update page's messages table says the 30-minute wait bound and the apps that keep their version.</p></li>
   <li><p>The pkexec row names the message of a system no family matches.</p></li>
@@ -2501,9 +2590,9 @@
   <li><p>Test/live/update/README: never copy files out of a lab folder.</p></li>
   <li><p>The user manual's MCP tools page and llms-full.txt rebuilt from the regenerated tools page.</p></li>
   <li><p>The generated wazza-os MCP docs page carries the vm stop text it changed.</p></li>
-  <li><p>Environment.md names WAZZA_DEBUG_RELOAD_TRIGGER, WAZZA_INSTALLER_SHA and WAZZA_CORE_FINGERPRINT.</p></li>
+  <li><p>The developer documentation of environment variables names three more.</p></li>
   <li><p>The MCP tools page says what vm stop now does (help text), a NEW controller red.</p></li>
-  <li><p>Regenerate docs/dev/reference/ui-actions.md (gen_reference.py) after vm_stop_guarded.</p></li>
+  <li><p>The developer reference of interface actions was regenerated.</p></li>
   <li><p>D-14b docs (when that tab starts again).</p></li>
   <li><p>A change to docs/manual.</p></li>
   <li><p>A tab's other apps start again when that tab starts again.</p></li>
@@ -2518,43 +2607,43 @@
   <li><p>Unsaved work says only what is true on every path.</p></li>
   <li><p>The user guide describes the owner's "Remember my choice".</p></li>
   <li><p>The update pages say what the code at does.</p></li>
-  <li><p>Regenerate docs/dev/reference/environment-index.md (WAZZA_INSTALLER_SHA).</p></li>
+  <li><p>The developer reference of environment variables was regenerated.</p></li>
   <li><p>"When an app updates" in Apps and tabs (update at next open, open tabs keep their version, one-version apps wait, a failed update keeps the previous version).</p></li>
   <li><p>Save cancels the Stop or the quit too, then the person stops again once saved.</p></li>
   <li><p>Updates.md says every built-in app rides the bundle and the fingerprint's app-folder rule.</p></li>
-  <li><p>The publisher's bundle note moves to the build-bundle.py row.</p></li>
-  <li><p>Take update_manifest.py and bundle_container.py rows verbatim, so lane C merges with cleanly.</p></li>
+  <li><p>A note of the publisher's guide moved.</p></li>
+  <li><p>Two release documentation rows were taken as they are, so a merge stays clean.</p></li>
   <li><p>The user guide's text for restore and the close guard (committed, not published).</p></li>
   <li><p>The developer docs and the user-guide text for seamless updates.</p></li>
 </ul>
 
 <h2 id="tools-and-release-pipeline">Tools and release pipeline<a class="anchor" href="#tools-and-release-pipeline" aria-label="Link to Tools and release pipeline">#</a></h2>
 <ul>
-  <li><p>Build-guest-helper-assets.py keeps its exec bit (100755).</p></li>
+  <li><p>A VM helper builder keeps its executable mark.</p></li>
   <li><p>The ONE gate runs the fast contract suites.</p></li>
   <li><p>The release build's strip line names the ASCII pass's counts and every unchanged file.</p></li>
   <li><p>The storage guard accepts the seal namespace's overflow-uid root, narrowly.</p></li>
   <li><p>Tests: a unique top-level parent slice per run; the disk history row by release.</p></li>
   <li><p>The host ledger admits by declared DISK peak too.</p></li>
   <li><p>The gate's leak into pass 1 is gone.</p></li>
-  <li><p>The release and debug packages in release/ (LFS).</p></li>
+  <li><p>The release and debug packages are kept in the repository.</p></li>
   <li><p>Comment only: the deb postinst's guard comment says what post does under.</p></li>
-  <li><p>Comment only: APP_WINDOWS_AWK names the known fail-closed case of a forged "-1" row in a title.</p></li>
-  <li><p>WAZZA_BUILD_MEMORY_MAX sets the compile scopes' MemoryMax (default 12G).</p></li>
+  <li><p>A code comment names a known case that fails safe.</p></li>
+  <li><p>A setting of the build sets the compile steps' memory limit (12 GB by default).</p></li>
   <li><p>A lab feed signs the rpm, Arch and tarball packages too, so the package (restart) path is proven on every family.</p></li>
-  <li><p>Build-debug.sh DEBUG_FORMATS (empty: the debug deb only, for a lab proof on a deb distro).</p></li>
+  <li><p>The debug build can make only the Debian package, for a quick test.</p></li>
 </ul>
 
 <h2 id="generated-files">Generated files<a class="anchor" href="#generated-files" aria-label="Link to Generated files">#</a></h2>
 <ul>
-  <li><p>Regenerate the manual's llms-full.txt after apps.html (build_manual.py).</p></li>
+  <li><p>The guide's text for language models was regenerated after the Apps page changed.</p></li>
 </ul>
 </article>
 <!-- BOTTOM:BEGIN -->
 <nav class="pager" aria-label="Previous and next page"><a class="prev" href="window.html" rel="prev"><span class="dir">← Previous</span>Getting around</a><a class="next" href="chats.html" rel="next"><span class="dir">Next →</span>Chats, agents and models</a></nav>
-<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.0 (build 485dbf2b8dbf) · screenshots from a test computer running Wazza OS 0.2.0.</p>
+<p class="page-foot">Wazza OS user manual · written for Wazza OS 0.3.1 (build 344048ba2f7d) · screenshots from a test computer running Wazza OS 0.2.0.</p>
 </main>
-<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#in-short">In short</a></li><li class="lvl2"><a href="#hermes-the-agent-in-each-vm-and-on-this-computer">Hermes (the agent in each VM, and on this computer)</a></li><li class="lvl2"><a href="#claude-code">Claude Code</a></li><li class="lvl2"><a href="#codex">Codex</a></li><li class="lvl2"><a href="#prime-agent">Prime Agent</a></li><li class="lvl2"><a href="#antigravity">Antigravity</a></li><li class="lvl2"><a href="#every-agent">Every agent</a></li><li class="lvl2"><a href="#models-the-model-window-and-sign-in">Models, the model window and Sign In</a></li><li class="lvl2"><a href="#chat">Chat</a></li><li class="lvl2"><a href="#settings-and-sign-in">Settings and Sign In</a></li><li class="lvl2"><a href="#copy-paste-and-files-between-this-computer-and-a-vm">Copy, paste and files between this computer and a VM</a></li><li class="lvl2"><a href="#vms-tabs-and-apps">VMs, tabs and apps</a></li><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl2"><a href="#getting-repairing-and-removing-apps">Getting, repairing and removing apps</a></li><li class="lvl2"><a href="#updates-for-apps">Updates for apps</a></li><li class="lvl2"><a href="#the-vm-s-system-and-its-first-installs">The VM&#x27;s system and its first installs</a></li><li class="lvl2"><a href="#browsers">Browsers</a></li><li class="lvl2"><a href="#apps-one-by-one">Apps, one by one</a></li><li class="lvl2"><a href="#the-tab-strip">The tab strip</a></li><li class="lvl2"><a href="#closing-apps-without-losing-work-the-close-guard">Closing apps without losing work (the close guard)</a></li><li class="lvl2"><a href="#tabs-coming-back-restore-history-and-favourites">Tabs coming back: restore, History and Favourites</a></li><li class="lvl2"><a href="#tabs-while-apps-update">Tabs while apps update</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#keyboard-clipboard-and-files-into-vms">Keyboard, clipboard and files into VMs</a></li><li class="lvl2"><a href="#native-gpu-a-graphics-card-lent-to-a-vm">Native GPU (a graphics card lent to a VM)</a></li><li class="lvl2"><a href="#the-picture-of-each-vm-and-wazza-os-s-own-use-of-your-computer">The picture of each VM, and Wazza OS&#x27;s own use of your computer</a></li><li class="lvl2"><a href="#updating-wazza-os">Updating Wazza OS</a></li><li class="lvl2"><a href="#mcp-tools-and-servers">MCP tools and servers</a></li><li class="lvl2"><a href="#other-fixes">Other fixes</a></li><li class="lvl2"><a href="#internal-improvements">Internal improvements</a></li><li class="lvl2"><a href="#tests">Tests</a></li><li class="lvl2"><a href="#docs-and-guide">Docs and guide</a></li><li class="lvl2"><a href="#tools-and-release-pipeline">Tools and release pipeline</a></li><li class="lvl2"><a href="#generated-files">Generated files</a></li></ul></aside>
+<aside class="toc" aria-label="On this page"><p class="toc-title">On this page</p><ul><li class="lvl2"><a href="#0-3-1-in-short">0.3.1 in short</a></li><li class="lvl2"><a href="#0-3-1-every-change-by-area">0.3.1, every change by area</a></li><li class="lvl3"><a href="#chats">Chats</a></li><li class="lvl3"><a href="#sign-in-and-the-first-start">Sign in and the first start</a></li><li class="lvl3"><a href="#updates">Updates</a></li><li class="lvl3"><a href="#apps">Apps</a></li><li class="lvl3"><a href="#tabs">Tabs</a></li><li class="lvl3"><a href="#agents">Agents</a></li><li class="lvl3"><a href="#drive">Drive</a></li><li class="lvl3"><a href="#stability">Stability</a></li><li class="lvl2"><a href="#what-changed-in-0-3-since-0-2-0">What changed in 0.3, since 0.2.0</a></li><li class="lvl2"><a href="#in-short">In short</a></li><li class="lvl2"><a href="#hermes-the-agent-in-each-vm-and-on-this-computer">Hermes (the agent in each VM, and on this computer)</a></li><li class="lvl2"><a href="#claude-code">Claude Code</a></li><li class="lvl2"><a href="#codex">Codex</a></li><li class="lvl2"><a href="#prime-agent">Prime Agent</a></li><li class="lvl2"><a href="#antigravity">Antigravity</a></li><li class="lvl2"><a href="#every-agent">Every agent</a></li><li class="lvl2"><a href="#models-the-model-window-and-sign-in">Models, the model window and Sign In</a></li><li class="lvl2"><a href="#chat">Chat</a></li><li class="lvl2"><a href="#settings-and-sign-in">Settings and Sign In</a></li><li class="lvl2"><a href="#copy-paste-and-files-between-this-computer-and-a-vm">Copy, paste and files between this computer and a VM</a></li><li class="lvl2"><a href="#vms-tabs-and-apps">VMs, tabs and apps</a></li><li class="lvl2"><a href="#the-apps-page">The Apps page</a></li><li class="lvl2"><a href="#getting-repairing-and-removing-apps">Getting, repairing and removing apps</a></li><li class="lvl2"><a href="#updates-for-apps">Updates for apps</a></li><li class="lvl2"><a href="#the-vm-s-system-and-its-first-installs">The VM&#x27;s system and its first installs</a></li><li class="lvl2"><a href="#browsers">Browsers</a></li><li class="lvl2"><a href="#apps-one-by-one">Apps, one by one</a></li><li class="lvl2"><a href="#the-tab-strip">The tab strip</a></li><li class="lvl2"><a href="#closing-apps-without-losing-work-the-close-guard">Closing apps without losing work (the close guard)</a></li><li class="lvl2"><a href="#tabs-coming-back-restore-history-and-favourites">Tabs coming back: restore, History and Favourites</a></li><li class="lvl2"><a href="#tabs-while-apps-update">Tabs while apps update</a></li><li class="lvl2"><a href="#vms">VMs</a></li><li class="lvl2"><a href="#keyboard-clipboard-and-files-into-vms">Keyboard, clipboard and files into VMs</a></li><li class="lvl2"><a href="#native-gpu-a-graphics-card-lent-to-a-vm">Native GPU (a graphics card lent to a VM)</a></li><li class="lvl2"><a href="#the-picture-of-each-vm-and-wazza-os-s-own-use-of-your-computer">The picture of each VM, and Wazza OS&#x27;s own use of your computer</a></li><li class="lvl2"><a href="#updating-wazza-os">Updating Wazza OS</a></li><li class="lvl2"><a href="#mcp-tools-and-servers">MCP tools and servers</a></li><li class="lvl2"><a href="#other-fixes">Other fixes</a></li><li class="lvl2"><a href="#internal-improvements">Internal improvements</a></li><li class="lvl2"><a href="#tests">Tests</a></li><li class="lvl2"><a href="#docs-and-guide">Docs and guide</a></li><li class="lvl2"><a href="#tools-and-release-pipeline">Tools and release pipeline</a></li><li class="lvl2"><a href="#generated-files">Generated files</a></li></ul></aside>
 </div>
 <script src="assets/search-index.js"></script>
 <script src="assets/manual.js"></script>

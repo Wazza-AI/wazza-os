@@ -11,7 +11,7 @@ The full text of every page, in menu order: https://os-guide.wazza.ai/llms-full.
 - [Install, update, remove](https://os-guide.wazza.ai/install.html): Install Wazza OS on Ubuntu, Debian, Fedora, openSUSE, Arch or any Linux with the tarball; what your computer needs; how to update; how to remove it and what removing deletes.
 - [The first start](https://os-guide.wazza.ai/first-start.html): The six steps Wazza OS shows the very first time it opens: the computer check, signing in, your agents, your first apps and the setup of its virtual machine.
 - [Getting around](https://os-guide.wazza.ai/window.html): The Wazza OS window part by part: the tab strip, Home and its menu, the VM card, a tab with its app and its Chat, the tab menu, the Desktop menu, the Explorer, History, Notifications and Feedback.
-- [What's new in 0.3](https://os-guide.wazza.ai/whats-new.html): What changed in Wazza OS since version 0.2.0: the agents, the Chat, Settings and Sign In, the Apps page, apps and their updates, tabs, the close guard, VMs, copy and paste, and Wazza OS's own updates.
+- [What's new in 0.3.1](https://os-guide.wazza.ai/whats-new.html): What changed in Wazza OS 0.3.1 since 0.3, and in 0.3 since version 0.2.0: the agents, the Chat, Settings and Sign In, the Apps page, apps and their updates, tabs, the close guard, VMs, copy and paste, and Wazza OS's own updates.
 
 ## Work with agents
 
